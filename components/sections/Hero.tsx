@@ -1,79 +1,43 @@
-import Image from "next/image";
 import Button from "@/components/ui/Button";
-import Tilt from "@/components/ui/Tilt";
 import { hero } from "@/content/copy";
 import { site } from "@/lib/site";
-import { product } from "@/lib/product";
-// Decorative ambient canvas. Client component, so Next code-splits it out of
-// the server payload; it renders an empty <canvas> until hydration.
-import VoltField from "@/components/ui/VoltField";
-
-const heroShot = product.gallery[1];
 
 export default function Hero() {
   return (
     <section
       id="top"
-      className="grain relative isolate flex min-h-svh flex-col overflow-hidden bg-carbon"
+      className="grain relative isolate -mt-[calc(var(--nav-h)+var(--marquee-h))] flex min-h-svh flex-col overflow-hidden bg-ink"
     >
-      {/* ---------------------------- backdrop ---------------------------- */}
-
-      {/* Volt bloom sitting directly behind the stone */}
-      <div
+      {/* --------------------------- backdrop ---------------------------- */}
+      {/* Hero backdrop video — fills height & width, starts right at the
+          top behind the navbar. Asset in public/videos/. */}
+      <video
         aria-hidden
-        className="pointer-events-none absolute top-1/2 right-[6%] -z-10 h-[64vmax] w-[64vmax] -translate-y-1/2 rounded-full opacity-[0.42] blur-[110px]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255,255,255,0.11) 0%, rgba(255,255,255,0.03) 42%, transparent 70%)",
-        }}
-      />
-      {/* Cold counter-light from the left keeps the coral from going orange-soup */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-[-18%] left-[-14%] -z-10 h-[52vmax] w-[52vmax] rounded-full opacity-30 blur-[120px]"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 62%)",
-        }}
+        className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+        src="/videos/himvolt-hero.mp4"
       />
 
-      {/* Perspective floor grid */}
+      {/* Black scrim over the footage so the white type always reads clearly */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[52vh] [perspective:620px]"
-      >
-        <div
-          className="absolute inset-0 origin-top opacity-[0.16] [transform:rotateX(74deg)]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-            maskImage: "linear-gradient(to bottom, black, transparent 72%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, black, transparent 72%)",
-          }}
-        />
-      </div>
-
-      <VoltField className="pointer-events-none absolute inset-0 -z-10 h-full w-full" />
-
-      {/* Vignette */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
+        className="pointer-events-none absolute inset-0 z-[-5]"
         style={{
           background:
-            "radial-gradient(120% 90% at 50% 40%, transparent 48%, rgba(5,5,5,0.55) 100%)",
+            "radial-gradient(95% 80% at 50% 45%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.25) 100%)",
         }}
       />
 
       {/* ----------------------------- content ---------------------------- */}
 
-      <div className="mx-auto grid w-full max-w-[1240px] flex-1 grid-cols-1 content-center items-center gap-14 px-5 py-12 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-8 lg:py-12">
-        <div className="relative z-10">
+      <div className="mx-auto flex w-full max-w-310 flex-1 flex-col items-center justify-center px-5 pt-20 pb-8 sm:px-8">
+        <div className="relative z-10 mx-auto max-w-176 text-center">
           <p
             data-reveal
-            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.035] py-2 pr-4 pl-2.5 text-[0.63rem] font-medium tracking-[0.26em] text-ash uppercase backdrop-blur-sm"
+            className="mb-7 inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-black/30 py-2 pr-4 pl-2.5 text-[0.63rem] font-medium tracking-[0.26em] text-chalk/90 uppercase backdrop-blur-sm"
           >
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-chalk text-chalk">
               <span className="pulse-ring absolute inset-0 rounded-full" />
@@ -90,10 +54,10 @@ export default function Hero() {
             <br />
             <span className="relative inline-block">
               {hero.headline[1]}
-              {/* the single coral glint in the type */}
+              {/* the single white glint in the type */}
               <span
                 aria-hidden
-                className="absolute -right-1 -bottom-1 h-[3px] w-[42%] rounded-full bg-gradient-to-r from-transparent via-chalk to-transparent opacity-70"
+                className="absolute -right-1 -bottom-1 h-0.75 w-[42%] rounded-full bg-linear-to-r from-transparent via-chalk/60 to-transparent opacity-70"
               />
             </span>
           </h1>
@@ -101,7 +65,7 @@ export default function Hero() {
           <p
             data-reveal
             data-reveal-delay="2"
-            className="mt-7 max-w-[46ch] text-[1.02rem] leading-[1.65] text-ash text-pretty"
+            className="mt-7 max-w-[46ch] text-[1.02rem] leading-[1.65] text-steel text-pretty"
           >
             {hero.sub}
           </p>
@@ -109,7 +73,7 @@ export default function Hero() {
           <div
             data-reveal
             data-reveal-delay="3"
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-10 flex flex-wrap items-center justify-center gap-4"
           >
             <Button href={hero.ctaHref} arrow variant="invert">
               {hero.cta}
@@ -122,140 +86,12 @@ export default function Hero() {
           <p
             data-reveal
             data-reveal-delay="4"
-            className="mt-8 text-[0.72rem] tracking-[0.06em] text-dim"
+            className="mt-8 text-[0.72rem] tracking-[0.06em] text-steel"
           >
             {site.promise.shipping} · {site.promise.returns} · Dispatched in 24h
           </p>
         </div>
-
-        {/* --------------------------- the object -------------------------- */}
-
-        <div className="relative flex items-center justify-center">
-          <Tilt className="relative w-full max-w-[320px]" max={9}>
-            {/* rotating dashed orbit */}
-            <div
-              aria-hidden
-              className="spin-slow pointer-events-none absolute inset-[6%] rounded-full border border-dashed border-white/[0.09]"
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-[18%] rounded-full border border-white/[0.05]"
-            />
-
-            {/* stone glow */}
-            <div
-              aria-hidden
-              className="tilt__sheen pointer-events-none absolute inset-0 rounded-full"
-            />
-
-            <div
-              className="tilt__layer relative z-0"
-              style={{ ["--z" as string]: "60px" }}
-            >
-              <div className="float-slow">
-                <Image
-                  src={heroShot.src}
-                  alt={heroShot.alt}
-                  width={heroShot.width}
-                  height={heroShot.height}
-                  priority
-                  quality={88}
-                  sizes="(max-width: 1023px) 72vw, 300px"
-                  className="relative mx-auto w-[72%] drop-shadow-[0_44px_60px_rgba(0,0,0,0.85)] lg:w-[88%]"
-                />
-
-                {/* floor reflection */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-0 top-full -mt-[6%] h-[38%] scale-y-[-1] opacity-25"
-                  style={{
-                    maskImage:
-                      "linear-gradient(to top, transparent 4%, black 88%)",
-                    WebkitMaskImage:
-                      "linear-gradient(to top, transparent 4%, black 88%)",
-                  }}
-                >
-                  <Image
-                    src={heroShot.src}
-                    alt=""
-                    aria-hidden
-                    width={heroShot.width}
-                    height={heroShot.height}
-                    quality={88}
-                    sizes="(max-width: 1023px) 72vw, 300px"
-                    className="mx-auto w-[72%] blur-[2px] lg:w-[88%]"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* spec pips floating in front of the object */}
-            <SpecPip
-              className="top-[12%] left-[-8%]"
-              value="7–7.5"
-              label="Mohs"
-              delay="1"
-            />
-            <SpecPip
-              className="top-[40%] right-[-11%]"
-              value="40g"
-              label="Weight"
-              delay="2"
-            />
-            <SpecPip
-              className="bottom-[14%] left-[-7%]"
-              value="20cm"
-              label="Relaxed"
-              delay="3"
-            />
-          </Tilt>
-        </div>
-      </div>
-
-      {/* scroll cue */}
-      <div
-        aria-hidden
-        className="pointer-events-none relative z-10 hidden justify-center pb-7 lg:flex"
-      >
-        <div className="h-11 w-[22px] rounded-full border border-white/12 p-[5px]">
-          <div className="h-2 w-full animate-bounce rounded-full bg-white/35" />
-        </div>
       </div>
     </section>
-  );
-}
-
-function SpecPip({
-  className,
-  value,
-  label,
-  delay,
-}: {
-  className: string;
-  value: string;
-  label: string;
-  delay: string;
-}) {
-  // The translateZ layer and the reveal layer must be separate elements:
-  // `[data-reveal="in"] { transform: none }` would otherwise win the cascade
-  // and flatten the pip back to z=0, behind the stone.
-  return (
-    <div
-      className={`tilt__layer absolute hidden sm:block ${className}`}
-      style={{ ["--z" as string]: "180px" }}
-    >
-      <div
-        data-reveal
-        data-reveal-delay={delay}
-        className="rounded-xl border border-white/[0.14] bg-graphite px-3.5 py-2.5 shadow-[0_16px_36px_-14px_rgba(0,0,0,0.95)]"
-      >
-        <div className="font-display text-[0.95rem] leading-none font-bold text-chalk">
-          {value}
-        </div>
-        <div className="mt-1 text-[0.56rem] tracking-[0.2em] text-dim uppercase">
-          {label}
-        </div>
-      </div>
-    </div>
   );
 }

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
-import { marqueeWords } from "@/content/copy";
+// import { marqueeWords } from "@/content/copy"; // marquee disabled
 
 const links = [
   { label: "The band", href: "#showcase" },
@@ -24,8 +24,11 @@ export default function Nav() {
 
   return (
     <>
-      {/* Announcement marquee — pure CSS, duplicated once for a seamless loop */}
-      <div className="marquee relative z-50 overflow-hidden border-b border-white/[0.06] bg-graphite py-2">
+      {/* Announcement marquee — DISABLED. Uncomment to re-enable.
+      <div
+        className="marquee relative z-50 flex items-center overflow-hidden border-b border-white/[0.06] bg-ink"
+        style={{ height: "var(--marquee-h)" }}
+      >
         <div
           className="marquee-track gap-10"
           style={{ ["--dur" as string]: "38s" }}
@@ -49,10 +52,11 @@ export default function Nav() {
           ))}
         </div>
       </div>
+      */}
 
       <header
         className={`sticky top-0 z-50 transition-all duration-500 ease-[var(--ease-out-expo)] ${
-          solid ? "bg-ivory/85 backdrop-blur-xl" : "bg-carbon"
+          solid ? "bg-ivory/85 backdrop-blur-xl" : "bg-transparent"
         }`}
         style={{ height: "var(--nav-h)" }}
       >
@@ -67,7 +71,7 @@ export default function Nav() {
                   className={`group relative text-[0.78rem] font-medium tracking-[0.02em] transition-colors duration-300 ${
                     solid
                       ? "text-ink-soft hover:text-ink"
-                      : "text-ash hover:text-chalk"
+                      : "text-chalk/90 hover:text-white"
                   }`}
                 >
                   {l.label}

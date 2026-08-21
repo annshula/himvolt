@@ -28,14 +28,14 @@ export default function Button({
   arrow?: boolean;
 }) {
   const shell =
-    "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full font-display font-semibold uppercase tracking-[0.14em] whitespace-nowrap transition-all duration-400 ease-[var(--ease-out-expo)] will-change-transform";
+    "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full font-display font-semibold uppercase leading-none tracking-[0.14em] whitespace-nowrap transition-all duration-400 ease-[var(--ease-out-expo)] will-change-transform";
 
   const styles: Record<Variant, string> = {
     volt: "bg-ink text-white shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.7)] active:translate-y-0",
     invert:
       "bg-white text-ink shadow-[0_10px_40px_-12px_rgba(0,0,0,0.6)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.75)] active:translate-y-0",
     ghost:
-      "border border-white/12 bg-white/[0.03] text-steel backdrop-blur-sm hover:border-white/25 hover:bg-white/[0.06] hover:text-chalk",
+      "border border-white/15 text-chalk/85 backdrop-blur-sm hover:border-white/30 hover:bg-white/10 hover:text-white",
   };
 
   return (
