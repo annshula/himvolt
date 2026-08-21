@@ -13,7 +13,7 @@ export default function FinalCta() {
         className="pointer-events-none absolute bottom-[-30%] left-1/2 -z-10 h-[70vmax] w-[70vmax] -translate-x-1/2 rounded-full opacity-45 blur-[120px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,91,56,0.45) 0%, rgba(214,60,28,0.12) 40%, transparent 68%)",
+            "radial-gradient(circle, rgba(0,0,0,0.07) 0%, rgba(0,0,0,0.03) 42%, transparent 68%)",
         }}
       />
 

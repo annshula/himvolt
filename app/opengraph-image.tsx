@@ -26,7 +26,7 @@ export default async function OgImage() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        background: "#08090c",
+        background: "#101010",
         padding: "64px 72px",
         position: "relative",
       }}
@@ -41,7 +41,7 @@ export default async function OgImage() {
           top: -180,
           borderRadius: 999,
           background:
-            "radial-gradient(circle, rgba(255,91,56,0.42) 0%, rgba(255,91,56,0.06) 45%, rgba(8,9,12,0) 70%)",
+            "radial-gradient(circle, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.02) 45%, rgba(16,16,16,0) 70%)",
           display: "flex",
         }}
       />
@@ -67,7 +67,7 @@ export default async function OgImage() {
             color: "#f4f5f7",
           }}
         >
-          Him<span style={{ color: "#ff5b38" }}>Volt</span>
+          Him<span style={{ color: "#fafafa" }}>Volt</span>
         </div>
       </div>
 
@@ -78,7 +78,7 @@ export default async function OgImage() {
             fontSize: 17,
             letterSpacing: 5,
             textTransform: "uppercase",
-            color: "#ff5b38",
+            color: "#d6d6d6",
             marginBottom: 22,
           }}
         >

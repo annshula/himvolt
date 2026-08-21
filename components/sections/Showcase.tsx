@@ -30,7 +30,7 @@ export default function Showcase() {
           className="pointer-events-none absolute top-1/2 left-1/2 h-[46vmax] w-[46vmax] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-[100px]"
           style={{
             background:
-              "radial-gradient(circle, rgba(255,91,56,0.34) 0%, rgba(120,150,200,0.12) 38%, transparent 68%)",
+              "radial-gradient(circle, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 42%, transparent 68%)",
           }}
         />
 

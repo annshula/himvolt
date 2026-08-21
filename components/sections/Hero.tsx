@@ -24,7 +24,7 @@ export default function Hero() {
         className="pointer-events-none absolute top-1/2 right-[6%] -z-10 h-[64vmax] w-[64vmax] -translate-y-1/2 rounded-full opacity-[0.42] blur-[110px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,91,56,0.55) 0%, rgba(214,60,28,0.16) 34%, transparent 66%)",
+            "radial-gradient(circle, rgba(255,255,255,0.11) 0%, rgba(255,255,255,0.03) 42%, transparent 70%)",
         }}
       />
       {/* Cold counter-light from the left keeps the coral from going orange-soup */}
@@ -33,7 +33,7 @@ export default function Hero() {
         className="pointer-events-none absolute top-[-18%] left-[-14%] -z-10 h-[52vmax] w-[52vmax] rounded-full opacity-30 blur-[120px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(120,150,200,0.30) 0%, transparent 62%)",
+            "radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 62%)",
         }}
       />
 
@@ -46,7 +46,7 @@ export default function Hero() {
           className="absolute inset-0 origin-top opacity-[0.16] [transform:rotateX(74deg)]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(200,210,225,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(200,210,225,0.5) 1px, transparent 1px)",
+              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
             backgroundSize: "72px 72px",
             maskImage: "linear-gradient(to bottom, black, transparent 72%)",
             WebkitMaskImage:
@@ -63,7 +63,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(120% 90% at 50% 40%, transparent 45%, rgba(16,19,25,0.5) 100%)",
+            "radial-gradient(120% 90% at 50% 40%, transparent 48%, rgba(5,5,5,0.55) 100%)",
         }}
       />
 
@@ -75,7 +75,7 @@ export default function Hero() {
             data-reveal
             className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.035] py-2 pr-4 pl-2.5 text-[0.63rem] font-medium tracking-[0.26em] text-ash uppercase backdrop-blur-sm"
           >
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-volt text-volt">
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-chalk text-chalk">
               <span className="pulse-ring absolute inset-0 rounded-full" />
             </span>
             {hero.eyebrow}
@@ -93,7 +93,7 @@ export default function Hero() {
               {/* the single coral glint in the type */}
               <span
                 aria-hidden
-                className="absolute -right-1 -bottom-1 h-[3px] w-[42%] rounded-full bg-gradient-to-r from-transparent via-volt to-transparent opacity-80"
+                className="absolute -right-1 -bottom-1 h-[3px] w-[42%] rounded-full bg-gradient-to-r from-transparent via-chalk to-transparent opacity-70"
               />
             </span>
           </h1>
@@ -111,7 +111,7 @@ export default function Hero() {
             data-reveal-delay="3"
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <Button href={hero.ctaHref} arrow>
+            <Button href={hero.ctaHref} arrow variant="invert">
               {hero.cta}
             </Button>
             <Button href={hero.secondaryHref} variant="ghost">

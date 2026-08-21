@@ -41,7 +41,7 @@ export default function Nav() {
                   key={w}
                   className="flex shrink-0 items-center gap-3 text-[0.62rem] font-medium uppercase tracking-[0.24em] text-ash"
                 >
-                  <span className="h-1 w-1 rounded-full bg-volt" />
+                  <span className="h-1 w-1 rounded-full bg-chalk/80" />
                   {w}
                 </span>
               ))}
@@ -71,20 +71,31 @@ export default function Nav() {
                   }`}
                 >
                   {l.label}
-                  <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-volt transition-all duration-400 ease-[var(--ease-out-expo)] group-hover:w-full" />
+                  <span
+                    className={`absolute -bottom-1.5 left-0 h-px w-0 transition-all duration-400 ease-[var(--ease-out-expo)] group-hover:w-full ${
+                      solid ? "bg-ink" : "bg-chalk"
+                    }`}
+                  />
                 </a>
               </li>
             ))}
           </ul>
 
           <span className="hidden sm:block">
-            <Button href="#collection" size="md" arrow>
+            <Button
+              href="#collection"
+              size="md"
+              arrow
+              variant={solid ? "volt" : "invert"}
+            >
               Shop
             </Button>
           </span>
           <a
             href="#collection"
-            className="font-display text-[0.78rem] font-semibold tracking-[0.16em] text-volt uppercase sm:hidden"
+            className={`font-display text-[0.78rem] font-semibold tracking-[0.16em] uppercase sm:hidden ${
+              solid ? "text-ink" : "text-chalk"
+            }`}
           >
             Shop
           </a>
@@ -93,7 +104,11 @@ export default function Nav() {
         {/* Reading progress. Scroll-driven where supported, invisible otherwise. */}
         <div
           aria-hidden
-          className="scroll-progress absolute inset-x-0 bottom-0 h-px origin-left bg-gradient-to-r from-volt-deep via-volt to-volt-hot"
+          className={`scroll-progress absolute inset-x-0 bottom-0 h-px origin-left bg-gradient-to-r ${
+            solid
+              ? "from-ink via-ink to-ink"
+              : "from-chalk/70 via-chalk to-chalk/70"
+          }`}
         />
       </header>
     </>

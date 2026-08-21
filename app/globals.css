@@ -2,38 +2,39 @@
 
 /* ------------------------------------------------------------------
    HimVolt design tokens
-   Warm light canvas — the page body is ivory/stone so the black
-   tourmaline product pops. The hero (and nav) stay dark so the stone
-   floats in its own light. The only saturated colour in the system is
-   "volt" (coral). It is rationed on purpose: logo mark, one CTA, and
-   the stone's glint. Everything else is warm stone, ink and linen.
+   Strict black & white. The bracelet is black tourmaline, so black is
+   the brand colour and everything else is white, charcoal and gray.
+   The page body is a white canvas; the hero (and nav at rest) are
+   near-black so the black stone floats in its own light. Text is
+   black on light surfaces and white on dark ones.
    ------------------------------------------------------------------ */
 @theme {
-  --color-void: #08090c;
-  --color-pitch: #0b0d11;
-  --color-carbon: #101319;
-  --color-graphite: #171b22;
-  --color-slate-line: #232833;
+  --color-void: #050505;
+  --color-pitch: #0a0a0a;
+  --color-carbon: #101010;
+  --color-graphite: #171717;
+  --color-slate-line: #232323;
 
-  --color-volt: #ff5b38;
-  --color-volt-hot: #ff8154;
-  --color-volt-deep: #d63c1c;
+  /* Black is the bracelet — the brand accent */
+  --color-volt: #000000;
+  --color-volt-hot: #000000;
+  --color-volt-deep: #000000;
 
-  --color-steel: #c9ced7;
-  --color-ash: #8b929c;
-  --color-dim: #5d6470;
-  --color-chalk: #f4f5f7;
+  --color-steel: #d6d6d6;
+  --color-ash: #a6a6a6;
+  --color-dim: #737373;
+  --color-chalk: #fafafa;
 
-  /* Warm light canvas — the "body" of the page */
-  --color-ivory: #f6f2e9;
-  --color-parchment: #efe9db;
-  --color-linen: #fbf8f1;
-  --color-line: #e6ddc9;
+  /* Light canvas — the "body" of the page */
+  --color-ivory: #ffffff;
+  --color-parchment: #f4f4f4;
+  --color-linen: #ffffff;
+  --color-line: #e5e5e5;
 
-  /* Warm inks for text on the light canvas */
-  --color-ink: #221c13;
-  --color-ink-soft: #57503f;
-  --color-ink-mute: #857a66;
+  /* Grays for text on the light canvas */
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #555555;
+  --color-ink-mute: #8c8c8c;
 
   --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -43,7 +44,7 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.4, 0.42, 1);
 
-  --shadow-volt: 0 0 40px -8px rgb(255 91 56 / 0.55);
+  --shadow-volt: 0 0 40px -8px rgb(0 0 0 / 0.45);
   --shadow-lift: 0 30px 80px -40px rgb(0 0 0 / 0.9);
 }
 
@@ -75,8 +76,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-volt);
-  color: #2a160c;
+  background: var(--color-ink);
+  color: #ffffff;
 }
 
 :focus-visible {
@@ -141,7 +142,7 @@ body {
 .tilt__sheen {
   background: radial-gradient(
     440px circle at var(--mx) var(--my),
-    rgb(255 129 84 / 0.16),
+    rgb(255 255 255 / 0.16),
     transparent 62%
   );
 }

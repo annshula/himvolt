@@ -2,7 +2,15 @@
 
 import { useEffect, useRef } from "react";
 
-type Ember = { x: number; y: number; vx: number; vy: number; r: number; a: number; hot: boolean };
+type Ember = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  r: number;
+  a: number;
+  hot: boolean;
+};
 
 /**
  * Ambient ember field behind the hero. Deliberately restrained: ~54 particles,
@@ -69,8 +77,8 @@ export default function VoltField({ className = "" }: { className?: string }) {
         ctx.beginPath();
         ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
         ctx.fillStyle = e.hot
-          ? `rgba(255,110,72,${e.a})`
-          : `rgba(190,200,214,${e.a * 0.5})`;
+          ? `rgba(255,255,255,${e.a})`
+          : `rgba(190,190,190,${e.a * 0.5})`;
         ctx.fill();
       }
       raf = requestAnimationFrame(draw);
@@ -92,7 +100,8 @@ export default function VoltField({ className = "" }: { className?: string }) {
     ro.observe(canvas);
 
     const io = new IntersectionObserver(
-      ([entry]) => (entry.isIntersecting && !document.hidden ? start() : stop()),
+      ([entry]) =>
+        entry.isIntersecting && !document.hidden ? start() : stop(),
       { threshold: 0 },
     );
     io.observe(canvas);

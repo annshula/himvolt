@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { ArrowIcon } from "./Icons";
 
-type Variant = "volt" | "ghost";
+type Variant = "volt" | "invert" | "ghost";
 
 const sizes = {
   md: "h-11 px-5 text-[0.82rem]",
@@ -9,9 +9,10 @@ const sizes = {
 } as const;
 
 /**
- * The coral CTA is the loudest element on the page and there is only ever one
- * of it in view at a time. The shimmer is a single translated pseudo-gradient,
- * so hover costs one composited layer and no repaint.
+ * The black CTA is the loudest element on the page and there is only ever one
+ * of it in view at a time. "volt" is a solid black button for light surfaces;
+ * "invert" is a solid white button for the dark hero and nav. The shimmer is
+ * a single translated pseudo-gradient, so hover costs one composited layer.
  */
 export default function Button({
   children,
@@ -30,18 +31,24 @@ export default function Button({
     "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full font-display font-semibold uppercase tracking-[0.14em] whitespace-nowrap transition-all duration-400 ease-[var(--ease-out-expo)] will-change-transform";
 
   const styles: Record<Variant, string> = {
-    volt:
-      "bg-gradient-to-b from-volt-hot to-volt text-white shadow-[0_10px_40px_-12px_rgba(255,91,56,0.75)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(255,91,56,0.95)] active:translate-y-0",
+    volt: "bg-ink text-white shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.7)] active:translate-y-0",
+    invert:
+      "bg-white text-ink shadow-[0_10px_40px_-12px_rgba(0,0,0,0.6)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.75)] active:translate-y-0",
     ghost:
       "border border-white/12 bg-white/[0.03] text-steel backdrop-blur-sm hover:border-white/25 hover:bg-white/[0.06] hover:text-chalk",
   };
 
   return (
-    <a className={`${shell} ${sizes[size]} ${styles[variant]} ${className}`} {...rest}>
-      {variant === "volt" && (
+    <a
+      className={`${shell} ${sizes[size]} ${styles[variant]} ${className}`}
+      {...rest}
+    >
+      {(variant === "volt" || variant === "invert") && (
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_38%,rgba(255,255,255,0.42)_50%,transparent_62%)] transition-transform duration-[900ms] ease-[var(--ease-out-expo)] group-hover:translate-x-full"
+          className={`pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_38%,${
+            variant === "invert" ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.42)"
+          }_50%,transparent_62%)] transition-transform duration-[900ms] ease-[var(--ease-out-expo)] group-hover:translate-x-full`}
         />
       )}
       <span className="relative">{children}</span>
