@@ -201,7 +201,7 @@ export const footerNav = [
 
 export const marqueeWords = [
   "Free worldwide shipping",
-  "60-day returns",
+  "30-day returns",
   "Natural schorl tourmaline",
   "Dispatched in 24 hours",
   "12-month restring guarantee",

@@ -2,9 +2,11 @@
 
 /* ------------------------------------------------------------------
    HimVolt design tokens
-   Canvas is near-black. The only saturated colour in the system is
+   Warm light canvas — the page body is ivory/stone so the black
+   tourmaline product pops. The hero (and nav) stay dark so the stone
+   floats in its own light. The only saturated colour in the system is
    "volt" (coral). It is rationed on purpose: logo mark, one CTA, and
-   the stone's glint. Everything else is graphite and steel.
+   the stone's glint. Everything else is warm stone, ink and linen.
    ------------------------------------------------------------------ */
 @theme {
   --color-void: #08090c;
@@ -22,6 +24,17 @@
   --color-dim: #5d6470;
   --color-chalk: #f4f5f7;
 
+  /* Warm light canvas — the "body" of the page */
+  --color-ivory: #f6f2e9;
+  --color-parchment: #efe9db;
+  --color-linen: #fbf8f1;
+  --color-line: #e6ddc9;
+
+  /* Warm inks for text on the light canvas */
+  --color-ink: #221c13;
+  --color-ink-soft: #57503f;
+  --color-ink-mute: #857a66;
+
   --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
@@ -37,12 +50,12 @@
 /* ---------------------------------- base ---------------------------------- */
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   --nav-h: 68px;
 }
 
 * {
-  border-color: var(--color-slate-line);
+  border-color: var(--color-line);
 }
 
 html {
@@ -52,8 +65,8 @@ html {
 }
 
 body {
-  background-color: var(--color-void);
-  color: var(--color-chalk);
+  background-color: var(--color-ivory);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   font-feature-settings: "cv11", "ss01";
   text-rendering: optimizeLegibility;
@@ -63,7 +76,7 @@ body {
 
 ::selection {
   background: var(--color-volt);
-  color: #fff;
+  color: #2a160c;
 }
 
 :focus-visible {

@@ -11,7 +11,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://himvolt.com",
   email: "care@himvolt.com",
   description:
-    "HimVolt makes one thing properly: a square-cut black tourmaline bracelet for men. Solid stone, elastic fit, free tracked shipping worldwide, 60-day returns.",
+    "HimVolt makes one thing properly: a square-cut black tourmaline bracelet for men. Solid stone, elastic fit, free tracked shipping worldwide, 30-day returns.",
   locale: "en_US",
   currency: "USD",
 
@@ -39,7 +39,7 @@ export const site = {
   promise: {
     shipping: "Free tracked shipping worldwide",
     shippingDetail: "Dispatched in 24h · 5–9 business days to US, UK & EU",
-    returns: "60-day returns, no questions",
+    returns: "30-day returns, no questions",
     returnsDetail: "Wear it a full month. Not yours? We pay the label.",
     warranty: "12-month restring guarantee",
     support: "Human replies in under 12 hours",

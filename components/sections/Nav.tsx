@@ -25,10 +25,17 @@ export default function Nav() {
   return (
     <>
       {/* Announcement marquee — pure CSS, duplicated once for a seamless loop */}
-      <div className="marquee relative z-50 overflow-hidden border-b border-white/[0.06] bg-carbon/80 py-2">
-        <div className="marquee-track gap-10" style={{ ["--dur" as string]: "38s" }}>
+      <div className="marquee relative z-50 overflow-hidden border-b border-white/[0.06] bg-graphite py-2">
+        <div
+          className="marquee-track gap-10"
+          style={{ ["--dur" as string]: "38s" }}
+        >
           {[0, 1].map((pass) => (
-            <div key={pass} className="flex shrink-0 items-center gap-10 pr-10" aria-hidden={pass === 1}>
+            <div
+              key={pass}
+              className="flex shrink-0 items-center gap-10 pr-10"
+              aria-hidden={pass === 1}
+            >
               {marqueeWords.map((w) => (
                 <span
                   key={w}
@@ -45,21 +52,23 @@ export default function Nav() {
 
       <header
         className={`sticky top-0 z-50 transition-all duration-500 ease-[var(--ease-out-expo)] ${
-          solid
-            ? "border-b border-white/[0.07] bg-void/72 backdrop-blur-xl"
-            : "border-b border-transparent"
+          solid ? "bg-ivory/85 backdrop-blur-xl" : "bg-carbon"
         }`}
         style={{ height: "var(--nav-h)" }}
       >
         <nav className="mx-auto flex h-full max-w-[1240px] items-center justify-between gap-6 px-5 sm:px-8">
-          <Logo />
+          <Logo className={solid ? "text-ink" : "text-chalk"} />
 
           <ul className="hidden items-center gap-8 md:flex">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="group relative text-[0.78rem] font-medium tracking-[0.02em] text-ash transition-colors duration-300 hover:text-chalk"
+                  className={`group relative text-[0.78rem] font-medium tracking-[0.02em] transition-colors duration-300 ${
+                    solid
+                      ? "text-ink-soft hover:text-ink"
+                      : "text-ash hover:text-chalk"
+                  }`}
                 >
                   {l.label}
                   <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-volt transition-all duration-400 ease-[var(--ease-out-expo)] group-hover:w-full" />

@@ -27,7 +27,9 @@ export function SectionHeading({
 }) {
   const centered = align === "center";
   return (
-    <header className={`${centered ? "mx-auto max-w-[46rem] text-center" : "max-w-[42rem]"} ${className}`}>
+    <header
+      className={`${centered ? "mx-auto max-w-[46rem] text-center" : "max-w-[42rem]"} ${className}`}
+    >
       <div className={centered ? "flex justify-center" : ""}>
         <Eyebrow>{eyebrow}</Eyebrow>
       </div>
@@ -42,7 +44,7 @@ export function SectionHeading({
         <p
           data-reveal
           data-reveal-delay="2"
-          className="mt-6 text-[1rem] leading-[1.7] text-ash text-pretty"
+          className="mt-6 text-[1rem] leading-[1.7] text-ink-soft text-pretty"
         >
           {body}
         </p>
@@ -61,7 +63,10 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section id={id} className={`relative px-5 py-24 sm:px-8 lg:py-32 ${className}`}>
+    <section
+      id={id}
+      className={`relative px-5 py-24 sm:px-8 lg:py-32 ${className}`}
+    >
       <div className="mx-auto w-full max-w-[1240px]">{children}</div>
     </section>
   );

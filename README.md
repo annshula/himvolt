@@ -22,14 +22,14 @@ the local product model in [lib/product.ts](lib/product.ts).
 
 ## Stack and why
 
-| Choice | Reason |
-|---|---|
-| Next.js 15 App Router, React 19 | Whole page is a static server render; only two components ship JS |
-| TypeScript strict | Product/variant shapes are the contract the Shopify adapter has to satisfy |
-| Tailwind CSS v4 (`@theme` tokens) | Design tokens live in CSS, so there is no `tailwind.config.js` to drift |
-| CSS scroll-driven animations + `IntersectionObserver` | No animation library. The whole motion system is ~1.5 KB of JS |
-| `next/font` (Sora + Inter) | Fonts self-hosted at build time — no third-party request, no FOUT |
-| `next/image` → AVIF/WebP | LCP image is served at the exact rendered width |
+| Choice                                                | Reason                                                                     |
+| ----------------------------------------------------- | -------------------------------------------------------------------------- |
+| Next.js 15 App Router, React 19                       | Whole page is a static server render; only two components ship JS          |
+| TypeScript strict                                     | Product/variant shapes are the contract the Shopify adapter has to satisfy |
+| Tailwind CSS v4 (`@theme` tokens)                     | Design tokens live in CSS, so there is no `tailwind.config.js` to drift    |
+| CSS scroll-driven animations + `IntersectionObserver` | No animation library. The whole motion system is ~1.5 KB of JS             |
+| `next/font` (Sora + Inter)                            | Fonts self-hosted at build time — no third-party request, no FOUT          |
+| `next/image` → AVIF/WebP                              | LCP image is served at the exact rendered width                            |
 
 **First Load JS: 114 KB**, of which 102 KB is the React/Next baseline. The page
 itself contributes ~12 KB.
@@ -68,7 +68,7 @@ scripts/               build-time image prep (see below)
 The supplier photos are white-background studio shots, which look wrong on a
 near-black canvas. `scripts/cutout.mjs` keys the background out at build time by
 deriving an alpha channel from luminance, then trims and writes transparent
-PNGs to `public/product/cutout/`. The stone sits *in* the page instead of on a
+PNGs to `public/product/cutout/`. The stone sits _in_ the page instead of on a
 white card.
 
 Two more one-off scripts:
@@ -136,7 +136,7 @@ Replace all six before launch.
 
 ### 3. Shipping and returns promises — `lib/site.ts`
 
-"Free tracked shipping worldwide", "5–9 business days", "60-day returns, we pay
+"Free tracked shipping worldwide", "5–9 business days", "30-day returns, we pay
 the label", "12-month restring guarantee". Every one of these is a promise the
 page makes on your behalf, and CJDropshipping's real transit times are usually
 longer than 5–9 days. Either negotiate the fulfilment that makes them true, or

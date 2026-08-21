@@ -21,8 +21,8 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#08090c",
-  colorScheme: "dark",
+  themeColor: "#f6f2e9",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -76,20 +76,35 @@ export const metadata: Metadata = {
     "max-image-preview": "large",
     "max-snippet": -1,
     "max-video-preview": -1,
-    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   formatDetection: { telephone: false, address: false, email: false },
   referrer: "strict-origin-when-cross-origin",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${sora.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         {/* Gates the scroll-reveal CSS. Without scripting the class is never
             added, so no content can be left stranded at opacity 0. */}
         <script
-          dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }}
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
         />
       </head>
       <body className="antialiased">

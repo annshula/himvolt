@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
  */
 export default function Faq() {
   return (
-    <Section id="faq" className="border-y border-white/[0.07] bg-pitch">
+    <Section id="faq" className="border-y border-line bg-parchment">
       <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeading
@@ -25,7 +25,7 @@ export default function Faq() {
           </a>
         </div>
 
-        <div className="divide-y divide-white/[0.07] border-y border-white/[0.07]">
+        <div className="divide-y divide-line border-y border-line">
           {faqs.map((f, i) => (
             <details
               key={f.q}
@@ -34,14 +34,18 @@ export default function Faq() {
               data-reveal-delay={String(Math.min(i + 1, 5))}
             >
               <summary className="flex items-start justify-between gap-6 py-6 transition-colors duration-300 hover:text-volt">
-                <h3 className="font-display text-[1.02rem] leading-snug font-semibold tracking-[-0.02em] text-chalk transition-colors duration-300 group-hover:text-volt">
+                <h3 className="font-display text-[1.02rem] leading-snug font-semibold tracking-[-0.02em] text-ink transition-colors duration-300 group-hover:text-volt">
                   {f.q}
                 </h3>
                 <span
                   aria-hidden
-                  className="faq-sign mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-dim"
+                  className="faq-sign mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-ink-mute"
                 >
-                  <svg viewBox="0 0 20 20" className="h-full w-full" fill="none">
+                  <svg
+                    viewBox="0 0 20 20"
+                    className="h-full w-full"
+                    fill="none"
+                  >
                     <path
                       d="M10 4v12M4 10h12"
                       stroke="currentColor"
@@ -53,7 +57,7 @@ export default function Faq() {
               </summary>
               <div className="faq-body">
                 <div>
-                  <p className="max-w-[62ch] pb-7 text-[0.9rem] leading-[1.75] text-ash text-pretty">
+                  <p className="max-w-[62ch] pb-7 text-[0.9rem] leading-[1.75] text-ink-soft text-pretty">
                     {f.a}
                   </p>
                 </div>

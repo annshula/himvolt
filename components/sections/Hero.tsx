@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="grain relative isolate flex min-h-[min(100svh,860px)] items-center overflow-hidden"
+      className="grain relative isolate flex min-h-svh flex-col overflow-hidden bg-carbon"
     >
       {/* ---------------------------- backdrop ---------------------------- */}
 
@@ -38,7 +38,10 @@ export default function Hero() {
       />
 
       {/* Perspective floor grid */}
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[52vh] [perspective:620px]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[52vh] [perspective:620px]"
+      >
         <div
           className="absolute inset-0 origin-top opacity-[0.16] [transform:rotateX(74deg)]"
           style={{
@@ -46,7 +49,8 @@ export default function Hero() {
               "linear-gradient(rgba(200,210,225,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(200,210,225,0.5) 1px, transparent 1px)",
             backgroundSize: "72px 72px",
             maskImage: "linear-gradient(to bottom, black, transparent 72%)",
-            WebkitMaskImage: "linear-gradient(to bottom, black, transparent 72%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, black, transparent 72%)",
           }}
         />
       </div>
@@ -59,13 +63,13 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(120% 90% at 50% 40%, transparent 40%, rgba(8,9,12,0.72) 100%)",
+            "radial-gradient(120% 90% at 50% 40%, transparent 45%, rgba(16,19,25,0.5) 100%)",
         }}
       />
 
       {/* ----------------------------- content ---------------------------- */}
 
-      <div className="mx-auto grid w-full max-w-[1240px] grid-cols-1 items-center gap-14 px-5 pt-16 pb-24 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-8 lg:pt-8 lg:pb-16">
+      <div className="mx-auto grid w-full max-w-[1240px] flex-1 grid-cols-1 content-center items-center gap-14 px-5 py-12 sm:px-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-8 lg:py-12">
         <div className="relative z-10">
           <p
             data-reveal
@@ -80,7 +84,7 @@ export default function Hero() {
           <h1
             data-reveal
             data-reveal-delay="1"
-            className="font-display text-[clamp(2.6rem,6.4vw,4.6rem)] leading-[0.92] font-extrabold tracking-[-0.045em]"
+            className="font-display text-[clamp(2.6rem,6.4vw,4.6rem)] leading-[0.92] font-extrabold tracking-[-0.045em] text-chalk"
           >
             {hero.headline[0]}
             <br />
@@ -102,7 +106,11 @@ export default function Hero() {
             {hero.sub}
           </p>
 
-          <div data-reveal data-reveal-delay="3" className="mt-10 flex flex-wrap items-center gap-4">
+          <div
+            data-reveal
+            data-reveal-delay="3"
+            className="mt-10 flex flex-wrap items-center gap-4"
+          >
             <Button href={hero.ctaHref} arrow>
               {hero.cta}
             </Button>
@@ -123,7 +131,7 @@ export default function Hero() {
         {/* --------------------------- the object -------------------------- */}
 
         <div className="relative flex items-center justify-center">
-          <Tilt className="relative w-full max-w-[398px]" max={9}>
+          <Tilt className="relative w-full max-w-[320px]" max={9}>
             {/* rotating dashed orbit */}
             <div
               aria-hidden
@@ -140,7 +148,10 @@ export default function Hero() {
               className="tilt__sheen pointer-events-none absolute inset-0 rounded-full"
             />
 
-            <div className="tilt__layer relative z-0" style={{ ["--z" as string]: "60px" }}>
+            <div
+              className="tilt__layer relative z-0"
+              style={{ ["--z" as string]: "60px" }}
+            >
               <div className="float-slow">
                 <Image
                   src={heroShot.src}
@@ -149,8 +160,8 @@ export default function Hero() {
                   height={heroShot.height}
                   priority
                   quality={88}
-                  sizes="(max-width: 1023px) 82vw, 440px"
-                  className="relative mx-auto w-[78%] drop-shadow-[0_44px_60px_rgba(0,0,0,0.85)] lg:w-full"
+                  sizes="(max-width: 1023px) 72vw, 300px"
+                  className="relative mx-auto w-[72%] drop-shadow-[0_44px_60px_rgba(0,0,0,0.85)] lg:w-[88%]"
                 />
 
                 {/* floor reflection */}
@@ -158,8 +169,10 @@ export default function Hero() {
                   aria-hidden
                   className="pointer-events-none absolute inset-x-0 top-full -mt-[6%] h-[38%] scale-y-[-1] opacity-25"
                   style={{
-                    maskImage: "linear-gradient(to top, transparent 4%, black 88%)",
-                    WebkitMaskImage: "linear-gradient(to top, transparent 4%, black 88%)",
+                    maskImage:
+                      "linear-gradient(to top, transparent 4%, black 88%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to top, transparent 4%, black 88%)",
                   }}
                 >
                   <Image
@@ -169,17 +182,32 @@ export default function Hero() {
                     width={heroShot.width}
                     height={heroShot.height}
                     quality={88}
-                    sizes="(max-width: 1023px) 82vw, 440px"
-                    className="mx-auto w-[78%] blur-[2px] lg:w-full"
+                    sizes="(max-width: 1023px) 72vw, 300px"
+                    className="mx-auto w-[72%] blur-[2px] lg:w-[88%]"
                   />
                 </div>
               </div>
             </div>
 
             {/* spec pips floating in front of the object */}
-            <SpecPip className="top-[12%] left-[-8%]" value="7–7.5" label="Mohs" delay="1" />
-            <SpecPip className="top-[40%] right-[-11%]" value="40g" label="Weight" delay="2" />
-            <SpecPip className="bottom-[14%] left-[-7%]" value="20cm" label="Relaxed" delay="3" />
+            <SpecPip
+              className="top-[12%] left-[-8%]"
+              value="7–7.5"
+              label="Mohs"
+              delay="1"
+            />
+            <SpecPip
+              className="top-[40%] right-[-11%]"
+              value="40g"
+              label="Weight"
+              delay="2"
+            />
+            <SpecPip
+              className="bottom-[14%] left-[-7%]"
+              value="20cm"
+              label="Relaxed"
+              delay="3"
+            />
           </Tilt>
         </div>
       </div>
@@ -187,7 +215,7 @@ export default function Hero() {
       {/* scroll cue */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-6 hidden justify-center lg:flex"
+        className="pointer-events-none relative z-10 hidden justify-center pb-7 lg:flex"
       >
         <div className="h-11 w-[22px] rounded-full border border-white/12 p-[5px]">
           <div className="h-2 w-full animate-bounce rounded-full bg-white/35" />
@@ -221,8 +249,12 @@ function SpecPip({
         data-reveal-delay={delay}
         className="rounded-xl border border-white/[0.14] bg-graphite px-3.5 py-2.5 shadow-[0_16px_36px_-14px_rgba(0,0,0,0.95)]"
       >
-        <div className="font-display text-[0.95rem] leading-none font-bold text-chalk">{value}</div>
-        <div className="mt-1 text-[0.56rem] tracking-[0.2em] text-dim uppercase">{label}</div>
+        <div className="font-display text-[0.95rem] leading-none font-bold text-chalk">
+          {value}
+        </div>
+        <div className="mt-1 text-[0.56rem] tracking-[0.2em] text-dim uppercase">
+          {label}
+        </div>
       </div>
     </div>
   );

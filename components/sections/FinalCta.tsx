@@ -20,7 +20,7 @@ export default function FinalCta() {
       {/* the stone, floating large and half out of frame */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-[-14%] -z-10 mx-auto max-w-[1100px] opacity-[0.22]"
+        className="pointer-events-none absolute inset-x-0 bottom-[-14%] -z-10 mx-auto max-w-[820px] opacity-[0.22]"
       >
         <Image
           src={flat.src}
@@ -52,12 +52,16 @@ export default function FinalCta() {
         <p
           data-reveal
           data-reveal-delay="2"
-          className="mx-auto mt-7 max-w-[42ch] text-[1rem] leading-[1.7] text-ash text-pretty"
+          className="mx-auto mt-7 max-w-[42ch] text-[1rem] leading-[1.7] text-ink-soft text-pretty"
         >
           {finalCta.sub}
         </p>
 
-        <div data-reveal data-reveal-delay="3" className="mt-11 flex justify-center">
+        <div
+          data-reveal
+          data-reveal-delay="3"
+          className="mt-11 flex justify-center"
+        >
           <Button href="#collection" arrow>
             {finalCta.cta}
           </Button>
