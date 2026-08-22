@@ -155,6 +155,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setOpen(true);
   }, []);
 
+  // Stable identity: consumers (e.g. the post-payment <ClearCart/>) must be
+  // able to run this exactly once, so it cannot be recreated when `lines`
+  // changes — an unstable reference would re-fire its effect in a loop.
+  const clear = useCallback(() => {
+    dispatch({ type: "clear" });
+    // Also empty storage synchronously: checkout redirects immediately, so
+    // React's persistence effect may not flush before the navigation.
+    try {
+      window.localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // Quota/private-mode errors must never break checkout.
+    }
+  }, []);
+
   const value = useMemo<CartContextValue>(
     () => ({
       lines,
@@ -166,18 +180,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
       add,
       setQty: (variantId, qty) => dispatch({ type: "setQty", variantId, qty }),
       remove: (variantId) => dispatch({ type: "remove", variantId }),
-      clear: () => {
-        dispatch({ type: "clear" });
-        // Also empty storage synchronously: checkout redirects immediately, so
-        // React's persistence effect may not flush before the navigation.
-        try {
-          window.localStorage.removeItem(STORAGE_KEY);
-        } catch {
-          // Quota/private-mode errors must never break checkout.
-        }
-      },
+      clear,
     }),
-    [lines, isOpen, add],
+    [lines, isOpen, add, clear],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

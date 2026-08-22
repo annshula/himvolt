@@ -4,6 +4,8 @@ import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/components/providers/CartProvider";
 import { LocalizationProvider } from "@/components/providers/LocalizationProvider";
+import Footer from "@/components/sections/Footer";
+import Nav from "@/components/sections/Nav";
 import RevealRoot from "@/components/ui/RevealRoot";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -172,7 +174,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </a>
         <LocalizationProvider>
           <CartProvider>
+            <Nav />
             {children}
+            <Footer />
             <CartDrawer />
           </CartProvider>
         </LocalizationProvider>

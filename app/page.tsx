@@ -1,4 +1,3 @@
-import Nav from "@/components/sections/Nav";
 import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
 import Showcase from "@/components/sections/Showcase";
@@ -8,7 +7,6 @@ import Collection from "@/components/sections/Collection";
 import Reviews from "@/components/sections/Reviews";
 import Faq from "@/components/sections/Faq";
 import FinalCta from "@/components/sections/FinalCta";
-import Footer from "@/components/sections/Footer";
 import Schema from "@/components/Schema";
 import { getProduct } from "@/lib/shopify";
 
@@ -22,7 +20,6 @@ export default async function Home() {
   return (
     <>
       <Schema product={product} />
-      <Nav />
       <main>
         <Hero />
         <TrustBar />
@@ -34,7 +31,6 @@ export default async function Home() {
         <Faq />
         <FinalCta />
       </main>
-      <Footer />
     </>
   );
 }
