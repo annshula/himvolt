@@ -1,51 +1,78 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   HimVolt design tokens
-   Strict black & white. The bracelet is black tourmaline, so black is
-   the brand colour and everything else is white, charcoal and gray.
-   The page is a light canvas; only the announcement marquee and the
-   black product/type are dark. The hero carries an animated light
-   backdrop with a video/3D slot. Text is black on light surfaces.
+   HimVolt design tokens — re-skinned to the crawlandcuddle theme.
+   Warm neutrals on a warm off-white canvas, with the reference's mossy
+   green accent (volt) standing in for the old pure-black brand colour.
+   Dark surfaces use warm near-blacks; text is dark on light surfaces.
    ------------------------------------------------------------------ */
 @theme {
-  --color-void: #050505;
-  --color-pitch: #0a0a0a;
-  --color-carbon: #101010;
-  --color-graphite: #171717;
-  --color-slate-line: #232323;
+  /* ── Warm near-blacks (dark surfaces: footer, drawer, hero scrim) ── */
+  --color-void: #16130f;      /* reference footer */
+  --color-pitch: #1c1917;     /* reference primary */
+  --color-carbon: #16130f;
+  --color-graphite: #292524;  /* reference primary-hover */
+  --color-slate-line: #292524;
 
-  /* Black is the bracelet — the brand accent */
-  --color-volt: #000000;
-  --color-volt-hot: #000000;
-  --color-volt-deep: #000000;
+  /* The brand accent — crawlandcuddle's mossy green (replaces pure black) */
+  --color-volt: #5b6a45;      /* reference accent */
+  --color-volt-hot: #495636;  /* reference accent-hover */
+  --color-volt-deep: #495636;
 
-  --color-steel: #d6d6d6;
-  --color-ash: #a6a6a6;
-  --color-dim: #737373;
-  --color-chalk: #fafafa;
+  /* Light text grays for dark surfaces (kept light so contrast holds) */
+  --color-steel: #d6d3d1;
+  --color-ash: #a8a29e;
+  --color-dim: #78716c;
+  --color-chalk: #faf9f7;     /* reference canvas — warm off-white */
 
-  /* Light canvas — the "body" of the page */
-  --color-ivory: #ffffff;
-  --color-parchment: #f4f4f4;
-  --color-linen: #ffffff;
-  --color-line: #e5e5e5;
+  /* Light surfaces */
+  --color-ivory: #ffffff;     /* reference surface */
+  --color-parchment: #f2f0ed; /* reference surface-sunken */
+  --color-linen: #ffffff;     /* reference surface */
+  --color-line: #e3dfda;      /* reference line — warm */
 
-  /* Grays for text on the light canvas */
-  --color-ink: #0a0a0a;
-  --color-ink-soft: #555555;
-  --color-ink-mute: #8c8c8c;
+  /* Text grays on the light canvas */
+  --color-ink: #0c0a09;       /* reference ink */
+  --color-ink-soft: #57534e;  /* reference ink-muted */
+  --color-ink-mute: #78716c;  /* reference ink-subtle */
+
+  /* Reference semantic tokens (crawlandcuddle palette) */
+  --color-canvas: #faf9f7;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #f2f0ed;
+  --color-primary: #1c1917;
+  --color-primary-hover: #292524;
+  --color-on-primary: #ffffff;
+  --color-accent: #5b6a45;
+  --color-accent-hover: #495636;
+  --color-accent-soft: #eef1e6;
+  --color-on-accent: #ffffff;
+  --color-ink-muted: #57534e;
+  --color-ink-subtle: #78716c;
+  --color-line-strong: #d6d3d1;
+  --color-footer: #16130f;
+  --color-ring: #1c1917;
+  --color-overlay: rgb(12 10 9 / 0.55);
 
   --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  --radius-card: 20px;
+  --radius-card: 16px;
 
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-spring: cubic-bezier(0.34, 1.4, 0.42, 1);
+  /* Reference easing curves */
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-soft: cubic-bezier(0.6, 0, 0.9, 0.4);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+  /* Legacy name now resolves to the same curve the reference uses */
+  --ease-out-expo: cubic-bezier(0.2, 0.8, 0.2, 1);
 
-  --shadow-volt: 0 0 40px -8px rgb(0 0 0 / 0.45);
-  --shadow-lift: 0 30px 80px -40px rgb(0 0 0 / 0.9);
+  /* Reference shadows — softer and warmer than the old heavy lift */
+  --shadow-e1: 0 1px 2px rgb(28 25 23 / 0.05), 0 1px 3px rgb(28 25 23 / 0.04);
+  --shadow-e2: 0 2px 4px rgb(28 25 23 / 0.05), 0 6px 16px -6px rgb(28 25 23 / 0.09);
+  --shadow-e3: 0 4px 8px rgb(28 25 23 / 0.05), 0 16px 40px -12px rgb(28 25 23 / 0.16);
+  --shadow-e4: 0 8px 16px rgb(28 25 23 / 0.06), 0 32px 64px -16px rgb(28 25 23 / 0.24);
+  --shadow-lift: 0 8px 16px rgb(28 25 23 / 0.06), 0 32px 64px -16px rgb(28 25 23 / 0.24);
+  --shadow-volt: 0 8px 16px rgb(28 25 23 / 0.06), 0 32px 64px -16px rgb(28 25 23 / 0.24);
 }
 
 /* ---------------------------------- base ---------------------------------- */
@@ -67,10 +94,10 @@ html {
 }
 
 body {
-  background-color: var(--color-ivory);
+  background-color: var(--color-canvas);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  font-feature-settings: "cv11", "ss01";
+  font-feature-settings: "cv02", "cv03", "cv04", "ss01";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
@@ -82,16 +109,34 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-volt);
+  outline: 2px solid var(--color-ring);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Utility escape hatch for the display face */
+/* Utility escape hatch for the display face. Reference-style: family only —
+   weight and tracking come from per-element utilities or the base heading
+   rule below. */
 .font-display {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.015em;
+}
+
+/* Base headings follow the crawlandcuddle treatment: Sora at a light weight
+   with gentle tracking and balanced wrapping. Per-element font-* utilities
+   still override these. */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 /* --------------------------- reveal-on-scroll ----------------------------- */
@@ -101,25 +146,22 @@ body {
 
 .js [data-reveal] {
   opacity: 0;
-  transform: translate3d(0, 26px, 0);
+  transform: translate3d(0, 16px, 0);
   transition:
-    opacity 0.75s var(--ease-out-expo),
-    transform 0.75s var(--ease-out-expo),
-    filter 0.75s var(--ease-out-expo);
-  filter: blur(6px);
+    opacity 0.55s var(--ease-out-soft),
+    transform 0.55s var(--ease-out-soft);
   will-change: opacity, transform;
 }
 .js [data-reveal="in"] {
   opacity: 1;
   transform: none;
-  filter: none;
   will-change: auto;
 }
-[data-reveal-delay="1"] { transition-delay: 90ms; }
-[data-reveal-delay="2"] { transition-delay: 180ms; }
-[data-reveal-delay="3"] { transition-delay: 270ms; }
-[data-reveal-delay="4"] { transition-delay: 360ms; }
-[data-reveal-delay="5"] { transition-delay: 450ms; }
+[data-reveal-delay="1"] { transition-delay: 55ms; }
+[data-reveal-delay="2"] { transition-delay: 110ms; }
+[data-reveal-delay="3"] { transition-delay: 165ms; }
+[data-reveal-delay="4"] { transition-delay: 220ms; }
+[data-reveal-delay="5"] { transition-delay: 275ms; }
 
 /* ------------------------------ 3D tilt card ------------------------------ */
 
@@ -268,6 +310,87 @@ body {
   opacity: 0.045;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------- crawlandcuddle motion library ---------------------- */
+/* The reference's animation vocabulary — keyframes + Tailwind v4 utilities,
+   all driven by the shared ease-out-soft curve. */
+
+@keyframes tf-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes tf-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes tf-scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes tf-slide-right {
+  from { transform: translateX(100%); }
+  to { transform: none; }
+}
+@keyframes tf-slide-up {
+  from { transform: translateY(100%); }
+  to { transform: none; }
+}
+@keyframes tf-pop-in {
+  from { opacity: 0; transform: scale(0.9) translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes tf-shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+@utility animate-fade-up {
+  animation: tf-fade-up 0.45s var(--ease-out-soft) both;
+}
+@utility animate-fade-in {
+  animation: tf-fade-in 0.3s var(--ease-out-soft) both;
+}
+@utility animate-scale-in {
+  animation: tf-scale-in 0.22s var(--ease-out-soft) both;
+}
+@utility animate-slide-right {
+  animation: tf-slide-right 0.3s var(--ease-out-soft) both;
+}
+@utility animate-slide-up {
+  animation: tf-slide-up 0.32s var(--ease-out-soft) both;
+}
+@utility animate-pop-in {
+  animation: tf-pop-in 0.35s var(--ease-spring) both;
+  animation-delay: calc(var(--i, 0) * 40ms);
+}
+@utility reveal-item {
+  animation: tf-fade-up 0.5s var(--ease-out-soft) both;
+  animation-delay: calc(var(--i, 0) * 55ms);
+}
+@utility skeleton {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-surface-sunken) 0%,
+    var(--color-line) 50%,
+    var(--color-surface-sunken) 100%
+  );
+  background-size: 200% 100%;
+  animation: tf-shimmer 1.4s linear infinite;
+}
+
+@keyframes tf-reveal-on-view {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+@utility scroll-reveal {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: tf-reveal-on-view linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+  }
 }
 
 /* ------------------------------ accessibility ----------------------------- */

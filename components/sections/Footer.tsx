@@ -43,7 +43,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          <nav aria-label="Footer" className="grid gap-10 sm:grid-cols-3">
+          <nav
+            aria-label="Footer"
+            className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4"
+          >
             {footerNav.map((col) => (
               <div key={col.title}>
                 <h2 className="text-[0.62rem] tracking-[0.26em] text-ink-mute uppercase">

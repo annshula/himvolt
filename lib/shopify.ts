@@ -12,8 +12,8 @@
 import { product as fallback, type Product, type Variant } from "./product";
 
 const DOMAIN = process.env.SHOPIFY_STORE_DOMAIN;
-const TOKEN = process.env.SHOPIFY_STOREFRONT_TOKEN;
-const API_VERSION = "2025-07";
+const TOKEN = process.env.SHOPIFY_STOREFRONT_API_TOKEN;
+const API_VERSION = process.env.SHOPIFY_API_VERSION ?? "2026-07";
 
 export const shopifyEnabled = Boolean(DOMAIN && TOKEN);
 
@@ -57,7 +57,12 @@ const PRODUCT_QUERY = /* GraphQL */ `
       title
       descriptionHtml
       images(first: 8) {
-        nodes { url altText width height }
+        nodes {
+          url
+          altText
+          width
+          height
+        }
       }
       variants(first: 12) {
         nodes {
@@ -65,9 +70,17 @@ const PRODUCT_QUERY = /* GraphQL */ `
           sku
           title
           availableForSale
-          price { amount currencyCode }
-          compareAtPrice { amount currencyCode }
-          image { url }
+          price {
+            amount
+            currencyCode
+          }
+          compareAtPrice {
+            amount
+            currencyCode
+          }
+          image {
+            url
+          }
           weight
         }
       }
@@ -81,7 +94,14 @@ type ShopifyProduct = {
     handle: string;
     title: string;
     descriptionHtml: string;
-    images: { nodes: { url: string; altText: string | null; width: number; height: number }[] };
+    images: {
+      nodes: {
+        url: string;
+        altText: string | null;
+        width: number;
+        height: number;
+      }[];
+    };
     variants: {
       nodes: {
         id: string;
@@ -109,15 +129,24 @@ export async function getProduct(handle = fallback.handle): Promise<Product> {
   const variants: Variant[] = live.variants.nodes.map((v, i) => ({
     id: v.id,
     sku: v.sku || fallback.variants[i]?.sku || "",
-    title: v.title,
+    // Keep the local presentation title ("One band") over the raw Shopify
+    // option title ("Square Bracelet / 1PCS") — ids and prices stay live.
+    title: fallback.variants[i]?.title ?? v.title,
     subtitle: fallback.variants[i]?.subtitle ?? "",
     quantity: fallback.variants[i]?.quantity ?? 1,
-    price: { amount: Number(v.price.amount), currencyCode: v.price.currencyCode },
+    price: {
+      amount: Number(v.price.amount),
+      currencyCode: v.price.currencyCode,
+    },
     compareAtPrice: v.compareAtPrice
-      ? { amount: Number(v.compareAtPrice.amount), currencyCode: v.compareAtPrice.currencyCode }
+      ? {
+          amount: Number(v.compareAtPrice.amount),
+          currencyCode: v.compareAtPrice.currencyCode,
+        }
       : undefined,
     badge: fallback.variants[i]?.badge,
-    image: v.image?.url ?? fallback.variants[i]?.image ?? fallback.gallery[0].src,
+    image:
+      v.image?.url ?? fallback.variants[i]?.image ?? fallback.gallery[0].src,
     availableForSale: v.availableForSale,
     weightGrams: v.weight ?? fallback.variants[i]?.weightGrams ?? 40,
   }));
@@ -143,16 +172,27 @@ export async function getProduct(handle = fallback.handle): Promise<Product> {
 const CART_CREATE = /* GraphQL */ `
   mutation CartCreate($lines: [CartLineInput!]!) {
     cartCreate(input: { lines: $lines }) {
-      cart { id checkoutUrl }
-      userErrors { message }
+      cart {
+        id
+        checkoutUrl
+      }
+      userErrors {
+        message
+      }
     }
   }
 `;
 
 /** Creates a Shopify cart and returns the hosted checkout URL. */
-export async function createCheckout(variantId: string, quantity = 1): Promise<string | null> {
+export async function createCheckout(
+  variantId: string,
+  quantity = 1,
+): Promise<string | null> {
   const data = await storefront<{
-    cartCreate: { cart: { checkoutUrl: string } | null; userErrors: { message: string }[] };
+    cartCreate: {
+      cart: { checkoutUrl: string } | null;
+      userErrors: { message: string }[];
+    };
   }>(CART_CREATE, { lines: [{ merchandiseId: variantId, quantity }] }, 0);
 
   return data?.cartCreate.cart?.checkoutUrl ?? null;

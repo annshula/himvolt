@@ -1,13 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Inter } from "next/font/google";
+import { CartDrawer } from "@/components/cart/CartDrawer";
+import { CartProvider } from "@/components/providers/CartProvider";
+import { LocalizationProvider } from "@/components/providers/LocalizationProvider";
 import RevealRoot from "@/components/ui/RevealRoot";
 import { site } from "@/lib/site";
 import "./globals.css";
 
 // Self-hosted at build time by next/font — no third-party request, no FOUT.
+// Same weights as the crawlandcuddle reference build: Sora 400–700 for
+// display, Inter 300–700 for body — so the whole page renders the same type.
 const sora = Sora({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sora",
   display: "swap",
   preload: true,
@@ -15,6 +20,7 @@ const sora = Sora({
 
 const inter = Inter({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-inter",
   display: "swap",
   preload: true,
@@ -114,7 +120,12 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        {children}
+        <LocalizationProvider>
+          <CartProvider>
+            {children}
+            <CartDrawer />
+          </CartProvider>
+        </LocalizationProvider>
         <RevealRoot />
       </body>
     </html>

@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "syncedAt": "2026-08-22T09:21:50.835Z",
+  "shop": {
+    "domain": "trackify-com.myshopify.com",
+    "name": "Trackify",
+    "currencyCode": "USD"
+  },
+  "product": {
+    "id": "gid://shopify/Product/9606653313251",
+    "handle": "square-black-tourmaline-bracelet-mens-elastic-mixed-style-bracelet",
+    "title": "Square Black Tourmaline Bracelet Mens Elastic Mixed-Style Bracelet",
+    "price": 14.26,
+    "compareAtPrice": null,
+    "currencyCode": "USD",
+    "availableForSale": true,
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/49549914079459",
+        "title": "Square Bracelet / 1PCS",
+        "price": 14.26,
+        "compareAtPrice": null,
+        "availableForSale": true
+      },
+      {
+        "id": "gid://shopify/ProductVariant/49549914112227",
+        "title": "Square Bracelet / 2PCS",
+        "price": 40.77,
+        "compareAtPrice": null,
+        "availableForSale": true
+      },
+      {
+        "id": "gid://shopify/ProductVariant/49549914144995",
+        "title": "Square Bracelet / 4PCS",
+        "price": 42.55,
+        "compareAtPrice": null,
+        "availableForSale": true
+      }
+    ]
+  }
+}

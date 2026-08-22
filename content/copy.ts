@@ -146,7 +146,7 @@ export const faqs = [
   },
   {
     q: "How long does delivery take, and what does it cost?",
-    a: "Shipping is free to every country we serve, with no minimum order. Orders placed before 2pm are dispatched the same working day, otherwise the next. Tracked delivery runs 5–9 business days to the US, UK and EU, and 7–14 business days elsewhere. Your tracking number arrives by email the moment the label is scanned.",
+    a: "Shipping is free to every country we serve, with no minimum order. Tracked delivery runs 3–7 business days to the US, UK and EU, and 7–14 business days elsewhere. Your tracking number arrives by email the moment the label is scanned.",
   },
   {
     q: "What if I do not like it?",
@@ -156,10 +156,10 @@ export const faqs = [
     q: "Can I wear it in the shower or the gym?",
     a: "Yes. Tourmaline is 7–7.5 on the Mohs scale and non-porous, so water, sweat and soap do nothing to it. Rinse it under a tap and dry it with a cloth when it looks dull. Avoid dropping it onto tile — stone is hard, but hard is not the same as unbreakable.",
   },
-  {
-    q: "What happens if the elastic goes?",
-    a: "We will restring it free for twelve months, including postage both ways. Beyond that, email us anyway — the cord costs us almost nothing and we would rather keep the band on your wrist than sell you another one.",
-  },
+  // {
+  //   q: "What happens if the elastic goes?",
+  //   a: "We will restring it free for twelve months, including postage both ways. Beyond that, email us anyway — the cord costs us almost nothing and we would rather keep the band on your wrist than sell you another one.",
+  // },
 ];
 
 export const finalCta = {
@@ -186,6 +186,15 @@ export const footerNav = [
       { label: "Returns & refunds", href: "#faq" },
       { label: "Restring guarantee", href: "#faq" },
       { label: "Contact us", href: "mailto:care@himvolt.com" },
+    ],
+  },
+  {
+    title: "Account",
+    links: [
+      { label: "Track your order", href: "/account/orders" },
+      { label: "Start a return", href: "/account/orders" },
+      { label: "Your account", href: "/account" },
+      { label: "Sign in", href: "/account/login" },
     ],
   },
   {

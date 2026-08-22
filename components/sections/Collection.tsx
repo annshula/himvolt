@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { SectionHeading, Section } from "@/components/ui/Section";
 import {
   CheckIcon,
@@ -9,62 +9,42 @@ import {
   GlobeIcon,
   ReturnIcon,
 } from "@/components/ui/Icons";
+import { useCart } from "@/components/providers/CartProvider";
+import { useLocalizedAmount } from "@/components/providers/LocalizationProvider";
 import { collection } from "@/content/copy";
+import { formatMoney } from "@/lib/money";
 import { site } from "@/lib/site";
-import {
-  formatMoney,
-  savingsPercent,
-  unitPrice,
-  type Product,
-  type Variant,
-} from "@/lib/product";
+import type { Product, Variant } from "@/lib/product";
+
+const priceSkeleton = (h: string, w: string) => (
+  <span
+    aria-hidden="true"
+    className={`inline-block animate-pulse rounded-full bg-line align-middle ${h} ${w}`}
+  />
+);
 
 /**
  * Pricing + variant selection. This is the only stateful block on the page.
  *
- * Checkout posts to /api/checkout, which asks Shopify for a cart and returns
- * its hosted checkout URL. Until the store credentials exist the route replies
- * with a "not connected" flag and we surface it honestly rather than pretending
- * to add something to a bag.
+ * "Add to bag" drops the chosen variant into the client-side cart and opens
+ * the drawer; checkout then builds a Shopify Storefront cart server-side and
+ * hands off to the hosted checkout URL.
  */
 export default function Collection({ product }: { product: Product }) {
   const [selectedId, setSelectedId] = useState(
     product.variants[1]?.id ?? product.variants[0].id,
   );
-  const [pending, startTransition] = useTransition();
-  const [notice, setNotice] = useState<string | null>(null);
+  const { add } = useCart();
 
   const selected =
     product.variants.find((v) => v.id === selectedId) ?? product.variants[0];
 
-  const checkout = () => {
-    setNotice(null);
-    startTransition(async () => {
-      try {
-        const res = await fetch("/api/checkout", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ variantId: selected.id, quantity: 1 }),
-        });
-        const data = (await res.json()) as {
-          checkoutUrl?: string;
-          reason?: string;
-        };
-        if (data.checkoutUrl) {
-          window.location.href = data.checkoutUrl;
-          return;
-        }
-        setNotice(
-          data.reason ??
-            "Checkout is not connected yet. Leave your email below and we will tell you the moment it opens.",
-        );
-      } catch {
-        setNotice(
-          "Something went wrong reaching checkout. Try again in a moment.",
-        );
-      }
-    });
-  };
+  const selectedPrice = useLocalizedAmount(
+    selected.id,
+    selected.price.amount,
+    selected.price.currencyCode,
+    selected.compareAtPrice?.amount ?? null,
+  );
 
   return (
     <Section
@@ -108,41 +88,34 @@ export default function Collection({ product }: { product: Product }) {
           <p className="font-display mt-2 text-[1.35rem] leading-none font-bold tracking-[-0.03em] text-ink">
             {selected.title}
             <span className="text-ink-mute"> · </span>
-            {formatMoney(selected.price)}
+            {selectedPrice.pending
+              ? priceSkeleton("h-5", "w-20")
+              : formatMoney(selectedPrice.amount, selectedPrice.currencyCode)}
           </p>
           <p className="mt-2 text-[0.74rem] text-ink-mute">
-            {formatMoney(unitPrice(selected))} per band · ships free · arrives
-            in 5–9 days
+            {selectedPrice.pending
+              ? priceSkeleton("h-3", "w-28")
+              : `${formatMoney(
+                  selectedPrice.amount / selected.quantity,
+                  selectedPrice.currencyCode,
+                )} per band`}
+            {" · ships free · arrives in 5–9 days"}
           </p>
         </div>
 
         <button
           type="button"
-          onClick={checkout}
-          disabled={pending}
-          className="group relative inline-flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-b from-volt-hot to-volt px-9 font-display text-[0.92rem] font-semibold tracking-[0.14em] whitespace-nowrap text-white uppercase shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)] transition-all duration-400 ease-[var(--ease-out-expo)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.7)] disabled:cursor-wait disabled:opacity-70 sm:w-auto"
+          onClick={() => add(selected.id, 1)}
+          className="group relative inline-flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-b from-volt-hot to-volt px-9 font-display text-[0.92rem] font-semibold tracking-[0.14em] whitespace-nowrap text-white uppercase shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)] transition-all duration-400 ease-[var(--ease-out-expo)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.7)] sm:w-auto"
         >
           <span
             aria-hidden
             className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_38%,rgba(255,255,255,0.42)_50%,transparent_62%)] transition-transform duration-[900ms] ease-[var(--ease-out-expo)] group-hover:translate-x-full"
           />
-          <span className="relative">
-            {pending ? "One moment…" : "Add to bag"}
-          </span>
-          {!pending && (
-            <ArrowIcon className="relative h-4 w-4 transition-transform duration-400 group-hover:translate-x-1" />
-          )}
+          <span className="relative">Add to bag</span>
+          <ArrowIcon className="relative h-4 w-4 transition-transform duration-400 group-hover:translate-x-1" />
         </button>
       </div>
-
-      {notice && (
-        <p
-          role="status"
-          className="mt-4 rounded-xl border border-volt/25 bg-volt/[0.06] px-5 py-4 text-center text-[0.82rem] leading-relaxed text-ink-soft"
-        >
-          {notice}
-        </p>
-      )}
 
       <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[0.73rem] text-ink-mute">
         <Guarantee icon={<GlobeIcon />}>{site.promise.shipping}</Guarantee>
@@ -180,7 +153,16 @@ function VariantCard({
   selected: boolean;
   onSelect: () => void;
 }) {
-  const save = savingsPercent(variant);
+  const price = useLocalizedAmount(
+    variant.id,
+    variant.price.amount,
+    variant.price.currencyCode,
+    variant.compareAtPrice?.amount ?? null,
+  );
+  const save =
+    price.compareAtAmount != null && price.amount < price.compareAtAmount
+      ? Math.round((1 - price.amount / price.compareAtAmount) * 100)
+      : 0;
 
   return (
     <button
@@ -228,18 +210,22 @@ function VariantCard({
 
       <div className="mt-6 flex items-end gap-3">
         <span className="font-display text-[1.9rem] leading-none font-bold tracking-[-0.04em] text-ink tabular-nums">
-          {formatMoney(variant.price)}
+          {price.pending
+            ? priceSkeleton("h-7", "w-24")
+            : formatMoney(price.amount, price.currencyCode)}
         </span>
-        {variant.compareAtPrice && (
+        {price.compareAtAmount != null && (
           <span className="pb-1 text-[0.85rem] text-ink-mute line-through tabular-nums">
-            {formatMoney(variant.compareAtPrice)}
+            {formatMoney(price.compareAtAmount, price.currencyCode)}
           </span>
         )}
       </div>
 
       <div className="mt-3 flex items-center justify-between text-[0.72rem]">
         <span className="text-ink-mute">
-          {formatMoney(unitPrice(variant))} per band
+          {price.pending
+            ? priceSkeleton("h-3", "w-24")
+            : `${formatMoney(price.amount / variant.quantity, price.currencyCode)} per band`}
         </span>
         {save > 0 && (
           <span className="font-medium text-volt">Save {save}%</span>
