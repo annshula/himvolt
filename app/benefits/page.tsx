@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ParallaxBenefit } from "@/components/benefits/ParallaxBenefit";
 import { ScrollSnapRoot } from "@/components/benefits/ScrollSnapRoot";
 import Button from "@/components/ui/Button";
-import { Magnetic, Reveal, ScrollProgressBar } from "@/components/ui/Motion";
+import { Magnetic, Reveal } from "@/components/ui/Motion";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -106,10 +106,17 @@ export default function BenefitsPage() {
   return (
     <main className="bg-pitch">
       <ScrollSnapRoot />
-      <ScrollProgressBar className="fixed inset-x-0 top-0 z-40 h-px origin-left bg-linear-to-r from-volt via-volt-hot to-volt" />
 
       {/* ------------------------------- intro -------------------------------- */}
-      <section className="grain relative isolate flex h-svh snap-start flex-col items-center justify-center overflow-hidden bg-pitch px-5 text-center sm:px-8">
+      {/* Negative top margin pulls this section up under the sticky nav's own
+          box (same trick Hero.tsx uses on home) — otherwise the transparent
+          header has nothing dark behind it at scroll 0 and just shows the
+          page's own white background through. Height is padded out by the
+          same amount so the section still ends exactly one viewport below
+          where it would have started without the margin — get this wrong
+          and every section after it lands nav-height short in the scroll-
+          snap grid, not just this one. */}
+      <section className="grain relative isolate -mt-[calc(var(--nav-h)+var(--marquee-h))] flex h-[calc(100svh+var(--nav-h)+var(--marquee-h))] snap-start flex-col items-center justify-center overflow-hidden bg-pitch px-5 text-center sm:px-8">
         <video
           aria-hidden
           autoPlay

@@ -63,14 +63,14 @@ export default function ContactPage() {
 
               <div className="flex items-center gap-3.5 rounded-(--radius-card) border border-line bg-linen p-5">
                 <span className="grid size-11 shrink-0 place-items-center rounded-full bg-parchment text-ink-mute">
-                  <Icon name="globe" className="size-5" />
+                  <Icon name="map-pin" className="size-5" />
                 </span>
                 <span className="min-w-0">
                   <span className="block text-[0.68rem] tracking-[0.2em] text-ink-mute uppercase">
-                    Ships to
+                    Address
                   </span>
                   <span className="block text-[0.95rem] font-medium text-ink">
-                    US, UK, Canada, Australia, the EU & beyond
+                    {site.address}
                   </span>
                 </span>
               </div>

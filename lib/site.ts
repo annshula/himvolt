@@ -10,6 +10,7 @@ export const site = {
   domain: "himvolt.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://himvolt.com",
   email: "support@himvolt.com",
+  address: "Toronto, Ontario, Canada",
   description:
     "HimVolt makes one thing properly: a square-cut black tourmaline bracelet for men. Solid stone, elastic fit, free tracked shipping worldwide, 30-day returns.",
   locale: "en_US",

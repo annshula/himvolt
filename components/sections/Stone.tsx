@@ -23,7 +23,7 @@ export default function Stone() {
         NaFe₃Al₆(BO₃)₃Si₆O₁₈(OH)₄
       </span>
 
-      <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+      <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <Eyebrow>{stone.eyebrow}</Eyebrow>
           <Reveal

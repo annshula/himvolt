@@ -44,7 +44,7 @@ export default function AboutPage() {
       </Section>
 
       <Section className="border-y border-line bg-parchment">
-        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:self-start">
             <Eyebrow>{stone.eyebrow}</Eyebrow>
             <Reveal as="h2" delay={0.06} className="font-display text-[clamp(2rem,4.2vw,3.1rem)] leading-[1.02] font-bold tracking-[-0.04em] text-ink text-balance">

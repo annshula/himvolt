@@ -2,13 +2,16 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
-import { CheckIcon, GlobeIcon, ReturnIcon } from "@/components/ui/Icons";
+import { CheckIcon, GlobeIcon, MinusIcon, PlusIcon, ReturnIcon } from "@/components/ui/Icons";
 import { Magnetic, easeOut } from "@/components/ui/Motion";
 import { useCart } from "@/components/providers/CartProvider";
 import { useLocalizedAmount } from "@/components/providers/LocalizationProvider";
 import { formatMoney } from "@/lib/money";
+import { shopifyCheckout } from "@/lib/shopify-checkout";
 import { site } from "@/lib/site";
 import type { Product, Variant } from "@/lib/product";
+
+const MAX_QTY = 10;
 
 const priceSkeleton = (h: string, w: string) => (
   <span
@@ -19,15 +22,18 @@ const priceSkeleton = (h: string, w: string) => (
 
 /**
  * The purchase surface — gallery lives beside this in the product page, this
- * is everything else: price, stock, the pack picker, "Add to bag". Each pack
- * is a fixed SKU (1 / 2 / 4 bands), not a free quantity, so "how many" is a
- * selection between three rows rather than a stepper — but every row states
- * its quantity plainly, the way a stepper would.
+ * is everything else: price, stock, the pack picker, quantity and the two
+ * ways to check out. Each pack is a fixed SKU (1 / 2 / 4 bands) — the pack
+ * picker below chooses which one — and the stepper here multiplies how many
+ * of *that* pack you want, same as ordering several of the same size.
  */
 export function BuyBox({ product }: { product: Product }) {
   const [selectedId, setSelectedId] = useState(
     product.variants[1]?.id ?? product.variants[0].id,
   );
+  const [quantity, setQuantity] = useState(1);
+  const [buying, setBuying] = useState(false);
+  const [buyError, setBuyError] = useState<string | null>(null);
   const { add } = useCart();
 
   const selected =
@@ -101,25 +107,80 @@ export function BuyBox({ product }: { product: Product }) {
         </div>
       </fieldset>
 
-      {/* ---------------------------------- CTA ----------------------------------- */}
-      <Magnetic strength={0.15} className="mt-6 block">
-        <button
-          type="button"
-          onClick={() => add(selected.id, 1)}
-          className="group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-linear-to-b from-volt-hot to-volt font-display text-[0.92rem] font-semibold tracking-[0.14em] whitespace-nowrap text-on-accent uppercase shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)] transition-all duration-400 ease-(--ease-out-expo) hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.7)] active:scale-[0.98]"
-        >
+      {/* -------------------------------- quantity --------------------------------- */}
+      <div className="mt-7 flex items-center gap-3">
+        <div className="inline-flex h-14 shrink-0 items-center rounded-full bg-parchment">
+          <button
+            type="button"
+            onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+            disabled={quantity <= 1}
+            aria-label="Decrease quantity"
+            className="grid h-full w-12 place-items-center rounded-l-full text-ink transition-colors hover:bg-line disabled:opacity-35"
+          >
+            <MinusIcon className="size-4" />
+          </button>
           <span
-            aria-hidden
-            className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_38%,rgba(255,255,255,0.42)_50%,transparent_62%)] transition-transform duration-900 ease-(--ease-out-expo) group-hover:translate-x-full"
-          />
-          <span className="relative">
-            Add to bag —{" "}
-            {selectedPrice.pending
-              ? "…"
-              : formatMoney(selectedPrice.amount, selectedPrice.currencyCode)}
+            aria-live="polite"
+            aria-label={`Quantity: ${quantity}`}
+            className="w-8 text-center text-[0.95rem] font-medium text-ink tabular-nums"
+          >
+            {quantity}
           </span>
-        </button>
-      </Magnetic>
+          <button
+            type="button"
+            onClick={() => setQuantity((q) => Math.min(MAX_QTY, q + 1))}
+            disabled={quantity >= MAX_QTY}
+            aria-label="Increase quantity"
+            className="grid h-full w-12 place-items-center rounded-r-full text-ink transition-colors hover:bg-line disabled:opacity-35"
+          >
+            <PlusIcon className="size-4" />
+          </button>
+        </div>
+
+        <Magnetic strength={0.15} className="block flex-1">
+          <button
+            type="button"
+            onClick={() => add(selected.id, quantity)}
+            className="group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-linear-to-b from-volt-hot to-volt font-display text-[0.88rem] font-semibold tracking-[0.1em] whitespace-nowrap text-on-accent uppercase transition-all duration-400 ease-(--ease-out-expo) hover:-translate-y-0.5 active:scale-[0.98]"
+          >
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_38%,rgba(255,255,255,0.42)_50%,transparent_62%)] transition-transform duration-900 ease-(--ease-out-expo) group-hover:translate-x-full"
+            />
+            <span className="relative">
+              Add to bag —{" "}
+              {selectedPrice.pending
+                ? "…"
+                : formatMoney(selectedPrice.amount * quantity, selectedPrice.currencyCode)}
+            </span>
+          </button>
+        </Magnetic>
+      </div>
+
+      <button
+        type="button"
+        disabled={buying}
+        onClick={async () => {
+          setBuying(true);
+          setBuyError(null);
+          const result = await shopifyCheckout([
+            { variantId: selected.id, qty: quantity },
+          ]);
+          if (result.ok) {
+            window.location.href = result.checkoutUrl;
+            return;
+          }
+          setBuyError(result.error);
+          setBuying(false);
+        }}
+        className="mt-2.5 flex h-13 w-full items-center justify-center rounded-full border border-ink/20 font-display text-[0.85rem] font-semibold tracking-[0.1em] text-ink uppercase transition-colors duration-300 hover:border-ink/40 hover:bg-ink/3 disabled:opacity-50"
+      >
+        {buying ? "Taking you to checkout…" : "Buy it now"}
+      </button>
+      {buyError && (
+        <p className="mt-2 text-center text-[0.78rem] text-red-700">{buyError}</p>
+      )}
+
       <p className="mt-3 text-center text-[0.74rem] text-ink-mute">
         {formatMoney(selectedPrice.amount / selected.quantity, selectedPrice.currencyCode)}{" "}
         per band · ships free · arrives in 5–10 days

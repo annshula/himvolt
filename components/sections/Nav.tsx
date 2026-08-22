@@ -49,7 +49,7 @@ function IconButton({
 function TrackOrderLink({ solid }: { solid: boolean }) {
   return (
     <a
-      href="/account/orders"
+      href="/track"
       aria-label="Track your order"
       title="Track your order"
       className={cn(iconButtonClass(solid), "hidden sm:grid")}
@@ -136,7 +136,7 @@ export default function Nav() {
         }`}
         style={{ height: "var(--nav-h)" }}
       >
-        <nav className="mx-auto flex h-full max-w-310 items-center justify-between gap-4 px-5 sm:gap-6 sm:px-8">
+        <nav className="mx-auto flex h-full max-w-310 items-center justify-between gap-4 px-6 sm:gap-6 sm:px-12 lg:px-16">
           <Logo className={solid ? "text-ink" : "text-chalk"} />
 
           <ul className="hidden items-center gap-8 lg:flex">
@@ -169,6 +169,7 @@ export default function Nav() {
             <span className="hidden sm:block">
               <AccountMenu variant="dropdown" overHero={!solid} />
             </span>
+            <CartButton solid={solid} onOpen={() => setMenuOpen(false)} />
             <span className="ml-1 hidden sm:block">
               <Button
                 href="/shop"
@@ -178,7 +179,6 @@ export default function Nav() {
                 Shop now
               </Button>
             </span>
-            <CartButton solid={solid} onOpen={() => setMenuOpen(false)} />
 
             {/* Mobile menu trigger */}
             <IconButton
@@ -207,13 +207,7 @@ export default function Nav() {
         </nav>
 
         {/* Reading progress, spring-smoothed against real scroll velocity. */}
-        <ScrollProgressBar
-          className={`absolute inset-x-0 bottom-0 h-px bg-linear-to-r ${
-            solid
-              ? "from-ink via-ink to-ink"
-              : "from-chalk/70 via-chalk to-chalk/70"
-          }`}
-        />
+        <ScrollProgressBar className="absolute inset-x-0 bottom-0 h-0.75 bg-yellow-400" />
       </header>
 
       {/* ── Mobile drawer: full-screen panel that unfolds from the top, with
@@ -298,7 +292,7 @@ export default function Nav() {
                 <div className="flex items-center justify-center gap-3">
                   <CurrencySelector variant="drawer" dark />
                   <a
-                    href="/account/orders"
+                    href="/track"
                     aria-label="Track your order"
                     onClick={() => setMenuOpen(false)}
                     className={iconButtonClass(false)}
