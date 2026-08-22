@@ -79,7 +79,7 @@ export default function Collection({ product }: { product: Product }) {
 
       <div
         data-reveal
-        className="mt-8 flex flex-col items-center gap-6 rounded-[var(--radius-card)] border border-line bg-linen/90 p-6 backdrop-blur-md sm:flex-row sm:justify-between sm:p-7"
+        className="mt-8 flex flex-col items-center gap-6 rounded-(--radius-card) border border-line bg-linen/90 p-6 backdrop-blur-md sm:flex-row sm:justify-between sm:p-7"
       >
         <div className="text-center sm:text-left">
           <p className="text-[0.62rem] tracking-[0.26em] text-ink-mute uppercase">
@@ -171,7 +171,7 @@ function VariantCard({
       aria-pressed={selected}
       data-reveal
       data-reveal-delay={String(index + 1)}
-      className={`group relative overflow-hidden rounded-[var(--radius-card)] border p-6 text-left transition-all duration-500 ease-[var(--ease-out-expo)] lg:p-7 ${
+      className={`group relative overflow-hidden rounded-(--radius-card) border p-6 text-left transition-all duration-500 ease-[var(--ease-out-expo)] lg:p-7 ${
         selected
           ? "border-volt/55 bg-linen shadow-[0_0_60px_-24px_rgba(0,0,0,0.4)]"
           : "border-line bg-linen/60 hover:border-ink/15 hover:bg-linen"

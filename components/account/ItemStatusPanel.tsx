@@ -47,7 +47,7 @@ export function ItemStatusPanel({
         aria-haspopup="dialog"
         aria-expanded={open}
         aria-label={`${label} — see full status`}
-        className="group relative w-full cursor-pointer touch-manipulation overflow-hidden rounded-[var(--radius-card)] border border-line bg-ivory text-left shadow-sm transition-[border-color,box-shadow,transform] duration-500 ease-[var(--ease-out-expo)] hover:border-ink/40 hover:shadow-[var(--shadow-lift)] focus-visible:border-ink focus-visible:outline-none active:scale-[0.995] active:bg-parchment active:duration-100"
+        className="group relative w-full cursor-pointer touch-manipulation overflow-hidden rounded-(--radius-card) border border-line bg-ivory text-left shadow-sm transition-[border-color,box-shadow,transform] duration-500 ease-[var(--ease-out-expo)] hover:border-ink/40 hover:shadow-[var(--shadow-lift)] focus-visible:border-ink focus-visible:outline-none active:scale-[0.995] active:bg-parchment active:duration-100"
       >
         {face}
       </button>
@@ -66,7 +66,7 @@ export function ItemStatusPanel({
               role="dialog"
               aria-modal="true"
               aria-label={label}
-              className="relative flex max-h-[88svh] w-full flex-col overflow-hidden rounded-t-[1.75rem] bg-ivory pb-[env(safe-area-inset-bottom)] shadow-[var(--shadow-lift)] md:max-h-[80vh] md:max-w-3xl md:rounded-[var(--radius-card)] md:pb-0"
+              className="relative flex max-h-[88svh] w-full flex-col overflow-hidden rounded-t-[1.75rem] bg-ivory pb-[env(safe-area-inset-bottom)] shadow-[var(--shadow-lift)] md:max-h-[80vh] md:max-w-3xl md:rounded-(--radius-card) md:pb-0"
             >
               {/* The grab handle is the sheet's own dismiss control. */}
               <button

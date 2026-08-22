@@ -87,7 +87,7 @@ export function SignOutDialog({
           aria-describedby="signout-body"
           tabIndex={-1}
           className={cn(
-            "relative w-full max-w-sm overflow-hidden rounded-[var(--radius-card)] bg-ivory shadow-[var(--shadow-lift)] transition-all duration-300 ease-[var(--ease-out-expo)]",
+            "relative w-full max-w-sm overflow-hidden rounded-(--radius-card) bg-ivory shadow-[var(--shadow-lift)] transition-all duration-300 ease-[var(--ease-out-expo)]",
             open
               ? "translate-y-0 scale-100 opacity-100"
               : "translate-y-4 scale-95 opacity-0",

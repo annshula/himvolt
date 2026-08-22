@@ -60,7 +60,7 @@ export default async function AddressesPage() {
               <li
                 key={address.id}
                 className={cn(
-                  "relative flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-card)] border bg-ivory shadow-sm transition-shadow duration-500 ease-[var(--ease-out-expo)] hover:shadow-[var(--shadow-lift)]",
+                  "relative flex min-w-0 flex-col overflow-hidden rounded-(--radius-card) border bg-ivory shadow-sm transition-shadow duration-500 ease-(--ease-out-expo) hover:shadow-(--shadow-lift)",
                   isDefault ? "border-ink/40" : "border-line",
                 )}
               >
@@ -78,7 +78,7 @@ export default async function AddressesPage() {
                 </div>
 
                 <div className="flex min-w-0 flex-1 flex-col px-5 pt-9 pb-5 sm:px-6 sm:pb-6">
-                  <p className="font-display text-lg font-semibold break-words text-ink">
+                  <p className="font-display text-lg font-semibold wrap-break-word text-ink">
                     {name}
                   </p>
 
@@ -87,7 +87,7 @@ export default async function AddressesPage() {
                       {lines.map((line, li) => (
                         <span
                           key={li}
-                          className="text-sm break-words text-ink-soft"
+                          className="text-sm wrap-break-word text-ink-soft"
                         >
                           {line}
                         </span>
@@ -102,7 +102,9 @@ export default async function AddressesPage() {
                   {address.phoneNumber && (
                     <p className="mt-3 flex items-center gap-2 text-xs text-ink-mute">
                       <Icon name="globe" className="size-3.5 shrink-0" />
-                      <span className="break-words">{address.phoneNumber}</span>
+                      <span className="wrap-break-word">
+                        {address.phoneNumber}
+                      </span>
                     </p>
                   )}
                 </div>

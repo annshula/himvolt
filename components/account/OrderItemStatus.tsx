@@ -206,7 +206,7 @@ export function OrderItemStatus({
         <div className="shrink-0 border-line px-5 pt-4 pb-5 md:border-r md:bg-parchment md:px-7 md:py-8">
           <div className="flex items-start gap-4 md:flex-col md:gap-5">
             {thumb(
-              "size-14 rounded-xl md:size-auto md:aspect-square md:w-full md:rounded-[var(--radius-card)]",
+              "size-14 rounded-xl md:size-auto md:aspect-square md:w-full md:rounded-(--radius-card)",
             )}
             <div className="min-w-0">
               <p className="font-display font-semibold text-ink md:text-lg">

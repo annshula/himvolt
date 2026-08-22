@@ -31,7 +31,7 @@ export default async function ProfilePage() {
           lastName={customer.lastName}
         />
 
-        <div className="rounded-[var(--radius-card)] border border-line bg-ivory p-6 shadow-sm">
+        <div className="rounded-(--radius-card) border border-line bg-ivory p-6 shadow-sm">
           <h2 className="font-display text-base font-bold text-ink uppercase">
             Contact details
           </h2>

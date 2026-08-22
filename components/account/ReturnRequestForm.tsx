@@ -111,7 +111,7 @@ export function ReturnRequestForm({
           return (
             <li
               key={item.id}
-              className="rounded-[var(--radius-card)] border border-line bg-ivory p-5 shadow-sm sm:p-6"
+              className="rounded-(--radius-card) border border-line bg-ivory p-5 shadow-sm sm:p-6"
             >
               <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-x-4 gap-y-5 sm:grid-cols-[auto_minmax(0,1fr)_auto]">
                 {item.image ? (
@@ -190,7 +190,7 @@ export function ReturnRequestForm({
         })}
       </ul>
 
-      <aside className="rounded-[var(--radius-card)] border border-line bg-ivory p-6 shadow-sm lg:sticky lg:top-24">
+      <aside className="rounded-(--radius-card) border border-line bg-ivory p-6 shadow-sm lg:sticky lg:top-24">
         <h2 className="font-display text-lg font-bold text-ink uppercase">
           Summary
         </h2>

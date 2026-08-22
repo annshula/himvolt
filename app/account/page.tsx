@@ -46,7 +46,7 @@ export default async function AccountOverviewPage() {
 
       <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-6 md:grid-cols-2">
         {/* Profile */}
-        <div className="min-w-0 rounded-[var(--radius-card)] border border-line bg-ivory p-5 shadow-sm sm:p-6">
+        <div className="min-w-0 rounded-(--radius-card) border border-line bg-ivory p-5 shadow-sm sm:p-6">
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
             <h2 className="font-display text-base font-bold text-ink uppercase">
               Profile
@@ -58,7 +58,7 @@ export default async function AccountOverviewPage() {
               Edit
               <Icon
                 name="arrow-right"
-                className="size-3.5 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover/link:translate-x-1"
+                className="size-3.5 transition-transform duration-500 ease-(--ease-out-expo) group-hover/link:translate-x-1"
               />
             </Link>
           </div>
@@ -67,12 +67,12 @@ export default async function AccountOverviewPage() {
               {initials || <Icon name="user" className="size-5" />}
             </span>
             <div className="min-w-0">
-              <p className="font-display text-lg font-semibold break-words text-ink">
+              <p className="font-display text-lg font-semibold wrap-break-word text-ink">
                 {[customer?.firstName, customer?.lastName]
                   .filter(Boolean)
                   .join(" ") || "Your name"}
               </p>
-              <p className="text-sm break-words text-ink-soft">
+              <p className="text-sm wrap-break-word text-ink-soft">
                 {customer?.emailAddress ?? "No email on file"}
               </p>
             </div>
@@ -80,7 +80,7 @@ export default async function AccountOverviewPage() {
         </div>
 
         {/* Default address */}
-        <div className="min-w-0 rounded-[var(--radius-card)] border border-line bg-ivory p-5 shadow-sm sm:p-6">
+        <div className="min-w-0 rounded-(--radius-card) border border-line bg-ivory p-5 shadow-sm sm:p-6">
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
             <h2 className="font-display text-base font-bold text-ink uppercase">
               Default address
@@ -92,7 +92,7 @@ export default async function AccountOverviewPage() {
               All
               <Icon
                 name="arrow-right"
-                className="size-3.5 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover/link:translate-x-1"
+                className="size-3.5 transition-transform duration-500 ease-(--ease-out-expo) group-hover/link:translate-x-1"
               />
             </Link>
           </div>
@@ -103,7 +103,10 @@ export default async function AccountOverviewPage() {
             {defaultAddress ? (
               <address className="flex min-w-0 flex-col not-italic">
                 {defaultAddress.formatted.map((line, i) => (
-                  <span key={i} className="text-sm break-words text-ink-soft">
+                  <span
+                    key={i}
+                    className="text-sm wrap-break-word text-ink-soft"
+                  >
                     {line}
                   </span>
                 ))}
@@ -131,7 +134,7 @@ export default async function AccountOverviewPage() {
             All orders
             <Icon
               name="arrow-right"
-              className="size-3.5 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover/link:translate-x-1"
+              className="size-3.5 transition-transform duration-500 ease-(--ease-out-expo) group-hover/link:translate-x-1"
             />
           </Link>
         </div>

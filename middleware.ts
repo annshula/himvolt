@@ -36,16 +36,20 @@ const IS_DEV = process.env.NODE_ENV !== "production";
 const CSP = [
   `default-src 'self'`,
   // See module doc for why 'unsafe-inline' is here (Next's inline RSC payload).
-  `script-src 'self' 'unsafe-inline'${IS_DEV ? ` 'unsafe-eval'` : ""}`,
+  // googletagmanager.com hosts the gtag.js/GTM loaders and GTM-injected tags.
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com${IS_DEV ? ` 'unsafe-eval'` : ""}`,
   // Components set dynamic inline styles, so styles need 'unsafe-inline' —
   // styles cannot execute script, so this is low risk.
   `style-src 'self' 'unsafe-inline'`,
   // Product imagery + video come from Shopify's CDN once the store is live.
-  `img-src 'self' data: blob: https://cdn.shopify.com https://*.myshopify.com`,
+  // GA4 also paints a 1px beacon from google-analytics.com.
+  `img-src 'self' data: blob: https://cdn.shopify.com https://*.myshopify.com https://www.google-analytics.com https://*.google-analytics.com`,
   `media-src 'self' https://cdn.shopify.com https://*.myshopify.com`,
   `font-src 'self' data:`,
-  `connect-src 'self'${IS_DEV ? " ws://localhost:* wss://localhost:*" : ""}`,
-  `frame-src 'self'`,
+  // gtag.js sends hits to the GA4 endpoints over fetch/XHR.
+  `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${IS_DEV ? " ws://localhost:* wss://localhost:*" : ""}`,
+  // GTM's noscript fallback embeds an iframe from googletagmanager.com.
+  `frame-src 'self' https://www.googletagmanager.com`,
   `object-src 'none'`,
   `base-uri 'self'`,
   `form-action 'self'`,

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Inter } from "next/font/google";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/components/providers/CartProvider";
 import { LocalizationProvider } from "@/components/providers/LocalizationProvider";
@@ -25,6 +26,9 @@ const inter = Inter({
   display: "swap",
   preload: true,
 });
+
+/** Google Tag Manager container — loaded high in <head>, noscript after <body>. */
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export const viewport: Viewport = {
   themeColor: "#ffffff",
@@ -105,6 +109,19 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* Google Tag Manager — loaded as early as possible so container tags
+            (GA4, remarketing, …) fire before the first interaction. */}
+        {GTM_ID && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+            }}
+          />
+        )}
         {/* Gates the scroll-reveal CSS. Without scripting the class is never
             added, so no content can be left stranded at opacity 0. */}
         <script
@@ -114,9 +131,20 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        {/* Google Tag Manager (noscript) — tracking fallback when JS is off. */}
+        {GTM_ID && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        )}
         <a
           href="#showcase"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:bg-volt focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:bg-volt focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-white"
         >
           Skip to content
         </a>
@@ -126,6 +154,7 @@ export default function RootLayout({
             <CartDrawer />
           </CartProvider>
         </LocalizationProvider>
+        <GoogleAnalytics />
         <RevealRoot />
       </body>
     </html>

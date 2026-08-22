@@ -43,7 +43,7 @@ export function AccountNav() {
 
   return (
     <nav aria-label="Account" className="w-full min-w-0">
-      <div className="min-w-0 lg:rounded-[var(--radius-card)] lg:border lg:border-line lg:bg-ivory lg:p-3 lg:shadow-sm">
+      <div className="min-w-0 lg:rounded-(--radius-card) lg:border lg:border-line lg:bg-ivory lg:p-3 lg:shadow-sm">
         {/* The row is wider than a phone and scrolls inside itself; min-w-0
             here and on every ancestor keeps that from widening the page. */}
         <ul className="scrollbar-none flex min-w-0 gap-7 overflow-x-auto border-b border-line lg:flex-col lg:gap-1 lg:overflow-visible lg:border-b-0">

@@ -225,7 +225,7 @@ export function CurrencySelector({
       </button>
 
       {open && !isDrawer && (
-        <div className="absolute top-full right-0 z-50 mt-2 w-80 overflow-hidden rounded-[var(--radius-card)] border border-line bg-ivory shadow-[var(--shadow-lift)]">
+        <div className="absolute top-full right-0 z-50 mt-2 w-80 overflow-hidden rounded-(--radius-card) border border-line bg-ivory shadow-[var(--shadow-lift)]">
           {list}
         </div>
       )}

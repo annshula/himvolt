@@ -67,13 +67,13 @@ export default async function LoginPage({ searchParams }: PageProps) {
         </p>
 
         {errorMessage && (
-          <div className="mt-6 rounded-[var(--radius-card)] border border-red-200 bg-red-50 px-5 py-4 text-left">
+          <div className="mt-6 rounded-(--radius-card) border border-red-200 bg-red-50 px-5 py-4 text-left">
             <p className="text-sm text-red-700">{errorMessage}</p>
           </div>
         )}
 
         {!isCustomerAccountConfigured() ? (
-          <div className="mt-8 rounded-[var(--radius-card)] border border-line bg-ivory px-6 py-8 text-left shadow-sm">
+          <div className="mt-8 rounded-(--radius-card) border border-line bg-ivory px-6 py-8 text-left shadow-sm">
             <p className="font-display text-lg font-bold text-ink">
               Accounts are not connected yet
             </p>
@@ -94,7 +94,7 @@ export default async function LoginPage({ searchParams }: PageProps) {
           </div>
         )}
 
-        <div className="mt-8 flex gap-3 rounded-[var(--radius-card)] border border-line bg-ivory p-4 text-left shadow-sm">
+        <div className="mt-8 flex gap-3 rounded-(--radius-card) border border-line bg-ivory p-4 text-left shadow-sm">
           <Icon name="shield" className="mt-0.5 size-5 shrink-0 text-ink" />
           <p className="text-sm leading-relaxed text-ink-soft">
             Sign-in uses a secure, encrypted flow handled by our payment and

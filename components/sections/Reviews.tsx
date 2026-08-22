@@ -31,7 +31,7 @@ export default function Reviews() {
 
       <div
         data-reveal
-        className="mt-14 grid gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line sm:grid-cols-[auto_1fr] lg:mt-16"
+        className="mt-14 grid gap-px overflow-hidden rounded-(--radius-card) border border-line bg-line sm:grid-cols-[auto_1fr] lg:mt-16"
       >
         <div className="flex flex-col items-center justify-center bg-parchment px-10 py-8">
           <span className="font-display text-[3.4rem] leading-none font-extrabold tracking-[-0.05em] text-ink tabular-nums">
@@ -79,7 +79,7 @@ export default function Reviews() {
             key={r.name}
             data-reveal
             data-reveal-delay={String((i % 3) + 1)}
-            className="group relative flex flex-col rounded-[var(--radius-card)] border border-line bg-linen p-7 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-ink/15"
+            className="group relative flex flex-col rounded-(--radius-card) border border-line bg-linen p-7 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-ink/15"
           >
             <span
               aria-hidden

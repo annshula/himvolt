@@ -46,7 +46,7 @@ export function ProfileForm({
   return (
     <form
       action={formAction}
-      className="rounded-[var(--radius-card)] border border-line bg-ivory p-6 shadow-sm"
+      className="rounded-(--radius-card) border border-line bg-ivory p-6 shadow-sm"
     >
       <h2 className="font-display text-lg font-bold text-ink uppercase">
         Your details

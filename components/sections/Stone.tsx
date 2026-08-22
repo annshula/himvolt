@@ -52,7 +52,7 @@ export default function Stone() {
           </p>
         </div>
 
-        <div className="space-y-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line">
+        <div className="space-y-px overflow-hidden rounded-(--radius-card) border border-line bg-line">
           {stone.paragraphs.map((p, i) => (
             <article
               key={p.title}

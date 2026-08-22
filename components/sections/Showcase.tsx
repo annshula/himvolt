@@ -73,7 +73,7 @@ export default function Showcase() {
 
       {/* ----------------------------- the points ---------------------------- */}
 
-      <div className="mt-20 grid gap-px overflow-hidden rounded-[var(--radius-card)] border border-line bg-line sm:grid-cols-3 lg:mt-28">
+      <div className="mt-20 grid gap-px overflow-hidden rounded-(--radius-card) border border-line bg-line sm:grid-cols-3 lg:mt-28">
         {showcase.points.map((p, i) => (
           <article
             key={p.title}
@@ -103,7 +103,7 @@ export default function Showcase() {
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
         <figure
           data-reveal
-          className="relative overflow-hidden rounded-[var(--radius-card)] border border-line"
+          className="relative overflow-hidden rounded-(--radius-card) border border-line"
         >
           <Image
             src={worn.src}
@@ -132,7 +132,7 @@ export default function Showcase() {
         <div
           data-reveal
           data-reveal-delay="1"
-          className="rounded-[var(--radius-card)] border border-line bg-linen p-7 lg:p-9"
+          className="rounded-(--radius-card) border border-line bg-linen p-7 lg:p-9"
         >
           <h3 className="text-[0.62rem] tracking-[0.28em] text-ink-mute uppercase">
             Specification

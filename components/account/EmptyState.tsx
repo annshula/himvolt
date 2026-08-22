@@ -18,7 +18,7 @@ export function EmptyState({
   children?: ReactNode;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-[var(--radius-card)] border border-line bg-ivory px-6 py-14 text-center shadow-sm">
+    <div className="relative overflow-hidden rounded-(--radius-card) border border-line bg-ivory px-6 py-14 text-center shadow-sm">
       <span className="relative mx-auto grid size-14 place-items-center rounded-full bg-parchment text-ink">
         <Icon name={icon} className="size-6" />
       </span>
