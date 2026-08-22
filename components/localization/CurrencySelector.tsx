@@ -225,7 +225,7 @@ export function CurrencySelector({
       </button>
 
       {open && !isDrawer && (
-        <div className="absolute top-full right-0 z-50 mt-2 w-80 overflow-hidden rounded-(--radius-card) border border-line bg-ivory shadow-[var(--shadow-lift)]">
+        <div className="absolute top-full right-0 z-50 mt-2 w-80 overflow-hidden rounded-(--radius-card) border border-line bg-ivory shadow-(--shadow-lift)">
           {list}
         </div>
       )}
@@ -245,7 +245,7 @@ export function CurrencySelector({
 
             <div
               ref={sheetRef}
-              className="absolute inset-x-0 bottom-0 flex max-h-[85svh] flex-col overflow-hidden rounded-t-[1.75rem] bg-ivory pb-[env(safe-area-inset-bottom)] shadow-[var(--shadow-lift)]"
+              className="absolute inset-x-0 bottom-0 flex max-h-[85svh] flex-col overflow-hidden rounded-t-[1.75rem] bg-ivory pb-[env(safe-area-inset-bottom)] shadow-(--shadow-lift)"
             >
               {/* Grab handle — the affordance that says "this can be
                   dismissed" before anyone reads a word. */}

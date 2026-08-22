@@ -1,61 +1,91 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   HimVolt design tokens — re-skinned to the crawlandcuddle theme.
-   Warm neutrals on a warm off-white canvas, with the reference's mossy
-   green accent (volt) standing in for the old pure-black brand colour.
-   Dark surfaces use warm near-blacks; text is dark on light surfaces.
+   HimVolt design tokens.
+   Structure — semantic surfaces, fluid clamp() type scale, elevation
+   levels, easing curves — is carried over from the crawlandcuddle
+   reference build, but the palette is HimVolt's own: strict black and
+   white. The bracelet is black tourmaline, so black is the one brand
+   accent and everything else is white, graphite and gray. The page
+   body is a near-white canvas; the hero, footer and drawer are near-
+   black so the stone floats in its own light.
    ------------------------------------------------------------------ */
 @theme {
-  /* ── Warm near-blacks (dark surfaces: footer, drawer, hero scrim) ── */
-  --color-void: #16130f;      /* reference footer */
-  --color-pitch: #1c1917;     /* reference primary */
-  --color-carbon: #16130f;
-  --color-graphite: #292524;  /* reference primary-hover */
-  --color-slate-line: #292524;
+  /* ── Near-blacks (dark surfaces: footer, drawer, hero scrim) ── */
+  --color-void: #050505;
+  --color-pitch: #0a0a0a;
+  --color-carbon: #101010;
+  --color-graphite: #171717;
+  --color-slate-line: #232323;
 
-  /* The brand accent — crawlandcuddle's mossy green (replaces pure black) */
-  --color-volt: #5b6a45;      /* reference accent */
-  --color-volt-hot: #495636;  /* reference accent-hover */
-  --color-volt-deep: #495636;
+  /* The brand accent — black, the bracelet's own colour */
+  --color-volt: #0a0a0a;
+  --color-volt-hot: #262626;
+  --color-volt-deep: #000000;
 
   /* Light text grays for dark surfaces (kept light so contrast holds) */
-  --color-steel: #d6d3d1;
-  --color-ash: #a8a29e;
-  --color-dim: #78716c;
-  --color-chalk: #faf9f7;     /* reference canvas — warm off-white */
+  --color-steel: #d6d6d6;
+  --color-ash: #a3a3a3;
+  --color-dim: #737373;
+  --color-chalk: #fafafa;
 
   /* Light surfaces */
-  --color-ivory: #ffffff;     /* reference surface */
-  --color-parchment: #f2f0ed; /* reference surface-sunken */
-  --color-linen: #ffffff;     /* reference surface */
-  --color-line: #e3dfda;      /* reference line — warm */
+  --color-ivory: #ffffff;
+  --color-parchment: #f2f2f2;
+  --color-linen: #ffffff;
+  --color-line: #e5e5e5;
 
   /* Text grays on the light canvas */
-  --color-ink: #0c0a09;       /* reference ink */
-  --color-ink-soft: #57534e;  /* reference ink-muted */
-  --color-ink-mute: #78716c;  /* reference ink-subtle */
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #525252;
+  --color-ink-mute: #737373;
 
-  /* Reference semantic tokens (crawlandcuddle palette) */
-  --color-canvas: #faf9f7;
+  /* Semantic tokens (crawlandcuddle's canvas/card/bold/dark pattern) */
+  --color-canvas: #fafafa;
   --color-surface: #ffffff;
-  --color-surface-sunken: #f2f0ed;
-  --color-primary: #1c1917;
-  --color-primary-hover: #292524;
+  --color-surface-sunken: #f2f2f2;
+  --color-primary: #0a0a0a;
+  --color-primary-hover: #262626;
   --color-on-primary: #ffffff;
-  --color-accent: #5b6a45;
-  --color-accent-hover: #495636;
-  --color-accent-soft: #eef1e6;
+  --color-accent: #0a0a0a;
+  --color-accent-hover: #262626;
+  --color-accent-soft: #f2f2f2;
   --color-on-accent: #ffffff;
-  --color-ink-muted: #57534e;
-  --color-ink-subtle: #78716c;
-  --color-line-strong: #d6d3d1;
-  --color-footer: #16130f;
-  --color-ring: #1c1917;
-  --color-overlay: rgb(12 10 9 / 0.55);
+  --color-ink-muted: #525252;
+  --color-ink-subtle: #737373;
+  --color-line-strong: #d6d6d6;
+  --color-footer: #050505;
+  --color-ring: #0a0a0a;
+  --color-overlay: rgb(10 10 10 / 0.55);
 
-  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  /* Font-pairing structure mirrors the reference (condensed display +
+     headline + wide-tracked label + body sans); see app/layout.tsx. */
+  --font-display: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  --font-mega: var(--font-bebas), Impact, ui-sans-serif, system-ui, sans-serif;
+  --font-label: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Fluid type scale — desktop targets clamped for mobile, same curve
+     shape as the reference build. Available for new sections; existing
+     components keep their own hand-tuned clamp() sizes. */
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.6;
+  --text-caption--letter-spacing: 0.14em;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.6;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-subheading: clamp(1rem, 0.6rem + 1.1vw, 1.5rem);
+  --text-subheading--line-height: 1.1;
+  --text-subheading--letter-spacing: 0.2em;
+  --text-heading-sm: clamp(1.6rem, 1.1rem + 1.6vw, 2rem);
+  --text-heading-sm--line-height: 0.95;
+  --text-heading: clamp(2rem, 1.1rem + 3.2vw, 2.875rem);
+  --text-heading--line-height: 1.05;
+  --text-heading-lg: clamp(2.5rem, 1.2rem + 4.4vw, 3.5rem);
+  --text-heading-lg--line-height: 1;
+  --text-display: clamp(3.25rem, 0.8rem + 8.4vw, 5.5rem);
+  --text-display--line-height: 0.88;
 
   --radius-card: 16px;
 
@@ -66,13 +96,13 @@
   /* Legacy name now resolves to the same curve the reference uses */
   --ease-out-expo: cubic-bezier(0.2, 0.8, 0.2, 1);
 
-  /* Reference shadows — softer and warmer than the old heavy lift */
-  --shadow-e1: 0 1px 2px rgb(28 25 23 / 0.05), 0 1px 3px rgb(28 25 23 / 0.04);
-  --shadow-e2: 0 2px 4px rgb(28 25 23 / 0.05), 0 6px 16px -6px rgb(28 25 23 / 0.09);
-  --shadow-e3: 0 4px 8px rgb(28 25 23 / 0.05), 0 16px 40px -12px rgb(28 25 23 / 0.16);
-  --shadow-e4: 0 8px 16px rgb(28 25 23 / 0.06), 0 32px 64px -16px rgb(28 25 23 / 0.24);
-  --shadow-lift: 0 8px 16px rgb(28 25 23 / 0.06), 0 32px 64px -16px rgb(28 25 23 / 0.24);
-  --shadow-volt: 0 8px 16px rgb(28 25 23 / 0.06), 0 32px 64px -16px rgb(28 25 23 / 0.24);
+  /* Reference shadows, re-tinted to a neutral black instead of warm gray */
+  --shadow-e1: 0 1px 2px rgb(10 10 10 / 0.05), 0 1px 3px rgb(10 10 10 / 0.04);
+  --shadow-e2: 0 2px 4px rgb(10 10 10 / 0.05), 0 6px 16px -6px rgb(10 10 10 / 0.09);
+  --shadow-e3: 0 4px 8px rgb(10 10 10 / 0.05), 0 16px 40px -12px rgb(10 10 10 / 0.16);
+  --shadow-e4: 0 8px 16px rgb(10 10 10 / 0.06), 0 32px 64px -16px rgb(10 10 10 / 0.24);
+  --shadow-lift: 0 8px 16px rgb(10 10 10 / 0.06), 0 32px 64px -16px rgb(10 10 10 / 0.24);
+  --shadow-volt: 0 8px 16px rgb(10 10 10 / 0.06), 0 32px 64px -16px rgb(10 10 10 / 0.24);
 }
 
 /* ---------------------------------- base ---------------------------------- */
@@ -122,9 +152,24 @@ body {
   letter-spacing: -0.015em;
 }
 
-/* Base headings follow the crawlandcuddle treatment: Sora at a light weight
-   with gentle tracking and balanced wrapping. Per-element font-* utilities
-   still override these. */
+/* Bebas Neue is a caps-only face — reserved for the single largest hero
+   statement on the page, mirroring the reference's "mega" role. */
+.font-mega {
+  font-family: var(--font-mega);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* Wide-tracked geometric sans for eyebrows, nav links and UI chrome —
+   the reference's "label" role. */
+.font-label {
+  font-family: var(--font-label);
+  letter-spacing: 0.08em;
+}
+
+/* Base headings follow the crawlandcuddle treatment: Oswald at a light
+   weight with gentle tracking and balanced wrapping. Per-element font-*
+   utilities still override these. */
 h1,
 h2,
 h3,

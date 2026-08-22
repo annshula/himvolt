@@ -64,7 +64,7 @@ export default function Button({
   rel?: string;
 }) {
   const shell =
-    "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full font-display font-semibold uppercase leading-none tracking-[0.14em] whitespace-nowrap transition-all duration-400 ease-[var(--ease-out-expo)] will-change-transform";
+    "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full font-display font-semibold uppercase leading-none tracking-[0.14em] whitespace-nowrap transition-all duration-400 ease-(--ease-out-expo) will-change-transform";
 
   const styles: Record<Variant, string> = {
     volt: "bg-ink text-white shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.7)] active:translate-y-0",
@@ -91,13 +91,13 @@ export default function Button({
           aria-hidden
           className={`pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_38%,${
             variant === "invert" ? "rgba(0,0,0,0.18)" : "rgba(255,255,255,0.42)"
-          }_50%,transparent_62%)] transition-transform duration-[900ms] ease-[var(--ease-out-expo)] group-hover:translate-x-full`}
+          }_50%,transparent_62%)] transition-transform duration-900 ease-(--ease-out-expo) group-hover:translate-x-full`}
         />
       )}
       <span className="relative">{children}</span>
       {showArrow && (
         <ArrowIcon
-          className={`absolute top-1/2 h-4 w-4 -translate-y-1/2 ${iconPos[size]} transition-transform duration-400 ease-[var(--ease-out-expo)] group-hover:translate-x-1`}
+          className={`absolute top-1/2 h-4 w-4 -translate-y-1/2 ${iconPos[size]} transition-transform duration-400 ease-(--ease-out-expo) group-hover:translate-x-1`}
         />
       )}
     </>

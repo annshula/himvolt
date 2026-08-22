@@ -16,7 +16,7 @@ import { shopifyCheckout } from "@/lib/shopify-checkout";
  * redirect — so the two entry points cannot drift apart.
  */
 export function CheckoutSummary() {
-  const { lines, setQty, remove, clear } = useCart();
+  const { lines, setQty, remove } = useCart();
   const {
     currencyCode,
     unitAmountFor,
@@ -35,8 +35,9 @@ export function CheckoutSummary() {
       lines.map((l) => ({ variantId: l.variantId, qty: l.qty })),
     );
     if (result.ok) {
-      // The bag is now committed to Shopify's checkout — empty the local cart.
-      clear();
+      // The bag is committed to Shopify's checkout. It is left untouched here
+      // and cleared only after a successful payment, when Shopify redirects
+      // back to /checkout/confirmation (so an abandoned checkout keeps its bag).
       window.location.href = result.checkoutUrl;
       return;
     }
@@ -149,7 +150,7 @@ export function CheckoutSummary() {
         ))}
       </ul>
 
-      <aside className="h-fit rounded-(--radius-card) border border-line bg-ivory p-7 shadow-[var(--shadow-lift)] lg:sticky lg:top-24">
+      <aside className="h-fit rounded-(--radius-card) border border-line bg-ivory p-7 shadow-(--shadow-lift) lg:sticky lg:top-24">
         <h2 className="font-display text-lg font-bold text-ink uppercase">
           Order summary
         </h2>

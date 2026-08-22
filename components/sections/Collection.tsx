@@ -106,11 +106,11 @@ export default function Collection({ product }: { product: Product }) {
         <button
           type="button"
           onClick={() => add(selected.id, 1)}
-          className="group relative inline-flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-b from-volt-hot to-volt px-9 font-display text-[0.92rem] font-semibold tracking-[0.14em] whitespace-nowrap text-white uppercase shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)] transition-all duration-400 ease-[var(--ease-out-expo)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.7)] sm:w-auto"
+          className="group relative inline-flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-gradient-to-b from-volt-hot to-volt px-9 font-display text-[0.92rem] font-semibold tracking-[0.14em] whitespace-nowrap text-white uppercase shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)] transition-all duration-400 ease-(--ease-out-expo) hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.7)] sm:w-auto"
         >
           <span
             aria-hidden
-            className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_38%,rgba(255,255,255,0.42)_50%,transparent_62%)] transition-transform duration-[900ms] ease-[var(--ease-out-expo)] group-hover:translate-x-full"
+            className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_38%,rgba(255,255,255,0.42)_50%,transparent_62%)] transition-transform duration-[900ms] ease-(--ease-out-expo) group-hover:translate-x-full"
           />
           <span className="relative">Add to bag</span>
           <ArrowIcon className="relative h-4 w-4 transition-transform duration-400 group-hover:translate-x-1" />
@@ -171,7 +171,7 @@ function VariantCard({
       aria-pressed={selected}
       data-reveal
       data-reveal-delay={String(index + 1)}
-      className={`group relative overflow-hidden rounded-(--radius-card) border p-6 text-left transition-all duration-500 ease-[var(--ease-out-expo)] lg:p-7 ${
+      className={`group relative overflow-hidden rounded-(--radius-card) border p-6 text-left transition-all duration-500 ease-(--ease-out-expo) lg:p-7 ${
         selected
           ? "border-volt/55 bg-linen shadow-[0_0_60px_-24px_rgba(0,0,0,0.4)]"
           : "border-line bg-linen/60 hover:border-ink/15 hover:bg-linen"

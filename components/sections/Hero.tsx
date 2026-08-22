@@ -48,7 +48,7 @@ export default function Hero() {
           <h1
             data-reveal
             data-reveal-delay="1"
-            className="font-display text-[clamp(2.6rem,6.4vw,4.6rem)] leading-[0.92] font-extrabold tracking-[-0.045em] text-chalk"
+            className="font-mega text-[clamp(2.9rem,7.2vw,5.2rem)] leading-[0.88] text-chalk"
           >
             {hero.headline[0]}
             <br />

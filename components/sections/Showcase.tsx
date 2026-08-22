@@ -59,14 +59,14 @@ export default function Showcase() {
         >
           <span
             aria-hidden
-            className="h-px flex-1 bg-gradient-to-r from-transparent to-line"
+            className="h-px flex-1 bg-linear-to-r from-transparent to-line"
           />
           <span className="text-[0.62rem] tracking-[0.28em] text-ink-mute uppercase">
             20 cm relaxed · fits 16–21 cm
           </span>
           <span
             aria-hidden
-            className="h-px flex-1 bg-gradient-to-l from-transparent to-line"
+            className="h-px flex-1 bg-linear-to-l from-transparent to-line"
           />
         </div>
       </div>
@@ -92,7 +92,7 @@ export default function Showcase() {
             </p>
             <span
               aria-hidden
-              className="absolute inset-x-0 bottom-0 h-px w-0 bg-gradient-to-r from-volt to-transparent transition-all duration-700 ease-[var(--ease-out-expo)] group-hover:w-full"
+              className="absolute inset-x-0 bottom-0 h-px w-0 bg-gradient-to-r from-volt to-transparent transition-all duration-700 ease-(--ease-out-expo) group-hover:w-full"
             />
           </article>
         ))}

@@ -192,7 +192,7 @@ export function OrderItemStatus({
 
         <Icon
           name="arrow-right"
-          className="hidden size-4 shrink-0 text-ink-mute transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:translate-x-1 group-hover:text-ink sm:block"
+          className="hidden size-4 shrink-0 text-ink-mute transition-transform duration-500 ease-(--ease-out-expo) group-hover:translate-x-1 group-hover:text-ink sm:block"
         />
       </span>
     </>

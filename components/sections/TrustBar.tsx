@@ -19,7 +19,7 @@ export default function TrustBar() {
       aria-label="Why people buy from us"
       className="relative z-10 border-y border-line bg-parchment backdrop-blur-sm"
     >
-      <div className="mx-auto grid max-w-[1240px] grid-cols-2 divide-line px-5 sm:px-8 lg:grid-cols-4 lg:divide-x">
+      <div className="mx-auto grid max-w-310 grid-cols-2 divide-line px-5 sm:px-8 lg:grid-cols-4 lg:divide-x">
         <Item
           icon={<StarIcon />}
           headline={
@@ -80,9 +80,7 @@ function Item({
       data-reveal
       className="flex items-start gap-3.5 px-1 py-6 sm:px-5 lg:justify-center lg:py-7"
     >
-      <span className="mt-0.5 h-[18px] w-[18px] shrink-0 text-ink-mute">
-        {icon}
-      </span>
+      <span className="mt-0.5 h-4.5 w-4.5 shrink-0 text-ink-mute">{icon}</span>
       <div className="min-w-0">
         <div className="flex items-center gap-2.5">
           <span className="font-display text-[1.15rem] leading-none font-bold tracking-[-0.02em] text-ink tabular-nums">

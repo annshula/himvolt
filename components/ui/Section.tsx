@@ -4,7 +4,7 @@ export function Eyebrow({ children }: { children: ReactNode }) {
   return (
     <p
       data-reveal
-      className="mb-5 flex items-center gap-3 text-[0.63rem] font-medium tracking-[0.28em] text-volt uppercase"
+      className="font-label mb-5 flex items-center gap-3 text-[0.63rem] font-medium tracking-[0.28em] text-volt uppercase"
     >
       <span aria-hidden className="h-px w-7 bg-volt/45" />
       {children}
@@ -28,7 +28,7 @@ export function SectionHeading({
   const centered = align === "center";
   return (
     <header
-      className={`${centered ? "mx-auto max-w-[46rem] text-center" : "max-w-[42rem]"} ${className}`}
+      className={`${centered ? "mx-auto max-w-184 text-center" : "max-w-2xl"} ${className}`}
     >
       <div className={centered ? "flex justify-center" : ""}>
         <Eyebrow>{eyebrow}</Eyebrow>
@@ -67,7 +67,7 @@ export function Section({
       id={id}
       className={`relative px-5 py-24 sm:px-8 lg:py-32 ${className}`}
     >
-      <div className="mx-auto w-full max-w-[1240px]">{children}</div>
+      <div className="mx-auto w-full max-w-310">{children}</div>
     </section>
   );
 }

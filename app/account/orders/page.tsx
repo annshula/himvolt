@@ -68,7 +68,7 @@ export default async function OrdersPage({ searchParams }: PageProps) {
               >
                 <Icon
                   name="arrow-right"
-                  className="size-3.5 rotate-180 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover/link:-translate-x-1"
+                  className="size-3.5 rotate-180 transition-transform duration-500 ease-(--ease-out-expo) group-hover/link:-translate-x-1"
                 />
                 Most recent
               </Link>
@@ -83,7 +83,7 @@ export default async function OrdersPage({ searchParams }: PageProps) {
                 Older orders
                 <Icon
                   name="arrow-right"
-                  className="size-3.5 transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover/link:translate-x-1"
+                  className="size-3.5 transition-transform duration-500 ease-(--ease-out-expo) group-hover/link:translate-x-1"
                 />
               </Link>
             ) : null}

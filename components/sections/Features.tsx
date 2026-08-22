@@ -14,7 +14,7 @@ export default function Features() {
               key={f.label}
               data-reveal
               data-reveal-delay={String(i + 1)}
-              className="group relative overflow-hidden rounded-(--radius-card) border border-line bg-linen p-7 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-ink/15 lg:p-8"
+              className="group relative overflow-hidden rounded-(--radius-card) border border-line bg-linen p-7 transition-all duration-500 ease-(--ease-out-expo) hover:-translate-y-1 hover:border-ink/15 lg:p-8"
             >
               <span
                 aria-hidden

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { getVariantById } from "@/lib/catalog";
-import { isStorefrontConfigured } from "@/lib/shopify/config";
+import { isStorefrontConfigured, shopifyConfig } from "@/lib/shopify/config";
 import { createCart } from "@/lib/shopify/storefront";
 
 export const dynamic = "force-dynamic";
@@ -57,9 +57,14 @@ export async function POST(request: NextRequest) {
 
   try {
     const cart = await createCart(cartLines);
+    // After a successful payment Shopify redirects the shopper back here,
+    // where the local bag is cleared (see /checkout/confirmation).
+    const returnTo = `${shopifyConfig().siteUrl}/checkout/confirmation`;
+    const checkoutUrl = new URL(cart.checkoutUrl);
+    checkoutUrl.searchParams.set("return_to", returnTo);
     return NextResponse.json({
       ok: true,
-      checkoutUrl: cart.checkoutUrl,
+      checkoutUrl: checkoutUrl.toString(),
       totalQuantity: cart.totalQuantity,
     });
   } catch (error) {

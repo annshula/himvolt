@@ -81,12 +81,12 @@ export default function Nav() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-500 ease-[var(--ease-out-expo)] ${
+        className={`sticky top-0 z-50 transition-all duration-500 ease-(--ease-out-expo) ${
           solid ? "bg-canvas/85 backdrop-blur-xl" : "bg-transparent"
         }`}
         style={{ height: "var(--nav-h)" }}
       >
-        <nav className="mx-auto flex h-full max-w-[1240px] items-center justify-between gap-4 px-5 sm:gap-6 sm:px-8">
+        <nav className="mx-auto flex h-full max-w-310 items-center justify-between gap-4 px-5 sm:gap-6 sm:px-8">
           <Logo className={solid ? "text-ink" : "text-chalk"} />
 
           <ul className="hidden items-center gap-8 md:flex">
@@ -94,7 +94,7 @@ export default function Nav() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className={`group relative text-[0.78rem] font-medium tracking-[0.02em] transition-colors duration-300 ${
+                  className={`font-label group relative text-[0.78rem] font-medium tracking-[0.04em] transition-colors duration-300 ${
                     solid
                       ? "text-ink-soft hover:text-ink"
                       : "text-chalk/90 hover:text-white"
@@ -102,7 +102,7 @@ export default function Nav() {
                 >
                   {l.label}
                   <span
-                    className={`absolute -bottom-1.5 left-0 h-px w-0 transition-all duration-400 ease-[var(--ease-out-expo)] group-hover:w-full ${
+                    className={`absolute -bottom-1.5 left-0 h-px w-0 transition-all duration-400 ease-(--ease-out-expo) group-hover:w-full ${
                       solid ? "bg-ink" : "bg-chalk"
                     }`}
                   />
@@ -146,7 +146,7 @@ export default function Nav() {
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
-                className="size-[1.625rem]"
+                className="size-6.5"
                 aria-hidden
               >
                 <path
@@ -163,7 +163,7 @@ export default function Nav() {
         {/* Reading progress. Scroll-driven where supported, invisible otherwise. */}
         <div
           aria-hidden
-          className={`scroll-progress absolute inset-x-0 bottom-0 h-px origin-left bg-gradient-to-r ${
+          className={`scroll-progress absolute inset-x-0 bottom-0 h-px origin-left bg-linear-to-r ${
             solid
               ? "from-ink via-ink to-ink"
               : "from-chalk/70 via-chalk to-chalk/70"
@@ -174,7 +174,7 @@ export default function Nav() {
       {/* ── Mobile drawer ─────────────────────────────────────────────── */}
       <div
         className={cn(
-          "fixed inset-0 z-[80] md:hidden",
+          "fixed inset-0 z-80 md:hidden",
           !menuOpen && "pointer-events-none",
         )}
         inert={!menuOpen}
@@ -192,7 +192,7 @@ export default function Nav() {
           aria-modal="true"
           aria-label="Menu"
           className={cn(
-            "absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-ink px-6 pt-5 pb-8 text-chalk shadow-[var(--shadow-lift)] transition-transform duration-500 ease-[var(--ease-out-expo)]",
+            "absolute inset-y-0 right-0 flex w-full max-w-sm flex-col bg-ink px-6 pt-5 pb-8 text-chalk shadow-(--shadow-lift) transition-transform duration-500 ease-(--ease-out-expo)",
             menuOpen ? "translate-x-0" : "translate-x-full",
           )}
         >

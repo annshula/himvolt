@@ -87,7 +87,7 @@ export function SignOutDialog({
           aria-describedby="signout-body"
           tabIndex={-1}
           className={cn(
-            "relative w-full max-w-sm overflow-hidden rounded-(--radius-card) bg-ivory shadow-[var(--shadow-lift)] transition-all duration-300 ease-[var(--ease-out-expo)]",
+            "relative w-full max-w-sm overflow-hidden rounded-(--radius-card) bg-ivory shadow-(--shadow-lift) transition-all duration-300 ease-(--ease-out-expo)",
             open
               ? "translate-y-0 scale-100 opacity-100"
               : "translate-y-4 scale-95 opacity-0",
@@ -95,7 +95,7 @@ export function SignOutDialog({
         >
           {/* Black header band with the logout glyph on the seam. */}
           <div className="relative h-20 bg-ink">
-            <span className="absolute bottom-0 left-1/2 z-10 grid size-16 -translate-x-1/2 translate-y-1/2 place-items-center rounded-full border-4 border-ivory bg-ink text-white shadow-[var(--shadow-lift)]">
+            <span className="absolute bottom-0 left-1/2 z-10 grid size-16 -translate-x-1/2 translate-y-1/2 place-items-center rounded-full border-4 border-ivory bg-ink text-white shadow-(--shadow-lift)">
               <Icon name="logout" className="size-6" strokeWidth={1.8} />
             </span>
           </div>

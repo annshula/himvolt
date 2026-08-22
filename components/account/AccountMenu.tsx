@@ -194,7 +194,7 @@ export function AccountMenu({
         <div
           role="menu"
           aria-label="Account menu"
-          className="absolute top-full right-0 z-50 mt-2 w-56 overflow-hidden rounded-card border border-line bg-ivory p-1.5 shadow-[var(--shadow-lift)]"
+          className="absolute top-full right-0 z-50 mt-2 w-56 overflow-hidden rounded-card border border-line bg-ivory p-1.5 shadow-(--shadow-lift)"
         >
           <div className="px-3 pt-2 pb-1.5">
             <p className="text-[0.62rem] font-semibold tracking-[0.24em] text-ink uppercase">

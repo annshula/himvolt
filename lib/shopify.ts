@@ -9,6 +9,7 @@
  *   SHOPIFY_STOREFRONT_TOKEN=shpat_xxx
  */
 
+import { syncedProduct } from "./catalog";
 import { product as fallback, type Product, type Variant } from "./product";
 
 const DOMAIN = process.env.SHOPIFY_STORE_DOMAIN;
@@ -118,49 +119,67 @@ type ShopifyProduct = {
 };
 
 /**
- * Returns the live Shopify product when credentials exist, otherwise the local
- * model. Always resolves — the landing page must never fail on an API blip.
+ * Returns the live Shopify product when credentials exist, otherwise the
+ * synced catalog. Always resolves — the landing page must never fail on an
+ * API blip.
+ *
+ * The synced catalog (data/product.json) is the ground truth for variant ids:
+ * every variant handed to the cart/checkout must be a real Shopify
+ * `gid://shopify/ProductVariant/…`, or the drawer and Storefront checkout
+ * cannot resolve it. The live Storefront query only refreshes prices,
+ * availability and imagery on top of those ids.
  */
-export async function getProduct(handle = fallback.handle): Promise<Product> {
+export async function getProduct(
+  handle: string = syncedProduct.handle,
+): Promise<Product> {
   const data = await storefront<ShopifyProduct>(PRODUCT_QUERY, { handle });
   const live = data?.product;
-  if (!live) return fallback;
+  const liveVariants = live?.variants?.nodes ?? [];
+  const currency = syncedProduct.currencyCode ?? "USD";
 
-  const variants: Variant[] = live.variants.nodes.map((v, i) => ({
-    id: v.id,
-    sku: v.sku || fallback.variants[i]?.sku || "",
-    // Keep the local presentation title ("One band") over the raw Shopify
-    // option title ("Square Bracelet / 1PCS") — ids and prices stay live.
-    title: fallback.variants[i]?.title ?? v.title,
-    subtitle: fallback.variants[i]?.subtitle ?? "",
-    quantity: fallback.variants[i]?.quantity ?? 1,
-    price: {
-      amount: Number(v.price.amount),
-      currencyCode: v.price.currencyCode,
-    },
-    compareAtPrice: v.compareAtPrice
-      ? {
-          amount: Number(v.compareAtPrice.amount),
-          currencyCode: v.compareAtPrice.currencyCode,
-        }
-      : undefined,
-    badge: fallback.variants[i]?.badge,
-    image:
-      v.image?.url ?? fallback.variants[i]?.image ?? fallback.gallery[0].src,
-    availableForSale: v.availableForSale,
-    weightGrams: v.weight ?? fallback.variants[i]?.weightGrams ?? 40,
-  }));
+  const variants: Variant[] = syncedProduct.variants.map((synced, i) => {
+    const pres = fallback.variants[i];
+    const liveV = liveVariants[i];
+    return {
+      // Real Shopify gid — the cart + checkout resolve against data/product.json.
+      id: synced.id,
+      sku: pres?.sku ?? synced.title,
+      // Keep the local presentation title ("One band") over the raw Shopify
+      // option title ("Square Bracelet / 1PCS") — ids stay real.
+      title: pres?.title ?? synced.title,
+      subtitle: pres?.subtitle ?? "",
+      quantity: pres?.quantity ?? 1,
+      price: liveV
+        ? {
+            amount: Number(liveV.price.amount),
+            currencyCode: liveV.price.currencyCode,
+          }
+        : { amount: synced.price, currencyCode: currency },
+      compareAtPrice: liveV?.compareAtPrice
+        ? {
+            amount: Number(liveV.compareAtPrice.amount),
+            currencyCode: liveV.compareAtPrice.currencyCode,
+          }
+        : synced.compareAtPrice != null
+          ? { amount: synced.compareAtPrice, currencyCode: currency }
+          : undefined,
+      badge: pres?.badge,
+      image: liveV?.image?.url ?? pres?.image ?? fallback.gallery[0]?.src ?? "",
+      availableForSale: liveV?.availableForSale ?? synced.availableForSale,
+      weightGrams: liveV?.weight ?? pres?.weightGrams ?? 40,
+    };
+  });
 
   return {
     ...fallback,
-    id: live.id,
-    handle: live.handle,
-    title: live.title,
-    descriptionHtml: live.descriptionHtml,
-    gallery: live.images.nodes.length
+    id: live?.id ?? syncedProduct.id,
+    handle: live?.handle ?? syncedProduct.handle,
+    title: live?.title ?? syncedProduct.title,
+    descriptionHtml: live?.descriptionHtml ?? fallback.descriptionHtml,
+    gallery: live?.images?.nodes?.length
       ? live.images.nodes.map((n) => ({
           src: n.url,
-          alt: n.altText ?? live.title,
+          alt: n.altText ?? live.title ?? fallback.title,
           width: n.width,
           height: n.height,
         }))

@@ -62,7 +62,7 @@ export function CartDrawer() {
         aria-modal="true"
         aria-label="Shopping bag"
         className={cn(
-          "absolute inset-y-0 right-0 flex w-full max-w-md flex-col bg-ivory shadow-[var(--shadow-lift)] transition-transform duration-500 ease-[var(--ease-out-expo)]",
+          "absolute inset-y-0 right-0 flex w-full max-w-md flex-col bg-ivory shadow-(--shadow-lift) transition-transform duration-500 ease-(--ease-out-expo)",
           isOpen ? "translate-x-0" : "translate-x-full",
         )}
       >

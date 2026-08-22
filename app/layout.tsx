@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Inter } from "next/font/google";
+import { Bebas_Neue, Inter, Jost, Oswald } from "next/font/google";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/components/providers/CartProvider";
@@ -9,14 +9,36 @@ import { site } from "@/lib/site";
 import "./globals.css";
 
 // Self-hosted at build time by next/font — no third-party request, no FOUT.
-// Same weights as the crawlandcuddle reference build: Sora 400–700 for
-// display, Inter 300–700 for body — so the whole page renders the same type.
-const sora = Sora({
+// Font-pairing structure mirrors the crawlandcuddle reference build (a
+// condensed display face + a bold headline face + a wide-tracked label
+// face + a body sans), re-cast in a masculine register for a black
+// tourmaline bracelet instead of the reference's nursery voice:
+//   Bebas Neue -> font-mega     (the single largest hero statement)
+//   Oswald     -> font-display  (headings, buttons, uppercase chrome)
+//   Jost       -> font-label    (wide-tracked eyebrows + nav)
+//   Inter      -> font-sans     (body copy, unchanged)
+const bebasNeue = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bebas",
+  display: "swap",
+  preload: false,
+});
+
+const oswald = Oswald({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-sora",
+  variable: "--font-oswald",
   display: "swap",
   preload: true,
+});
+
+const jost = Jost({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-jost",
+  display: "swap",
+  preload: false,
 });
 
 const inter = Inter({
@@ -105,7 +127,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${inter.variable}`}
+      className={`${bebasNeue.variable} ${oswald.variable} ${jost.variable} ${inter.variable}`}
       suppressHydrationWarning
     >
       <head>

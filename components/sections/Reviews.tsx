@@ -79,7 +79,7 @@ export default function Reviews() {
             key={r.name}
             data-reveal
             data-reveal-delay={String((i % 3) + 1)}
-            className="group relative flex flex-col rounded-(--radius-card) border border-line bg-linen p-7 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-ink/15"
+            className="group relative flex flex-col rounded-(--radius-card) border border-line bg-linen p-7 transition-all duration-500 ease-(--ease-out-expo) hover:-translate-y-1 hover:border-ink/15"
           >
             <span
               aria-hidden

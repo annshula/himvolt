@@ -17,7 +17,7 @@ export function OrderRow({ order }: { order: OrderSummary }) {
   return (
     <Link
       href={`/account/orders/${encodeURIComponent(order.id)}`}
-      className="group flex items-center justify-between gap-3 rounded-(--radius-card) border border-line bg-ivory px-4 py-4 shadow-sm transition-[border-color,box-shadow] duration-500 ease-[var(--ease-out-expo)] hover:border-ink/40 hover:shadow-[var(--shadow-lift)] sm:gap-4 sm:px-5"
+      className="group flex items-center justify-between gap-3 rounded-(--radius-card) border border-line bg-ivory px-4 py-4 shadow-sm transition-[border-color,box-shadow] duration-500 ease-(--ease-out-expo) hover:border-ink/40 hover:shadow-(--shadow-lift) sm:gap-4 sm:px-5"
     >
       <div className="flex min-w-0 items-center gap-3 sm:gap-4">
         {/* The stacked previews are the first thing to go on a narrow phone —

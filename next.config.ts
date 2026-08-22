@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
     deviceSizes: [420, 640, 828, 1080, 1280, 1920],
     imageSizes: [64, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 365,
+    // Live Shopify product art is served from these hosts (same as the
+    // reference build).
+    remotePatterns: [
+      { protocol: "https", hostname: "cdn.shopify.com" },
+      { protocol: "https", hostname: "*.myshopify.com" },
+    ],
   },
 
   experimental: {
@@ -20,7 +26,8 @@ const nextConfig: NextConfig = {
   },
 
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
+    removeConsole:
+      process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
   },
 
   async headers() {
@@ -35,13 +42,22 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
           },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
+          {
+            key: "Permissions-Policy",
+            value:
+              "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+          },
         ],
       },
       {
         // Fingerprinted product art never changes.
         source: "/product/:path*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
     ];
   },

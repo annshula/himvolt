@@ -12,7 +12,7 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-parchment px-5 pt-16 pb-10 sm:px-8">
-      <div className="mx-auto max-w-[1240px]">
+      <div className="mx-auto max-w-310">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
           <div>
             <div className="flex items-center gap-2.5">
