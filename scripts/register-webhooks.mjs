@@ -1,8 +1,10 @@
 /**
+ * `node scripts/register-webhooks.mjs [--website=https://your-site.com]`
  * `node scripts/register-webhooks.mjs [--url=https://your-site.com]`
  *
- * Lists existing webhook subscriptions and creates any that are missing.
- * Idempotent — an already-registered topic is left alone.
+ * Lists existing webhook subscriptions, then prunes stale ones and creates
+ * any missing required topics. Idempotent — an already-registered topic is
+ * left alone.
  *
  * Ported from the crawlandcuddle reference (scripts/register-webhooks.ts),
  * scoped to the order purchase event: `ORDERS_PAID` is the "a purchase really
@@ -182,10 +184,21 @@ const WEBHOOK_SUBSCRIPTION_DELETE_MUTATION = /* GraphQL */ `
 const REQUIRED_TOPICS = ["ORDERS_PAID"];
 
 async function main() {
-  const siteUrl = (
+  // Site URL comes from `--website https://…` (space or `=`), `--url=…`, or
+  // NEXT_PUBLIC_SITE_URL — in that order.
+  const urlEquals =
     process.argv
       .find((arg) => arg.startsWith("--url="))
       ?.slice("--url=".length) ??
+    process.argv
+      .find((arg) => arg.startsWith("--website="))
+      ?.slice("--website=".length);
+  const websiteIndex = process.argv.indexOf("--website");
+  const websiteValue =
+    websiteIndex !== -1 ? process.argv[websiteIndex + 1] : null;
+  const siteUrl = (
+    urlEquals ??
+    websiteValue ??
     process.env.NEXT_PUBLIC_SITE_URL ??
     ""
   ).replace(/\/+$/, "");
@@ -193,6 +206,7 @@ async function main() {
   if (!siteUrl) {
     console.error(
       "✖ No site URL. Pass one or set NEXT_PUBLIC_SITE_URL:\n" +
+        "  npm run shopify:webhooks -- --website https://your-site.com\n" +
         "  npm run shopify:webhooks -- --url=https://your-site.com",
     );
     process.exit(1);
@@ -200,7 +214,7 @@ async function main() {
   if (siteUrl.startsWith("http://localhost")) {
     console.warn(
       "⚠ Shopify cannot deliver webhooks to localhost. Pass a public URL:\n" +
-        "  npm run shopify:webhooks -- --url=https://your-tunnel.example.com",
+        "  npm run shopify:webhooks -- --website https://your-tunnel.example.com",
     );
   }
 
@@ -210,8 +224,16 @@ async function main() {
   const existing = await adminRequest(WEBHOOK_SUBSCRIPTIONS_QUERY);
   const allNodes = existing?.webhookSubscriptions?.nodes ?? [];
 
+  // List everything currently registered so you can see what's there.
+  if (allNodes.length === 0) {
+    console.log("  (no webhooks registered)");
+  } else {
+    for (const node of allNodes) {
+      console.log(`  • ${node.topic}  →  ${node.endpoint?.callbackUrl ?? "?"}`);
+    }
+  }
   console.log(
-    `  ${allNodes.length} subscription(s) currently registered on this store`,
+    `  ${allNodes.length} subscription(s) currently registered on this store\n`,
   );
 
   // Prune stale subscriptions for our topics — anything pointing at a
