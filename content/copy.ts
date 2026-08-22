@@ -150,7 +150,7 @@ export const faqs = [
   },
   {
     q: "What if I do not like it?",
-    a: "Send it back within 60 days for a full refund and we cover the return label. You do not need to explain yourself and you do not need the original packaging. If a band arrives damaged, send a photo instead — we will ship a replacement the same day and you keep the first one.",
+    a: "Send it back within 30 days for a full refund and we cover the return label. You do not need to explain yourself and you do not need the original packaging. If a band arrives damaged, send a photo instead — we will ship a replacement the same day and you keep the first one.",
   },
   {
     q: "Can I wear it in the shower or the gym?",
@@ -165,7 +165,7 @@ export const faqs = [
 export const finalCta = {
   eyebrow: "Lite your life",
   headline: "Put something solid on.",
-  sub: "Free tracked shipping worldwide. 60 days to change your mind. Dispatched within 24 hours.",
+  sub: "Free tracked shipping worldwide. 30 days to change your mind. Dispatched within 24 hours.",
   cta: "Shop the collection",
 };
 

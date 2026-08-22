@@ -56,7 +56,7 @@ export default function TrustBar() {
 
         <Item
           icon={<ReturnIcon />}
-          headline={<>60 days</>}
+          headline={<>30 days</>}
           label={promise.returnsDetail}
         />
       </div>
