@@ -49,7 +49,7 @@ export const product: Product = {
   gallery: [
     { src: "/product/cutout/detail-3.png", alt: "The Tourmaline Band laid flat, showing all sixteen square-cut stones", width: 1383, height: 914 },
     { src: "/product/cutout/single.png", alt: "The Tourmaline Band at an angle, showing the polished square faces", width: 865, height: 1342 },
-    { src: "/product/worn.jpg", alt: "The Tourmaline Band worn on a man's wrist against black rock", width: 675, height: 447 },
+    { src: "/media/wear.jpg", alt: "The Tourmaline Band worn on a man's wrist", width: 2000, height: 1116 },
     { src: "/product/cutout/pair.png", alt: "Two Tourmaline Bands side by side", width: 1529, height: 1648 },
   ],
 

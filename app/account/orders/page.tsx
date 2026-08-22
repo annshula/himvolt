@@ -45,7 +45,7 @@ export default async function OrdersPage({ searchParams }: PageProps) {
             title="Nothing here yet"
             body="Your orders will appear here as soon as you place one."
           >
-            <Button href="#collection" arrow className="w-full sm:w-auto">
+            <Button href="/products/the-tourmaline-band" arrow className="w-full sm:w-auto">
               Shop the collection
             </Button>
           </EmptyState>

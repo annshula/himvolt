@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/lib/site";
 
 /**
@@ -34,13 +35,13 @@ export function Wordmark({ className = "" }: { className?: string }) {
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <a
-      href="#top"
+    <Link
+      href="/"
       aria-label={`${site.name} — home`}
       className={`group flex items-center gap-2.5 ${className}`}
     >
-      <LogoMark className="h-7 w-7 transition-transform duration-500 ease-[var(--ease-spring)] group-hover:scale-110" />
+      <LogoMark className="h-7 w-7 transition-transform duration-500 ease-spring group-hover:scale-110" />
       <Wordmark />
-    </a>
+    </Link>
   );
 }

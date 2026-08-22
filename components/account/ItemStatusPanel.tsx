@@ -59,7 +59,7 @@ export function ItemStatusPanel({
             <div
               aria-hidden="true"
               onClick={() => setOpen(false)}
-              className="absolute inset-0 bg-ink/45 backdrop-blur-[3px]"
+              className="absolute inset-0 bg-overlay backdrop-blur-[3px]"
             />
 
             <div

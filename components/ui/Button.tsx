@@ -67,7 +67,7 @@ export default function Button({
     "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full font-display font-semibold uppercase leading-none tracking-[0.14em] whitespace-nowrap transition-all duration-400 ease-(--ease-out-expo) will-change-transform";
 
   const styles: Record<Variant, string> = {
-    volt: "bg-ink text-white shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.7)] active:translate-y-0",
+    volt: "bg-linear-to-b from-accent-hover to-accent text-on-accent shadow-[0_10px_40px_-12px_rgba(0,0,0,0.6)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.75)] active:translate-y-0",
     invert:
       "bg-white text-ink shadow-[0_10px_40px_-12px_rgba(0,0,0,0.6)] hover:-translate-y-0.5 hover:shadow-[0_18px_54px_-12px_rgba(0,0,0,0.75)] active:translate-y-0",
     ghost:

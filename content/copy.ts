@@ -14,7 +14,7 @@ export const hero = {
   headline: ["Carry your own", "current."],
   sub: "Sixteen square-cut black tourmaline stones on a seamless elastic core. Heavy enough to notice. Quiet enough to wear to anything.",
   cta: "Shop the collection",
-  ctaHref: "#collection",
+  ctaHref: "/products/the-tourmaline-band",
   secondary: "See the stone",
   secondaryHref: "#stone",
 };
@@ -74,15 +74,9 @@ export const features = [
   {
     icon: "ship" as const,
     label: "Free tracked shipping",
-    body: "Every order, every country, no threshold. Dispatched within 24 hours of you clicking buy.",
+    body: "Every order, every country, no threshold. Dispatched within 1–3 business days of you clicking buy.",
   },
 ];
-
-export const collection = {
-  eyebrow: "Choose your set",
-  headline: "How many are you carrying?",
-  sub: "Same band, better maths. Most men buy two — one to wear, one to hand over.",
-};
 
 /**
  * ⚠️ PLACEHOLDER TESTIMONIALS.
@@ -146,7 +140,7 @@ export const faqs = [
   },
   {
     q: "How long does delivery take, and what does it cost?",
-    a: "Shipping is free to every country we serve, with no minimum order. Tracked delivery runs 3–7 business days to the US, UK and EU, and 7–14 business days elsewhere. Your tracking number arrives by email the moment the label is scanned.",
+    a: "Shipping is free to every country we serve, with no minimum order. Orders are processed within 1–3 business days, then tracked delivery runs 5–10 business days to the US and UK, 6–12 business days to Canada, Australia and the EU, and 7–15 business days everywhere else. Your tracking number arrives by email the moment the label is scanned.",
   },
   {
     q: "What if I do not like it?",
@@ -165,7 +159,7 @@ export const faqs = [
 export const finalCta = {
   eyebrow: "Lite your life",
   headline: "Put something solid on.",
-  sub: "Free tracked shipping worldwide. 30 days to change your mind. Dispatched within 24 hours.",
+  sub: "Free tracked shipping worldwide. 30 days to change your mind. Dispatched within 1–3 business days.",
   cta: "Shop the collection",
 };
 
@@ -173,10 +167,10 @@ export const footerNav = [
   {
     title: "Shop",
     links: [
-      { label: "The Tourmaline Band", href: "#collection" },
+      { label: "The Tourmaline Band", href: "/products/the-tourmaline-band" },
       { label: "Why tourmaline", href: "#stone" },
       { label: "Sizing", href: "#faq" },
-      { label: "Gift sets", href: "#collection" },
+      { label: "Gift sets", href: "/products/the-tourmaline-band" },
     ],
   },
   {
@@ -185,7 +179,7 @@ export const footerNav = [
       { label: "Shipping", href: "#faq" },
       { label: "Returns & refunds", href: "#faq" },
       { label: "Restring guarantee", href: "#faq" },
-      { label: "Contact us", href: "mailto:care@himvolt.com" },
+      { label: "Contact us", href: "/contact" },
     ],
   },
   {
@@ -212,7 +206,7 @@ export const marqueeWords = [
   "Free worldwide shipping",
   "30-day returns",
   "Natural schorl tourmaline",
-  "Dispatched in 24 hours",
+  "Dispatched in 1–3 business days",
   "12-month restring guarantee",
   "7–7.5 Mohs",
 ];

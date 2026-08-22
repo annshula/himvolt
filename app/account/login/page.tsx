@@ -54,7 +54,7 @@ export default async function LoginPage({ searchParams }: PageProps) {
   return (
     <section className="relative bg-parchment px-5 pt-16 pb-24 sm:px-8">
       <div className="mx-auto w-full max-w-md pt-6 text-center">
-        <span className="mx-auto mb-6 grid size-16 place-items-center rounded-full bg-ink text-white">
+        <span className="mx-auto mb-6 grid size-16 place-items-center rounded-full bg-accent text-on-accent">
           <Icon name="shield" className="size-7" />
         </span>
         <h1 className="font-display text-[clamp(2rem,1.5rem+2vw,3rem)] leading-[1.05] font-extrabold tracking-[-0.04em] text-ink">

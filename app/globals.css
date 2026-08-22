@@ -4,11 +4,12 @@
    HimVolt design tokens.
    Structure — semantic surfaces, fluid clamp() type scale, elevation
    levels, easing curves — is carried over from the crawlandcuddle
-   reference build, but the palette is HimVolt's own: strict black and
-   white. The bracelet is black tourmaline, so black is the one brand
-   accent and everything else is white, graphite and gray. The page
-   body is a near-white canvas; the hero, footer and drawer are near-
-   black so the stone floats in its own light.
+   reference build: a warm, mostly-light canvas with dark reserved for
+   a handful of high-contrast moments (hero, footer, drawers), not the
+   whole site. The one real addition over the original build is an
+   actual accent colour — warm copper/ember, standing in for "volt" —
+   replacing what used to be a black accent on a black-adjacent ink,
+   i.e. no accent at all.
    ------------------------------------------------------------------ */
 @theme {
   /* ── Near-blacks (dark surfaces: footer, drawer, hero scrim) ── */
@@ -18,10 +19,12 @@
   --color-graphite: #171717;
   --color-slate-line: #232323;
 
-  /* The brand accent — black, the bracelet's own colour */
-  --color-volt: #0a0a0a;
-  --color-volt-hot: #262626;
-  --color-volt-deep: #000000;
+  /* The brand accent — warm copper/ember. "Volt": the one colour that
+     is allowed to be loud. Used sparingly: CTAs, badges, ratings,
+     focus rings, the odd underline. */
+  --color-volt: #c6863f;
+  --color-volt-hot: #dc9c55;
+  --color-volt-deep: #96652c;
 
   /* Light text grays for dark surfaces (kept light so contrast holds) */
   --color-steel: #d6d6d6;
@@ -44,18 +47,18 @@
   --color-canvas: #fafafa;
   --color-surface: #ffffff;
   --color-surface-sunken: #f2f2f2;
-  --color-primary: #0a0a0a;
-  --color-primary-hover: #262626;
-  --color-on-primary: #ffffff;
-  --color-accent: #0a0a0a;
-  --color-accent-hover: #262626;
-  --color-accent-soft: #f2f2f2;
-  --color-on-accent: #ffffff;
+  --color-primary: #c6863f;
+  --color-primary-hover: #dc9c55;
+  --color-on-primary: #0a0a0a;
+  --color-accent: #c6863f;
+  --color-accent-hover: #dc9c55;
+  --color-accent-soft: #f7ecdf;
+  --color-on-accent: #0a0a0a;
   --color-ink-muted: #525252;
   --color-ink-subtle: #737373;
   --color-line-strong: #d6d6d6;
   --color-footer: #050505;
-  --color-ring: #0a0a0a;
+  --color-ring: #c6863f;
   --color-overlay: rgb(10 10 10 / 0.55);
 
   /* Font-pairing structure mirrors the reference (condensed display +
@@ -184,30 +187,6 @@ p {
   text-wrap: pretty;
 }
 
-/* --------------------------- reveal-on-scroll ----------------------------- */
-/* JS only flips a data attribute; every frame of motion is CSS/compositor.
-   Everything is gated behind `.js` on <html> (set by a one-line inline script
-   in the layout) so that with scripting off nothing is ever hidden. */
-
-.js [data-reveal] {
-  opacity: 0;
-  transform: translate3d(0, 16px, 0);
-  transition:
-    opacity 0.55s var(--ease-out-soft),
-    transform 0.55s var(--ease-out-soft);
-  will-change: opacity, transform;
-}
-.js [data-reveal="in"] {
-  opacity: 1;
-  transform: none;
-  will-change: auto;
-}
-[data-reveal-delay="1"] { transition-delay: 55ms; }
-[data-reveal-delay="2"] { transition-delay: 110ms; }
-[data-reveal-delay="3"] { transition-delay: 165ms; }
-[data-reveal-delay="4"] { transition-delay: 220ms; }
-[data-reveal-delay="5"] { transition-delay: 275ms; }
-
 /* ------------------------------ 3D tilt card ------------------------------ */
 
 .tilt {
@@ -312,16 +291,6 @@ p {
     animation: hv-scale-in linear both;
     animation-timeline: view();
     animation-range: entry 10% cover 42%;
-  }
-
-  @keyframes hv-progress {
-    from { transform: scaleX(0); }
-    to   { transform: scaleX(1); }
-  }
-  .scroll-progress {
-    transform-origin: 0 50%;
-    animation: hv-progress linear both;
-    animation-timeline: scroll(root block);
   }
 }
 
@@ -448,10 +417,5 @@ p {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
-  }
-  .js [data-reveal] {
-    opacity: 1;
-    transform: none;
-    filter: none;
   }
 }

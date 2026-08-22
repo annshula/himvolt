@@ -1,5 +1,6 @@
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { StarIcon, CheckIcon } from "@/components/ui/Icons";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 import { reviews } from "@/content/copy";
 import { site } from "@/lib/site";
 
@@ -29,10 +30,7 @@ export default function Reviews() {
 
       {/* ----------------------------- aggregate ---------------------------- */}
 
-      <div
-        data-reveal
-        className="mt-14 grid gap-px overflow-hidden rounded-(--radius-card) border border-line bg-line sm:grid-cols-[auto_1fr] lg:mt-16"
-      >
+      <Reveal className="mt-14 grid gap-px overflow-hidden rounded-(--radius-card) border border-line bg-line sm:grid-cols-[auto_1fr] lg:mt-16">
         <div className="flex flex-col items-center justify-center bg-parchment px-10 py-8">
           <span className="font-display text-[3.4rem] leading-none font-extrabold tracking-[-0.05em] text-ink tabular-nums">
             {metrics.rating.toFixed(1)}
@@ -69,16 +67,15 @@ export default function Reviews() {
             </li>
           ))}
         </ul>
-      </div>
+      </Reveal>
 
       {/* ------------------------------ quotes ------------------------------ */}
 
-      <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {reviews.map((r, i) => (
-          <li
+      <Stagger as="ul" className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {reviews.map((r) => (
+          <StaggerItem
             key={r.name}
-            data-reveal
-            data-reveal-delay={String((i % 3) + 1)}
+            as="li"
             className="group relative flex flex-col rounded-(--radius-card) border border-line bg-linen p-7 transition-all duration-500 ease-(--ease-out-expo) hover:-translate-y-1 hover:border-ink/15"
           >
             <span
@@ -115,9 +112,9 @@ export default function Reviews() {
                 </span>
               </span>
             </footer>
-          </li>
+          </StaggerItem>
         ))}
-      </ul>
+      </Stagger>
     </Section>
   );
 }

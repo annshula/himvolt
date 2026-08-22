@@ -6,7 +6,6 @@ import { CartProvider } from "@/components/providers/CartProvider";
 import { LocalizationProvider } from "@/components/providers/LocalizationProvider";
 import Footer from "@/components/sections/Footer";
 import Nav from "@/components/sections/Nav";
-import RevealRoot from "@/components/ui/RevealRoot";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -146,13 +145,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }}
           />
         )}
-        {/* Gates the scroll-reveal CSS. Without scripting the class is never
-            added, so no content can be left stranded at opacity 0. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('js')",
-          }}
-        />
       </head>
       <body className="antialiased">
         {/* Google Tag Manager (noscript) — tracking fallback when JS is off. */}
@@ -181,7 +173,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </CartProvider>
         </LocalizationProvider>
         <GoogleAnalytics />
-        <RevealRoot />
       </body>
     </html>
   );

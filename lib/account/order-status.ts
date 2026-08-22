@@ -64,7 +64,7 @@ export const toneClasses: Record<StatusTone, string> = {
   lilac: "bg-slate-100 text-slate-700",
   mint: "bg-emerald-50 text-emerald-700",
   butter: "bg-amber-50 text-amber-700",
-  ink: "bg-ink text-white",
+  ink: "bg-accent text-on-accent",
 };
 
 /* ── Returns ───────────────────────────────────────────────────────────── */

@@ -1,4 +1,5 @@
 import { Section, SectionHeading } from "@/components/ui/Section";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 import { faqs } from "@/content/copy";
 import { site } from "@/lib/site";
 
@@ -17,22 +18,20 @@ export default function Faq() {
             title="The questions we actually get."
             body="If yours is not here, email us. A person answers, usually within a few hours."
           />
-          <a
-            href={`mailto:${site.email}`}
-            className="mt-8 inline-flex items-center gap-2 text-[0.82rem] font-medium text-volt transition-opacity hover:opacity-75"
-          >
-            {site.email}
-          </a>
+          <Reveal delay={0.2} className="mt-8">
+            <a
+              href={`mailto:${site.email}`}
+              className="inline-flex items-center gap-2 text-[0.82rem] font-medium text-volt transition-opacity hover:opacity-75"
+            >
+              {site.email}
+            </a>
+          </Reveal>
         </div>
 
-        <div className="divide-y divide-line border-y border-line">
-          {faqs.map((f, i) => (
-            <details
-              key={f.q}
-              className="faq-item group"
-              data-reveal
-              data-reveal-delay={String(Math.min(i + 1, 5))}
-            >
+        <Stagger as="div" className="divide-y divide-line border-y border-line">
+          {faqs.map((f) => (
+            <StaggerItem key={f.q} as="div">
+              <details className="faq-item group">
               <summary className="flex items-start justify-between gap-6 py-6 transition-colors duration-300 hover:text-volt">
                 <h3 className="font-display text-[1.02rem] leading-snug font-semibold tracking-[-0.02em] text-ink transition-colors duration-300 group-hover:text-volt">
                   {f.q}
@@ -62,9 +61,10 @@ export default function Faq() {
                   </p>
                 </div>
               </div>
-            </details>
+              </details>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </Section>
   );

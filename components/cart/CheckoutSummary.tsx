@@ -51,7 +51,7 @@ export function CheckoutSummary() {
         <p className="text-sm leading-relaxed text-ink-soft">
           Your bag is empty. Pick a set and it will show up here.
         </p>
-        <Button href="#collection" arrow>
+        <Button href="/products/the-tourmaline-band" arrow>
           Choose your set
         </Button>
       </div>

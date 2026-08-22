@@ -240,7 +240,7 @@ export function CurrencySelector({
             <div
               aria-hidden="true"
               onClick={() => setOpen(false)}
-              className="absolute inset-0 bg-ink/45 backdrop-blur-[2px]"
+              className="absolute inset-0 bg-overlay backdrop-blur-[2px]"
             />
 
             <div
@@ -326,7 +326,7 @@ function CurrencyList({
           onClick={() => onPick("AUTO")}
           className={cn(rowClass, "hover:bg-parchment")}
         >
-          <span className="grid size-8 shrink-0 place-items-center rounded-full bg-ink text-white">
+          <span className="grid size-8 shrink-0 place-items-center rounded-full bg-accent text-on-accent">
             <Icon name="globe" className="size-4" />
           </span>
           <span className="flex-1">

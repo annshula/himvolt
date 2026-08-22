@@ -74,7 +74,7 @@ export function SignOutDialog({
       <div
         onClick={onClose}
         className={cn(
-          "absolute inset-0 bg-ink/45 backdrop-blur-[3px] transition-opacity duration-300",
+          "absolute inset-0 bg-overlay backdrop-blur-[3px] transition-opacity duration-300",
           open ? "opacity-100" : "opacity-0",
         )}
       />

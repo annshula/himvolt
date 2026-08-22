@@ -43,7 +43,7 @@ const accents: Record<StatusTone, { edge: string; chip: string }> = {
     edge: "from-amber-300 to-amber-500",
     chip: "bg-amber-50 text-amber-700",
   },
-  ink: { edge: "from-ink to-ink", chip: "bg-ink text-white" },
+  ink: { edge: "from-accent to-accent", chip: "bg-accent text-on-accent" },
 };
 
 function glyphFor(isReturning: boolean, status: string | null): IconName {

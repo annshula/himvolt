@@ -37,7 +37,7 @@ export default async function AddressesPage() {
             title="No addresses yet"
             body="Your saved delivery addresses will appear here once you add one at checkout."
           >
-            <Button href="#collection" arrow className="w-full sm:w-auto">
+            <Button href="/products/the-tourmaline-band" arrow className="w-full sm:w-auto">
               Shop the collection
             </Button>
           </EmptyState>

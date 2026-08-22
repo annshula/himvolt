@@ -1,14 +1,15 @@
 import type { ReactNode } from "react";
+import { Reveal } from "@/components/ui/Motion";
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p
-      data-reveal
+    <Reveal
+      as="p"
       className="font-label mb-5 flex items-center gap-3 text-[0.63rem] font-medium tracking-[0.28em] text-volt uppercase"
     >
       <span aria-hidden className="h-px w-7 bg-volt/45" />
       {children}
-    </p>
+    </Reveal>
   );
 }
 
@@ -33,21 +34,21 @@ export function SectionHeading({
       <div className={centered ? "flex justify-center" : ""}>
         <Eyebrow>{eyebrow}</Eyebrow>
       </div>
-      <h2
-        data-reveal
-        data-reveal-delay="1"
+      <Reveal
+        as="h2"
+        delay={0.06}
         className="font-display text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.02] font-bold tracking-[-0.04em] text-balance"
       >
         {title}
-      </h2>
+      </Reveal>
       {body && (
-        <p
-          data-reveal
-          data-reveal-delay="2"
+        <Reveal
+          as="p"
+          delay={0.14}
           className="mt-6 text-[1rem] leading-[1.7] text-ink-soft text-pretty"
         >
           {body}
-        </p>
+        </Reveal>
       )}
     </header>
   );

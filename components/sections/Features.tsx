@@ -1,19 +1,19 @@
 import { Section } from "@/components/ui/Section";
 import { featureIcons } from "@/components/ui/Icons";
+import { Stagger, StaggerItem } from "@/components/ui/Motion";
 import { features } from "@/content/copy";
 
 /** Quick-scan reasons to buy. Icon, label, one line — nothing more. */
 export default function Features() {
   return (
     <Section className="py-20 lg:py-24">
-      <ul className="grid gap-5 sm:grid-cols-3">
-        {features.map((f, i) => {
+      <Stagger as="ul" className="grid gap-5 sm:grid-cols-3">
+        {features.map((f) => {
           const Icon = featureIcons[f.icon];
           return (
-            <li
+            <StaggerItem
               key={f.label}
-              data-reveal
-              data-reveal-delay={String(i + 1)}
+              as="li"
               className="group relative overflow-hidden rounded-(--radius-card) border border-line bg-linen p-7 transition-all duration-500 ease-(--ease-out-expo) hover:-translate-y-1 hover:border-ink/15 lg:p-8"
             >
               <span
@@ -29,10 +29,10 @@ export default function Features() {
               <p className="relative mt-2.5 text-[0.86rem] leading-[1.65] text-ink-soft">
                 {f.body}
               </p>
-            </li>
+            </StaggerItem>
           );
         })}
-      </ul>
+      </Stagger>
     </Section>
   );
 }

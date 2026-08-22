@@ -5,6 +5,7 @@ import {
   ReturnIcon,
   CheckIcon,
 } from "@/components/ui/Icons";
+import { Stagger, StaggerItem } from "@/components/ui/Motion";
 import { site } from "@/lib/site";
 
 /**
@@ -19,7 +20,7 @@ export default function TrustBar() {
       aria-label="Why people buy from us"
       className="relative z-10 border-y border-line bg-parchment backdrop-blur-sm"
     >
-      <div className="mx-auto grid max-w-310 grid-cols-2 divide-line px-5 sm:px-8 lg:grid-cols-4 lg:divide-x">
+      <Stagger className="mx-auto grid max-w-310 grid-cols-2 divide-line px-5 sm:px-8 lg:grid-cols-4 lg:divide-x">
         <Item
           icon={<StarIcon />}
           headline={
@@ -59,7 +60,7 @@ export default function TrustBar() {
           headline={<>30 days</>}
           label={promise.returnsDetail}
         />
-      </div>
+      </Stagger>
     </section>
   );
 }
@@ -76,10 +77,7 @@ function Item({
   aside?: React.ReactNode;
 }) {
   return (
-    <div
-      data-reveal
-      className="flex items-start gap-3.5 px-1 py-6 sm:px-5 lg:justify-center lg:py-7"
-    >
+    <StaggerItem className="flex items-start gap-3.5 px-1 py-6 sm:px-5 lg:justify-center lg:py-7">
       <span className="mt-0.5 h-4.5 w-4.5 shrink-0 text-ink-mute">{icon}</span>
       <div className="min-w-0">
         <div className="flex items-center gap-2.5">
@@ -92,6 +90,6 @@ function Item({
           {label}
         </p>
       </div>
-    </div>
+    </StaggerItem>
   );
 }

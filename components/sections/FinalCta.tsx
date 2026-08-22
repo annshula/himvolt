@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import { Magnetic, Reveal } from "@/components/ui/Motion";
 import { finalCta } from "@/content/copy";
 import { product } from "@/lib/product";
 
@@ -34,38 +35,36 @@ export default function FinalCta() {
       </div>
 
       <div className="mx-auto max-w-[54rem] text-center">
-        <p
-          data-reveal
+        <Reveal
+          as="p"
           className="font-display text-[0.68rem] font-semibold tracking-[0.36em] text-volt uppercase"
         >
           {finalCta.eyebrow}
-        </p>
+        </Reveal>
 
-        <h2
-          data-reveal
-          data-reveal-delay="1"
+        <Reveal
+          as="h2"
+          delay={0.08}
           className="font-display mt-7 text-[clamp(2.4rem,6.4vw,4.6rem)] leading-[0.96] font-extrabold tracking-[-0.045em] text-balance"
         >
           {finalCta.headline}
-        </h2>
+        </Reveal>
 
-        <p
-          data-reveal
-          data-reveal-delay="2"
+        <Reveal
+          as="p"
+          delay={0.16}
           className="mx-auto mt-7 max-w-[42ch] text-[1rem] leading-[1.7] text-ink-soft text-pretty"
         >
           {finalCta.sub}
-        </p>
+        </Reveal>
 
-        <div
-          data-reveal
-          data-reveal-delay="3"
-          className="mt-11 flex justify-center"
-        >
-          <Button href="#collection" arrow>
-            {finalCta.cta}
-          </Button>
-        </div>
+        <Reveal delay={0.24} className="mt-11 flex justify-center">
+          <Magnetic>
+            <Button href="/products/the-tourmaline-band" arrow>
+              {finalCta.cta}
+            </Button>
+          </Magnetic>
+        </Reveal>
       </div>
     </section>
   );

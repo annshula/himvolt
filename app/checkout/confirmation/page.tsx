@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ClearCart } from "@/components/cart/ClearCart";
 import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icons";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Order confirmed",
@@ -32,7 +33,7 @@ export default function ConfirmationPage() {
           appear in your account under Orders as soon as your band ships.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <Button href="#top">Continue shopping</Button>
+          <Button href="/">Continue shopping</Button>
           <Button href="/account/orders" variant="outline">
             View your orders
           </Button>
@@ -40,10 +41,10 @@ export default function ConfirmationPage() {
         <p className="mt-10 text-sm text-ink-mute">
           Questions? Email{" "}
           <Link
-            href="mailto:care@himvolt.com"
+            href={`mailto:${site.email}`}
             className="text-ink underline underline-offset-4"
           >
-            care@himvolt.com
+            {site.email}
           </Link>
         </p>
       </div>

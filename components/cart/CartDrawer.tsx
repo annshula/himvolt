@@ -46,13 +46,13 @@ export function CartDrawer() {
 
   return (
     <div
-      className={cn("fixed inset-0 z-[70]", !isOpen && "pointer-events-none")}
+      className={cn("fixed inset-0 z-70", !isOpen && "pointer-events-none")}
       inert={!isOpen}
     >
       <div
         onClick={close}
         className={cn(
-          "absolute inset-0 bg-ink/45 backdrop-blur-[2px] transition-opacity duration-300",
+          "absolute inset-0 bg-overlay backdrop-blur-[2px] transition-opacity duration-300",
           isOpen ? "opacity-100" : "opacity-0",
         )}
       />
@@ -93,7 +93,7 @@ export function CartDrawer() {
               One band, two ways to carry it — pick your set and it will show up
               here.
             </p>
-            <Button href="#collection" onClick={close} arrow>
+            <Button href="/products/the-tourmaline-band" onClick={close} arrow>
               Browse the sets
             </Button>
           </div>
@@ -192,8 +192,8 @@ export function CartDrawer() {
               </div>
               <p className="mt-2 text-xs leading-relaxed text-ink-mute">
                 {subtotalCents > 0
-                  ? "Free tracked shipping · arrives in 5–9 days."
-                  : "Shipping calculated at checkout · arrives in 5–9 days."}
+                  ? "Free tracked shipping · arrives in 5–10 days."
+                  : "Shipping calculated at checkout · arrives in 5–10 days."}
               </p>
               {checkoutError && (
                 <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">

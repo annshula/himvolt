@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         reason:
-          "Checkout opens shortly — the store is in final testing. Email care@himvolt.com and we will hold one for you.",
+          "Checkout opens shortly — the store is in final testing. Email support@himvolt.com and we will hold one for you.",
       },
       { status: 200 },
     );

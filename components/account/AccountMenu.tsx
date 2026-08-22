@@ -122,7 +122,7 @@ export function AccountMenu({
   /* ── Mobile drawer: one row, never a nested menu ─────────────────────── */
   if (variant === "list") {
     const iconButton = cn(
-      "grid size-11 place-items-center rounded-md transition-colors duration-300",
+      "grid size-11 place-items-center rounded-full transition-colors duration-300",
       dark ? "text-white hover:bg-white/10" : "text-ink hover:bg-ink/5",
     );
 
@@ -183,7 +183,7 @@ export function AccountMenu({
         aria-haspopup="menu"
         aria-label="Your account"
         className={cn(
-          "grid size-11 place-items-center rounded-md transition-colors duration-300",
+          "grid size-11 place-items-center rounded-full transition-colors duration-300",
           overHero ? "text-white hover:bg-white/15" : "text-ink hover:bg-ink/5",
         )}
       >

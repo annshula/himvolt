@@ -1,4 +1,5 @@
 import { Section, Eyebrow } from "@/components/ui/Section";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 import { stone } from "@/content/copy";
 
 /**
@@ -17,7 +18,7 @@ export default function Stone() {
       {/* schorl's chemical formula as a watermark */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -top-4 right-0 left-0 text-center font-mono text-[clamp(1.4rem,4vw,3rem)] whitespace-nowrap text-ink/[0.05] select-none"
+        className="pointer-events-none absolute -top-4 right-0 left-0 text-center font-mono text-[clamp(1.4rem,4vw,3rem)] whitespace-nowrap text-ink/5 select-none"
       >
         NaFe₃Al₆(BO₃)₃Si₆O₁₈(OH)₄
       </span>
@@ -25,39 +26,53 @@ export default function Stone() {
       <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <Eyebrow>{stone.eyebrow}</Eyebrow>
-          <h2
-            data-reveal
-            data-reveal-delay="1"
+          <Reveal
+            as="h2"
+            delay={0.06}
             className="font-display text-[clamp(2.1rem,4.4vw,3.3rem)] leading-[1.02] font-bold tracking-[-0.04em] text-balance"
           >
             {stone.headline}
-          </h2>
+          </Reveal>
 
-          <div
-            data-reveal
-            data-reveal-delay="2"
-            className="mt-9 border-l-2 border-volt/60 pl-6"
-          >
+          <Reveal delay={0.14} className="mt-9 border-l-2 border-volt/60 pl-6">
             <p className="text-[1.02rem] leading-[1.7] text-ink-soft text-pretty">
               {stone.lede}
             </p>
-          </div>
+          </Reveal>
 
-          <p
-            data-reveal
-            data-reveal-delay="3"
+          <Reveal
+            delay={0.22}
+            className="mt-8 overflow-hidden rounded-(--radius-card) shadow-(--shadow-e3)"
+          >
+            <video
+              aria-hidden
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster="/media/current.jpg"
+              className="h-auto w-full object-cover"
+            >
+              <source media="(max-width: 640px)" src="/media/current-sm.mp4" type="video/mp4" />
+              <source src="/media/current.webm" type="video/webm" />
+              <source src="/media/current.mp4" type="video/mp4" />
+            </video>
+          </Reveal>
+
+          <Reveal
+            as="p"
+            delay={0.3}
             className="mt-7 text-[0.92rem] leading-[1.7] text-ink-soft"
           >
             {stone.body}
-          </p>
+          </Reveal>
         </div>
 
-        <div className="space-y-px overflow-hidden rounded-(--radius-card) border border-line bg-line">
+        <Stagger className="space-y-px overflow-hidden rounded-(--radius-card) border border-line bg-line">
           {stone.paragraphs.map((p, i) => (
-            <article
+            <StaggerItem
               key={p.title}
-              data-reveal
-              data-reveal-delay={String(i + 1)}
+              as="article"
               className="bg-linen p-7 lg:p-10"
             >
               <div className="flex items-baseline gap-4">
@@ -71,9 +86,9 @@ export default function Stone() {
               <p className="mt-4 pl-[calc(0.66rem+1rem)] text-[0.92rem] leading-[1.72] text-ink-soft text-pretty">
                 {p.body}
               </p>
-            </article>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </Section>
   );

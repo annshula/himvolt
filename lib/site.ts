@@ -9,7 +9,7 @@ export const site = {
   tagline: "Lite your life",
   domain: "himvolt.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://himvolt.com",
-  email: "care@himvolt.com",
+  email: "support@himvolt.com",
   description:
     "HimVolt makes one thing properly: a square-cut black tourmaline bracelet for men. Solid stone, elastic fit, free tracked shipping worldwide, 30-day returns.",
   locale: "en_US",
@@ -38,7 +38,12 @@ export const site = {
 
   promise: {
     shipping: "Free tracked shipping worldwide",
-    shippingDetail: "Dispatched in 24h · 5–9 business days to US, UK & EU",
+    shippingDetail: "Dispatched in 1–3 business days · 5–10 days to the US & UK",
+    // Full tiered breakdown — used on the FAQ and anywhere there is room for
+    // the honest, country-by-country version rather than the short chip copy
+    // above. Processing + transit, not a single optimistic number.
+    shippingFull:
+      "Orders are processed within 1–3 business days. Tracked delivery then runs 5–10 business days to the US and UK, 6–12 business days to Canada, Australia and the EU, and 7–15 business days everywhere else.",
     returns: "30-day returns, no questions",
     returnsDetail: "Wear it a full month. Not yours? We pay the label.",
     warranty: "12-month restring guarantee",

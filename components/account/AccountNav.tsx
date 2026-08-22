@@ -58,7 +58,7 @@ export function AccountNav() {
                     "-mb-px block border-b-2 pb-3 text-[0.72rem] font-semibold tracking-[0.2em] whitespace-nowrap uppercase transition-colors duration-300",
                     "lg:mb-0 lg:flex lg:items-center lg:gap-2.5 lg:rounded-full lg:border-b-0 lg:px-4 lg:py-3 lg:tracking-[0.14em]",
                     active
-                      ? "border-ink text-ink lg:bg-ink lg:text-white"
+                      ? "border-ink text-ink lg:bg-accent lg:text-on-accent"
                       : "border-transparent text-ink-mute hover:text-ink lg:text-ink-soft lg:hover:bg-parchment lg:hover:text-ink",
                   )}
                 >

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import Tilt from "@/components/ui/Tilt";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 import { showcase } from "@/content/copy";
 import { product } from "@/lib/product";
 
@@ -34,7 +35,7 @@ export default function Showcase() {
           }}
         />
 
-        <Tilt className="scroll-scale relative mx-auto max-w-[720px]" max={7}>
+        <Tilt className="scroll-scale relative mx-auto max-w-180" max={7}>
           <div className="tilt__layer" style={{ ["--z" as string]: "50px" }}>
             <Image
               src={flat.src}
@@ -53,10 +54,7 @@ export default function Showcase() {
         </Tilt>
 
         {/* measurement callout drawn over the stone */}
-        <div
-          data-reveal
-          className="pointer-events-none mx-auto mt-10 hidden max-w-[720px] items-center gap-4 px-8 sm:flex"
-        >
+        <Reveal className="pointer-events-none mx-auto mt-10 hidden max-w-180 items-center gap-4 px-8 sm:flex">
           <span
             aria-hidden
             className="h-px flex-1 bg-linear-to-r from-transparent to-line"
@@ -68,17 +66,16 @@ export default function Showcase() {
             aria-hidden
             className="h-px flex-1 bg-linear-to-l from-transparent to-line"
           />
-        </div>
+        </Reveal>
       </div>
 
       {/* ----------------------------- the points ---------------------------- */}
 
-      <div className="mt-20 grid gap-px overflow-hidden rounded-(--radius-card) border border-line bg-line sm:grid-cols-3 lg:mt-28">
+      <Stagger className="mt-20 grid gap-px overflow-hidden rounded-(--radius-card) border border-line bg-line sm:grid-cols-3 lg:mt-28">
         {showcase.points.map((p, i) => (
-          <article
+          <StaggerItem
             key={p.title}
-            data-reveal
-            data-reveal-delay={String(i + 1)}
+            as="article"
             className="group relative bg-linen p-7 transition-colors duration-500 hover:bg-ivory lg:p-9"
           >
             <span className="font-display text-[0.68rem] tracking-[0.2em] text-volt/70 tabular-nums">
@@ -92,17 +89,17 @@ export default function Showcase() {
             </p>
             <span
               aria-hidden
-              className="absolute inset-x-0 bottom-0 h-px w-0 bg-gradient-to-r from-volt to-transparent transition-all duration-700 ease-(--ease-out-expo) group-hover:w-full"
+              className="absolute inset-x-0 bottom-0 h-px w-0 bg-linear-to-r from-volt to-transparent transition-all duration-700 ease-(--ease-out-expo) group-hover:w-full"
             />
-          </article>
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
 
       {/* ---------------------- worn + spec sheet ---------------------- */}
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-        <figure
-          data-reveal
+        <Reveal
+          as="figure"
           className="relative overflow-hidden rounded-(--radius-card) border border-line"
         >
           <Image
@@ -112,11 +109,11 @@ export default function Showcase() {
             height={worn.height}
             quality={82}
             sizes="(max-width: 1023px) 92vw, 660px"
-            className="parallax h-full min-h-[300px] w-full scale-105 object-cover object-[center_58%]"
+            className="parallax h-full min-h-75 w-full scale-105 object-cover object-[center_58%]"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-void/85 via-void/10 to-transparent"
+            className="absolute inset-0 bg-linear-to-t from-void/85 via-void/10 to-transparent"
           />
           <figcaption className="absolute inset-x-0 bottom-0 p-7">
             <p className="font-display text-[1rem] font-semibold tracking-[-0.02em] text-chalk">
@@ -127,11 +124,10 @@ export default function Showcase() {
               without catching.
             </p>
           </figcaption>
-        </figure>
+        </Reveal>
 
-        <div
-          data-reveal
-          data-reveal-delay="1"
+        <Reveal
+          delay={0.08}
           className="rounded-(--radius-card) border border-line bg-linen p-7 lg:p-9"
         >
           <h3 className="text-[0.62rem] tracking-[0.28em] text-ink-mute uppercase">
@@ -156,7 +152,7 @@ export default function Showcase() {
             Every band is measured and weighed before it ships. If yours is out
             of tolerance, we replace it before you have to ask.
           </p>
-        </div>
+        </Reveal>
       </div>
     </Section>
   );
