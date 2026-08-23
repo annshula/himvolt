@@ -236,7 +236,7 @@ export function CurrencySelector({
         isDrawer &&
         mounted &&
         createPortal(
-          <div className="fixed inset-0 z-[80]" role="dialog" aria-modal="true">
+          <div className="fixed inset-0 z-80" role="dialog" aria-modal="true">
             <div
               aria-hidden="true"
               onClick={() => setOpen(false)}

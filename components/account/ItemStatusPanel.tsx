@@ -55,7 +55,7 @@ export function ItemStatusPanel({
       {open &&
         mounted &&
         createPortal(
-          <div className="fixed inset-0 z-[85] flex items-end justify-center md:items-center md:p-6">
+          <div className="fixed inset-0 z-85 flex items-end justify-center md:items-center md:p-6">
             <div
               aria-hidden="true"
               onClick={() => setOpen(false)}

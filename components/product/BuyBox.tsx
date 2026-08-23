@@ -2,7 +2,13 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
-import { CheckIcon, GlobeIcon, MinusIcon, PlusIcon, ReturnIcon } from "@/components/ui/Icons";
+import {
+  CheckIcon,
+  GlobeIcon,
+  MinusIcon,
+  PlusIcon,
+  ReturnIcon,
+} from "@/components/ui/Icons";
 import { Magnetic, easeOut } from "@/components/ui/Motion";
 import { useCart } from "@/components/providers/CartProvider";
 import { useLocalizedAmount } from "@/components/providers/LocalizationProvider";
@@ -49,7 +55,9 @@ export function BuyBox({ product }: { product: Product }) {
   const save =
     selectedPrice.compareAtAmount != null &&
     selectedPrice.amount < selectedPrice.compareAtAmount
-      ? Math.round((1 - selectedPrice.amount / selectedPrice.compareAtAmount) * 100)
+      ? Math.round(
+          (1 - selectedPrice.amount / selectedPrice.compareAtAmount) * 100,
+        )
       : 0;
 
   return (
@@ -69,7 +77,10 @@ export function BuyBox({ product }: { product: Product }) {
         </motion.span>
         {selectedPrice.compareAtAmount != null && (
           <span className="text-[1.05rem] text-ink-mute line-through tabular-nums">
-            {formatMoney(selectedPrice.compareAtAmount, selectedPrice.currencyCode)}
+            {formatMoney(
+              selectedPrice.compareAtAmount,
+              selectedPrice.currencyCode,
+            )}
           </span>
         )}
         {save > 0 && (
@@ -141,7 +152,7 @@ export function BuyBox({ product }: { product: Product }) {
           <button
             type="button"
             onClick={() => add(selected.id, quantity)}
-            className="group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-linear-to-b from-volt-hot to-volt font-display text-[0.88rem] font-semibold tracking-[0.1em] whitespace-nowrap text-on-accent uppercase transition-all duration-400 ease-(--ease-out-expo) hover:-translate-y-0.5 active:scale-[0.98]"
+            className="group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-linear-to-b from-volt-hot to-volt font-display text-[0.88rem] font-semibold tracking-widest whitespace-nowrap text-on-accent uppercase transition-all duration-400 ease-(--ease-out-expo) hover:-translate-y-0.5 active:scale-[0.98]"
           >
             <span
               aria-hidden
@@ -151,7 +162,10 @@ export function BuyBox({ product }: { product: Product }) {
               Add to bag —{" "}
               {selectedPrice.pending
                 ? "…"
-                : formatMoney(selectedPrice.amount * quantity, selectedPrice.currencyCode)}
+                : formatMoney(
+                    selectedPrice.amount * quantity,
+                    selectedPrice.currencyCode,
+                  )}
             </span>
           </button>
         </Magnetic>
@@ -173,16 +187,21 @@ export function BuyBox({ product }: { product: Product }) {
           setBuyError(result.error);
           setBuying(false);
         }}
-        className="mt-2.5 flex h-13 w-full items-center justify-center rounded-full border border-ink/20 font-display text-[0.85rem] font-semibold tracking-[0.1em] text-ink uppercase transition-colors duration-300 hover:border-ink/40 hover:bg-ink/3 disabled:opacity-50"
+        className="mt-2.5 flex h-13 w-full items-center justify-center rounded-full border border-ink/20 font-display text-[0.85rem] font-semibold tracking-widest text-ink uppercase transition-colors duration-300 hover:border-ink/40 hover:bg-ink/3 disabled:opacity-50"
       >
         {buying ? "Taking you to checkout…" : "Buy it now"}
       </button>
       {buyError && (
-        <p className="mt-2 text-center text-[0.78rem] text-red-700">{buyError}</p>
+        <p className="mt-2 text-center text-[0.78rem] text-red-700">
+          {buyError}
+        </p>
       )}
 
       <p className="mt-3 text-center text-[0.74rem] text-ink-mute">
-        {formatMoney(selectedPrice.amount / selected.quantity, selectedPrice.currencyCode)}{" "}
+        {formatMoney(
+          selectedPrice.amount / selected.quantity,
+          selectedPrice.currencyCode,
+        )}{" "}
         per band · ships free · arrives in 5–10 days
       </p>
 
@@ -197,7 +216,13 @@ export function BuyBox({ product }: { product: Product }) {
   );
 }
 
-function Guarantee({ icon, children }: { icon: React.ReactNode; children: React.ReactNode }) {
+function Guarantee({
+  icon,
+  children,
+}: {
+  icon: React.ReactNode;
+  children: React.ReactNode;
+}) {
   return (
     <li className="flex items-center gap-2.5">
       <span className="h-4 w-4 shrink-0 text-volt/80">{icon}</span>
@@ -249,7 +274,7 @@ function PackOption({
               {variant.title}
             </span>
             {variant.badge && (
-              <span className="rounded-full bg-volt/12 px-2 py-0.5 text-[0.6rem] font-semibold tracking-[0.1em] text-volt uppercase">
+              <span className="rounded-full bg-volt/12 px-2 py-0.5 text-[0.6rem] font-semibold tracking-widest text-volt uppercase">
                 {variant.badge}
               </span>
             )}
@@ -262,7 +287,9 @@ function PackOption({
 
       <span className="shrink-0 text-right">
         <span className="font-display block text-[1.05rem] font-bold tracking-[-0.02em] text-ink tabular-nums">
-          {price.pending ? priceSkeleton("h-5", "w-14") : formatMoney(price.amount, price.currencyCode)}
+          {price.pending
+            ? priceSkeleton("h-5", "w-14")
+            : formatMoney(price.amount, price.currencyCode)}
         </span>
         {price.compareAtAmount != null && (
           <span className="block text-[0.72rem] text-ink-mute line-through tabular-nums">
