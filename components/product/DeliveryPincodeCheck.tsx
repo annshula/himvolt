@@ -78,7 +78,11 @@ export function DeliveryPincodeCheck() {
             onChange={(e) => setPincode(e.target.value)}
             placeholder="Enter your pincode"
             inputMode="text"
-            className="w-full border-b border-line bg-transparent pb-1 text-[0.88rem] text-ink placeholder:text-ink-mute focus:border-line focus:outline-none focus-visible:outline-none"
+            // The site-wide :focus-visible ring (globals.css) is an unlayered
+            // rule, so it beats any Tailwind focus-visible: utility here
+            // regardless of specificity — only an inline style reliably wins.
+            style={{ outline: "none" }}
+            className="w-full border-b border-line bg-transparent pb-1 text-[0.88rem] text-ink placeholder:text-ink-mute focus:border-line focus:outline-none"
           />
         </div>
 
