@@ -16,6 +16,7 @@ export function ProductCard({ product }: { product: Product }) {
     v.price.amount < min.price.amount ? v : min,
   );
   const cover = product.gallery[0];
+  const isBestSeller = product.handle === "hematite-mens-bracelet";
 
   return (
     <Reveal as="article" className="max-w-72">
@@ -31,6 +32,11 @@ export function ProductCard({ product }: { product: Product }) {
             sizes="(max-width: 639px) 80vw, 288px"
             className="object-cover transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-105"
           />
+          {isBestSeller && (
+            <span className="absolute top-3 left-3 z-10 rounded-full border border-[#1c1917]/20 bg-[#f4c542] px-3 py-1.5 text-[0.62rem] font-bold tracking-[0.14em] text-[#1c1917] uppercase shadow-(--shadow-e2)">
+              BEST SELLER
+            </span>
+          )}
         </div>
 
         <div className="p-4">
