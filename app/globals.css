@@ -124,6 +124,12 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-h);
   -webkit-text-size-adjust: 100%;
+  /* Thin, self-tinted scrollbar (Firefox) — see the WebKit rules below for
+     the rest of the design. Built from currentColor, not a fixed colour, so
+     it reads correctly on the light canvas and on the dark surfaces (footer,
+     mobile drawer) without per-surface overrides. */
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, currentColor 30%, transparent) transparent;
 }
 
 body {
@@ -139,6 +145,35 @@ body {
 ::selection {
   background: var(--color-ink);
   color: #ffffff;
+}
+
+/* -------------------------------- scrollbar --------------------------------
+   WebKit/Blink half of the design above — Chrome, Edge, Safari. The rule
+   resolves per scrolling element, not where it's declared, so a nested
+   scroller (e.g. the dark mobile drawer) picks up its own text colour. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, currentColor 26%, transparent);
+  background-clip: padding-box;
+  border: 2.5px solid transparent;
+  border-radius: 999px;
+  transition: background-color 0.25s var(--ease-out-soft);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-volt);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 :focus-visible {
