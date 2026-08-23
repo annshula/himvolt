@@ -31,7 +31,10 @@ export function TrackOrderForm() {
     } catch {
       setState({
         kind: "result",
-        result: { ok: false, reason: "We couldn't reach tracking right now. Please try again." },
+        result: {
+          ok: false,
+          reason: "We couldn't reach tracking right now. Please try again.",
+        },
       });
     }
   };
@@ -54,7 +57,7 @@ export function TrackOrderForm() {
         <button
           type="submit"
           disabled={state.kind === "loading"}
-          className="inline-flex h-[3.125rem] shrink-0 items-center justify-center rounded-full bg-linear-to-b from-volt-hot to-volt px-8 font-display text-[0.85rem] font-semibold tracking-[0.1em] whitespace-nowrap text-on-accent uppercase transition-all duration-300 ease-(--ease-out-expo) hover:-translate-y-0.5 disabled:opacity-60"
+          className="inline-flex h-12.5 shrink-0 items-center justify-center rounded-full bg-linear-to-b from-volt-hot to-volt px-8 font-display text-[0.85rem] font-semibold tracking-widest whitespace-nowrap text-on-accent uppercase transition-all duration-300 ease-(--ease-out-expo) hover:-translate-y-0.5 disabled:opacity-60"
         >
           {state.kind === "loading" ? "Searching…" : "Track"}
         </button>

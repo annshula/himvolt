@@ -22,7 +22,7 @@ export default function FinalCta() {
       {/* the stone, floating large and half out of frame */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-[-14%] -z-10 mx-auto max-w-[820px] opacity-[0.22]"
+        className="pointer-events-none absolute inset-x-0 bottom-[-14%] -z-10 mx-auto max-w-205 opacity-[0.22]"
       >
         <Image
           src={flat.src}
@@ -35,7 +35,7 @@ export default function FinalCta() {
         />
       </div>
 
-      <div className="mx-auto max-w-[54rem] text-center">
+      <div className="mx-auto max-w-216 text-center">
         <Reveal
           as="p"
           className="font-display text-[0.68rem] font-semibold tracking-[0.36em] text-volt uppercase"

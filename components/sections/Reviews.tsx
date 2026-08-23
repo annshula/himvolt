@@ -39,7 +39,8 @@ export default function Reviews() {
   const [visible, setVisible] = useState(PAGE_SIZE);
 
   const filtered = useMemo(
-    () => (filter === "all" ? reviews : reviews.filter((r) => r.stars === filter)),
+    () =>
+      filter === "all" ? reviews : reviews.filter((r) => r.stars === filter),
     [filter],
   );
   const shown = filtered.slice(0, visible);
@@ -63,7 +64,7 @@ export default function Reviews() {
 
       <Reveal className="mt-14 grid gap-px overflow-hidden rounded-(--radius-card) border border-line bg-line sm:grid-cols-[auto_1fr] lg:mt-16">
         <div className="flex flex-col items-center justify-center bg-parchment px-10 py-8">
-          <span className="font-display text-[3.4rem] leading-none font-extrabold tracking-[-0.05em] text-ink tabular-nums">
+          <span className="font-display text-[3.4rem] leading-none font-extrabold tracking-tighter text-ink tabular-nums">
             {metrics.rating.toFixed(1)}
           </span>
           <span className="mt-3 flex gap-1 text-volt" aria-hidden>
@@ -88,7 +89,7 @@ export default function Reviews() {
               </span>
               <span className="h-1.5 flex-1 overflow-hidden rounded-full bg-line">
                 <span
-                  className="block h-full rounded-full bg-gradient-to-r from-volt-deep to-volt"
+                  className="block h-full rounded-full bg-linear-to-r from-volt-deep to-volt"
                   style={{ width: `${d.pct}%` }}
                 />
               </span>
@@ -145,7 +146,11 @@ export default function Reviews() {
                   aria-label={`${r.stars} out of 5 stars`}
                 >
                   {Array.from({ length: 5 }, (_, s) => (
-                    <StarIcon key={s} className="h-2.5 w-2.5" filled={s < r.stars} />
+                    <StarIcon
+                      key={s}
+                      className="h-2.5 w-2.5"
+                      filled={s < r.stars}
+                    />
                   ))}
                 </span>
 
