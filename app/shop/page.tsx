@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ProductCard } from "@/components/product/ProductCard";
 import { product } from "@/lib/product";
+import { getProduct } from "@/lib/shopify";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -41,7 +42,12 @@ export const metadata: Metadata = {
  * rebuild. This page never sells anything itself; every card hands off to
  * /products/[handle], which is the only page with a buy button.
  */
-export default function ShopPage() {
+export default async function ShopPage() {
+  // Live Shopify pricing/stock when connected — same source BuyBox uses on
+  // the product page, so the "From $X" here never drifts from what checkout
+  // actually charges.
+  const liveProduct = await getProduct();
+
   return (
     <main>
       <div className="mx-auto w-full max-w-310 px-5 pt-12 pb-2 sm:px-8 sm:pt-16">
@@ -67,7 +73,7 @@ export default function ShopPage() {
 
       <div className="mx-auto w-full max-w-310 px-5 pt-10 pb-24 sm:px-8 lg:pb-32">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <ProductCard product={product} />
+          <ProductCard product={liveProduct} />
         </div>
       </div>
     </main>

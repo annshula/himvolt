@@ -1,7 +1,13 @@
 /**
  * `node scripts/sync-product.mjs [handle]` — fetch the HimVolt product from the
- * Shopify Admin API and write data/product.json with its live price, compare-at
- * price and real variant ids (in dollars).
+ * Shopify Admin API, fetch each curated market's price list from the Storefront
+ * API, and write data/product.json (in dollars) with real variant ids.
+ *
+ * "Curated market" = a Shopify Market scoped to exactly one country region —
+ * that means it has its own price list worth freezing into this file. A
+ * market scoped to many countries (the "International" catch-all) is skipped:
+ * its price is live-FX-converted and would just go stale if snapshotted, and
+ * it's already covered by the product's base price.
  *
  * The Admin access token is generated at runtime via the client-credentials
  * grant (Client ID + Secret → 24h token) — never passed in directly.
@@ -9,6 +15,11 @@
  * Default handle: the-tourmaline-band. If no product matches the handle, the
  * script falls back to a title / SKU search so the single HimVolt product can
  * be found even when its handle differs on the shared store.
+ *
+ * This is the standalone CLI counterpart to POST /api/admin/sync-product
+ * (lib/shopify/sync-product.ts) — same job, run without a server. The two
+ * intentionally don't share code: this script has zero imports from the
+ * app's TS module graph so it can run with plain `node`, no build step.
  */
 
 import { readFileSync, writeFileSync, renameSync, existsSync } from "node:fs";
@@ -57,6 +68,7 @@ const cfg = {
   adminClientId: process.env.SHOPIFY_ADMIN_CLIENT_ID || null,
   adminClientSecret: process.env.SHOPIFY_ADMIN_CLIENT_SECRET || null,
   adminToken: process.env.SHOPIFY_ADMIN_API_TOKEN || null,
+  storefrontToken: process.env.SHOPIFY_STOREFRONT_API_TOKEN || null,
 };
 
 if (!cfg.storeDomain) {
@@ -100,15 +112,32 @@ async function getAdminToken() {
   return cachedToken;
 }
 
-const endpoint = `https://${cfg.storeDomain}/admin/api/${cfg.apiVersion}/graphql.json`;
+const adminEndpoint = `https://${cfg.storeDomain}/admin/api/${cfg.apiVersion}/graphql.json`;
+const storefrontEndpoint = `https://${cfg.storeDomain}/api/${cfg.apiVersion}/graphql.json`;
 
 async function adminRequest(query, variables = {}) {
   const token = await getAdminToken();
-  const res = await fetch(endpoint, {
+  const res = await fetch(adminEndpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "X-Shopify-Access-Token": token,
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+  const body = await res.json().catch(() => ({}));
+  if (!res.ok || body.errors?.length) {
+    throw new Error(body.errors?.[0]?.message || `HTTP ${res.status}`);
+  }
+  return body.data;
+}
+
+async function storefrontRequest(query, variables = {}) {
+  const res = await fetch(storefrontEndpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Shopify-Storefront-Access-Token": cfg.storefrontToken,
     },
     body: JSON.stringify({ query, variables }),
   });
@@ -136,6 +165,28 @@ query ProductSearch($query: String!) {
     }
   }
 }`;
+const MARKETS_QUERY = `
+query Markets {
+  markets(first: 20) {
+    nodes {
+      name
+      enabled
+      regions(first: 10) {
+        nodes { ... on MarketRegionCountry { code } }
+      }
+    }
+  }
+}`;
+const VARIANT_PRICES_QUERY = `
+query VariantPrices($ids: [ID!]!, $country: CountryCode) @inContext(country: $country) {
+  nodes(ids: $ids) {
+    ... on ProductVariant {
+      id
+      price { amount currencyCode }
+      compareAtPrice { amount currencyCode }
+    }
+  }
+}`;
 
 function normalizeVariants(nodes) {
   return nodes
@@ -152,6 +203,38 @@ function normalizeVariants(nodes) {
         availableForSale: v.availableForSale,
       };
     });
+}
+
+/** Single-country markets are real, merchant-priced markets; multi-country ones are the "sell everywhere" catch-all. */
+async function discoverCuratedMarketCountries() {
+  const data = await adminRequest(MARKETS_QUERY);
+  const codes = new Set();
+  for (const market of data.markets.nodes) {
+    if (!market.enabled) continue;
+    const regionCodes = market.regions.nodes
+      .map((r) => r.code)
+      .filter(Boolean);
+    if (regionCodes.length === 1) codes.add(regionCodes[0]);
+  }
+  return [...codes];
+}
+
+async function pricesForMarket(variantIds, country) {
+  const data = await storefrontRequest(VARIANT_PRICES_QUERY, {
+    ids: variantIds,
+    country,
+  });
+  const prices = {};
+  for (const node of data.nodes) {
+    if (!node?.price) continue;
+    prices[node.id] = {
+      amount: Number(node.price.amount),
+      compareAtAmount:
+        node.compareAtPrice != null ? Number(node.compareAtPrice.amount) : null,
+      currencyCode: node.price.currencyCode,
+    };
+  }
+  return prices;
 }
 
 async function main() {
@@ -191,14 +274,47 @@ async function main() {
     process.exit(1);
   }
 
+  console.log("· discovering curated markets…");
+  let markets = [];
+  if (!cfg.storefrontToken) {
+    console.log("  SHOPIFY_STOREFRONT_API_TOKEN not set — skipping per-market prices");
+  } else {
+    try {
+      markets = await discoverCuratedMarketCountries();
+      console.log(`  ${markets.length} curated market(s): ${markets.join(", ") || "none"}`);
+    } catch (err) {
+      // A permissions gap (e.g. the Admin app is missing the read_markets
+      // scope) must not take down the base product sync — just skip market
+      // prices and say why, once, clearly.
+      console.log(`  ✖ market discovery failed, skipping per-market prices: ${err.message}`);
+    }
+  }
+
+  const variantIds = variants.map((v) => v.id);
+  const pricesByVariant = new Map(variants.map((v) => [v.id, {}]));
+
+  await Promise.all(
+    markets.map(async (country) => {
+      const prices = await pricesForMarket(variantIds, country).catch((err) => {
+        console.error(`  ✖ ${country} prices failed: ${err.message}`);
+        return {};
+      });
+      for (const [variantId, localized] of Object.entries(prices)) {
+        const bucket = pricesByVariant.get(variantId);
+        if (bucket) bucket[country] = localized;
+      }
+    }),
+  );
+
   const record = {
-    version: 2,
+    version: 3,
     syncedAt: new Date().toISOString(),
     shop: {
       domain: cfg.storeDomain,
       name: shopData?.shop?.name || "HimVolt",
       currencyCode: currency,
     },
+    markets,
     product: {
       id: product.id,
       handle: product.handle,
@@ -207,7 +323,10 @@ async function main() {
       compareAtPrice: compare != null && compare > price ? compare : null,
       currencyCode: currency,
       availableForSale: variants.some((v) => v.availableForSale),
-      variants,
+      variants: variants.map((v) => ({
+        ...v,
+        pricesByMarket: pricesByVariant.get(v.id) ?? {},
+      })),
     },
   };
 
@@ -218,7 +337,7 @@ async function main() {
 
   console.log(`✔ wrote ${OUTPUT}`);
   console.log(
-    `  ${product.title} → $${price}${record.product.compareAtPrice ? ` (was $${record.product.compareAtPrice})` : ""} ${currency} · ${variants.length} variants`,
+    `  ${product.title} → $${price}${record.product.compareAtPrice ? ` (was $${record.product.compareAtPrice})` : ""} ${currency} · ${variants.length} variants · ${markets.length} markets`,
   );
 }
 

@@ -9,7 +9,7 @@
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build",
     "shopify:webhooks": "node scripts/register-webhooks.mjs",
-    "shopify:sync-product": "node scripts/sync-product.mjs"
+    "shopify:sync": "node scripts/sync-product.mjs"
   },
   "dependencies": {
     "motion": "^12.23.12",

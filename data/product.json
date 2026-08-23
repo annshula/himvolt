@@ -1,11 +1,17 @@
 {
-  "version": 2,
-  "syncedAt": "2026-08-22T09:21:50.835Z",
+  "version": 3,
+  "syncedAt": "2026-08-23T12:47:04.084Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
     "currencyCode": "USD"
   },
+  "markets": [
+    "AU",
+    "CA",
+    "GB",
+    "US"
+  ],
   "product": {
     "id": "gid://shopify/Product/9606653313251",
     "handle": "square-black-tourmaline-bracelet-mens-elastic-mixed-style-bracelet",
@@ -20,21 +26,87 @@
         "title": "Square Bracelet / 1PCS",
         "price": 14.26,
         "compareAtPrice": null,
-        "availableForSale": true
+        "availableForSale": true,
+        "pricesByMarket": {
+          "AU": {
+            "amount": 52.52,
+            "compareAtAmount": 67.23,
+            "currencyCode": "AUD"
+          },
+          "GB": {
+            "amount": 26.43,
+            "compareAtAmount": 31.98,
+            "currencyCode": "GBP"
+          },
+          "US": {
+            "amount": 38.19,
+            "compareAtAmount": 47.36,
+            "currencyCode": "USD"
+          },
+          "CA": {
+            "amount": 50.79,
+            "compareAtAmount": 60.45,
+            "currencyCode": "CAD"
+          }
+        }
       },
       {
         "id": "gid://shopify/ProductVariant/49549914112227",
         "title": "Square Bracelet / 2PCS",
         "price": 40.77,
         "compareAtPrice": null,
-        "availableForSale": true
+        "availableForSale": true,
+        "pricesByMarket": {
+          "AU": {
+            "amount": 54.32,
+            "compareAtAmount": 134.46,
+            "currencyCode": "AUD"
+          },
+          "GB": {
+            "amount": 27.26,
+            "compareAtAmount": 63.96,
+            "currencyCode": "GBP"
+          },
+          "US": {
+            "amount": 39.45,
+            "compareAtAmount": 94.72,
+            "currencyCode": "USD"
+          },
+          "CA": {
+            "amount": 52.51,
+            "compareAtAmount": 120.9,
+            "currencyCode": "CAD"
+          }
+        }
       },
       {
         "id": "gid://shopify/ProductVariant/49549914144995",
         "title": "Square Bracelet / 4PCS",
         "price": 42.55,
         "compareAtPrice": null,
-        "availableForSale": true
+        "availableForSale": true,
+        "pricesByMarket": {
+          "AU": {
+            "amount": 105.04,
+            "compareAtAmount": 268.92,
+            "currencyCode": "AUD"
+          },
+          "GB": {
+            "amount": 52.86,
+            "compareAtAmount": 127.92,
+            "currencyCode": "GBP"
+          },
+          "US": {
+            "amount": 76.38,
+            "compareAtAmount": 189.44,
+            "currencyCode": "USD"
+          },
+          "CA": {
+            "amount": 101.58,
+            "compareAtAmount": 241.8,
+            "currencyCode": "CAD"
+          }
+        }
       }
     ]
   }

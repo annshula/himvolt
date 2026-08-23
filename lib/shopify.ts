@@ -1,15 +1,13 @@
 /**
- * Shopify Storefront API adapter — wired but dormant.
- *
- * Today every component reads `lib/product.ts`. When the store is live, set
- * the two env vars below and `getProduct()` starts returning live data with an
- * identical shape; nothing in the UI has to change.
- *
- *   SHOPIFY_STORE_DOMAIN=himvolt.myshopify.com
- *   SHOPIFY_STOREFRONT_TOKEN=shpat_xxx
+ * Shopify Storefront API adapter. `createCheckout()` is the one live call
+ * left here — cart creation is inherently real-time. `getProduct()` is no
+ * longer live: it reads the synced catalog (data/product.json), refreshed
+ * only by `npm run shopify:sync-product` or POST /api/admin/sync-product
+ * (lib/shopify/sync-product.ts), so the product page never depends on
+ * Shopify responding at request time.
  */
 
-import { syncedProduct } from "./catalog";
+import { priceForMarket, syncedProduct } from "./catalog";
 import { product as fallback, type Product, type Variant } from "./product";
 
 const DOMAIN = process.env.SHOPIFY_STORE_DOMAIN;
@@ -50,96 +48,29 @@ async function storefront<T>(
   return json.data ?? null;
 }
 
-const PRODUCT_QUERY = /* GraphQL */ `
-  query Product($handle: String!) {
-    product(handle: $handle) {
-      id
-      handle
-      title
-      descriptionHtml
-      images(first: 8) {
-        nodes {
-          url
-          altText
-          width
-          height
-        }
-      }
-      variants(first: 12) {
-        nodes {
-          id
-          sku
-          title
-          availableForSale
-          price {
-            amount
-            currencyCode
-          }
-          compareAtPrice {
-            amount
-            currencyCode
-          }
-          image {
-            url
-          }
-          weight
-        }
-      }
-    }
-  }
-`;
-
-type ShopifyProduct = {
-  product: {
-    id: string;
-    handle: string;
-    title: string;
-    descriptionHtml: string;
-    images: {
-      nodes: {
-        url: string;
-        altText: string | null;
-        width: number;
-        height: number;
-      }[];
-    };
-    variants: {
-      nodes: {
-        id: string;
-        sku: string;
-        title: string;
-        availableForSale: boolean;
-        price: { amount: string; currencyCode: string };
-        compareAtPrice: { amount: string; currencyCode: string } | null;
-        image: { url: string } | null;
-        weight: number | null;
-      }[];
-    };
-  } | null;
-};
-
 /**
- * Returns the live Shopify product when credentials exist, otherwise the
- * synced catalog. Always resolves — the landing page must never fail on an
- * API blip.
+ * Builds the product model from the synced catalog (data/product.json) only
+ * — no live Shopify call. Price, availability and variant ids come from the
+ * last `npm run shopify:sync-product` / `POST /api/admin/sync-product` run;
+ * gallery, description and specs stay the hand-written presentation content
+ * from lib/product.ts, since the raw Shopify catalog data is CJ-sourced and
+ * not fit to show a shopper directly.
  *
- * The synced catalog (data/product.json) is the ground truth for variant ids:
- * every variant handed to the cart/checkout must be a real Shopify
- * `gid://shopify/ProductVariant/…`, or the drawer and Storefront checkout
- * cannot resolve it. The live Storefront query only refreshes prices,
- * availability and imagery on top of those ids.
+ * Kept `async` for call-site compatibility even though nothing here awaits —
+ * every caller already does `await getProduct()`.
  */
 export async function getProduct(
   handle: string = syncedProduct.handle,
 ): Promise<Product> {
-  const data = await storefront<ShopifyProduct>(PRODUCT_QUERY, { handle });
-  const live = data?.product;
-  const liveVariants = live?.variants?.nodes ?? [];
-  const currency = syncedProduct.currencyCode ?? "USD";
+  void handle; // data/product.json holds exactly one product — nothing to select between.
 
   const variants: Variant[] = syncedProduct.variants.map((synced, i) => {
     const pres = fallback.variants[i];
-    const liveV = liveVariants[i];
+    // No country known yet at this layer (that's the currency selector's
+    // job, applied on top via useLocalizedAmount) — priceForMarket(id, null)
+    // resolves to the US market's real price, not the raw Admin default
+    // (a different, lower number — see lib/catalog.ts's priceForMarket).
+    const defaultPrice = priceForMarket(synced.id, null);
     return {
       // Real Shopify gid — the cart + checkout resolve against data/product.json.
       id: synced.id,
@@ -149,41 +80,23 @@ export async function getProduct(
       title: pres?.title ?? synced.title,
       subtitle: pres?.subtitle ?? "",
       quantity: pres?.quantity ?? 1,
-      price: liveV
-        ? {
-            amount: Number(liveV.price.amount),
-            currencyCode: liveV.price.currencyCode,
-          }
-        : { amount: synced.price, currencyCode: currency },
-      compareAtPrice: liveV?.compareAtPrice
-        ? {
-            amount: Number(liveV.compareAtPrice.amount),
-            currencyCode: liveV.compareAtPrice.currencyCode,
-          }
-        : synced.compareAtPrice != null
-          ? { amount: synced.compareAtPrice, currencyCode: currency }
+      price: { amount: defaultPrice.amount, currencyCode: defaultPrice.currencyCode },
+      compareAtPrice:
+        defaultPrice.compareAtAmount != null
+          ? { amount: defaultPrice.compareAtAmount, currencyCode: defaultPrice.currencyCode }
           : undefined,
       badge: pres?.badge,
-      image: liveV?.image?.url ?? pres?.image ?? fallback.gallery[0]?.src ?? "",
-      availableForSale: liveV?.availableForSale ?? synced.availableForSale,
-      weightGrams: liveV?.weight ?? pres?.weightGrams ?? 40,
+      image: pres?.image ?? fallback.gallery[0]?.src ?? "",
+      availableForSale: synced.availableForSale,
+      weightGrams: pres?.weightGrams ?? 40,
     };
   });
 
   return {
     ...fallback,
-    id: live?.id ?? syncedProduct.id,
-    handle: live?.handle ?? syncedProduct.handle,
-    title: live?.title ?? syncedProduct.title,
-    descriptionHtml: live?.descriptionHtml ?? fallback.descriptionHtml,
-    gallery: live?.images?.nodes?.length
-      ? live.images.nodes.map((n) => ({
-          src: n.url,
-          alt: n.altText ?? live.title ?? fallback.title,
-          width: n.width,
-          height: n.height,
-        }))
-      : fallback.gallery,
+    id: syncedProduct.id,
+    handle: syncedProduct.handle,
+    title: syncedProduct.title,
     variants: variants.length ? variants : fallback.variants,
   };
 }
