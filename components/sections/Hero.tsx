@@ -69,16 +69,6 @@ export default function Hero() {
           animate="visible"
           className="relative z-10 mx-auto max-w-176 text-center"
         >
-          <motion.p
-            variants={item}
-            className="mb-7 inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15 bg-black/30 py-2 pr-4 pl-2.5 text-[0.63rem] font-medium tracking-[0.26em] text-chalk/90 uppercase backdrop-blur-sm"
-          >
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-chalk text-chalk">
-              <span className="pulse-ring absolute inset-0 rounded-full" />
-            </span>
-            {hero.eyebrow}
-          </motion.p>
-
           <motion.h1
             variants={item}
             className="font-mega text-[clamp(2.9rem,7.2vw,5.2rem)] leading-[0.88] text-chalk"
@@ -139,14 +129,12 @@ export default function Hero() {
         style={{ opacity: reduce ? 1 : contentOpacity }}
         className="pointer-events-none relative z-10 mx-auto mb-7 hidden items-center gap-2 text-[0.62rem] tracking-[0.22em] text-chalk/60 uppercase sm:flex"
       >
-        <motion.span
+        <div
           aria-hidden
-          animate={reduce ? {} : { y: [0, 6, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="flex h-8 w-5 items-start justify-center rounded-full border border-chalk/30 p-1"
+          className={`flex h-10 w-6 justify-center rounded-full border-2 border-white/50 ${reduce ? "" : "animate-bounce"}`}
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-chalk/70" />
-        </motion.span>
+          <div className="mt-2 h-3 w-1 rounded-full bg-white/70" />
+        </div>
         Scroll
       </motion.div>
     </section>
