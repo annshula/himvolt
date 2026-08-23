@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "syncedAt": "2026-08-23T12:47:04.084Z",
+  "version": 5,
+  "syncedAt": "2026-08-23T17:56:43.558Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -12,102 +12,2030 @@
     "GB",
     "US"
   ],
-  "product": {
-    "id": "gid://shopify/Product/9606653313251",
-    "handle": "square-black-tourmaline-bracelet-mens-elastic-mixed-style-bracelet",
-    "title": "Square Black Tourmaline Bracelet Mens Elastic Mixed-Style Bracelet",
-    "price": 14.26,
-    "compareAtPrice": null,
-    "currencyCode": "USD",
-    "availableForSale": true,
-    "variants": [
-      {
-        "id": "gid://shopify/ProductVariant/49549914079459",
-        "title": "Square Bracelet / 1PCS",
-        "price": 14.26,
-        "compareAtPrice": null,
-        "availableForSale": true,
-        "pricesByMarket": {
-          "AU": {
-            "amount": 52.52,
-            "compareAtAmount": 67.23,
-            "currencyCode": "AUD"
+  "products": [
+    {
+      "id": "gid://shopify/Product/9617475797219",
+      "handle": "hematite-mens-bracelet",
+      "title": "Hematite Men's Bracelet",
+      "shopifyTitle": "Hematite Men's Bracelet",
+      "price": 41.16,
+      "compareAtPrice": null,
+      "currencyCode": "USD",
+      "availableForSale": true,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49582702166243",
+          "title": "1 bracelet",
+          "sku": "CJSL274901701AZ",
+          "price": 41.16,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 44.88,
+              "compareAtAmount": 56.55,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 32.66,
+              "compareAtAmount": 39.52,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 22.3,
+              "compareAtAmount": 27.43,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 43.19,
+              "compareAtAmount": 50.97,
+              "currencyCode": "CAD"
+            }
           },
-          "GB": {
-            "amount": 26.43,
-            "compareAtAmount": 31.98,
-            "currencyCode": "GBP"
-          },
-          "US": {
-            "amount": 38.19,
-            "compareAtAmount": 47.36,
-            "currencyCode": "USD"
-          },
-          "CA": {
-            "amount": 50.79,
-            "compareAtAmount": 60.45,
-            "currencyCode": "CAD"
-          }
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/67d2af94-7728-4f68-bbf6-f626e558b76f.jpg?v=1787497706",
+          "shopifyTitle": "1PC",
+          "subtitle": "The everyday",
+          "quantity": 1,
+          "weightGrams": 70
         }
-      },
-      {
-        "id": "gid://shopify/ProductVariant/49549914112227",
-        "title": "Square Bracelet / 2PCS",
-        "price": 40.77,
-        "compareAtPrice": null,
-        "availableForSale": true,
-        "pricesByMarket": {
-          "AU": {
-            "amount": 54.32,
-            "compareAtAmount": 134.46,
-            "currencyCode": "AUD"
-          },
-          "GB": {
-            "amount": 27.26,
-            "compareAtAmount": 63.96,
-            "currencyCode": "GBP"
-          },
-          "US": {
-            "amount": 39.45,
-            "compareAtAmount": 94.72,
-            "currencyCode": "USD"
-          },
-          "CA": {
-            "amount": 52.51,
-            "compareAtAmount": 120.9,
-            "currencyCode": "CAD"
-          }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
+          "alt": "Hematite Men's Bracelet",
+          "width": 2025,
+          "height": 1359
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/lifestyle.jpg?v=1787507733",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1470,
+          "height": 1125
         }
-      },
-      {
-        "id": "gid://shopify/ProductVariant/49549914144995",
-        "title": "Square Bracelet / 4PCS",
-        "price": 42.55,
-        "compareAtPrice": null,
-        "availableForSale": true,
-        "pricesByMarket": {
-          "AU": {
-            "amount": 105.04,
-            "compareAtAmount": 268.92,
-            "currencyCode": "AUD"
-          },
-          "GB": {
-            "amount": 52.86,
-            "compareAtAmount": 127.92,
-            "currencyCode": "GBP"
-          },
-          "US": {
-            "amount": 76.38,
-            "compareAtAmount": 189.44,
-            "currencyCode": "USD"
-          },
-          "CA": {
-            "amount": 101.58,
-            "compareAtAmount": 241.8,
-            "currencyCode": "CAD"
-          }
+      ],
+      "subtitle": "Polished hematite · elastic fit",
+      "material": "Natural hematite (iron oxide)",
+      "descriptionHtml": "<p>A single strand of polished hematite beads on a stretch elastic core. No clasp, no hardware, nothing to break. Metallic gunmetal-black, dense enough to notice the moment you pick it up.</p>",
+      "specs": [
+        {
+          "label": "Stone",
+          "value": "Natural hematite (iron oxide)"
+        },
+        {
+          "label": "Hardness",
+          "value": "5.5–6.5 Mohs"
+        },
+        {
+          "label": "Density",
+          "value": "Notably dense — heavier in hand than its size suggests"
+        },
+        {
+          "label": "Streak test",
+          "value": "Red-brown when scratched, despite the metallic black surface"
+        },
+        {
+          "label": "Weight",
+          "value": "70 g"
+        },
+        {
+          "label": "Core",
+          "value": "Stretch elastic, no clasp"
+        },
+        {
+          "label": "Finish",
+          "value": "Hand-polished"
         }
-      }
-    ]
-  }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/9617681973475",
+      "handle": "natural-black-tourmaline-and-hematite-single-strand-round-bead-bracelet",
+      "title": "Hematite Round Bead Bracelet",
+      "shopifyTitle": "Natural Black Tourmaline And Hematite Single-Strand Round Bead Bracelet",
+      "price": 14.44,
+      "compareAtPrice": null,
+      "currencyCode": "USD",
+      "availableForSale": true,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49583348482275",
+          "title": "Gold-plated · 10mm",
+          "sku": "CJSL304925813MN",
+          "price": 14.44,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 21,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 14.44,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 11,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 20,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
+          "shopifyTitle": "Golden Hematite Bracelet / 10mm",
+          "subtitle": "10mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348515043",
+          "title": "Gold-plated · 12mm",
+          "sku": "CJSL304925814NM",
+          "price": 17.02,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 25,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 17.02,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 24,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
+          "shopifyTitle": "Golden Hematite Bracelet / 12mm",
+          "subtitle": "12mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348547811",
+          "title": "Gold-plated · 2mm",
+          "sku": "CJSL304925808HS",
+          "price": 12.99,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.99,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
+          "shopifyTitle": "Golden Hematite Bracelet / 2mm",
+          "subtitle": "2mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348580579",
+          "title": "Gold-plated · 3mm",
+          "sku": "CJSL304925809IR",
+          "price": 12.69,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.69,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
+          "shopifyTitle": "Golden Hematite Bracelet / 3mm",
+          "subtitle": "3mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348613347",
+          "title": "Gold-plated · 4mm",
+          "sku": "CJSL304925810JQ",
+          "price": 12.17,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.17,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
+          "shopifyTitle": "Golden Hematite Bracelet / 4mm",
+          "subtitle": "4mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348646115",
+          "title": "Gold-plated · 6mm",
+          "sku": "CJSL304925811KP",
+          "price": 12.27,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.27,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
+          "shopifyTitle": "Golden Hematite Bracelet / 6mm",
+          "subtitle": "6mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348678883",
+          "title": "Gold-plated · 8mm",
+          "sku": "CJSL304925812LO",
+          "price": 13.3,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 13.3,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
+          "shopifyTitle": "Golden Hematite Bracelet / 8mm",
+          "subtitle": "8mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348711651",
+          "title": "Natural · 10mm",
+          "sku": "CJSL304925806FU",
+          "price": 10.83,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 16,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 10.83,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 9,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 15,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+          "shopifyTitle": "Hematite Bracelet / 10mm",
+          "subtitle": "10mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348744419",
+          "title": "Natural · 12mm",
+          "sku": "CJSL304925807GT",
+          "price": 12.58,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.58,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+          "shopifyTitle": "Hematite Bracelet / 12mm",
+          "subtitle": "12mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348777187",
+          "title": "Natural · 2mm",
+          "sku": "CJSL304925801AZ",
+          "price": 11.86,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 11.86,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 9,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+          "shopifyTitle": "Hematite Bracelet / 2mm",
+          "subtitle": "2mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348809955",
+          "title": "Natural · 3mm",
+          "sku": "CJSL304925802BY",
+          "price": 10.83,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 16,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 10.83,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 9,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 15,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+          "shopifyTitle": "Hematite Bracelet / 3mm",
+          "subtitle": "3mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348842723",
+          "title": "Natural · 4mm",
+          "sku": "CJSL304925803CX",
+          "price": 11.86,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 11.86,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 9,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+          "shopifyTitle": "Hematite Bracelet / 4mm",
+          "subtitle": "4mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348875491",
+          "title": "Natural · 6mm",
+          "sku": "CJSL304925804DW",
+          "price": 8.97,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 8.97,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 7,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+          "shopifyTitle": "Hematite Bracelet / 6mm",
+          "subtitle": "6mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348908259",
+          "title": "Natural · 8mm",
+          "sku": "CJSL304925805EV",
+          "price": 11.86,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 11.86,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 9,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+          "shopifyTitle": "Hematite Bracelet / 8mm",
+          "subtitle": "8mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348941027",
+          "title": "Rose gold-plated · 10mm",
+          "sku": "CJSL304925827AZ",
+          "price": 14.44,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 21,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 14.44,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 11,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 20,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
+          "shopifyTitle": "Rose Gold Hematite Bracelet / 10mm",
+          "subtitle": "10mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583348973795",
+          "title": "Rose gold-plated · 12mm",
+          "sku": "CJSL304925828BY",
+          "price": 17.02,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 25,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 17.02,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 24,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
+          "shopifyTitle": "Rose Gold Hematite Bracelet / 12mm",
+          "subtitle": "12mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349006563",
+          "title": "Rose gold-plated · 2mm",
+          "sku": "CJSL304925822VE",
+          "price": 12.99,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.99,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
+          "shopifyTitle": "Rose Gold Hematite Bracelet / 2mm",
+          "subtitle": "2mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349039331",
+          "title": "Rose gold-plated · 3mm",
+          "sku": "CJSL304925823WD",
+          "price": 12.69,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.69,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
+          "shopifyTitle": "Rose Gold Hematite Bracelet / 3mm",
+          "subtitle": "3mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349072099",
+          "title": "Rose gold-plated · 4mm",
+          "sku": "CJSL304925824XC",
+          "price": 12.17,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.17,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
+          "shopifyTitle": "Rose Gold Hematite Bracelet / 4mm",
+          "subtitle": "4mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349104867",
+          "title": "Rose gold-plated · 6mm",
+          "sku": "CJSL304925825YB",
+          "price": 12.27,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.27,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
+          "shopifyTitle": "Rose Gold Hematite Bracelet / 6mm",
+          "subtitle": "6mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349137635",
+          "title": "Rose gold-plated · 8mm",
+          "sku": "CJSL304925826ZA",
+          "price": 13.3,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 13.3,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
+          "shopifyTitle": "Rose Gold Hematite Bracelet / 8mm",
+          "subtitle": "8mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349170403",
+          "title": "Silver-plated · 10mm",
+          "sku": "CJSL304925820TG",
+          "price": 14.44,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 21,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 14.44,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 11,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 20,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
+          "shopifyTitle": "Silver Hematite Bracelet / 10mm",
+          "subtitle": "10mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349203171",
+          "title": "Silver-plated · 12mm",
+          "sku": "CJSL304925821UF",
+          "price": 17.02,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 25,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 17.02,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 24,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
+          "shopifyTitle": "Silver Hematite Bracelet / 12mm",
+          "subtitle": "12mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349235939",
+          "title": "Silver-plated · 2mm",
+          "sku": "CJSL304925815OL",
+          "price": 12.99,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.99,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
+          "shopifyTitle": "Silver Hematite Bracelet / 2mm",
+          "subtitle": "2mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349268707",
+          "title": "Silver-plated · 3mm",
+          "sku": "CJSL304925816PK",
+          "price": 12.69,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.69,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
+          "shopifyTitle": "Silver Hematite Bracelet / 3mm",
+          "subtitle": "3mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349301475",
+          "title": "Silver-plated · 4mm",
+          "sku": "CJSL304925817QJ",
+          "price": 12.17,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.17,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
+          "shopifyTitle": "Silver Hematite Bracelet / 4mm",
+          "subtitle": "4mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349334243",
+          "title": "Silver-plated · 6mm",
+          "sku": "CJSL304925818RI",
+          "price": 12.27,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 12.27,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
+          "shopifyTitle": "Silver Hematite Bracelet / 6mm",
+          "subtitle": "6mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583349367011",
+          "title": "Silver-plated · 8mm",
+          "sku": "CJSL304925819SH",
+          "price": 13.3,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 13.3,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
+          "shopifyTitle": "Silver Hematite Bracelet / 8mm",
+          "subtitle": "8mm bead",
+          "quantity": 1,
+          "weightGrams": 30
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c7586cc7-015e-4c36-8e79-808b5dde519c.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, product photo 1",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/794b80c2-7f83-405b-8bef-55ff095033a8.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, product photo 2",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c9ce7006-0d9a-4bff-8103-42e0a7c35ff4.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, product photo 3",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, rose gold-plated finish",
+          "width": 695,
+          "height": 695
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, natural finish",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, silver-plated finish",
+          "width": 695,
+          "height": 695
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/0b149ace-582c-4ed5-9563-5637479cd194.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, product photo 7",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/7b7aa4b8-81a4-4239-921a-34ccfbce58f5.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, product photo 8",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, gold-plated finish",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "subtitle": "Round hematite beads · 4 finishes, 7 sizes",
+      "material": "Natural hematite (some finishes plated)",
+      "descriptionHtml": "<p>Round hematite beads on a stretch cord, in the stone's natural gunmetal finish or gold-, silver- or rose-gold-plated. Seven bead sizes from a subtle 2mm to a substantial 12mm — the most customizable piece in the collection.</p>",
+      "specs": [
+        {
+          "label": "Stone",
+          "value": "Natural hematite"
+        },
+        {
+          "label": "Cut",
+          "value": "Round beads, 7 sizes: 2–12mm"
+        },
+        {
+          "label": "Finishes",
+          "value": "Natural, gold-plated, silver-plated, rose-gold-plated"
+        },
+        {
+          "label": "Hardness",
+          "value": "5.5–6.5 Mohs"
+        },
+        {
+          "label": "Streak test",
+          "value": "Red-brown when scratched, despite the metallic black surface"
+        },
+        {
+          "label": "Core",
+          "value": "Stretch elastic, no clasp"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/9617569120483",
+      "handle": "black-gallstone-bracelet-hematite-jewelry-terahertz",
+      "title": "The Hematite Drop Bracelet",
+      "shopifyTitle": "Black Gallstone Bracelet Hematite Jewelry Terahertz",
+      "price": 42.14,
+      "compareAtPrice": null,
+      "currencyCode": "USD",
+      "availableForSale": true,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49583074509027",
+          "title": "1 bracelet",
+          "sku": "CJSL140042801AZ",
+          "price": 42.14,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 44.66,
+              "compareAtAmount": 58.05,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 32.14,
+              "compareAtAmount": 39.85,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 22.05,
+              "compareAtAmount": 25.8,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 42.93,
+              "compareAtAmount": 51.52,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
+          "shopifyTitle": "Black",
+          "subtitle": "Black",
+          "quantity": 1,
+          "weightGrams": 107
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
+          "alt": "The Hematite Drop Bracelet",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1e3fb0a6-4353-457f-8ce1-cf918421091b.jpg?v=1787500281",
+          "alt": "The Hematite Drop Bracelet, detail",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/3bab1e98-71a4-460a-87d5-f19cfcf46cf6.jpg?v=1787500281",
+          "alt": "The Hematite Drop Bracelet, detail",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/cc625092-0dcb-491d-a934-cb3f94dfaba0.jpg?v=1787500281",
+          "alt": "The Hematite Drop Bracelet, detail",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/4dbb02ed-8ac9-4dff-9509-1e27592e42dd.jpg?v=1787500281",
+          "alt": "The Hematite Drop Bracelet, detail",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "subtitle": "Hand-strung hematite · geometric beads",
+      "material": "Hematite",
+      "descriptionHtml": "<p>Hand-strung hematite beads in a geometric cut, polished to a dark gunmetal shine. The heaviest piece in the collection at 107g — built to be felt, not just seen.</p>",
+      "specs": [
+        {
+          "label": "Stone",
+          "value": "Hematite"
+        },
+        {
+          "label": "Cut",
+          "value": "Geometric, hand-strung"
+        },
+        {
+          "label": "Hardness",
+          "value": "5.5–6.5 Mohs"
+        },
+        {
+          "label": "Density",
+          "value": "Notably dense — heavier in hand than its size suggests"
+        },
+        {
+          "label": "Weight",
+          "value": "107 g"
+        },
+        {
+          "label": "Finish",
+          "value": "Polished"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/9617580785891",
+      "handle": "hematite-ring-without-magnetic-surface",
+      "title": "Hematite Band Ring",
+      "shopifyTitle": "Hematite Ring Without Magnetic  Surface",
+      "price": 33.74,
+      "compareAtPrice": null,
+      "currencyCode": "USD",
+      "availableForSale": true,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49583113076963",
+          "title": "Size 10",
+          "sku": "CJLX114563005EV",
+          "price": 33.74,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 48,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+          "shopifyTitle": "Six black / 10",
+          "subtitle": "US ring size",
+          "quantity": 1,
+          "weightGrams": 5
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583113109731",
+          "title": "Size 11",
+          "sku": "CJLX114563006FU",
+          "price": 33.74,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 48,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+          "shopifyTitle": "Six black / 11",
+          "subtitle": "US ring size",
+          "quantity": 1,
+          "weightGrams": 5
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583113142499",
+          "title": "Size 12",
+          "sku": "CJLX114563007GT",
+          "price": 33.74,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 48,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+          "shopifyTitle": "Six black / 12",
+          "subtitle": "US ring size",
+          "quantity": 1,
+          "weightGrams": 5
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583113175267",
+          "title": "Size 6",
+          "sku": "CJLX114563001AZ",
+          "price": 33.74,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 48,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+          "shopifyTitle": "Six black / 6",
+          "subtitle": "US ring size",
+          "quantity": 1,
+          "weightGrams": 5
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583113208035",
+          "title": "Size 7",
+          "sku": "CJLX114563002BY",
+          "price": 33.74,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 48,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+          "shopifyTitle": "Six black / 7",
+          "subtitle": "US ring size",
+          "quantity": 1,
+          "weightGrams": 5
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583113240803",
+          "title": "Size 8",
+          "sku": "CJLX114563003CX",
+          "price": 28.67,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 41,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 28.67,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 22,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+          "shopifyTitle": "Six black / 8",
+          "subtitle": "US ring size",
+          "quantity": 1,
+          "weightGrams": 5
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583113273571",
+          "title": "Size 9",
+          "sku": "CJLX114563004DW",
+          "price": 33.74,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 48,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+          "shopifyTitle": "Six black / 9",
+          "subtitle": "US ring size",
+          "quantity": 1,
+          "weightGrams": 5
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+          "alt": "Hematite Band Ring — solid polished hematite",
+          "width": 534,
+          "height": 521
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032939277.jpg?v=1787500449",
+          "alt": "Hematite Band Ring, detail",
+          "width": 535,
+          "height": 521
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032948208.jpg?v=1787500449",
+          "alt": "Hematite Band Ring worn on the hand",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032948211.jpg?v=1787500449",
+          "alt": "Hematite Band Ring, detail",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032939274.jpg?v=1787500449",
+          "alt": "Hematite Band Ring, detail",
+          "width": 527,
+          "height": 530
+        }
+      ],
+      "subtitle": "Solid hematite · sizes 6–12",
+      "material": "Hematite",
+      "descriptionHtml": "<p>A solid hematite band, polished to a dark metallic shine. No plating, no coating — the colour is the stone. Not magnetic; this is the natural, unmodified mineral.</p>",
+      "specs": [
+        {
+          "label": "Stone",
+          "value": "Hematite (natural, not magnetic)"
+        },
+        {
+          "label": "Hardness",
+          "value": "5.5–6.5 Mohs"
+        },
+        {
+          "label": "Density",
+          "value": "Notably dense — heavier in hand than its size suggests"
+        },
+        {
+          "label": "Sizes",
+          "value": "6–12"
+        },
+        {
+          "label": "Finish",
+          "value": "Polished, solid band"
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/9617597890787",
+      "handle": "fashion-curved-hematite-magnetic-ring",
+      "title": "Curved Hematite Ring",
+      "shopifyTitle": "Fashion Curved Hematite Magnetic Ring",
+      "price": 31.72,
+      "compareAtPrice": null,
+      "currencyCode": "USD",
+      "availableForSale": true,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49583159673059",
+          "title": "Magnetic · Size 10",
+          "sku": "CJLX110336905EV",
+          "price": 31.72,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 42.57,
+              "compareAtAmount": 50.65,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "shopifyTitle": "Magnetic 10",
+          "subtitle": "Man-made magnetic hematite",
+          "quantity": 1,
+          "weightGrams": 27
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583159705827",
+          "title": "Magnetic · Size 6",
+          "sku": "CJLX110336901AZ",
+          "price": 31.72,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "shopifyTitle": "Magnetic 6",
+          "subtitle": "Man-made magnetic hematite",
+          "quantity": 1,
+          "weightGrams": 23
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583159738595",
+          "title": "Magnetic · Size 7",
+          "sku": "CJLX110336902BY",
+          "price": 31.72,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "shopifyTitle": "Magnetic 7",
+          "subtitle": "Man-made magnetic hematite",
+          "quantity": 1,
+          "weightGrams": 24
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583159771363",
+          "title": "Magnetic · Size 8",
+          "sku": "CJLX110336903CX",
+          "price": 31.72,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "shopifyTitle": "Magnetic 8",
+          "subtitle": "Man-made magnetic hematite",
+          "quantity": 1,
+          "weightGrams": 25
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583159804131",
+          "title": "Magnetic · Size 9",
+          "sku": "CJLX110336904DW",
+          "price": 31.72,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "shopifyTitle": "Magnetic 9",
+          "subtitle": "Man-made magnetic hematite",
+          "quantity": 1,
+          "weightGrams": 26
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583159836899",
+          "title": "Non-Magnetic · Size 10",
+          "sku": "CJLX110336910JQ",
+          "price": 29.48,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 42,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "shopifyTitle": "No.10 non magnetic",
+          "subtitle": "Natural hematite",
+          "quantity": 1,
+          "weightGrams": 27
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583159869667",
+          "title": "Non-Magnetic · Size 6",
+          "sku": "CJLX110336906FU",
+          "price": 29.48,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 42,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "shopifyTitle": "No.6 non magnetic",
+          "subtitle": "Natural hematite",
+          "quantity": 1,
+          "weightGrams": 23
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583159902435",
+          "title": "Non-Magnetic · Size 7",
+          "sku": "CJLX110336907GT",
+          "price": 29.48,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 42,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "shopifyTitle": "No.7 non magnetic",
+          "subtitle": "Natural hematite",
+          "quantity": 1,
+          "weightGrams": 24
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583159935203",
+          "title": "Non-Magnetic · Size 8",
+          "sku": "CJLX110336908HS",
+          "price": 29.48,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 42,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "shopifyTitle": "No.8 non magnetic",
+          "subtitle": "Natural hematite",
+          "quantity": 1,
+          "weightGrams": 25
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49583159967971",
+          "title": "Non-Magnetic · Size 9",
+          "sku": "CJLX110336909IR",
+          "price": 29.48,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 42,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
+            },
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "shopifyTitle": "No.9 non magnetic",
+          "subtitle": "Natural hematite",
+          "quantity": 1,
+          "weightGrams": 26
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "alt": "Curved Hematite Ring",
+          "width": 750,
+          "height": 750
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682374.jpg?v=1787500786",
+          "alt": "Curved Hematite Ring, detail",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682372.jpg?v=1787500786",
+          "alt": "Curved Hematite Ring worn on the hand",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682375.jpg?v=1787500786",
+          "alt": "Curved Hematite Ring, detail",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682376.jpg?v=1787500786",
+          "alt": "Curved Hematite Ring, detail",
+          "width": 1600,
+          "height": 1600
+        }
+      ],
+      "subtitle": "Magnetic or non-magnetic · sizes 6–10",
+      "material": "Hematite (magnetic and non-magnetic finishes)",
+      "descriptionHtml": "<p>A curved hematite band in two finishes: natural non-magnetic hematite, or a man-made magnetic hematite (often called \"hematine\") for the magnetic variants. Natural hematite itself is only weakly magnetic — the strongly magnetic feel in the \"Magnetic\" sizes comes from that man-made version, same as most magnetic hematite jewellery on the market. We would rather tell you that than let you assume otherwise.</p>",
+      "specs": [
+        {
+          "label": "Stone",
+          "value": "Hematite"
+        },
+        {
+          "label": "Magnetic variants",
+          "value": "Man-made magnetic hematite (\"hematine\"), not natural"
+        },
+        {
+          "label": "Non-magnetic variants",
+          "value": "Natural hematite"
+        },
+        {
+          "label": "Sizes",
+          "value": "6–10"
+        },
+        {
+          "label": "Finish",
+          "value": "Polished, curved band"
+        }
+      ]
+    }
+  ]
 }

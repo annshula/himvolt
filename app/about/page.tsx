@@ -46,15 +46,15 @@ export default function AboutPage() {
             delay={0.06}
             className="font-display text-[clamp(2.2rem,5vw,3.6rem)] leading-[1.02] font-extrabold tracking-[-0.04em] text-ink text-balance"
           >
-            One product, made properly.
+            A small collection, made properly.
           </Reveal>
           <Reveal
             as="p"
             delay={0.14}
             className="mt-6 text-[1.02rem] leading-[1.7] text-ink-soft text-pretty"
           >
-            {site.description} No catalog to pad, no upsell funnel — just the
-            one band, cut from real black tourmaline, sold honestly.
+            {site.description} No sprawling catalog to get lost in — five
+            pieces, cut from real hematite, sold honestly.
           </Reveal>
         </div>
       </Section>
@@ -109,7 +109,7 @@ export default function AboutPage() {
           align="center"
           eyebrow="How we operate"
           title="What we promise, and what we won't."
-          body="No sizing consultants, no seasonal drops, no thirty-item catalog to get lost in. One band, priced honestly, backed by people who actually answer email."
+          body="No sizing consultants, no seasonal drops, no hundred-item catalog to get lost in. Five pieces, priced honestly, backed by people who actually answer email."
         />
 
         <Stagger className="mt-14 grid gap-5 sm:grid-cols-3">

@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ProductCard } from "@/components/product/ProductCard";
-import { product } from "@/lib/product";
+import { products } from "@/lib/product";
 import { getProduct } from "@/lib/shopify";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 
 const title = "Shop";
-const description = `One product, made properly. ${site.promise.shipping}. ${site.promise.returns}.`;
+const description = `Hematite bracelets and rings, sourced honestly. ${site.promise.shipping}. ${site.promise.returns}.`;
 
 export const metadata: Metadata = {
   title,
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [
       {
-        url: absoluteUrl(product.gallery[0].src),
-        width: product.gallery[0].width,
-        height: product.gallery[0].height,
-        alt: product.gallery[0].alt,
+        url: products[0].gallery[0].src,
+        width: products[0].gallery[0].width,
+        height: products[0].gallery[0].height,
+        alt: products[0].gallery[0].alt,
       },
     ],
   },
@@ -37,16 +37,17 @@ export const metadata: Metadata = {
 };
 
 /**
- * The listing. One card today — the site sells one product — but it is a
- * real grid, not a special case, so a second SKU is a second card, not a
- * rebuild. This page never sells anything itself; every card hands off to
- * /products/[handle], which is the only page with a buy button.
+ * The listing — every product this store sells, one card each. This page
+ * never sells anything itself; every card hands off to /products/[handle],
+ * the only page with a buy button.
  */
 export default async function ShopPage() {
-  // Live Shopify pricing/stock when connected — same source BuyBox uses on
-  // the product page, so the "From $X" here never drifts from what checkout
+  // Live Shopify pricing/stock for every product — same source BuyBox uses
+  // on each product page, so "From $X" here never drifts from what checkout
   // actually charges.
-  const liveProduct = await getProduct();
+  const liveProducts = await Promise.all(
+    products.map((p) => getProduct(p.handle)),
+  );
 
   return (
     <main>
@@ -66,14 +67,16 @@ export default async function ShopPage() {
           Shop HimVolt
         </h1>
         <p className="mt-3 max-w-[52ch] text-[0.95rem] leading-relaxed text-ink-soft">
-          One band, one price list, no filler collections. Open it up to pick
-          your set.
+          Hematite bracelets and rings, sourced honestly. Open one up to see
+          the full spec.
         </p>
       </div>
 
       <div className="mx-auto w-full max-w-310 px-5 pt-10 pb-24 sm:px-8 lg:pb-32">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <ProductCard product={liveProduct} />
+          {liveProducts.map((p) => (
+            <ProductCard key={p.handle} product={p} />
+          ))}
         </div>
       </div>
     </main>

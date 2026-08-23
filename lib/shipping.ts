@@ -1,6 +1,6 @@
 /**
  * Real transit-time data pulled from CJDropshipping's freight-calculation API
- * for the connected product (SPU CJSL2782519), CN → destination. Data lives
+ * for the connected product (SPU CJSL2749017), CN → destination. Data lives
  * in data/cj-shipping.json — re-run the CJDropshipping calculate_freight tool
  * and overwrite that file when rates or transit times change.
  *

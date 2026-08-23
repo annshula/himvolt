@@ -4,7 +4,6 @@ import { AccountHeader } from "@/components/account/AccountHeader";
 import { EmptyState } from "@/components/account/EmptyState";
 import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icons";
-import { productPath } from "@/lib/catalog";
 import { getCustomer } from "@/lib/shopify/customer-service";
 import { requireCustomer } from "@/lib/shopify/guard";
 import { cn } from "@/lib/utils";
@@ -38,7 +37,7 @@ export default async function AddressesPage() {
             title="No addresses yet"
             body="Your saved delivery addresses will appear here once you add one at checkout."
           >
-            <Button href={productPath} arrow className="w-full sm:w-auto">
+            <Button href="/shop" arrow className="w-full sm:w-auto">
               Shop the collection
             </Button>
           </EmptyState>

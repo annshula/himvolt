@@ -6,7 +6,6 @@ import { EmptyState } from "@/components/account/EmptyState";
 import { OrderRow } from "@/components/account/OrderRow";
 import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icons";
-import { productPath } from "@/lib/catalog";
 import { listOrders } from "@/lib/shopify/customer-service";
 import { requireCustomer } from "@/lib/shopify/guard";
 
@@ -46,7 +45,7 @@ export default async function OrdersPage({ searchParams }: PageProps) {
             title="Nothing here yet"
             body="Your orders will appear here as soon as you place one."
           >
-            <Button href={productPath} arrow className="w-full sm:w-auto">
+            <Button href="/shop" arrow className="w-full sm:w-auto">
               Shop the collection
             </Button>
           </EmptyState>

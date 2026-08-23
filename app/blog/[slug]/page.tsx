@@ -7,7 +7,6 @@ import BlogPostingSchema from "@/components/blog/BlogPostingSchema";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { Reveal } from "@/components/ui/Motion";
 import { blogAuthor, blogPosts, getBlogPost } from "@/content/blog";
-import { productPath } from "@/lib/catalog";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -155,10 +154,10 @@ export default async function BlogPostPage({
             {site.promise.shipping} · {site.promise.returns}
           </p>
           <Link
-            href={productPath}
+            href="/shop"
             className="mt-4 inline-flex h-11 items-center rounded-full bg-ink px-6 font-display text-[0.8rem] font-semibold tracking-widest text-white uppercase transition-colors duration-300 hover:bg-ink/85"
           >
-            Shop the Tourmaline Band
+            Shop the collection
           </Link>
         </div>
       </article>

@@ -1,19 +1,35 @@
 import Image from "next/image";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import Tilt from "@/components/ui/Tilt";
+import ImageComparison from "@/components/ui/ImageComparison";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 import { showcase } from "@/content/copy";
-import { product } from "@/lib/product";
+import { getProduct } from "@/lib/shopify";
 
-const flat = product.gallery[0];
-const worn = product.gallery[2];
+const localGallery = {
+  cut: {
+    src: "/media/origin.webp",
+    alt: "Hematite bracelet resting on a piece of dark stone",
+    width: 2000,
+    height: 1333,
+  },
+  worn: {
+    src: "/media/himvolt_worn.webp",
+    alt: "Hematite bracelet worn on a wrist",
+    width: 1679,
+    height: 937,
+  },
+};
 
 /**
- * The product, shot large. Every image here is a real cutout on the dark
- * canvas — the white studio background was keyed out at build time
- * (`scripts/cutout.mjs`) so the stone sits in the page rather than on a card.
+ * The product, shot large — real Shopify photography via getProduct() (the
+ * synced catalog, data/product.json), not lib/product.ts's hand-written
+ * fallback gallery directly, so a new photo added in Shopify shows up here
+ * after the next sync without a code change.
  */
-export default function Showcase() {
+export default async function Showcase() {
+  const product = await getProduct();
+
   return (
     <Section id="showcase" className="grain overflow-hidden">
       <SectionHeading
@@ -37,20 +53,11 @@ export default function Showcase() {
 
         <Tilt className="scroll-scale relative mx-auto max-w-180" max={7}>
           <div className="tilt__layer" style={{ ["--z" as string]: "50px" }}>
-            <Image
-              src={flat.src}
-              alt={flat.alt}
-              width={flat.width}
-              height={flat.height}
-              quality={90}
-              sizes="(max-width: 1023px) 92vw, 720px"
-              className="w-full drop-shadow-[0_44px_56px_rgba(70,52,28,0.30)]"
+            <ImageComparison
+              before={localGallery.cut}
+              after={localGallery.worn}
             />
           </div>
-          <div
-            aria-hidden
-            className="tilt__sheen pointer-events-none absolute inset-0 rounded-[50%]"
-          />
         </Tilt>
 
         {/* measurement callout drawn over the stone */}
@@ -60,7 +67,7 @@ export default function Showcase() {
             className="h-px flex-1 bg-linear-to-r from-transparent to-line"
           />
           <span className="text-[0.62rem] tracking-[0.28em] text-ink-mute uppercase">
-            20 cm relaxed · fits 16–21 cm
+            One stretch elastic size · fits most wrists
           </span>
           <span
             aria-hidden
@@ -103,10 +110,10 @@ export default function Showcase() {
           className="relative overflow-hidden rounded-(--radius-card) border border-line"
         >
           <Image
-            src={worn.src}
-            alt={worn.alt}
-            width={worn.width}
-            height={worn.height}
+            src={localGallery.worn.src}
+            alt={localGallery.worn.alt}
+            width={localGallery.worn.width}
+            height={localGallery.worn.height}
             quality={82}
             sizes="(max-width: 1023px) 92vw, 660px"
             className="parallax h-full min-h-75 w-full scale-105 object-cover object-[center_58%]"

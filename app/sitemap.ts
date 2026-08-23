@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/blog";
-import { productPath } from "@/lib/catalog";
+import { products } from "@/lib/product";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -18,12 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
-    {
-      url: `${site.url}${productPath}`,
+    ...products.map((p) => ({
+      url: `${site.url}/products/${p.handle}`,
       lastModified: now,
-      changeFrequency: "daily",
+      changeFrequency: "daily" as const,
       priority: 1,
-    },
+    })),
     {
       url: `${site.url}/blog`,
       lastModified: now,

@@ -21,7 +21,12 @@ export default function Schema() {
       url,
       slogan: site.tagline,
       description: site.description,
-      logo: { "@type": "ImageObject", url: `${url}/logo-512.png`, width: 512, height: 512 },
+      logo: {
+        "@type": "ImageObject",
+        url: `${url}/logo-512.webp`,
+        width: 512,
+        height: 512,
+      },
       email: site.email,
       sameAs: Object.values(site.socials),
     },
@@ -50,7 +55,10 @@ export default function Schema() {
       type="application/ld+json"
       // Content is fully author-controlled; no user input reaches this string.
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify({ "@context": "https://schema.org", "@graph": graph }),
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": graph,
+        }),
       }}
     />
   );

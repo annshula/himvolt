@@ -10,7 +10,6 @@ import {
 } from "@/components/providers/LocalizationProvider";
 import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icons";
-import { productPath } from "@/lib/catalog";
 import { formatMoney } from "@/lib/money";
 import { shopifyCheckout } from "@/lib/shopify-checkout";
 import { arrivesShort, regionForCountry } from "@/lib/shipping";
@@ -100,7 +99,7 @@ export function CartDrawer() {
               One band, two ways to carry it — pick your set and it will show up
               here.
             </p>
-            <Button href={productPath} onClick={close} arrow>
+            <Button href="/shop" onClick={close} arrow>
               Browse the sets
             </Button>
           </div>

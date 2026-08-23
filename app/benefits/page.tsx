@@ -4,13 +4,12 @@ import { ParallaxBenefit } from "@/components/benefits/ParallaxBenefit";
 import { ScrollSnapRoot } from "@/components/benefits/ScrollSnapRoot";
 import Button from "@/components/ui/Button";
 import { Magnetic, Reveal } from "@/components/ui/Motion";
-import { productPath } from "@/lib/catalog";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 
 const title = "Benefits";
 const description =
-  "Real black tourmaline, a fit that disappears, a stone harder than the knife in your pocket. What the band actually does, one reason at a time.";
+  "Real hematite, a fit that disappears, a stone that matches the steel in your pocket. What the collection actually gives you, one reason at a time.";
 
 export const metadata: Metadata = {
   title,
@@ -24,10 +23,10 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [
       {
-        url: absoluteUrl("/media/current.jpg"),
+        url: absoluteUrl("/media/current.webp"),
         width: 2000,
         height: 1116,
-        alt: `${site.name} — black tourmaline bracelet`,
+        alt: `${site.name} — hematite bracelet`,
       },
     ],
   },
@@ -43,25 +42,29 @@ const benefits = [
     index: "01",
     eyebrow: "The material",
     title: "Real stone, not resin.",
-    body: "Natural black tourmaline, not dyed glass, not resin cast to look the part. Every band is cut from the same rough, so what you feel under a loupe is what you feel on your wrist.",
+    body: "Natural hematite, not dyed glass, not resin cast to look the part. Every piece is cut from the same mineral, so what you feel under a loupe is what you feel on your wrist.",
     align: "left" as const,
     media: {
       kind: "image" as const,
-      src: "/media/macro.jpg",
-      alt: "Extreme close-up of a single square-cut black tourmaline stone",
+      src: "/media/macro.webp",
+      alt: "Extreme close-up of a single polished hematite bead",
     },
   },
   {
     index: "02",
-    eyebrow: "The physics",
-    title: "The stone that makes its own charge.",
-    body: "Tourmaline is one of a short list of minerals that is both pyroelectric and piezoelectric. Warm it, or squeeze it, and it develops a measurable electrical polarity across its axis — a real, documented property of the rock, not a metaphor.",
+    eyebrow: "The origin",
+    title: "The stone the ancients called blood.",
+    body: 'Hematite gets its name from the Greek for "blood-like stone." Scratch its metallic black surface and it leaves a real, deep red-brown streak — the same iron oxide that gives the stone its name, its weight, and a five-thousand-year history of being picked up and carried.',
     align: "right" as const,
     media: {
       kind: "video" as const,
-      poster: "/media/hero-wide-1920.jpg",
+      poster: "/media/hero-wide-1920.webp",
       sources: [
-        { src: "/media/hero-portrait-sm.mp4", type: "video/mp4", media: "(max-width: 640px)" },
+        {
+          src: "/media/hero-portrait-sm.mp4",
+          type: "video/mp4",
+          media: "(max-width: 640px)",
+        },
         { src: "/media/hero.webm", type: "video/webm" },
         { src: "/media/hero.mp4", type: "video/mp4" },
       ],
@@ -71,13 +74,17 @@ const benefits = [
     index: "03",
     eyebrow: "The fit",
     title: "No clasp to fail.",
-    body: "A double-corded elastic core runs the full circumference — roll it on, forget it is there. 20cm relaxed, stretches clean to a 21cm wrist, no sizing chart and no returns for fit.",
+    body: "A stretch elastic core runs the full circumference — roll it on, forget it is there. No sizing chart, no returns for fit.",
     align: "left" as const,
     media: {
       kind: "video" as const,
-      poster: "/media/wear.jpg",
+      poster: "/media/wear.webp",
       sources: [
-        { src: "/media/wear-sm.mp4", type: "video/mp4", media: "(max-width: 640px)" },
+        {
+          src: "/media/wear-sm.mp4",
+          type: "video/mp4",
+          media: "(max-width: 640px)",
+        },
         { src: "/media/wear.webm", type: "video/webm" },
         { src: "/media/wear.mp4", type: "video/mp4" },
       ],
@@ -86,13 +93,13 @@ const benefits = [
   {
     index: "04",
     eyebrow: "The hardness",
-    title: "Harder than the knife in your pocket.",
-    body: "Tourmaline sits at 7–7.5 on the Mohs scale. Steel sits at 5.5. It will outlast the wrist it is on — the same reason it survives a gym, a shower and a bad habit of never taking it off.",
+    title: "Level with the steel in your pocket.",
+    body: "Hematite sits at 5.5–6.5 on the Mohs scale — matching hardened steel. It holds up to a gym, a shower and years of never taking it off, though a hard direct knock can still chip it, same as any polished stone.",
     align: "right" as const,
     media: {
       kind: "image" as const,
-      src: "/media/origin.jpg",
-      alt: "Raw black tourmaline crystal beside the finished bracelet on dark rock",
+      src: "/media/origin.webp",
+      alt: "Raw hematite ore beside a finished polished bracelet on dark rock",
     },
   },
 ];
@@ -124,10 +131,14 @@ export default function BenefitsPage() {
           muted
           loop
           playsInline
-          poster="/media/current.jpg"
+          poster="/media/current.webp"
           className="pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover"
         >
-          <source media="(max-width: 640px)" src="/media/current-sm.mp4" type="video/mp4" />
+          <source
+            media="(max-width: 640px)"
+            src="/media/current-sm.mp4"
+            type="video/mp4"
+          />
           <source src="/media/current.webm" type="video/webm" />
           <source src="/media/current.mp4" type="video/mp4" />
         </video>
@@ -146,8 +157,8 @@ export default function BenefitsPage() {
             actually does.
           </h1>
           <p className="mx-auto mt-7 max-w-[46ch] text-[1.02rem] leading-[1.65] text-steel text-pretty">
-            Not a mood board. The material, the physics, the fit and the
-            hardness — scroll through what you are actually buying.
+            Not a mood board. The material, the origin, the fit and the hardness
+            — scroll through what you are actually buying.
           </p>
         </Reveal>
       </section>
@@ -176,8 +187,8 @@ export default function BenefitsPage() {
           </p>
           <div className="mt-9 flex justify-center">
             <Magnetic>
-              <Button href={productPath} arrow variant="invert">
-                Shop the band
+              <Button href="/shop" arrow variant="invert">
+                Shop the collection
               </Button>
             </Magnetic>
           </div>

@@ -2,10 +2,10 @@
   "generatedAt": "2026-08-23T00:00:00Z",
   "source": "CJDropshipping calculate_freight (live API, CN → destination). Internal reference only — courier names are not shown on the storefront. Recommended courier per region is CJ's own flagged pick (recommendLogisticsTypeList/compositeRecommendSort in the API response) where the API returns one; where CJ returns no flag for that route (CA, MX, IN, AU, GB as of generatedAt), the fastest courier at a reasonable price was chosen by hand instead.",
   "product": {
-    "pid": "2603100809441624400",
-    "productSku": "CJSL2782519",
-    "productNameEn": "Square Black Tourmaline Bracelet Mens Elastic Mixed-Style Bracelet",
-    "productUrl": "https://www.cjdropshipping.com/product/square-black-tourmaline-bracelet-mens-elastic-mixed-style-bracelet-p-2603100809441624400.html"
+    "pid": "2601300450051624400",
+    "productSku": "CJSL2749017",
+    "productNameEn": "Hematite Men's Bracelet",
+    "productUrl": "https://www.cjdropshipping.com/product/hematite-mens-bracelet-p-2601300450051624400.html"
   },
   "originCountry": "CN",
   "defaultRegionCode": "US",
@@ -17,7 +17,7 @@
       "minDays": 4,
       "maxDays": 7,
       "_internalCourier": "YunExpress Ordinary",
-      "_internalPriceUsd": 5.62,
+      "_internalPriceUsd": 5.92,
       "_internalRecommendedBy": "CJ (compositeRecommendSort + timePrioritySort flagged)"
     },
     {
@@ -27,7 +27,7 @@
       "minDays": 4,
       "maxDays": 7,
       "_internalCourier": "CJPacket Ordinary",
-      "_internalPriceUsd": 4.32
+      "_internalPriceUsd": 4.63
     },
     {
       "code": "MX",
@@ -36,7 +36,7 @@
       "minDays": 6,
       "maxDays": 9,
       "_internalCourier": "YunExpress Ordinary",
-      "_internalPriceUsd": 4.30
+      "_internalPriceUsd": 4.82
     },
     {
       "code": "IN",
@@ -45,7 +45,7 @@
       "minDays": 6,
       "maxDays": 14,
       "_internalCourier": "CJPacket Asia Ordinary",
-      "_internalPriceUsd": 3.39
+      "_internalPriceUsd": 3.99
     },
     {
       "code": "AU",
@@ -54,7 +54,7 @@
       "minDays": 4,
       "maxDays": 8,
       "_internalCourier": "CJPacket Ordinary",
-      "_internalPriceUsd": 9.69
+      "_internalPriceUsd": 9.89
     },
     {
       "code": "GB",
@@ -63,12 +63,10 @@
       "minDays": 4,
       "maxDays": 5,
       "_internalCourier": "CJPacket Fast Ordinary",
-      "_internalPriceUsd": 3.50
+      "_internalPriceUsd": 3.89
     }
   ],
   "variantWeights": [
-    { "sku": "CJSL278251902BY", "title": "One band", "vid": "2603100809441624800", "weightGrams": 40 },
-    { "sku": "CJSL278251901AZ", "title": "Two bands", "vid": "2603110333051608500", "weightGrams": 74 },
-    { "sku": "CJSL278251903CX", "title": "Four bands", "vid": "2603100809441625100", "weightGrams": 148 }
+    { "sku": "CJSL274901701AZ", "title": "1 bracelet", "vid": "2601300450051624800", "weightGrams": 70 }
   ]
 }

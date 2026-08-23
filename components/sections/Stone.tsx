@@ -4,10 +4,11 @@ import { stone } from "@/content/copy";
 
 /**
  * The editorial block. Its job is credibility, not persuasion — so it leads
- * with a verifiable mineral fact (tourmaline really is pyroelectric, which is
- * where the brand name comes from) and then explicitly draws the line at what
- * the brand will not claim. Saying "we won't tell you this cures anything" out
- * loud converts better on cold traffic than any wellness copy would.
+ * with a verifiable mineral fact (hematite really is iron oxide, and the
+ * red-brown streak really does show through its black metallic surface) and
+ * then explicitly draws the line at what the brand will not claim. Saying
+ * "we won't tell you this cures anything" out loud converts better on cold
+ * traffic than any wellness copy would.
  */
 export default function Stone() {
   return (
@@ -15,12 +16,12 @@ export default function Stone() {
       id="stone"
       className="grain overflow-hidden border-y border-line bg-parchment"
     >
-      {/* schorl's chemical formula as a watermark */}
+      {/* hematite's chemical formula as a watermark */}
       <span
         aria-hidden
         className="pointer-events-none absolute -top-4 right-0 left-0 text-center font-mono text-[clamp(1.4rem,4vw,3rem)] whitespace-nowrap text-ink/5 select-none"
       >
-        NaFe₃Al₆(BO₃)₃Si₆O₁₈(OH)₄
+        Fe₂O₃
       </span>
 
       <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-20">
@@ -50,10 +51,14 @@ export default function Stone() {
               muted
               loop
               playsInline
-              poster="/media/current.jpg"
+              poster="/media/current.webp"
               className="h-auto w-full object-cover"
             >
-              <source media="(max-width: 640px)" src="/media/current-sm.mp4" type="video/mp4" />
+              <source
+                media="(max-width: 640px)"
+                src="/media/current-sm.mp4"
+                type="video/mp4"
+              />
               <source src="/media/current.webm" type="video/webm" />
               <source src="/media/current.mp4" type="video/mp4" />
             </video>
@@ -79,11 +84,11 @@ export default function Stone() {
                 <span className="font-display text-[0.66rem] tracking-[0.2em] text-ink-mute tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-display text-[1.22rem] leading-tight font-semibold tracking-[-0.025em] text-ink">
+                <h3 className="font-display text-[1.22rem] leading-tight font-semibold tracking-tight text-ink">
                   {p.title}
                 </h3>
               </div>
-              <p className="mt-4 pl-[calc(0.66rem+1rem)] text-[0.92rem] leading-[1.72] text-ink-soft text-pretty">
+              <p className="mt-4 pl-[1.6600000000000001rem] text-[0.92rem] leading-[1.72] text-ink-soft text-pretty">
                 {p.body}
               </p>
             </StaggerItem>

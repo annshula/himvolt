@@ -12,7 +12,7 @@
  * medical outcome.
  */
 
-import { productPath } from "@/lib/catalog";
+import { pathForHandle, productPath } from "@/lib/catalog";
 
 export type BlogPost = {
   slug: string;
@@ -33,84 +33,80 @@ export { author as blogAuthor };
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "black-tourmaline-bracelet-benefits",
-    title: "Black Tourmaline Bracelet Benefits: What the Stone Actually Does",
+    slug: "hematite-bracelet-benefits",
+    title: "Hematite Bracelet Benefits: What the Stone Actually Does",
     excerpt:
-      "Black tourmaline gets called a grounding stone, a protective stone, an EMF stone. Here is what is measurable about schorl, what is tradition, and what we will not claim.",
-    targetKeyword: "black tourmaline bracelet benefits",
-    tags: ["Black tourmaline", "Buying guide"],
+      "Hematite gets called a grounding stone, a focus stone, a confidence stone. Here is what is measurable about iron oxide, what is tradition, and what we will not claim.",
+    targetKeyword: "hematite bracelet benefits",
+    tags: ["Hematite", "Buying guide"],
     publishedAt: "2026-03-02",
-    updatedAt: "2026-03-02",
+    updatedAt: "2026-08-23",
     readingMinutes: 5,
     coverImage: {
-      src: "/blog/black-tourmaline-bracelet-benefits.png",
-      alt: "Macro photograph of a black tourmaline beaded bracelet with square-cut stones on a dark surface",
+      src: "/blog/black-tourmaline-bracelet-benefits.webp",
+      alt: "Macro photograph of a polished hematite beaded bracelet on a dark surface",
       width: 2528,
       height: 1696,
     },
     body: `
-<p>Search "black tourmaline bracelet benefits" and you will get two very different answers stitched together as one: a mineral fact sheet and a spiritual pitch. We think you deserve to know which is which, because we sell the object and we would rather you buy it for the right reason.</p>
+<p>Search "hematite bracelet benefits" and you will get two very different answers stitched together as one: a mineral fact sheet and a spiritual pitch. We think you deserve to know which is which, because we sell the object and we would rather you buy it for the right reason.</p>
 
 <h2>What is actually measurable</h2>
-<p>Black tourmaline — mineralogically <strong>schorl</strong> — is one of a short list of minerals that is both <strong>pyroelectric</strong> and <strong>piezoelectric</strong>. Warm it in your palm or apply pressure and it develops a real, documented electrical polarity across its crystal axis. This is not folklore; it is why Dutch traders in the 1700s called tourmaline <em>aschentrekker</em> — "ash-puller" — because a warmed crystal would visibly drag ash out of a pipe bowl. You can find this property in any mineralogy reference.</p>
-<p>The second measurable fact is hardness. Schorl sits at 7 to 7.5 on the Mohs scale, ahead of steel (5.5) and most things it will ever knock against on your wrist. That is the entire reason a stone bracelet can survive a gym, a shower, and years of daily wear without pitting or dulling the way a resin or dyed-glass bead will.</p>
+<p>Hematite is <strong>iron(III) oxide</strong> — Fe₂O₃ — one of the most abundant iron ores on Earth. Its name comes from the Greek <em>haimatites lithos</em>, "blood-like stone," coined by the naturalist Theophrastus around 300 BCE. The reason is not the stone's colour, which is a metallic black-grey. It's the streak: scratch hematite against an unglazed surface and it leaves a deep red-brown mark, the same iron oxide showing through. That streak test is still the standard way mineralogists identify it today.</p>
+<p>The second measurable fact is density and hardness. Hematite sits at 5.5 to 6.5 on the Mohs scale — roughly level with hardened steel — and its iron content makes it notably dense: pick up a real piece and it is heavier in hand than a stone its size has any right to be. That weight is the fastest way to tell a genuine hematite bead from a lighter imitation.</p>
 
 <h2>What people wear it for</h2>
-<p>Black tourmaline has been carried as a grounding and protective stone across a long list of cultures for a very long time — that is tradition, and we will always tell you it is tradition, not a clinical result. Plenty of people put one on before a flight, a hard conversation, or a long shift for exactly that reason, the same way someone might carry a specific coin or wear a specific watch. It is a small, deliberate object that means something to the person wearing it. That is a legitimate reason to own one.</p>
+<p>Hematite has been carried since antiquity — Egyptian amulets, Mesopotamian cylinder seals, and centuries of grounding and protective folk tradition since. That is tradition, and we will always tell you it is tradition, not a clinical result. Today it is one of the most-searched stones for regaining a sense of grounding, focus, confidence and resilience — the kind of thing people reach for before a hard meeting, a long shift, or a day that calls for feeling steadier. It is a small, deliberate object that means something to the person wearing it. That is a legitimate reason to own one.</p>
 
 <h2>What we will not claim</h2>
-<p>We are not going to tell you a bracelet will block EMF, fix your sleep, or change your blood pressure. Anyone selling you that certainty is selling you something else. What we will tell you is that you are getting a real, hard, naturally occurring stone with a genuinely unusual electrical property — cut, polished, and strung on an elastic core that will not fall apart in six months.</p>
+<p>We are not going to tell you a bracelet will fix your focus, calm your nerves, or change your day for you. Anyone selling you that certainty is selling you something else. What we will tell you is that you are getting a real, dense, naturally occurring iron ore with a genuinely old story — cut, polished, and strung on an elastic core that will not fall apart in six months.</p>
 
-<h2>How to tell real schorl from a coated bead</h2>
+<h2>How to tell real hematite from a coated bead</h2>
 <ul>
-<li><strong>Weight.</strong> Natural stone is dense. A full sixteen-stone band should have real heft — ours runs 40 grams.</li>
+<li><strong>Weight.</strong> Iron oxide is dense. If a "hematite" bracelet feels light, it probably is not hematite.</li>
 <li><strong>Temperature.</strong> Real stone feels cool against skin on first contact and warms slowly. Coated glass and resin warm almost instantly.</li>
-<li><strong>Opacity.</strong> Schorl is opaque black, not a translucent black-dyed glass that shows light at the edges.</li>
+<li><strong>The streak test.</strong> A scratch on an unglazed ceramic tile leaves red-brown on real hematite. We would not recommend testing your own jewellery this way, but it is the reason the "blood stone" name has stuck for two thousand years.</li>
 </ul>
 
-<p>If you want the mineral facts on a bracelet you can actually check yourself against that list, <a href="${productPath}">The Tourmaline Band</a> is cut from natural schorl, sixteen square-cut stones on a double-corded elastic core — no clasp, no coating, nothing to fake.</p>
+<p>If you want a bracelet cut from the real mineral, <a href="${productPath}">the Hematite Men's Bracelet</a> is a single strand of polished natural hematite on a stretch elastic core — no clasp, no coating, nothing to fake.</p>
 `,
   },
   {
-    slug: "best-black-bracelets-for-men",
-    title: "The Best Black Bracelets for Men in 2026",
+    slug: "hematite-stone-bracelet-guide",
+    title: "Hematite Stone Bracelet: A No-Nonsense Buying Guide",
     excerpt:
-      "Onyx, lava rock, hematite, black tourmaline — the honest differences between the black stone bracelets men actually buy, and what to check before you do.",
-    targetKeyword: "black bracelet men",
-    tags: ["Buying guide", "Style"],
+      'Natural hematite, gold-plated hematite, magnetic hematite, hematine — the honest differences between what gets sold as a "hematite bracelet," and what to check before you buy.',
+    targetKeyword: "hematite stone bracelet",
+    tags: ["Buying guide", "Hematite"],
     publishedAt: "2026-03-09",
-    updatedAt: "2026-03-09",
+    updatedAt: "2026-08-23",
     readingMinutes: 6,
     coverImage: {
-      src: "/blog/best-black-bracelets-for-men.png",
-      alt: "Editorial photograph of a man's wrist wearing a black beaded bracelet with a dark suit cuff",
+      src: "/blog/best-black-bracelets-for-men.webp",
+      alt: "Editorial photograph of a man's wrist wearing a metallic hematite beaded bracelet with a dark suit cuff",
       width: 2528,
       height: 1696,
     },
     body: `
-<p>A black bracelet is one of the few pieces of jewellery a man can wear to a client meeting and a gym session without changing anything. The category has exploded, which also means the shelf is full of near-identical listings at wildly different quality. Here is what actually separates them.</p>
+<p>"Hematite bracelet" covers a wider range of actual products than almost any other stone category — natural, plated, magnetic, and outright synthetic all get sold under the same name. None of that makes it a bad stone to buy. It just means the listing title tells you less than you think it does.</p>
 
-<h2>The four materials you will see everywhere</h2>
-<p><strong>Lava rock</strong> is cheap, light, and porous — it holds essential oils well, which is the entire reason it exists as a category, but it chips and dulls fast under daily knocks.</p>
-<p><strong>Black onyx</strong> is a form of chalcedony, glassy and uniform in colour because it is almost always dyed. It photographs beautifully and wears fine, but the deep black you see in most onyx beads is not the stone's natural colour.</p>
-<p><strong>Hematite</strong> is a genuinely dense iron ore with a distinctive metallic sheen rather than a flat black — a different look, worth knowing if that metallic finish is what you actually want.</p>
-<p><strong>Black tourmaline (schorl)</strong> is naturally opaque black with no dye, sits at 7–7.5 on the Mohs hardness scale, and is the only one of the four with a documented electrical property (see our <a href="/blog/black-tourmaline-bracelet-benefits">black tourmaline benefits breakdown</a> for the specifics).</p>
+<h2>What "hematite bracelet" can actually mean</h2>
+<p><strong>Natural hematite</strong> is the real mineral: iron oxide, metallic grey-black, dense, and cool to the touch, sitting at 5.5–6.5 on the Mohs scale. This is what a "raw" or "natural finish" listing should mean.</p>
+<p><strong>Plated hematite</strong> — gold-plated, silver-plated, rose-gold-plated — is genuine hematite underneath a thin metal coating for colour. Still real stone, different surface finish, and the plating will wear thinner over years of contact with skin than the natural finish will.</p>
+<p><strong>Magnetic hematite</strong> is the one to read carefully. Natural hematite is only weakly magnetic — nowhere near strong enough to be marketed as "magnetic therapy" jewellery. What is actually sold as magnetic hematite is almost always a man-made composite, often called <strong>hematine</strong>, engineered to be strongly magnetic. It is not a scam, but it is not the natural mineral either, and any seller who does not say so is leaving out a fact that matters.</p>
 
 <h2>What to check before you buy</h2>
 <ul>
-<li><strong>Clasp or elastic.</strong> A clasp looks sharper in product photos and is the first thing that fails. An elastic core, properly double-corded, survives years of stretching on and off.</li>
-<li><strong>Stone shape.</strong> Round beads are the default because they are the cheapest cut. Square or barrel-cut faces catch light differently and read less like a mass-produced accessory.</li>
-<li><strong>Weight.</strong> Pick it up. A real stone bracelet has presence — ours is 40 grams across sixteen stones. If it feels like nothing, it probably is resin.</li>
-<li><strong>Sizing without a chart.</strong> The best men's beaded bracelets stretch to fit a range rather than locking you into one exact link count. Ours runs 20cm relaxed and stretches cleanly to a 21cm wrist.</li>
+<li><strong>Does the listing say "natural" or "magnetic"?</strong> If it says magnetic and does not mention hematine or "man-made," ask before you buy.</li>
+<li><strong>Weight.</strong> Pick it up. Real hematite has presence — light beads that look metallic are usually glass or plastic with a metallic coating.</li>
+<li><strong>Elastic or clasp.</strong> A clasp looks sharper in photos and is the first thing to fail. A properly corded elastic survives years of stretching on and off.</li>
+<li><strong>Sizing without a chart.</strong> A stretch cord that adapts to a wrist range beats a fixed link count that locks you into one size.</li>
 </ul>
 
-<h2>How to wear it</h2>
-<p>One band worn alone reads as intentional. Two or three stacked works if they are the same stone family and roughly the same bead size — mixing five different materials on one wrist reads as clutter, not style. Push it up under a shirt cuff for anything formal; let it sit at the wrist bone for everything else.</p>
-
 <h2>The honest bottom line</h2>
-<p>If you want a black bracelet that photographs well for under a certain price, onyx or lava rock will do the job. If you want one that is naturally black, genuinely hard-wearing, and has an actual mineral story behind it rather than a dye lot, black tourmaline is the one to buy — and it is the only material on this list you can independently verify with a weight check and a temperature test.</p>
+<p>If you want the real mineral — dense, cool, genuinely old as a worn stone — buy a natural or plated hematite piece and know which one you are getting. If you specifically want the strong magnetic pull, that is hematine, and a seller worth buying from will tell you that plainly rather than let "hematite" do the work of implying it is natural.</p>
 
-<p><a href="${productPath}">The Tourmaline Band</a> is our take on it: sixteen square-cut natural schorl stones, elastic fit, free tracked shipping, 30-day returns if it is not for you.</p>
+<p>Our own collection is built on exactly that distinction: the <a href="${productPath}">Hematite Men's Bracelet</a> and the Hematite Round Bead Bracelet are natural or plated hematite, no exceptions — and where we sell a magnetic piece, we say so on the product page, not just in the fine print.</p>
 `,
   },
   {
@@ -121,11 +117,11 @@ export const blogPosts: BlogPost[] = [
     targetKeyword: "mens beaded bracelets",
     tags: ["Style", "How-to"],
     publishedAt: "2026-03-16",
-    updatedAt: "2026-03-16",
+    updatedAt: "2026-08-23",
     readingMinutes: 5,
     coverImage: {
-      src: "/blog/mens-beaded-bracelets-guide.png",
-      alt: "Flat lay photograph of three black beaded bracelets arranged on a dark slate surface",
+      src: "/blog/mens-beaded-bracelets-guide.webp",
+      alt: "Flat lay photograph of three metallic hematite beaded bracelets arranged on a dark slate surface",
       width: 2528,
       height: 1696,
     },
@@ -133,10 +129,10 @@ export const blogPosts: BlogPost[] = [
 <p>Men's beaded bracelets went from a niche accessory to a default piece of most men's everyday kit in the space of a few years. The style rules did not keep up, which is why most guides on this are either nonexistent or written for a different decade. Here is what actually works.</p>
 
 <h2>Pick a bead size that matches your build</h2>
-<p>8mm beads read as understated and work on most wrist sizes. Anything over 10mm starts to look costume-y on a narrower wrist and can genuinely look right on a larger frame. If you are between sizes, go smaller — a bracelet that is slightly too subtle is forgettable; one that is too chunky reads as trying too hard.</p>
+<p>Beads in the 6–8mm range read as understated and work on most wrist sizes. Anything over 10mm starts to look costume-y on a narrower wrist and can genuinely look right on a larger frame. If you are between sizes, go smaller — a bracelet that is slightly too subtle is forgettable; one that is too chunky reads as trying too hard.</p>
 
 <h2>Stacking without looking like a market stall</h2>
-<p>The rule that actually holds up: stack bracelets from the same material family, in the same or adjacent tones, at slightly different bead sizes. Two black stone bands of different diameters look deliberate. A black stone band, a leather cord, a woven friendship bracelet and a metal cuff on the same wrist looks like you forgot to take three of them off.</p>
+<p>The rule that actually holds up: stack bracelets from the same material family, in the same or adjacent tones, at slightly different bead sizes. Two dark metallic stone bands of different diameters look deliberate. A stone band, a leather cord, a woven friendship bracelet and a metal cuff on the same wrist looks like you forgot to take three of them off.</p>
 <p>Two is the safest stack for daily wear. Three works for a night out. Beyond that you are into festival territory, which is its own look and not the one most men reading this want.</p>
 
 <h2>Wearing it with a watch</h2>
@@ -150,48 +146,42 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>The one mistake that ages a bracelet fastest</h2>
-<p>Buying one that does not fit. A men's beaded bracelet that is too loose spins constantly and looks unintentional; one that is too tight leaves a mark and eventually stretches the cord unevenly until it snaps. Measure your wrist properly before you buy — most quality bands, including ours, publish a real fit range rather than a single size, because "one size fits most" usually means "one size fits nobody exactly."</p>
+<p>Buying one that does not fit. A men's beaded bracelet that is too loose spins constantly and looks unintentional; one that is too tight leaves a mark and eventually stretches the cord unevenly until it snaps. A stretch elastic core sized to a real wrist range — not a single fixed link count — is what most quality bands, including ours, are built on for exactly this reason.</p>
 
-<p>If you are shopping for one now: <a href="${productPath}">The Tourmaline Band</a> runs 8mm square-cut stones, fits a 16–21cm wrist on one elastic core, and is priced to actually stack with a second one.</p>
+<p>If you are shopping for one now: <a href="${productPath}">the Hematite Men's Bracelet</a> is a single strand of polished natural hematite on one elastic core, priced to actually stack with a second piece from the collection.</p>
 `,
   },
   {
-    slug: "protection-bracelets-for-men",
-    title: "Protection Bracelets for Men: Tradition, Not a Talisman",
+    slug: "hematite-ring-meaning-breaking",
+    title: "Hematite Ring Meaning: Why They Crack, and What It Actually Means",
     excerpt:
-      "Protection bracelets have been worn across cultures for centuries. Here is the honest history, the stones people reach for, and what a bracelet can and cannot do.",
-    targetKeyword: "protection bracelet men",
-    tags: ["Black tourmaline", "Tradition"],
+      "A hematite ring breaking is one of the most-searched questions about the stone. Here is the folklore, the real physical reason, and magnetic vs. natural hematite explained.",
+    targetKeyword: "hematite ring meaning",
+    tags: ["Hematite", "Rings"],
     publishedAt: "2026-03-23",
-    updatedAt: "2026-03-23",
+    updatedAt: "2026-08-23",
     readingMinutes: 5,
     coverImage: {
-      src: "/blog/protection-bracelets-for-men.png",
-      alt: "Close-up photograph of a man's hand and wrist wearing a black stone beaded bracelet",
+      src: "/blog/protection-bracelets-for-men.webp",
+      alt: "Close-up photograph of a polished hematite ring on a hand",
       width: 2528,
       height: 1696,
     },
     body: `
-<p>"Protection bracelet" is one of the most-searched phrases in men's jewellery, and it is also one of the most misunderstood. It does not mean armour. It means a small, worn object that carries meaning for the person wearing it — a tradition that predates the phrase itself by centuries.</p>
+<p>"Hematite ring meaning" and "why did my hematite ring break" are two of the most-searched questions about this stone — often from someone whose ring genuinely just cracked and wants to know if it means something. We will give you the honest version of both the folklore and the physics.</p>
 
-<h2>Where the idea actually comes from</h2>
-<p>Carrying a stone, a coin, or a cord for protection shows up independently across an enormous range of cultures — evil-eye beads in the Mediterranean and Middle East, red string traditions in East Asia, hamsa charms in North Africa, and black stones like tourmaline and obsidian in Western folk and New Age traditions alike. These traditions developed separately, which tells you something: the impulse to wear a small deliberate object before doing something hard is close to universal, not a modern marketing invention.</p>
+<h2>The folklore</h2>
+<p>In a lot of crystal and grounding traditions, a hematite piece breaking is read as the stone having "done its job" — absorbed something so you did not have to carry it. It is a real, widely repeated tradition, and we are not going to tell you it is wrong to find meaning in it. We are also not going to tell you it is a documented mechanism, because it is not. What follows is the physical explanation, which is separate from — not a replacement for — whatever meaning you take from it.</p>
 
-<h2>The stones men actually reach for</h2>
-<ul>
-<li><strong>Black tourmaline (schorl).</strong> Naturally opaque black, genuinely hard (7–7.5 Mohs), and — unlike most "protective" stones — has a real, documented physical property: it is pyroelectric and piezoelectric, meaning it develops measurable electrical polarity when warmed or squeezed.</li>
-<li><strong>Obsidian.</strong> Volcanic glass, sharp-edged in its raw form, associated in several traditions with cutting away negative influence.</li>
-<li><strong>Hematite.</strong> Dense iron ore with a metallic grey-black sheen, often paired with grounding rather than protection specifically.</li>
-<li><strong>Black onyx.</strong> Usually dyed chalcedony, worn more for its uniform black colour and associations with strength and self-control than any specific claim.</li>
-</ul>
+<h2>The real reason rings crack</h2>
+<p>Hematite sits at 5.5–6.5 on the Mohs scale: hard, but not tough in the engineering sense. Hardness measures resistance to scratching; toughness measures resistance to a sudden shock cracking straight through — and hematite, like most polished mineral rings, is fairly brittle under a sharp impact even though its surface is hard to scratch. A ring takes far more sudden mechanical stress than a bracelet bead ever does: knocked against a doorframe, gripped tight during a workout, or squeezed under a glove in the cold. Any of those can crack a solid stone ring in an instant, which is exactly the moment it tends to get remembered and explained.</p>
+<p>A ring sized too tight adds constant low-level pressure on top of any impact, which is the single most common cause we would point to first if someone told us their ring cracked without an obvious knock.</p>
 
-<h2>What we will say, and what we will not</h2>
-<p>We will say this plainly: nothing on your wrist protects you from a bad outcome. A protection bracelet does not replace a seatbelt, a doctor, or good judgement, and any brand implying otherwise is making a claim it cannot back up. What a bracelet like this actually does is smaller and, we think, still worth something — it is a physical reminder, chosen deliberately, that you carry into a hard meeting, a long flight, or a day you needed to feel more solid walking into. That is a real psychological function even if the stone itself has no causal effect on the outcome, and it is the honest reason this category exists.</p>
+<h2>Magnetic hematite rings: a separate thing worth knowing</h2>
+<p>A large share of "hematite ring" searches are actually about <strong>magnetic hematite rings</strong>, and this is where the naming gets genuinely misleading across the market. Natural hematite is only weakly magnetic. What is sold as "magnetic hematite" is almost always a man-made composite — often called <strong>hematine</strong> — engineered to be strongly magnetic, not the natural stone pulled from the ground. It is not fake jewellery, but it is a different material with different durability: the composite is generally more brittle than a solid natural hematite band, which is one more reason magnetic rings crack more often than non-magnetic ones in the same collection.</p>
 
-<h2>Buying one without buying into a false claim</h2>
-<p>Look for a seller who tells you what is fact (hardness, weight, whether the stone is natural or dyed) and what is tradition (why people wear it) as two separate things, not blended into one paragraph designed to sound clinical. If a listing promises it will block negative energy or improve your health, that is marketing, not mineralogy.</p>
-
-<p>Our own approach: <a href="${productPath}">The Tourmaline Band</a> is natural schorl, sixteen square-cut stones, 40 grams, elastic fit — sold as what it actually is. Read more on the stone itself in our <a href="/blog/black-tourmaline-bracelet-benefits">black tourmaline benefits guide</a>.</p>
+<h2>What we sell, and what we tell you about it</h2>
+<p>Our <a href="${pathForHandle("hematite-ring-without-magnetic-surface")}">Hematite Band Ring</a> is solid, natural, non-magnetic hematite — no plating, no coating, the colour is the stone. Our Curved Hematite Ring is sold in both a natural non-magnetic finish and a magnetic hematine finish, and we say which is which on the product page rather than leaving "hematite" to imply the wrong one. If a ring is important enough to wear daily, it is worth knowing which material you actually bought.</p>
 `,
   },
 ];

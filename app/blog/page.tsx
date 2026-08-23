@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/seo";
 
 const title = "Blog";
 const description =
-  "Black tourmaline, men's bracelets and honest buying guides — mineral facts kept separate from tradition, no health claims.";
+  "Hematite, men's bracelets and honest buying guides — mineral facts kept separate from tradition, no health claims.";
 
 export const metadata: Metadata = {
   title,
@@ -51,9 +51,9 @@ export default function BlogIndexPage() {
           The HimVolt Journal
         </h1>
         <p className="mt-3 max-w-[58ch] text-[0.95rem] leading-relaxed text-ink-soft">
-          Mineral facts and buying guides for black tourmaline and men's
-          beaded bracelets — what is measurable, what is tradition, and what
-          we will not claim.
+          Mineral facts and buying guides for hematite and men's beaded
+          jewellery — what is measurable, what is tradition, and what we
+          will not claim.
         </p>
       </div>
 

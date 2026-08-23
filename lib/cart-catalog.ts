@@ -1,15 +1,15 @@
 /**
  * Client-safe bridge between the synced Shopify catalog (real variant ids +
- * live prices, data/product.json) and the local presentation model
- * (friendly titles + images, lib/product.ts).
+ * live prices, data/product.json) and the local presentation model (friendly
+ * titles + images, lib/product.ts) — across every product this store sells.
  *
- * Both lists are three entries in the same order (1 / 2 / 4 band packs), so
- * the presentation is joined to the synced ids by index. Nothing here imports
+ * Both sides carry the same real Shopify variant id directly, so this is a
+ * straight per-id join, not an index-based one. Nothing here imports
  * server-only modules — safe for the cart provider to use on the client.
  */
 
 import catalog from "@/data/product.json";
-import { product as localProduct } from "@/lib/product";
+import { products as localProducts } from "@/lib/product";
 
 export type CartCatalogLine = {
   variantId: string;
@@ -18,23 +18,25 @@ export type CartCatalogLine = {
   unitPriceCents: number;
 };
 
-const syncedVariants = catalog.product.variants;
-const localVariants = localProduct.variants;
+const localVariantById = new Map(
+  localProducts.flatMap((p) => p.variants.map((v) => [v.id, { variant: v, product: p }])),
+);
 
 const lineMap = new Map<string, CartCatalogLine>();
 
-syncedVariants.forEach((synced, index) => {
-  const local = localVariants[index];
-  lineMap.set(synced.id, {
-    variantId: synced.id,
-    name: local?.title ?? "The Tourmaline Band",
-    image:
-      local?.image ??
-      localProduct.gallery[0]?.src ??
-      "/product/cutout/single.png",
-    unitPriceCents: Math.round(synced.price * 100),
-  });
-});
+for (const product of catalog.products) {
+  for (const synced of product.variants) {
+    const local = localVariantById.get(synced.id);
+    lineMap.set(synced.id, {
+      variantId: synced.id,
+      name: local
+        ? `${local.product.title} — ${local.variant.title}`
+        : product.title,
+      image: local?.variant.image ?? local?.product.gallery?.[0]?.src ?? "",
+      unitPriceCents: Math.round(synced.price * 100),
+    });
+  }
+}
 
 /** Resolve a Shopify variant id to its presentable cart line, or null. */
 export function resolveCartLine(variantId: string): CartCatalogLine | null {

@@ -27,7 +27,12 @@ export default function BlogPostingSchema({ post }: { post: BlogPost }) {
     publisher: {
       "@type": "Organization",
       name: site.name,
-      logo: { "@type": "ImageObject", url: `${site.url}/logo-512.png`, width: 512, height: 512 },
+      logo: {
+        "@type": "ImageObject",
+        url: `${site.url}/logo-512.webp`,
+        width: 512,
+        height: 512,
+      },
     },
   };
 

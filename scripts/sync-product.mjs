@@ -1,25 +1,42 @@
 /**
- * `node scripts/sync-product.mjs [handle]` — fetch the HimVolt product from the
- * Shopify Admin API, fetch each curated market's price list from the Storefront
- * API, and write data/product.json (in dollars) with real variant ids.
+ * `node scripts/sync-product.mjs` — refresh every product in data/product.json
+ * from the Shopify Admin + Storefront APIs and overwrite the file.
+ *
+ * "Exactly the SKUs, no extra items": the set of products synced is driven
+ * by the `id`s already present in data/product.json (a `nodes(ids: [...])`
+ * lookup), never a title/SKU search — a search can silently match the wrong
+ * product on a shared store. To add a sixth product, add its id/handle plus
+ * curated fields to data/product.json by hand first; the next sync fills in
+ * the live Shopify fields for it. If Shopify no longer has one of the known
+ * ids (deleted upstream), that product is dropped and the run says so loudly
+ * rather than leaving a phantom listing in the file forever.
+ *
+ * Every product/variant record mixes two kinds of field, and this script
+ * only ever touches the first kind:
+ *  - Shopify-sourced (overwritten every run): images, variant sku/price/
+ *    compareAtPrice/availableForSale/image, pricesByMarket.
+ *  - Curated (preserved verbatim from the existing file): the product's
+ *    display `title`, subtitle, material, descriptionHtml, specs, and each
+ *    variant's display `title`/`subtitle`/`quantity`/`weightGrams`/`badge`/
+ *    `offer` — hand-authored content Shopify has no field for (Mohs
+ *    hardness, an honest claims policy, a cleaned-up name vs. Shopify's raw,
+ *    sometimes CJ-sourced-and-wrong title/option string — see `title` vs
+ *    `shopifyTitle` below). A genuinely new product/variant with no curated
+ *    record yet falls back to the raw Shopify title and gets flagged in the
+ *    run's output — there is no way to auto-generate honest marketing copy
+ *    for it.
  *
  * "Curated market" = a Shopify Market scoped to exactly one country region —
  * that means it has its own price list worth freezing into this file. A
- * market scoped to many countries (the "International" catch-all) is skipped:
- * its price is live-FX-converted and would just go stale if snapshotted, and
- * it's already covered by the product's base price.
+ * market scoped to many countries (the "International" catch-all) is
+ * skipped: its price is live-FX-converted and would just go stale if
+ * snapshotted, and it's already covered by each product's base price.
  *
  * The Admin access token is generated at runtime via the client-credentials
  * grant (Client ID + Secret → 24h token) — never passed in directly.
  *
- * Default handle: the-tourmaline-band. If no product matches the handle, the
- * script falls back to a title / SKU search so the single HimVolt product can
- * be found even when its handle differs on the shared store.
- *
- * This is the standalone CLI counterpart to POST /api/admin/sync-product
- * (lib/shopify/sync-product.ts) — same job, run without a server. The two
- * intentionally don't share code: this script has zero imports from the
- * app's TS module graph so it can run with plain `node`, no build step.
+ * Zero imports from the app's TS module graph so this runs with plain
+ * `node`, no build step.
  */
 
 import { readFileSync, writeFileSync, renameSync, existsSync } from "node:fs";
@@ -149,22 +166,30 @@ async function storefrontRequest(query, variables = {}) {
 }
 
 const SHOP_QUERY = `query { shop { name currencyCode } }`;
-const PRODUCT_BY_HANDLE = `
-query ProductByHandle($handle: String!) {
-  productByHandle(handle: $handle) {
-    id handle title
-    variants(first: 100) { nodes { id title price compareAtPrice availableForSale } }
-  }
-}`;
-const PRODUCT_SEARCH = `
-query ProductSearch($query: String!) {
-  products(first: 5, query: $query) {
-    nodes {
-      id handle title
-      variants(first: 100) { nodes { id title price compareAtPrice availableForSale } }
+
+const PRODUCTS_BY_ID_QUERY = `
+query ProductsByIds($ids: [ID!]!) {
+  nodes(ids: $ids) {
+    ... on Product {
+      id
+      handle
+      title
+      images(first: 20) { nodes { url altText width height } }
+      variants(first: 100) {
+        nodes {
+          id
+          title
+          sku
+          price
+          compareAtPrice
+          availableForSale
+          image { url altText width height }
+        }
+      }
     }
   }
 }`;
+
 const MARKETS_QUERY = `
 query Markets {
   markets(first: 20) {
@@ -177,6 +202,7 @@ query Markets {
     }
   }
 }`;
+
 const VARIANT_PRICES_QUERY = `
 query VariantPrices($ids: [ID!]!, $country: CountryCode) @inContext(country: $country) {
   nodes(ids: $ids) {
@@ -187,23 +213,6 @@ query VariantPrices($ids: [ID!]!, $country: CountryCode) @inContext(country: $co
     }
   }
 }`;
-
-function normalizeVariants(nodes) {
-  return nodes
-    .filter((v) => v.price != null)
-    .map((v) => {
-      const price = Number(v.price);
-      const compare =
-        v.compareAtPrice != null ? Number(v.compareAtPrice) : null;
-      return {
-        id: v.id,
-        title: v.title,
-        price,
-        compareAtPrice: compare != null && compare > price ? compare : null,
-        availableForSale: v.availableForSale,
-      };
-    });
-}
 
 /** Single-country markets are real, merchant-priced markets; multi-country ones are the "sell everywhere" catch-all. */
 async function discoverCuratedMarketCountries() {
@@ -220,58 +229,70 @@ async function discoverCuratedMarketCountries() {
 }
 
 async function pricesForMarket(variantIds, country) {
-  const data = await storefrontRequest(VARIANT_PRICES_QUERY, {
-    ids: variantIds,
-    country,
-  });
   const prices = {};
-  for (const node of data.nodes) {
-    if (!node?.price) continue;
-    prices[node.id] = {
-      amount: Number(node.price.amount),
-      compareAtAmount:
-        node.compareAtPrice != null ? Number(node.compareAtPrice.amount) : null,
-      currencyCode: node.price.currencyCode,
-    };
+  // Storefront `nodes` caps out well below our whole-catalog variant count on
+  // some plans — chunk defensively instead of assuming one call covers it.
+  const chunkSize = 100;
+  for (let i = 0; i < variantIds.length; i += chunkSize) {
+    const chunk = variantIds.slice(i, i + chunkSize);
+    const data = await storefrontRequest(VARIANT_PRICES_QUERY, {
+      ids: chunk,
+      country,
+    });
+    for (const node of data.nodes) {
+      if (!node?.price) continue;
+      prices[node.id] = {
+        amount: Number(node.price.amount),
+        compareAtAmount:
+          node.compareAtPrice != null ? Number(node.compareAtPrice.amount) : null,
+        currencyCode: node.price.currencyCode,
+      };
+    }
   }
   return prices;
 }
 
+function toImage(node, fallbackAlt, existingBySrc) {
+  const existing = existingBySrc.get(node.url);
+  return {
+    src: node.url,
+    // Shopify's own altText on this store is a meaningless upload hash —
+    // keep whatever hand-written alt we already had for this exact image,
+    // otherwise fall back to the product title rather than the hash.
+    alt: existing?.alt ?? fallbackAlt,
+    width: node.width,
+    height: node.height,
+  };
+}
+
 async function main() {
-  const handle = process.argv[2] ?? "the-tourmaline-band";
-  console.log(`· syncing product "${handle}" from ${cfg.storeDomain}`);
-
-  const shopData = await adminRequest(SHOP_QUERY);
-  let product =
-    (await adminRequest(PRODUCT_BY_HANDLE, { handle }))?.productByHandle ??
-    null;
-
-  if (!product) {
-    console.log(
-      `· no product with handle "${handle}" — searching by title/SKU…`,
+  if (!existsSync(OUTPUT)) {
+    console.error(
+      `✖ ${OUTPUT} does not exist — this script refreshes known products, it doesn't create the catalog from scratch. Seed it with at least one product's id/handle/curated fields first.`,
     );
-    const search = await adminRequest(PRODUCT_SEARCH, {
-      query: "title:*tourmaline* OR sku:CJSL2782*",
-    });
-    product = search?.products?.nodes?.[0] ?? null;
-    if (product)
-      console.log(`· matched "${product.title}" (${product.handle})`);
-  }
-
-  if (!product) {
-    console.error("✖ no HimVolt product found on this store");
     process.exit(1);
   }
+  const existing = JSON.parse(readFileSync(OUTPUT, "utf8"));
+  const knownIds = existing.products.map((p) => p.id);
+  console.log(`· syncing ${knownIds.length} known product(s) from ${cfg.storeDomain}`);
 
-  const variants = normalizeVariants(product.variants?.nodes ?? []);
-  const saleVariant = variants.find((v) => v.availableForSale) ?? variants[0];
-  const price = saleVariant?.price ?? null;
-  const compare = saleVariant?.compareAtPrice ?? null;
-  const currency = shopData?.shop?.currencyCode || "USD";
+  const [shopData, fresh] = await Promise.all([
+    adminRequest(SHOP_QUERY),
+    adminRequest(PRODUCTS_BY_ID_QUERY, { ids: knownIds }),
+  ]);
+  const currency = shopData?.shop?.currencyCode || existing.shop?.currencyCode || "USD";
 
-  if (price == null) {
-    console.error("✖ product has no priced, saleable variant");
-    process.exit(1);
+  const freshById = new Map(
+    (fresh.nodes ?? []).filter(Boolean).map((p) => [p.id, p]),
+  );
+  const existingById = new Map(existing.products.map((p) => [p.id, p]));
+
+  for (const id of knownIds) {
+    if (!freshById.has(id)) {
+      console.error(
+        `  ✖ product ${id} (${existingById.get(id)?.handle}) no longer exists on Shopify — dropping it from data/product.json`,
+      );
+    }
   }
 
   console.log("· discovering curated markets…");
@@ -284,18 +305,19 @@ async function main() {
       console.log(`  ${markets.length} curated market(s): ${markets.join(", ") || "none"}`);
     } catch (err) {
       // A permissions gap (e.g. the Admin app is missing the read_markets
-      // scope) must not take down the base product sync — just skip market
-      // prices and say why, once, clearly.
+      // scope) must not take down the base sync — just skip market prices.
       console.log(`  ✖ market discovery failed, skipping per-market prices: ${err.message}`);
     }
   }
 
-  const variantIds = variants.map((v) => v.id);
-  const pricesByVariant = new Map(variants.map((v) => [v.id, {}]));
+  const allVariantIds = [...freshById.values()].flatMap((p) =>
+    (p.variants?.nodes ?? []).map((v) => v.id),
+  );
+  const pricesByVariant = new Map(allVariantIds.map((id) => [id, {}]));
 
   await Promise.all(
     markets.map(async (country) => {
-      const prices = await pricesForMarket(variantIds, country).catch((err) => {
+      const prices = await pricesForMarket(allVariantIds, country).catch((err) => {
         console.error(`  ✖ ${country} prices failed: ${err.message}`);
         return {};
       });
@@ -306,28 +328,93 @@ async function main() {
     }),
   );
 
+  const products = [];
+  let newVariants = 0;
+
+  for (const id of knownIds) {
+    const freshProduct = freshById.get(id);
+    if (!freshProduct) continue; // deleted upstream — dropped, already warned above
+
+    const existingProduct = existingById.get(id);
+    if (!existingProduct) {
+      // Genuinely unreachable: knownIds is built from existing.products.
+      continue;
+    }
+
+    const existingVariantById = new Map(
+      existingProduct.variants.map((v) => [v.id, v]),
+    );
+    const existingImageBySrc = new Map(
+      (existingProduct.images ?? []).map((img) => [img.src, img]),
+    );
+
+    const rawVariants = freshProduct.variants?.nodes ?? [];
+    const priced = rawVariants.filter((v) => v.price != null);
+    const saleVariant = priced.find((v) => v.availableForSale) ?? priced[0];
+    const price = saleVariant ? Number(saleVariant.price) : existingProduct.price;
+    const compareRaw =
+      saleVariant?.compareAtPrice != null ? Number(saleVariant.compareAtPrice) : null;
+    const compareAtPrice = compareRaw != null && compareRaw > price ? compareRaw : null;
+
+    const variants = priced.map((v) => {
+      const curated = existingVariantById.get(v.id);
+      if (!curated) {
+        newVariants++;
+        console.log(
+          `  + new variant on "${freshProduct.title}": ${v.title} (${v.sku}) — using Shopify's raw title until curated`,
+        );
+      }
+      const compare = v.compareAtPrice != null ? Number(v.compareAtPrice) : null;
+      const variantPrice = Number(v.price);
+      return {
+        id: v.id,
+        title: curated?.title ?? v.title,
+        sku: v.sku,
+        price: variantPrice,
+        compareAtPrice: compare != null && compare > variantPrice ? compare : null,
+        availableForSale: v.availableForSale,
+        pricesByMarket: pricesByVariant.get(v.id) ?? {},
+        image: v.image?.url ?? curated?.image ?? null,
+        shopifyTitle: v.title,
+        subtitle: curated?.subtitle ?? v.title,
+        quantity: curated?.quantity ?? 1,
+        weightGrams: curated?.weightGrams ?? 0,
+      };
+    });
+
+    products.push({
+      id: freshProduct.id,
+      handle: freshProduct.handle,
+      // Shopify's own product title on this shared/CJ-sourced store is not
+      // fit to show a shopper directly (it can still say "tourmaline" on a
+      // hematite product) — curated title is preserved, same as a variant's.
+      title: existingProduct.title,
+      shopifyTitle: freshProduct.title,
+      price,
+      compareAtPrice,
+      currencyCode: currency,
+      availableForSale: variants.some((v) => v.availableForSale),
+      variants,
+      images: (freshProduct.images?.nodes ?? []).map((img) =>
+        toImage(img, freshProduct.title, existingImageBySrc),
+      ),
+      subtitle: existingProduct.subtitle,
+      material: existingProduct.material,
+      descriptionHtml: existingProduct.descriptionHtml,
+      specs: existingProduct.specs,
+    });
+  }
+
   const record = {
-    version: 3,
+    version: 5,
     syncedAt: new Date().toISOString(),
     shop: {
       domain: cfg.storeDomain,
-      name: shopData?.shop?.name || "HimVolt",
+      name: shopData?.shop?.name || existing.shop?.name || "HimVolt",
       currencyCode: currency,
     },
     markets,
-    product: {
-      id: product.id,
-      handle: product.handle,
-      title: product.title,
-      price,
-      compareAtPrice: compare != null && compare > price ? compare : null,
-      currencyCode: currency,
-      availableForSale: variants.some((v) => v.availableForSale),
-      variants: variants.map((v) => ({
-        ...v,
-        pricesByMarket: pricesByVariant.get(v.id) ?? {},
-      })),
-    },
+    products,
   };
 
   const json = `${JSON.stringify(record, null, 2)}\n`;
@@ -337,7 +424,7 @@ async function main() {
 
   console.log(`✔ wrote ${OUTPUT}`);
   console.log(
-    `  ${product.title} → $${price}${record.product.compareAtPrice ? ` (was $${record.product.compareAtPrice})` : ""} ${currency} · ${variants.length} variants · ${markets.length} markets`,
+    `  ${products.length} product(s), ${products.reduce((n, p) => n + p.variants.length, 0)} variant(s), ${markets.length} market(s)${newVariants ? `, ${newVariants} new variant(s) need curated copy` : ""}`,
   );
 }
 

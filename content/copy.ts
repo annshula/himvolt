@@ -2,63 +2,62 @@
  * Every word on the page. Kept out of the components so copy can be edited,
  * A/B tested or localised without a developer.
  *
- * Claim policy: black tourmaline is described by its verifiable mineral
- * properties (hardness, pyroelectricity, piezoelectricity) and by what people
- * culturally wear it for. Nothing here asserts a health, medical or
+ * Claim policy: hematite is described by its verifiable mineral properties
+ * (composition, hardness, density, the red-brown streak test) and by what
+ * people culturally wear it for. Nothing here asserts a health, medical or
  * therapeutic outcome — that keeps the brand out of regulatory trouble and,
  * more usefully, makes it sound like it has nothing to prove.
  */
 
 import { daysRangeDisplay, defaultRegion } from "@/lib/shipping";
-import { productPath } from "@/lib/catalog";
 
 export const hero = {
-  eyebrow: "Black tourmaline collection",
-  headline: ["Carry your own", "current."],
-  sub: "Sixteen square-cut black tourmaline stones on a seamless elastic core. Heavy enough to notice. Quiet enough to wear to anything.",
+  eyebrow: "Hematite collection",
+  headline: ["Heavy stone.", "Steady hands."],
+  sub: "Polished hematite bracelets and rings, cut from one of the densest stones you can wear. Cool to the touch, unmistakably heavy in hand, carried since antiquity for the grounding it's said to bring.",
   cta: "Shop the collection",
-  ctaHref: productPath,
+  ctaHref: "/shop",
   secondary: "See the stone",
   secondaryHref: "#stone",
 };
 
 export const showcase = {
   eyebrow: "The object",
-  headline: "One stone. Sixteen faces.",
-  body: "Each band is cut from natural schorl — the black variety of tourmaline — then barrel-polished until the faces throw a hard, wet-looking highlight. The stones sit shoulder to shoulder with no metal spacers, so what you feel on your wrist is stone and nothing else.",
+  headline: "Cut from the earth's own iron.",
+  body: "Every piece starts as raw hematite — iron oxide, mined and hand-polished until the surface reads as a hard, cool, metallic black. No dye, no coating: what you see under a loupe is what you feel on your wrist.",
   points: [
     {
       title: "No clasp to fail",
-      body: "A double-corded elastic core runs the full circumference. Roll it on, forget it is there.",
+      body: "A stretch elastic core runs the full circumference. Roll it on, forget it is there.",
     },
     {
-      title: "Harder than the knife in your pocket",
-      body: "Tourmaline sits at 7–7.5 on the Mohs scale. Steel sits at 5.5. It will outlast the wrist it is on.",
+      title: "Level with the steel in your pocket",
+      body: "Hematite sits at 5.5–6.5 on the Mohs scale — on par with hardened steel. It shrugs off the daily knocks that dull resin and dyed glass.",
     },
     {
       title: "Weighted, not bulky",
-      body: "40 grams across sixteen stones. Present enough to feel deliberate, low enough to slide under a cuff.",
+      body: "Iron oxide runs dense. 70 grams on a single strand — present enough to feel deliberate, low enough to slide under a cuff.",
     },
   ],
 };
 
 export const stone = {
-  eyebrow: "Why tourmaline",
-  headline: "The stone that makes its own charge.",
-  lede: "Tourmaline is one of a short list of minerals that is both pyroelectric and piezoelectric. Warm it, or squeeze it, and it develops a measurable electrical polarity across its axis. Dutch traders in the 1700s called it aschentrekker — ash-puller — because a warmed crystal drags ash out of a pipe bowl.",
-  body: "That is the whole reason this brand is called HimVolt. Not a metaphor someone in marketing reached for — an actual, documented property of the rock on your wrist.",
+  eyebrow: "Why hematite",
+  headline: "The stone the ancient world called blood.",
+  lede: "Hematite takes its name from the Greek haimatites lithos — “blood-like stone” — coined by the naturalist Theophrastus around 300 BCE. Scratch its metallic black surface and it leaves a deep red-brown streak: the same iron oxide that gives the stone both its name and its weight.",
+  body: "That contradiction — a hard black metallic shell hiding a red heart — is what has kept people picking hematite up for roughly five thousand years, long before anyone called it a grounding stone.",
   paragraphs: [
     {
       title: "What it is",
-      body: "Schorl: a boron silicate, iron-rich, opaque black, crystallising in long trigonal prisms. It is the most common tourmaline on earth and the hardest-wearing thing you can reasonably tie to your wrist.",
+      body: "Hematite: iron(III) oxide, Fe₂O₃, one of the most abundant iron ores on Earth and one of the oldest minerals worked into jewellery and pigment. It sits at 5.5–6.5 on the Mohs scale — roughly level with hardened steel — and its density is the first thing most people notice: it is heavier in hand than a stone its size has any right to be.",
     },
     {
       title: "What people wear it for",
-      body: "Black tourmaline has been carried as a grounding and protective stone across a lot of cultures for a very long time. That is a tradition, and we will tell you it is a tradition. Plenty of people wear it for exactly that reason and we think that is a good enough reason.",
+      body: "Hematite has been carried since antiquity — Egyptian amulets, Mesopotamian seals, and centuries of grounding and protective folk tradition since. Today it is one of the most reached-for stones for grounding, focus, confidence and resilience — put on before a hard meeting or a long day for exactly that reason. That is a tradition, and we will always tell you it is a tradition. Plenty of people wear it for exactly that reason and we think that is a good enough reason.",
     },
     {
       title: "What we will not claim",
-      body: "We are not going to tell you a rock will fix your sleep, your blood pressure or your marriage. Anyone who does is selling you something else. We sell a well-made, heavy, good-looking object. That is the pitch.",
+      body: "We are not going to tell you a rock will fix your focus, your confidence or your day for you. Anyone who does is selling you something else. We sell a well-made, heavy, good-looking object with a five-thousand-year story behind it. That is the pitch.",
     },
   ],
 };
@@ -66,13 +65,13 @@ export const stone = {
 export const features = [
   {
     icon: "stone" as const,
-    label: "Grounding stone",
-    body: "Natural black tourmaline, not resin, not dyed glass. Every band is cut from the same rough.",
+    label: "Natural hematite",
+    body: "Genuine iron oxide, not resin, not dyed glass. Every piece is cut from the same mineral and streak-tests red-brown under the polish.",
   },
   {
     icon: "fit" as const,
-    label: "One-size elastic fit",
-    body: "20cm relaxed, stretches clean to a 21cm wrist. No sizing chart, no returns for fit.",
+    label: "Stretch elastic fit",
+    body: "One elastic core, no clasp, no sizing chart to guess at. Roll it on and forget it is there.",
   },
   {
     icon: "ship" as const,
@@ -135,15 +134,15 @@ export const reviews = [
 export const faqs = [
   {
     q: "Will it fit my wrist?",
-    a: "The band measures 20cm / 7.87in relaxed and stretches comfortably onto a wrist between 16cm and 21cm (6.3–8.3in). That covers the large majority of adult men. Measure with a tape or a strip of paper around the widest part of your wrist — if you land inside that range, order with confidence. Outside it, email us before you buy and we will tell you honestly whether it will work.",
+    a: "Every bracelet in the collection uses a stretch elastic core built to move with your wrist rather than a fixed link count — no sizing chart to get wrong. If you are between sizes or unsure, email us before you buy and we will tell you honestly whether a given piece will work. Rings run true to standard US sizing 6–12; check your ring size before ordering, since a ring is the one piece here that does not stretch.",
   },
   {
     q: "Is this real stone or a coated bead?",
-    a: "Real natural black tourmaline — schorl. It is opaque, dense, cool to the touch on first contact, and it warms slowly. Coated glass and resin warm instantly and feel light. At 40 grams for sixteen stones, the weight in the box is the fastest way to tell.",
+    a: "Real natural hematite — iron oxide. It is dense for its size, cool to the touch on first contact, and — this is the actual mineralogy test — leaves a red-brown streak if scratched, despite its metallic black-grey surface. Coated glass and resin are lighter and show a different colour underneath if scratched, not red-brown.",
   },
   {
-    q: "What are the benefits of a black tourmaline bracelet?",
-    a: "Two separate things, and we will not blur them together. What is measurable: black tourmaline (schorl) is pyroelectric and piezoelectric — it develops a real electrical charge when warmed or squeezed, and at 7–7.5 on the Mohs scale it is genuinely harder-wearing than most everyday jewellery. What is cultural: it has been carried as a grounding and protective stone across many traditions for centuries, which is exactly why men reach for a black stone bracelet before a big meeting or a long flight — not because we are claiming it changes the outcome. We sell a well-made, heavy, good-looking object with a real mineral behind it. That is the whole pitch.",
+    q: "What are the benefits of a hematite bracelet?",
+    a: "Two separate things, kept separate. What is measurable: hematite is iron oxide, notably dense, and sits at 5.5–6.5 on the Mohs scale — hard enough for daily wear. What is cultural: hematite has been carried since antiquity, and today it is one of the most-searched stones for regaining grounding, focus, confidence and resilience — reached for before a hard meeting, a long shift, or anything that calls for feeling steadier. We are not claiming it changes an outcome. We sell a heavy, well-made, good-looking object with a real mineral behind it and a genuinely old tradition attached to it. That is the whole pitch.",
   },
   {
     q: "How long does delivery take, and what does it cost?",
@@ -151,15 +150,15 @@ export const faqs = [
   },
   {
     q: "What if I do not like it?",
-    a: "Send it back within 30 days for a full refund and we cover the return label. You do not need to explain yourself and you do not need the original packaging. If a band arrives damaged, send a photo instead — we will ship a replacement the same day and you keep the first one.",
+    a: "Send it back within 30 days for a full refund and we cover the return label. You do not need to explain yourself and you do not need the original packaging. If a piece arrives damaged, send a photo instead — we will ship a replacement the same day and you keep the first one.",
   },
   {
     q: "Can I wear it in the shower or the gym?",
-    a: "Yes. Tourmaline is 7–7.5 on the Mohs scale and non-porous, so water, sweat and soap do nothing to it. Rinse it under a tap and dry it with a cloth when it looks dull. Avoid dropping it onto tile — stone is hard, but hard is not the same as unbreakable.",
+    a: "Yes, day to day. Hematite is non-porous, so a quick rinse and a wipe with a cloth is all it needs. Two things worth knowing: prolonged contact with harsh soaps or chlorine can dull the polish over time, and at 5.5–6.5 on the Mohs scale hematite is hard but not indestructible — a hard drop onto tile or metal can chip a bead the way it would chip most polished stone. Treat it like the stone it is.",
   },
   // {
   //   q: "What happens if the elastic goes?",
-  //   a: "We will restring it free for twelve months, including postage both ways. Beyond that, email us anyway — the cord costs us almost nothing and we would rather keep the band on your wrist than sell you another one.",
+  //   a: "We will restring it free for twelve months, including postage both ways. Beyond that, email us anyway — the cord costs us almost nothing and we would rather keep the piece on your wrist than sell you another one.",
   // },
 ];
 
@@ -174,11 +173,11 @@ export const footerNav = [
   {
     title: "Shop",
     links: [
-      { label: "The Tourmaline Band", href: productPath },
+      { label: "Hematite bracelets", href: "/shop" },
       { label: "Blog", href: "/blog" },
-      { label: "Why tourmaline", href: "#stone" },
+      { label: "Why hematite", href: "#stone" },
       { label: "Sizing", href: "#faq" },
-      { label: "Gift sets", href: productPath },
+      { label: "Gift sets", href: "/shop" },
     ],
   },
   {
@@ -213,8 +212,8 @@ export const footerNav = [
 export const marqueeWords = [
   "Free worldwide shipping",
   "30-day returns",
-  "Natural schorl tourmaline",
+  "Natural hematite, iron oxide",
   "Dispatched in 1–3 business days",
-  "12-month restring guarantee",
-  "7–7.5 Mohs",
+  "12-month workmanship guarantee",
+  "5.5–6.5 Mohs",
 ];

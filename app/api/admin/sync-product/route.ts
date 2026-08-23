@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server";
 import { isAuthorizedAdminRequest, unauthorizedResponse } from "@/lib/admin/auth";
-import { syncProduct } from "@/lib/shopify/sync-product";
+import { syncAllProducts } from "@/lib/shopify/sync-product";
 
 /**
  * POST /api/admin/sync-product
  *
- * The one place besides `npm run shopify:sync-product` that talks to Shopify
- * live — pulls the product, its variants, and every curated market's price
- * list, then overwrites data/product.json. Every page reads that file only.
- * Protected by ADMIN_API_KEY (Bearer token).
+ * The one place besides `npm run shopify:sync` that talks to Shopify live —
+ * refreshes every product already in data/product.json (id, handle, title,
+ * images, variants, every curated market's price list), then overwrites the
+ * file. Every page reads that file only. Protected by ADMIN_API_KEY (Bearer
+ * token).
  */
 
 export const runtime = "nodejs";
@@ -18,17 +19,21 @@ export const maxDuration = 60;
 export async function POST(request: Request): Promise<Response> {
   if (!isAuthorizedAdminRequest(request)) return unauthorizedResponse();
 
-  const handle = new URL(request.url).searchParams.get("handle") ?? undefined;
-
   try {
-    const record = await syncProduct(handle);
+    const record = await syncAllProducts();
     return NextResponse.json(
       {
         ok: true,
         syncedAt: record.syncedAt,
         shop: record.shop,
         markets: record.markets,
-        product: record.product,
+        products: record.products.map((p) => ({
+          handle: p.handle,
+          title: p.title,
+          price: p.price,
+          availableForSale: p.availableForSale,
+          variantCount: p.variants.length,
+        })),
       },
       { headers: { "Cache-Control": "no-store", "X-Robots-Tag": "noindex, nofollow" } },
     );

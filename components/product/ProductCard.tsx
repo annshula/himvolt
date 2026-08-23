@@ -29,7 +29,7 @@ export function ProductCard({ product }: { product: Product }) {
             alt={cover.alt}
             fill
             sizes="(max-width: 639px) 80vw, 288px"
-            className="object-contain p-7 transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-105"
+            className="object-cover transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-105"
           />
         </div>
 
@@ -43,7 +43,8 @@ export function ProductCard({ product }: { product: Product }) {
 
           <div className="mt-3 flex items-center justify-between">
             <span className="font-display text-[0.92rem] font-semibold tracking-[-0.02em] text-ink">
-              From {formatMoney(cheapest.price.amount, cheapest.price.currencyCode)}
+              From{" "}
+              {formatMoney(cheapest.price.amount, cheapest.price.currencyCode)}
             </span>
             <span className="inline-flex items-center gap-1 text-[0.66rem] font-semibold tracking-[0.08em] text-volt uppercase">
               View

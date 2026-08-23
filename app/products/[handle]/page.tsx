@@ -1,29 +1,28 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { BuyBox } from "@/components/product/BuyBox";
+import { ProductPurchase } from "@/components/product/ProductPurchase";
+import { ProductSpecShowcase } from "@/components/product/ProductSpecShowcase";
 import Reviews from "@/components/sections/Reviews";
 import ProductSchema from "@/components/ProductSchema";
-import Tilt from "@/components/ui/Tilt";
-import { Reveal } from "@/components/ui/Motion";
-import { product } from "@/lib/product";
+import { getProductByHandle, products } from "@/lib/product";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 import { getProduct } from "@/lib/shopify";
-import { productPath, syncedProduct } from "@/lib/catalog";
+import { pathForHandle } from "@/lib/catalog";
 
 export const revalidate = 3600;
 
 /**
- * The URL is whatever Shopify's handle currently is (data/product.json,
- * refreshed by `npm run shopify:sync-product`) — not a hardcoded slug. A
- * product rename upstream and a re-sync changes this route; there is
- * nothing else to keep in sync.
+ * Every product this store sells (lib/product.ts) gets a page. Handles are
+ * whatever Shopify's currently are (data/product.json, refreshed by
+ * `npm run shopify:sync-product`) — not hardcoded slugs. A product rename
+ * upstream and a re-sync changes routes; there is nothing else to keep in
+ * sync.
  */
 export function generateStaticParams() {
-  return [{ handle: syncedProduct.handle }];
+  return products.map((p) => ({ handle: p.handle }));
 }
 
 export function generateMetadata({
@@ -32,27 +31,29 @@ export function generateMetadata({
   params: Promise<{ handle: string }>;
 }): Promise<Metadata> {
   return params.then(({ handle }) => {
-    if (handle !== syncedProduct.handle) {
+    const product = getProductByHandle(handle);
+    if (!product) {
       return { title: "Product not found", robots: { index: false, follow: false } };
     }
 
-    const title = product.title;
+    const path = pathForHandle(product.handle);
+    const { title } = product;
     const description = `${product.subtitle}. ${site.promise.shipping}. ${site.promise.returns}.`;
     const cover = product.gallery[0];
 
     return {
       title,
       description,
-      alternates: { canonical: productPath },
+      alternates: { canonical: path },
       openGraph: {
         type: "website",
         title: `${title} · ${site.name}`,
         description,
-        url: absoluteUrl(productPath),
+        url: absoluteUrl(path),
         siteName: site.name,
         images: [
           {
-            url: absoluteUrl(cover.src),
+            url: cover.src,
             width: cover.width,
             height: cover.height,
             alt: cover.alt,
@@ -63,7 +64,7 @@ export function generateMetadata({
         card: "summary_large_image",
         title: `${title} · ${site.name}`,
         description,
-        images: [absoluteUrl(cover.src)],
+        images: [cover.src],
       },
       other: {
         "product:brand": site.name,
@@ -87,13 +88,11 @@ export default async function ProductPage({
   params: Promise<{ handle: string }>;
 }) {
   const { handle } = await params;
-  if (handle !== syncedProduct.handle) notFound();
+  const product = getProductByHandle(handle);
+  if (!product) notFound();
 
-  // Live Shopify pricing/stock when connected; the local catalog otherwise.
-  const liveProduct = await getProduct();
-
-  const hero = product.gallery[0];
-  const thumbs = product.gallery.slice(1);
+  // Synced catalog data (data/product.json) — pricing, stock and photography.
+  const liveProduct = await getProduct(handle);
 
   return (
     <main>
@@ -118,78 +117,9 @@ export default async function ProductPage({
         </nav>
       </div>
 
-      <div className="mx-auto grid w-full max-w-310 gap-12 px-5 pt-8 pb-16 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:pt-10 lg:pb-24">
-        {/* ------------------------------ gallery ----------------------------- */}
-        <div className="lg:sticky lg:top-28 lg:self-start">
-          <Tilt className="relative mx-auto max-w-125" max={6}>
-            <Image
-              src={hero.src}
-              alt={hero.alt}
-              width={hero.width}
-              height={hero.height}
-              priority
-              sizes="(max-width: 1023px) 92vw, 42vw"
-              className="w-full drop-shadow-[0_44px_56px_rgba(70,52,28,0.30)]"
-            />
-          </Tilt>
+      <ProductPurchase product={liveProduct} />
 
-          {thumbs.length > 0 && (
-            <div className="mx-auto mt-6 flex max-w-125 justify-center gap-3">
-              {thumbs.map((t) => (
-                <div
-                  key={t.src}
-                  className="relative size-16 shrink-0 overflow-hidden rounded-lg border border-line bg-parchment sm:size-18"
-                >
-                  <Image
-                    src={t.src}
-                    alt={t.alt}
-                    fill
-                    sizes="72px"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* ------------------------------ buy box ----------------------------- */}
-        <div className="lg:sticky lg:top-28 lg:self-start">
-          <Reveal>
-            <h1 className="font-display text-[clamp(2rem,1.3rem+2.4vw,3rem)] leading-[1.02] font-extrabold tracking-[-0.04em] text-ink text-balance">
-              {product.title}
-            </h1>
-            <p className="mt-2 text-[0.95rem] text-ink-soft">{product.subtitle}</p>
-          </Reveal>
-
-          <Reveal delay={0.08} className="mt-7">
-            <BuyBox product={liveProduct} />
-          </Reveal>
-
-          <Reveal delay={0.14}>
-            <div
-              className="mt-8 max-w-[52ch] text-[0.9rem] leading-[1.65] text-ink-soft [&_p]:mt-3 [&_p:first-child]:mt-0"
-              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
-            />
-
-            <dl className="mt-6 divide-y divide-line border-y border-line">
-              {product.specs.map((s) => (
-                <div
-                  key={s.label}
-                  className="flex items-baseline justify-between gap-6 py-3"
-                >
-                  <dt className="shrink-0 text-[0.78rem] text-ink-mute">
-                    {s.label}
-                  </dt>
-                  <dd className="text-right text-[0.82rem] font-medium text-ink-soft">
-                    {s.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-        </div>
-      </div>
+      <ProductSpecShowcase product={liveProduct} />
 
       <Reviews />
     </main>

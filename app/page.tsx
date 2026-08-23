@@ -8,10 +8,10 @@ import Faq from "@/components/sections/Faq";
 import Schema from "@/components/Schema";
 
 /**
- * The home page explains the product — what it is, why tourmaline, why it is
+ * The home page explains the product — what it is, why hematite, why it is
  * worth the money. It never asks for the sale directly; every CTA on it hands
- * off to the product page (lib/catalog.ts's productPath — the only page that
- * does). No live data to fetch here, so the whole page is static.
+ * off to the shop listing (/shop). No live data to fetch here, so the whole
+ * page is static.
  */
 export default function Home() {
   return (

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { readSelectedCountry } from "@/lib/localization/country";
 import { detectVisitorCountry } from "@/lib/localization/geo";
-import { syncedMarkets, syncedProduct } from "@/lib/catalog";
+import { syncedMarkets, mainSyncedProduct } from "@/lib/catalog";
 import type { LocalizationCountry } from "@/components/providers/LocalizationProvider";
 
 export const dynamic = "force-dynamic";
@@ -13,8 +13,8 @@ function currencyFor(countryCode: string): { isoCode: string; symbol: string } {
   // A market's currency is whatever its synced prices actually came back in —
   // every variant shares one, so the first is representative.
   const isoCode =
-    syncedProduct.variants[0]?.pricesByMarket?.[countryCode]?.currencyCode ??
-    syncedProduct.currencyCode;
+    mainSyncedProduct.variants[0]?.pricesByMarket?.[countryCode]?.currencyCode ??
+    mainSyncedProduct.currencyCode;
   const symbol =
     new Intl.NumberFormat("en", { style: "currency", currency: isoCode })
       .formatToParts(0)

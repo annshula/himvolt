@@ -7,7 +7,6 @@ import { useCart } from "@/components/providers/CartProvider";
 import { useLocalizedCart } from "@/components/providers/LocalizationProvider";
 import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icons";
-import { productPath } from "@/lib/catalog";
 import { formatMoney } from "@/lib/money";
 import { shopifyCheckout } from "@/lib/shopify-checkout";
 
@@ -52,7 +51,7 @@ export function CheckoutSummary() {
         <p className="text-sm leading-relaxed text-ink-soft">
           Your bag is empty. Pick a set and it will show up here.
         </p>
-        <Button href={productPath} arrow>
+        <Button href="/shop" arrow>
           Choose your set
         </Button>
       </div>

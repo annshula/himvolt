@@ -14,7 +14,7 @@ export const site = {
   email: "support@himvolt.com",
   address: "Toronto, Ontario, Canada",
   description:
-    "HimVolt makes one thing properly: a square-cut black tourmaline bracelet for men. Solid stone, elastic fit, free tracked shipping worldwide, 30-day returns.",
+    "HimVolt makes polished hematite bracelets and rings for men. Real stone, elastic and band fits, free tracked shipping worldwide, 30-day returns.",
   locale: "en_US",
   currency: "USD",
 
@@ -49,7 +49,7 @@ export const site = {
     shippingFull: `Orders are processed within 1–3 business days, then tracked delivery typically takes ${daysRange(defaultRegion)} business days depending on where you are. Full country-by-country transit times are on our About page.`,
     returns: "30-day returns, no questions",
     returnsDetail: "Wear it a full month. Not yours? We pay the label.",
-    warranty: "12-month restring guarantee",
+    warranty: "12-month workmanship guarantee",
     support: "Human replies in under 12 hours",
   },
 } as const;

@@ -10,6 +10,7 @@ import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
 import { easeOut, ScrollProgressBar } from "@/components/ui/Motion";
+import { useNavDarkOverride } from "@/lib/nav-theme";
 import { useScrollLock } from "@/lib/scroll-lock";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -96,16 +97,21 @@ export default function Nav() {
   // video/photo), not just a hero — so unlike home it never switches to the
   // light "solid" bar on scroll, it just stays transparent throughout.
   const isDarkThroughout = pathname === "/benefits";
+  // A product page is mostly light, but its spec showcase (ProductSpecShowcase)
+  // is the same full-bleed dark treatment as /benefits for just that region —
+  // it reports itself in view via useReportNavDark while it's on screen.
+  const darkRegionInView = useNavDarkOverride();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { open: openCart } = useCart();
   useScrollLock(menuOpen);
 
   // The transparent-over-hero treatment applies to the home page's dark
-  // video hero (until scrolled past it) and to /benefits (always). Every
-  // other route is solid from first paint — otherwise white nav text would
-  // render invisible over a light page.
-  const solid = isDarkThroughout ? false : !isHome || scrolled;
+  // video hero (until scrolled past it), to /benefits (always), and to a
+  // dark region elsewhere on the page reporting itself in view. Every other
+  // moment is solid — otherwise white nav text would render invisible over
+  // a light page.
+  const solid = isDarkThroughout || darkRegionInView ? false : !isHome || scrolled;
 
   useEffect(() => {
     if (!isHome) return;

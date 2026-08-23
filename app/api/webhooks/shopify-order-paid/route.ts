@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { syncedProduct } from "@/lib/catalog";
+import { syncedProducts } from "@/lib/catalog";
 import {
   isDuplicateWebhook,
   verifyWebhookSignature,
@@ -42,15 +42,18 @@ type ShopifyOrder = {
 };
 
 /* Numeric tails of our catalogue ids — Shopify webhooks send plain numbers,
-   while the Storefront/Admin APIs return `gid://shopify/…/123` strings. */
-const productIdNum = syncedProduct.id.split("/").pop();
+   while the Storefront/Admin APIs return `gid://shopify/…/123` strings.
+   Across every product this storefront sells, not just one. */
+const productIdNums = new Set(
+  syncedProducts.map((p) => p.id.split("/").pop()),
+);
 const variantIdNums = new Set(
-  syncedProduct.variants.map((v) => v.id.split("/").pop()),
+  syncedProducts.flatMap((p) => p.variants.map((v: { id: string }) => v.id.split("/").pop())),
 );
 
 /** True when a webhook line item belongs to HimVolt (shared store). */
 function isOurLineItem(line: ShopifyLineItem): boolean {
-  if (line.product_id != null && String(line.product_id) === productIdNum) {
+  if (line.product_id != null && productIdNums.has(String(line.product_id))) {
     return true;
   }
   return line.variant_id != null && variantIdNums.has(String(line.variant_id));

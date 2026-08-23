@@ -1,11 +1,33 @@
 /**
- * Product model. Shape mirrors a Shopify Storefront `Product` closely enough
- * that `lib/shopify.ts` can drop straight in later — the components only ever
- * read from this interface.
+ * Product catalog — a typed view over data/product.json, and nothing else.
+ * Every field here (title, gallery, specs, descriptionHtml, variant prices
+ * and images) is read from that one file at module load; there is no
+ * hand-maintained data array in this file to drift out of sync with it.
  *
- * Source: CJDropshipping SPU CJSL2782519 ("Square Black Tourmaline Bracelet
- * Mens Elastic Mixed-Style Bracelet"), 20cm / 7.87in, 40g per piece.
+ * data/product.json mixes two kinds of field per product/variant:
+ *  - Shopify-sourced: id, handle, title (raw), price, compareAtPrice,
+ *    availableForSale, images, variant image, pricesByMarket — safe for
+ *    `npm run shopify:sync` to overwrite on every run.
+ *  - Curated: subtitle, material, descriptionHtml, specs, and the variant's
+ *    display `title`/`subtitle` (a cleaned-up version of Shopify's raw
+ *    option-value title, kept separately as `shopifyTitle`) — hand-authored
+ *    content sync must never touch, since Shopify has no field for "Mohs
+ *    hardness" or an honest claims-policy description.
+ *
+ * Five real, live products on the connected Shopify store (vendor HIMVOLT) —
+ * three hematite bracelets and two hematite rings, sourced from
+ * CJDropshipping. Claim policy: hematite's mineral properties (composition,
+ * hardness, density, the streak test) are stated as fact; everything else —
+ * grounding, tradition — is framed as culture, never a health or medical
+ * outcome. One extra honesty note this product line needs: natural hematite
+ * is only weakly magnetic. Where a listing is sold as "magnetic hematite"
+ * (the curved ring's magnetic variants), that's standard industry practice
+ * for a man-made magnetic hematite (often called "hematine"), not a claim
+ * that the natural stone itself is strongly magnetic — said plainly on that
+ * product's page rather than left for the customer to assume.
  */
+
+import catalog from "@/data/product.json";
 
 export type Money = { amount: number; currencyCode: string };
 
@@ -17,8 +39,8 @@ export type Variant = {
   quantity: number;
   price: Money;
   compareAtPrice?: Money;
+  /** Bundle framing distinct from a plain sale price — "Buy 1 Get 1", etc. Unused by the current catalog. */
   badge?: string;
-  /** Bundle framing shown distinct from `badge` — "Buy 1 Get 1", etc. */
   offer?: string;
   image: string;
   availableForSale: boolean;
@@ -39,76 +61,35 @@ export type Product = {
 
 const usd = (amount: number): Money => ({ amount, currencyCode: "USD" });
 
-export const product: Product = {
-  id: "gid://himvolt/Product/1",
-  handle: "the-tourmaline-band",
-  title: "The Tourmaline Band",
-  subtitle: "Square-cut black tourmaline · elastic fit",
-  material: "Natural black tourmaline (schorl)",
-  descriptionHtml:
-    "<p>Sixteen square-cut black tourmaline stones, hand-polished and strung on a double-corded elastic core. No clasp, no hardware, nothing to break. 20cm relaxed, stretches to fit a 16–21cm wrist.</p>",
+export const products: Product[] = catalog.products.map((p) => ({
+  id: p.id,
+  handle: p.handle,
+  title: p.title,
+  subtitle: p.subtitle,
+  descriptionHtml: p.descriptionHtml,
+  material: p.material,
+  gallery: p.images,
+  specs: p.specs,
+  variants: p.variants.map((v) => ({
+    id: v.id,
+    sku: v.sku,
+    title: v.title,
+    subtitle: v.subtitle,
+    quantity: v.quantity,
+    price: usd(v.price),
+    compareAtPrice: v.compareAtPrice != null ? usd(v.compareAtPrice) : undefined,
+    image: v.image,
+    availableForSale: v.availableForSale,
+    weightGrams: v.weightGrams,
+  })),
+}));
 
-  gallery: [
-    { src: "/product/cutout/detail-3.png", alt: "The Tourmaline Band laid flat, showing all sixteen square-cut stones", width: 1383, height: 914 },
-    { src: "/product/cutout/single.png", alt: "The Tourmaline Band at an angle, showing the polished square faces", width: 865, height: 1342 },
-    { src: "/media/wear.jpg", alt: "The Tourmaline Band worn on a man's wrist", width: 2000, height: 1116 },
-    { src: "/product/cutout/pair.png", alt: "Two Tourmaline Bands side by side", width: 1529, height: 1648 },
-  ],
+/** The main/hero product — every generic "shop now" CTA hands off here. */
+export const product: Product = products[0];
 
-  specs: [
-    { label: "Stone", value: "Natural black tourmaline (schorl)" },
-    { label: "Cut", value: "Square barrel, 16 stones" },
-    { label: "Hardness", value: "7–7.5 Mohs — harder than steel" },
-    { label: "Length", value: "20 cm / 7.87 in relaxed" },
-    { label: "Fits", value: "16–21 cm wrist (6.3–8.3 in)" },
-    { label: "Weight", value: "40 g" },
-    { label: "Core", value: "Double-corded stretch elastic" },
-    { label: "Finish", value: "Hand-polished, unwaxed" },
-  ],
-
-  variants: [
-    {
-      id: "gid://himvolt/ProductVariant/1",
-      sku: "CJSL278251902BY",
-      title: "One band",
-      subtitle: "The everyday",
-      quantity: 1,
-      price: usd(39),
-      compareAtPrice: usd(59),
-      image: "/product/cutout/single.png",
-      availableForSale: true,
-      weightGrams: 40,
-    },
-    {
-      id: "gid://himvolt/ProductVariant/2",
-      sku: "CJSL278251901AZ",
-      title: "Two bands",
-      subtitle: "Stack, or gift one",
-      quantity: 2,
-      price: usd(66),
-      compareAtPrice: usd(118),
-      badge: "Most bought",
-      offer: "Buy 1 Get 1",
-      image: "/product/cutout/pair.png",
-      availableForSale: true,
-      weightGrams: 74,
-    },
-    {
-      id: "gid://himvolt/ProductVariant/3",
-      sku: "CJSL278251903CX",
-      title: "Four bands",
-      subtitle: "The squad pack",
-      quantity: 4,
-      price: usd(116),
-      compareAtPrice: usd(236),
-      badge: "Best value",
-      offer: "Buy 2 Get 2",
-      image: "/product/cutout/four.png",
-      availableForSale: true,
-      weightGrams: 148,
-    },
-  ],
-};
+export function getProductByHandle(handle: string): Product | undefined {
+  return products.find((p) => p.handle === handle);
+}
 
 export const formatMoney = (m: Money) =>
   new Intl.NumberFormat("en-US", {

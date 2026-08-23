@@ -7,8 +7,8 @@
  * Shopify responding at request time.
  */
 
-import { priceForMarket, syncedProduct } from "./catalog";
-import { product as fallback, type Product, type Variant } from "./product";
+import { priceForMarket } from "./catalog";
+import { getProductByHandle, product as mainProduct, type Product, type Variant } from "./product";
 
 const DOMAIN = process.env.SHOPIFY_STORE_DOMAIN;
 const TOKEN = process.env.SHOPIFY_STOREFRONT_API_TOKEN;
@@ -49,57 +49,34 @@ async function storefront<T>(
 }
 
 /**
- * Builds the product model from the synced catalog (data/product.json) only
- * — no live Shopify call. Price, availability and variant ids come from the
- * last `npm run shopify:sync-product` / `POST /api/admin/sync-product` run;
- * gallery, description and specs stay the hand-written presentation content
- * from lib/product.ts, since the raw Shopify catalog data is CJ-sourced and
- * not fit to show a shopper directly.
+ * Builds a product model from data/product.json — lib/product.ts already
+ * reads the whole catalog from that one file, so the only thing left to
+ * resolve here is per-market price, which is legitimately request-time
+ * work: no country is known yet at this layer (that's the currency
+ * selector's job, applied on top via useLocalizedAmount), so
+ * priceForMarket(id, null) resolves to the US market's real price, not the
+ * raw Admin default (a different, lower number — see lib/catalog.ts's
+ * priceForMarket).
  *
  * Kept `async` for call-site compatibility even though nothing here awaits —
  * every caller already does `await getProduct()`.
  */
-export async function getProduct(
-  handle: string = syncedProduct.handle,
-): Promise<Product> {
-  void handle; // data/product.json holds exactly one product — nothing to select between.
+export async function getProduct(handle?: string): Promise<Product> {
+  const base = (handle && getProductByHandle(handle)) || mainProduct;
 
-  const variants: Variant[] = syncedProduct.variants.map((synced, i) => {
-    const pres = fallback.variants[i];
-    // No country known yet at this layer (that's the currency selector's
-    // job, applied on top via useLocalizedAmount) — priceForMarket(id, null)
-    // resolves to the US market's real price, not the raw Admin default
-    // (a different, lower number — see lib/catalog.ts's priceForMarket).
-    const defaultPrice = priceForMarket(synced.id, null);
+  const variants: Variant[] = base.variants.map((v) => {
+    const defaultPrice = priceForMarket(v.id, null);
     return {
-      // Real Shopify gid — the cart + checkout resolve against data/product.json.
-      id: synced.id,
-      sku: pres?.sku ?? synced.title,
-      // Keep the local presentation title ("One band") over the raw Shopify
-      // option title ("Square Bracelet / 1PCS") — ids stay real.
-      title: pres?.title ?? synced.title,
-      subtitle: pres?.subtitle ?? "",
-      quantity: pres?.quantity ?? 1,
+      ...v,
       price: { amount: defaultPrice.amount, currencyCode: defaultPrice.currencyCode },
       compareAtPrice:
         defaultPrice.compareAtAmount != null
           ? { amount: defaultPrice.compareAtAmount, currencyCode: defaultPrice.currencyCode }
           : undefined,
-      badge: pres?.badge,
-      offer: pres?.offer,
-      image: pres?.image ?? fallback.gallery[0]?.src ?? "",
-      availableForSale: synced.availableForSale,
-      weightGrams: pres?.weightGrams ?? 40,
     };
   });
 
-  return {
-    ...fallback,
-    id: syncedProduct.id,
-    handle: syncedProduct.handle,
-    title: syncedProduct.title,
-    variants: variants.length ? variants : fallback.variants,
-  };
+  return { ...base, variants };
 }
 
 const CART_CREATE = /* GraphQL */ `

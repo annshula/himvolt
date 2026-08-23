@@ -31,7 +31,7 @@ export function ParallaxBenefit({
   index: string;
   eyebrow: string;
   title: string;
-  body: string;
+  body?: string;
   media: Media;
   align?: "left" | "right";
 }) {
@@ -116,9 +116,11 @@ export function ParallaxBenefit({
           <h2 className="font-display mt-5 text-[clamp(2rem,4.2vw,3.4rem)] leading-[1.03] font-extrabold tracking-[-0.03em] text-chalk text-balance">
             {title}
           </h2>
-          <p className="mt-6 text-[1.02rem] leading-[1.7] text-steel text-pretty">
-            {body}
-          </p>
+          {body && (
+            <p className="mt-6 text-[1.02rem] leading-[1.7] text-steel text-pretty">
+              {body}
+            </p>
+          )}
         </Reveal>
       </motion.div>
     </section>

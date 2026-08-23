@@ -12,8 +12,8 @@ import "./globals.css";
 // Self-hosted at build time by next/font — no third-party request, no FOUT.
 // Font-pairing structure mirrors the crawlandcuddle reference build (a
 // condensed display face + a bold headline face + a wide-tracked label
-// face + a body sans), re-cast in a masculine register for a black
-// tourmaline bracelet instead of the reference's nursery voice:
+// face + a body sans), re-cast in a masculine register for a hematite
+// bracelet and ring collection instead of the reference's nursery voice:
 //   Bebas Neue -> font-mega     (the single largest hero statement)
 //   Oswald     -> font-display  (headings, buttons, uppercase chrome)
 //   Jost       -> font-label    (wide-tracked eyebrows + nav)
@@ -61,7 +61,7 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-const title = `${site.name} — Black Tourmaline Bracelet for Men`;
+const title = `${site.name} — Hematite Bracelets & Rings for Men`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -72,19 +72,20 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   generator: undefined,
-  // Curated against Google Trends US search interest (12mo): dropped terms
-  // with zero measured volume (schorl bracelet, square bead bracelet men,
-  // elastic stone bracelet, mens/grounding-bracelet-for-men phrasing) and
-  // added verified-demand terms in their place.
+  // Curated against Google Trends US search interest (12mo, related_queries
+  // + compare_terms on "hematite bracelet" / "hematite ring"): kept the
+  // terms with real, non-zero measured volume and dropped the rest —
+  // notably excluding "hemios"/"hematix"/"hemys", which are competitor
+  // brand names showing up as related queries, not generic search demand.
   keywords: [
-    "black tourmaline bracelet",
-    "black tourmaline jewelry",
-    "black bracelet men",
-    "mens beaded bracelets",
-    "mens beaded bracelet",
-    "tourmaline jewelry",
-    "protection bracelet men",
-    "grounding bracelet",
+    "hematite bracelet",
+    "hematite stone bracelet",
+    "hematite crystal bracelet",
+    "hematite bracelet benefits",
+    "natural hematite bracelet",
+    "hematite ring",
+    "hematite ring meaning",
+    "magnetic hematite bracelet",
     "HimVolt",
   ],
   authors: [{ name: site.name, url: site.url }],

@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import { useState } from "react";
 import {
   CheckIcon,
-  GiftIcon,
   GlobeIcon,
   MinusIcon,
   PlusIcon,
@@ -21,7 +21,7 @@ import { formatMoney } from "@/lib/money";
 import { shopifyCheckout } from "@/lib/shopify-checkout";
 import { site } from "@/lib/site";
 import { arrivesShort, regionForCountry } from "@/lib/shipping";
-import type { Product, Variant } from "@/lib/product";
+import type { Product } from "@/lib/product";
 
 const MAX_QTY = 10;
 
@@ -38,11 +38,21 @@ const priceSkeleton = (h: string, w: string) => (
  * ways to check out. Each pack is a fixed SKU (1 / 2 / 4 bands) — the pack
  * picker below chooses which one — and the stepper here multiplies how many
  * of *that* pack you want, same as ordering several of the same size.
+ *
+ * `selectedId`/`onSelectId` are controlled by the parent (ProductPurchase)
+ * rather than owned here, so picking a variant can also move ProductGallery's
+ * main image to match it — a plain internal useState couldn't reach outside
+ * this component to do that.
  */
-export function BuyBox({ product }: { product: Product }) {
-  const [selectedId, setSelectedId] = useState(
-    product.variants[1]?.id ?? product.variants[0].id,
-  );
+export function BuyBox({
+  product,
+  selectedId,
+  onSelectId,
+}: {
+  product: Product;
+  selectedId: string;
+  onSelectId: (id: string) => void;
+}) {
   const [quantity, setQuantity] = useState(1);
   const [buying, setBuying] = useState(false);
   const [buyError, setBuyError] = useState<string | null>(null);
@@ -114,22 +124,14 @@ export function BuyBox({ product }: { product: Product }) {
         <DeliveryPincodeCheck />
       </div>
 
-      {/* ------------------------------- pack size -------------------------------- */}
-      <fieldset className="mt-8">
-        <legend className="mb-2.5 text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
-          Pack size
-        </legend>
-        <div className="flex flex-col gap-2.5">
-          {product.variants.map((v) => (
-            <PackOption
-              key={v.id}
-              variant={v}
-              selected={v.id === selected.id}
-              onSelect={() => setSelectedId(v.id)}
-            />
-          ))}
-        </div>
-      </fieldset>
+      {/* ------------------------------ variant picker ----------------------------- */}
+      {product.variants.length > 1 && (
+        <VariantPicker
+          product={product}
+          selectedId={selected.id}
+          onSelect={onSelectId}
+        />
+      )}
 
       {/* -------------------------------- quantity --------------------------------- */}
       <div className="mt-7 flex items-center gap-3">
@@ -211,11 +213,16 @@ export function BuyBox({ product }: { product: Product }) {
       )}
 
       <p className="mt-3 text-center text-[0.74rem] text-ink-mute">
-        {formatMoney(
-          selectedPrice.amount / selected.quantity,
-          selectedPrice.currencyCode,
-        )}{" "}
-        per band · ships free · {arrivesShort(shippingRegion)}
+        {selected.quantity > 1 && (
+          <>
+            {formatMoney(
+              selectedPrice.amount / selected.quantity,
+              selectedPrice.currencyCode,
+            )}{" "}
+            each ·{" "}
+          </>
+        )}
+        ships free · {arrivesShort(shippingRegion)}
       </p>
 
       {/* ------------------------------- guarantees ------------------------------- */}
@@ -244,78 +251,166 @@ function Guarantee({
   );
 }
 
-function PackOption({
-  variant,
-  selected,
+/**
+ * A variant title of "Gold-plated · 10mm" splits into two independently
+ * pickable axes (finish, size); a title with no " · " — "1 bracelet", "Size
+ * 6" — is a single flat axis. Parsed from the title rather than carried as
+ * separate fields because every product in lib/product.ts already encodes it
+ * that way, and duplicating it as structured data would just be two sources
+ * of truth to keep in sync.
+ */
+function splitVariantTitle(title: string): { axis1: string; axis2: string | null } {
+  const [axis1, axis2] = title.split(" · ");
+  return { axis1, axis2: axis2 ?? null };
+}
+
+/** "2mm" < "3mm" < "10mm" < "12mm" — plain string sort would put "10mm" before "2mm". */
+function bySizeAscending(a: string, b: string) {
+  const na = parseFloat(a);
+  const nb = parseFloat(b);
+  if (!isNaN(na) && !isNaN(nb) && na !== nb) return na - nb;
+  return a.localeCompare(b, undefined, { numeric: true });
+}
+
+const pillClass = (active: boolean) =>
+  `rounded-full border px-4 py-2 text-[0.82rem] font-medium transition-colors duration-300 ${
+    active
+      ? "border-ink bg-ink text-white"
+      : "border-line bg-linen text-ink-soft hover:border-ink/30"
+  }`;
+
+/**
+ * Amazon-style picker: a product whose variants carry two axes (finish,
+ * size) gets a row of image swatches for the first axis and a row of pills
+ * for the second, with the current value of each named beside its label —
+ * not the old single flat list of every SKU as its own full-width row.
+ */
+function VariantPicker({
+  product,
+  selectedId,
   onSelect,
 }: {
-  variant: Variant;
-  selected: boolean;
-  onSelect: () => void;
+  product: Product;
+  selectedId: string;
+  onSelect: (id: string) => void;
 }) {
-  const price = useLocalizedAmount(
-    variant.id,
-    variant.price.amount,
-    variant.price.currencyCode,
-    variant.compareAtPrice?.amount ?? null,
+  const parsed = product.variants.map((v) => ({ v, ...splitVariantTitle(v.title) }));
+  const selected = parsed.find((p) => p.v.id === selectedId) ?? parsed[0];
+  const isTwoAxis = parsed.some((p) => p.axis2 !== null);
+
+  if (!isTwoAxis) {
+    const sortedFlat = [...parsed].sort((a, b) => bySizeAscending(a.axis1, b.axis1));
+    return (
+      <fieldset className="mt-8">
+        <legend className="mb-2.5 text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
+          Size
+        </legend>
+        <div className="flex flex-wrap gap-2">
+          {sortedFlat.map(({ v, axis1 }) => (
+            <button
+              key={v.id}
+              type="button"
+              aria-pressed={v.id === selectedId}
+              onClick={() => onSelect(v.id)}
+              className={pillClass(v.id === selectedId)}
+            >
+              {axis1}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+    );
+  }
+
+  const axis1Order: string[] = [];
+  const groups = new Map<string, typeof parsed>();
+  for (const p of parsed) {
+    if (!groups.has(p.axis1)) {
+      groups.set(p.axis1, []);
+      axis1Order.push(p.axis1);
+    }
+    groups.get(p.axis1)!.push(p);
+  }
+  const axis2Options = [...(groups.get(selected.axis1) ?? [])].sort((a, b) =>
+    bySizeAscending(a.axis2 ?? "", b.axis2 ?? ""),
   );
 
-  return (
-    <button
-      type="button"
-      role="radio"
-      aria-checked={selected}
-      onClick={onSelect}
-      className={`group relative flex w-full items-center justify-between gap-4 rounded-xl border px-4 py-3.5 text-left transition-colors duration-300 ${
-        selected
-          ? "border-volt/60 bg-accent-soft"
-          : "border-line bg-linen hover:border-ink/20"
-      }`}
-    >
-      <span className="flex min-w-0 items-center gap-3">
-        <span
-          aria-hidden
-          className={`grid size-5 shrink-0 place-items-center rounded-full border-2 transition-colors duration-300 ${
-            selected ? "border-volt bg-volt" : "border-line-strong"
-          }`}
-        >
-          {selected && <CheckIcon className="size-3 text-on-accent" />}
-        </span>
-        <span className="min-w-0">
-          <span className="flex flex-wrap items-center gap-x-2">
-            <span className="font-display text-[0.95rem] font-semibold text-ink">
-              {variant.title}
-            </span>
-            {variant.badge && (
-              <span className="rounded-full bg-volt/12 px-2 py-0.5 text-[0.6rem] font-semibold tracking-widest text-volt uppercase">
-                {variant.badge}
-              </span>
-            )}
-          </span>
-          <span className="block text-[0.76rem] text-ink-mute">
-            Qty: {variant.quantity} · {variant.subtitle}
-          </span>
-          {variant.offer && (
-            <span className="mt-1 inline-flex items-center gap-1 text-[0.72rem] font-medium text-ink-soft">
-              <GiftIcon className="size-3 text-volt" />
-              {variant.offer}
-            </span>
-          )}
-        </span>
-      </span>
+  const pickAxis1 = (axis1: string) => {
+    const group = groups.get(axis1)!;
+    const sameSize = group.find((p) => p.axis2 === selected.axis2);
+    onSelect((sameSize ?? group[0]).v.id);
+  };
 
-      <span className="shrink-0 text-right">
-        <span className="font-display block text-[1.05rem] font-bold tracking-[-0.02em] text-ink tabular-nums">
-          {price.pending
-            ? priceSkeleton("h-5", "w-14")
-            : formatMoney(price.amount, price.currencyCode)}
-        </span>
-        {price.compareAtAmount != null && (
-          <span className="block text-[0.72rem] text-ink-mute line-through tabular-nums">
-            {formatMoney(price.compareAtAmount, price.currencyCode)}
-          </span>
-        )}
-      </span>
-    </button>
+  return (
+    <>
+      <fieldset className="mt-8">
+        <div className="mb-2.5 flex items-baseline justify-between">
+          <legend className="text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
+            Style
+          </legend>
+          <span className="text-[0.8rem] font-medium text-ink">{selected.axis1}</span>
+        </div>
+        <div className="flex flex-wrap gap-2.5">
+          {axis1Order.map((axis1) => {
+            const rep = groups.get(axis1)![0].v;
+            const isSelected = axis1 === selected.axis1;
+            return (
+              <button
+                key={axis1}
+                type="button"
+                aria-label={axis1}
+                aria-pressed={isSelected}
+                onClick={() => pickAxis1(axis1)}
+                // A plain `border-*` colour utility can't be trusted here — an
+                // unlayered `* { border-color }` reset in globals.css always
+                // beats it regardless of specificity (same cascade-layer issue
+                // documented on the pincode input's focus ring). `ring-*` uses
+                // box-shadow instead of border-color, so it isn't affected.
+                className={`relative size-14 shrink-0 overflow-hidden rounded-lg border border-line transition-all duration-300 ${
+                  isSelected
+                    ? "ring-2 ring-ink ring-offset-2"
+                    : "hover:ring-1 hover:ring-ink/40 hover:ring-offset-1"
+                }`}
+              >
+                <Image
+                  src={rep.image}
+                  alt={axis1}
+                  fill
+                  sizes="56px"
+                  className="object-contain p-1"
+                />
+                {isSelected && (
+                  <span className="absolute right-0.5 bottom-0.5 grid size-4 place-items-center rounded-full bg-ink text-white">
+                    <CheckIcon className="size-2.5" />
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+      </fieldset>
+
+      <fieldset className="mt-6">
+        <div className="mb-2.5 flex items-baseline justify-between">
+          <legend className="text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
+            Size
+          </legend>
+          <span className="text-[0.8rem] font-medium text-ink">{selected.axis2}</span>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {axis2Options.map(({ v, axis2 }) => (
+            <button
+              key={v.id}
+              type="button"
+              aria-pressed={v.id === selectedId}
+              onClick={() => onSelect(v.id)}
+              className={pillClass(v.id === selectedId)}
+            >
+              {axis2}
+            </button>
+          ))}
+        </div>
+      </fieldset>
+    </>
   );
 }

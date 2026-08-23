@@ -58,8 +58,9 @@ export default function Footer() {
                 light ? "text-ink-mute" : "text-ash",
               )}
             >
-              One product, made properly. Free tracked shipping to every country
-              we serve, and sixty days to send it back if it is not for you.
+              A small collection, made properly. Free tracked shipping to every
+              country we serve, and 30 days to send it back if it is not for
+              you.
             </p>
 
             <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2">
@@ -133,8 +134,7 @@ export default function Footer() {
             )}
           >
             HimVolt sells jewellery. Nothing on this site is a medical device or
-            a health claim, and black tourmaline is not a treatment for any
-            condition.
+            a health claim, and hematite is not a treatment for any condition.
           </p>
         </div>
       </Reveal>
