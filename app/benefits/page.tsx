@@ -4,6 +4,7 @@ import { ParallaxBenefit } from "@/components/benefits/ParallaxBenefit";
 import { ScrollSnapRoot } from "@/components/benefits/ScrollSnapRoot";
 import Button from "@/components/ui/Button";
 import { Magnetic, Reveal } from "@/components/ui/Motion";
+import { productPath } from "@/lib/catalog";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -175,7 +176,7 @@ export default function BenefitsPage() {
           </p>
           <div className="mt-9 flex justify-center">
             <Magnetic>
-              <Button href="/products/the-tourmaline-band" arrow variant="invert">
+              <Button href={productPath} arrow variant="invert">
                 Shop the band
               </Button>
             </Magnetic>

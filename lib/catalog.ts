@@ -42,6 +42,8 @@ export type SyncedProduct = {
 export const syncedProduct: SyncedProduct = catalog.product;
 export const syncedShop = catalog.shop;
 export const syncedAt = catalog.syncedAt;
+/** The one product page's URL — every link on the site should use this, not a hardcoded slug, since the handle is whatever Shopify currently has it as. */
+export const productPath = `/products/${syncedProduct.handle}`;
 /** Curated market country codes this catalog has real per-market prices for (empty on older/unsynced data). */
 export const syncedMarkets: string[] = "markets" in catalog ? catalog.markets : [];
 

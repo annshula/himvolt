@@ -86,6 +86,7 @@ export async function getProduct(
           ? { amount: defaultPrice.compareAtAmount, currencyCode: defaultPrice.currencyCode }
           : undefined,
       badge: pres?.badge,
+      offer: pres?.offer,
       image: pres?.image ?? fallback.gallery[0]?.src ?? "",
       availableForSale: synced.availableForSale,
       weightGrams: pres?.weightGrams ?? 40,

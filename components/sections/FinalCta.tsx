@@ -2,6 +2,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { Magnetic, Reveal } from "@/components/ui/Motion";
 import { finalCta } from "@/content/copy";
+import { productPath } from "@/lib/catalog";
 import { product } from "@/lib/product";
 
 const flat = product.gallery[0];
@@ -60,7 +61,7 @@ export default function FinalCta() {
 
         <Reveal delay={0.24} className="mt-11 flex justify-center">
           <Magnetic>
-            <Button href="/products/the-tourmaline-band" arrow>
+            <Button href={productPath} arrow>
               {finalCta.cta}
             </Button>
           </Magnetic>

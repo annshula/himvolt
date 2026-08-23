@@ -12,6 +12,8 @@
  * medical outcome.
  */
 
+import { productPath } from "@/lib/catalog";
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -66,7 +68,7 @@ export const blogPosts: BlogPost[] = [
 <li><strong>Opacity.</strong> Schorl is opaque black, not a translucent black-dyed glass that shows light at the edges.</li>
 </ul>
 
-<p>If you want the mineral facts on a bracelet you can actually check yourself against that list, <a href="/products/the-tourmaline-band">The Tourmaline Band</a> is cut from natural schorl, sixteen square-cut stones on a double-corded elastic core — no clasp, no coating, nothing to fake.</p>
+<p>If you want the mineral facts on a bracelet you can actually check yourself against that list, <a href="${productPath}">The Tourmaline Band</a> is cut from natural schorl, sixteen square-cut stones on a double-corded elastic core — no clasp, no coating, nothing to fake.</p>
 `,
   },
   {
@@ -108,7 +110,7 @@ export const blogPosts: BlogPost[] = [
 <h2>The honest bottom line</h2>
 <p>If you want a black bracelet that photographs well for under a certain price, onyx or lava rock will do the job. If you want one that is naturally black, genuinely hard-wearing, and has an actual mineral story behind it rather than a dye lot, black tourmaline is the one to buy — and it is the only material on this list you can independently verify with a weight check and a temperature test.</p>
 
-<p><a href="/products/the-tourmaline-band">The Tourmaline Band</a> is our take on it: sixteen square-cut natural schorl stones, elastic fit, free tracked shipping, 30-day returns if it is not for you.</p>
+<p><a href="${productPath}">The Tourmaline Band</a> is our take on it: sixteen square-cut natural schorl stones, elastic fit, free tracked shipping, 30-day returns if it is not for you.</p>
 `,
   },
   {
@@ -150,7 +152,7 @@ export const blogPosts: BlogPost[] = [
 <h2>The one mistake that ages a bracelet fastest</h2>
 <p>Buying one that does not fit. A men's beaded bracelet that is too loose spins constantly and looks unintentional; one that is too tight leaves a mark and eventually stretches the cord unevenly until it snaps. Measure your wrist properly before you buy — most quality bands, including ours, publish a real fit range rather than a single size, because "one size fits most" usually means "one size fits nobody exactly."</p>
 
-<p>If you are shopping for one now: <a href="/products/the-tourmaline-band">The Tourmaline Band</a> runs 8mm square-cut stones, fits a 16–21cm wrist on one elastic core, and is priced to actually stack with a second one.</p>
+<p>If you are shopping for one now: <a href="${productPath}">The Tourmaline Band</a> runs 8mm square-cut stones, fits a 16–21cm wrist on one elastic core, and is priced to actually stack with a second one.</p>
 `,
   },
   {
@@ -189,7 +191,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Buying one without buying into a false claim</h2>
 <p>Look for a seller who tells you what is fact (hardness, weight, whether the stone is natural or dyed) and what is tradition (why people wear it) as two separate things, not blended into one paragraph designed to sound clinical. If a listing promises it will block negative energy or improve your health, that is marketing, not mineralogy.</p>
 
-<p>Our own approach: <a href="/products/the-tourmaline-band">The Tourmaline Band</a> is natural schorl, sixteen square-cut stones, 40 grams, elastic fit — sold as what it actually is. Read more on the stone itself in our <a href="/blog/black-tourmaline-bracelet-benefits">black tourmaline benefits guide</a>.</p>
+<p>Our own approach: <a href="${productPath}">The Tourmaline Band</a> is natural schorl, sixteen square-cut stones, 40 grams, elastic fit — sold as what it actually is. Read more on the stone itself in our <a href="/blog/black-tourmaline-bracelet-benefits">black tourmaline benefits guide</a>.</p>
 `,
   },
 ];

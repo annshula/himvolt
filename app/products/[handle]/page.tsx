@@ -12,11 +12,18 @@ import { product } from "@/lib/product";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 import { getProduct } from "@/lib/shopify";
+import { productPath, syncedProduct } from "@/lib/catalog";
 
 export const revalidate = 3600;
 
+/**
+ * The URL is whatever Shopify's handle currently is (data/product.json,
+ * refreshed by `npm run shopify:sync-product`) — not a hardcoded slug. A
+ * product rename upstream and a re-sync changes this route; there is
+ * nothing else to keep in sync.
+ */
 export function generateStaticParams() {
-  return [{ handle: product.handle }];
+  return [{ handle: syncedProduct.handle }];
 }
 
 export function generateMetadata({
@@ -25,7 +32,7 @@ export function generateMetadata({
   params: Promise<{ handle: string }>;
 }): Promise<Metadata> {
   return params.then(({ handle }) => {
-    if (handle !== product.handle) {
+    if (handle !== syncedProduct.handle) {
       return { title: "Product not found", robots: { index: false, follow: false } };
     }
 
@@ -36,12 +43,12 @@ export function generateMetadata({
     return {
       title,
       description,
-      alternates: { canonical: `/products/${product.handle}` },
+      alternates: { canonical: productPath },
       openGraph: {
         type: "website",
         title: `${title} · ${site.name}`,
         description,
-        url: absoluteUrl(`/products/${product.handle}`),
+        url: absoluteUrl(productPath),
         siteName: site.name,
         images: [
           {
@@ -80,7 +87,7 @@ export default async function ProductPage({
   params: Promise<{ handle: string }>;
 }) {
   const { handle } = await params;
-  if (handle !== product.handle) notFound();
+  if (handle !== syncedProduct.handle) notFound();
 
   // Live Shopify pricing/stock when connected; the local catalog otherwise.
   const liveProduct = await getProduct();

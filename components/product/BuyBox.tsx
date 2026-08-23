@@ -4,12 +4,14 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import {
   CheckIcon,
+  GiftIcon,
   GlobeIcon,
   MinusIcon,
   PlusIcon,
   ReturnIcon,
 } from "@/components/ui/Icons";
 import { Magnetic, easeOut } from "@/components/ui/Motion";
+import { DeliveryPincodeCheck } from "@/components/product/DeliveryPincodeCheck";
 import { useCart } from "@/components/providers/CartProvider";
 import {
   useLocalizedAmount,
@@ -106,6 +108,11 @@ export function BuyBox({ product }: { product: Product }) {
           {product.material}
         </li>
       </ul>
+
+      {/* --------------------------- delivery estimate ---------------------------- */}
+      <div className="mt-5">
+        <DeliveryPincodeCheck />
+      </div>
 
       {/* ------------------------------- pack size -------------------------------- */}
       <fieldset className="mt-8">
@@ -288,6 +295,12 @@ function PackOption({
           <span className="block text-[0.76rem] text-ink-mute">
             Qty: {variant.quantity} · {variant.subtitle}
           </span>
+          {variant.offer && (
+            <span className="mt-1 inline-flex items-center gap-1 text-[0.72rem] font-medium text-ink-soft">
+              <GiftIcon className="size-3 text-volt" />
+              {variant.offer}
+            </span>
+          )}
         </span>
       </span>
 

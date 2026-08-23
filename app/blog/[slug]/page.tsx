@@ -7,6 +7,7 @@ import BlogPostingSchema from "@/components/blog/BlogPostingSchema";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { Reveal } from "@/components/ui/Motion";
 import { blogAuthor, blogPosts, getBlogPost } from "@/content/blog";
+import { productPath } from "@/lib/catalog";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -106,7 +107,7 @@ export default async function BlogPostPage({
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-line px-2.5 py-1 text-[0.62rem] font-semibold tracking-[0.1em] text-ink-mute uppercase"
+                className="rounded-full border border-line px-2.5 py-1 text-[0.62rem] font-semibold tracking-widest text-ink-mute uppercase"
               >
                 {tag}
               </span>
@@ -124,13 +125,15 @@ export default async function BlogPostPage({
           <div className="mt-5 flex items-center gap-2 text-[0.76rem] text-ink-mute">
             <span>{blogAuthor}</span>
             <span aria-hidden="true">·</span>
-            <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+            <time dateTime={post.publishedAt}>
+              {formatDate(post.publishedAt)}
+            </time>
             <span aria-hidden="true">·</span>
             <span>{post.readingMinutes} min read</span>
           </div>
         </header>
 
-        <div className="relative mt-8 aspect-[3/2] overflow-hidden rounded-(--radius-card) bg-parchment">
+        <div className="relative mt-8 aspect-3/2 overflow-hidden rounded-(--radius-card) bg-parchment">
           <Image
             src={post.coverImage.src}
             alt={post.coverImage.alt}
@@ -152,7 +155,7 @@ export default async function BlogPostPage({
             {site.promise.shipping} · {site.promise.returns}
           </p>
           <Link
-            href="/products/the-tourmaline-band"
+            href={productPath}
             className="mt-4 inline-flex h-11 items-center rounded-full bg-ink px-6 font-display text-[0.8rem] font-semibold tracking-widest text-white uppercase transition-colors duration-300 hover:bg-ink/85"
           >
             Shop the Tourmaline Band

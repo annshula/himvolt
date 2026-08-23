@@ -18,6 +18,8 @@ export type Variant = {
   price: Money;
   compareAtPrice?: Money;
   badge?: string;
+  /** Bundle framing shown distinct from `badge` — "Buy 1 Get 1", etc. */
+  offer?: string;
   image: string;
   availableForSale: boolean;
   weightGrams: number;
@@ -86,6 +88,7 @@ export const product: Product = {
       price: usd(66),
       compareAtPrice: usd(118),
       badge: "Most bought",
+      offer: "Buy 1 Get 1",
       image: "/product/cutout/pair.png",
       availableForSale: true,
       weightGrams: 74,
@@ -99,6 +102,7 @@ export const product: Product = {
       price: usd(116),
       compareAtPrice: usd(236),
       badge: "Best value",
+      offer: "Buy 2 Get 2",
       image: "/product/cutout/four.png",
       availableForSale: true,
       weightGrams: 148,

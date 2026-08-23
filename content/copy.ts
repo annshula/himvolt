@@ -10,13 +10,14 @@
  */
 
 import { daysRangeDisplay, defaultRegion } from "@/lib/shipping";
+import { productPath } from "@/lib/catalog";
 
 export const hero = {
   eyebrow: "Black tourmaline collection",
   headline: ["Carry your own", "current."],
   sub: "Sixteen square-cut black tourmaline stones on a seamless elastic core. Heavy enough to notice. Quiet enough to wear to anything.",
   cta: "Shop the collection",
-  ctaHref: "/products/the-tourmaline-band",
+  ctaHref: productPath,
   secondary: "See the stone",
   secondaryHref: "#stone",
 };
@@ -173,11 +174,11 @@ export const footerNav = [
   {
     title: "Shop",
     links: [
-      { label: "The Tourmaline Band", href: "/products/the-tourmaline-band" },
+      { label: "The Tourmaline Band", href: productPath },
       { label: "Blog", href: "/blog" },
       { label: "Why tourmaline", href: "#stone" },
       { label: "Sizing", href: "#faq" },
-      { label: "Gift sets", href: "/products/the-tourmaline-band" },
+      { label: "Gift sets", href: productPath },
     ],
   },
   {

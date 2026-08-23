@@ -77,6 +77,118 @@ async function getAccessToken(): Promise<string | null> {
 const NOT_CONNECTED =
   "Order tracking isn't connected yet. Email us the order number and we'll check it by hand.";
 
+export type FreightEstimate = {
+  /** Fastest reasonably-priced courier's transit window — never the courier name itself, kept out of anything shown to a shopper (see data/cj-shipping.json). */
+  minDays: number;
+  maxDays: number;
+};
+
+export type FreightResult =
+  | { ok: true; estimate: FreightEstimate }
+  | { ok: false; reason: string };
+
+const FREIGHT_NOT_CONNECTED =
+  "Delivery estimates aren't connected yet. Standard shipping still applies — see our shipping page for typical timelines.";
+
+/**
+ * Live pincode-level delivery estimate for one variant. Picks the fastest
+ * option CJ returns that isn't wildly more expensive than the rest (same
+ * heuristic used to build data/cj-shipping.json by hand) — CJ occasionally
+ * flags its own "recommended" option (`compositeRecommendSort`); that pick is
+ * used when present. Always resolves — never throws.
+ */
+export async function getFreightEstimate(params: {
+  variantId: string;
+  endCountryCode: string;
+  zip: string;
+  quantity?: number;
+}): Promise<FreightResult> {
+  const zip = params.zip.trim();
+  if (!zip) return { ok: false, reason: "Enter a delivery pincode." };
+  const country = params.endCountryCode.trim().toUpperCase();
+  if (!/^[A-Z]{2}$/.test(country)) {
+    return { ok: false, reason: "Enter a valid destination country." };
+  }
+
+  if (!cjEnabled) return { ok: false, reason: FREIGHT_NOT_CONNECTED };
+
+  const token = await getAccessToken();
+  if (!token) return { ok: false, reason: FREIGHT_NOT_CONNECTED };
+
+  try {
+    const res = await fetch(`${API_BASE}/logistic/freightCalculate`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "CJ-Access-Token": token,
+      },
+      body: JSON.stringify({
+        startCountryCode: "CN",
+        endCountryCode: country,
+        zip,
+        products: [{ vid: params.variantId, quantity: params.quantity ?? 1 }],
+      }),
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      return {
+        ok: false,
+        reason: "We couldn't check delivery for that pincode. Double-check it and try again.",
+      };
+    }
+
+    const data = (await res.json()) as {
+      data?: {
+        logisticAging?: string;
+        compositeRecommendSort?: number | null;
+        timePrioritySort?: number | null;
+        totalPostageFee?: number;
+      }[];
+    };
+
+    const options = (data.data ?? []).filter((o) => o.logisticAging);
+    if (options.length === 0) {
+      return {
+        ok: false,
+        reason: "No delivery options found for that pincode — try a nearby one, or check the general shipping timelines instead.",
+      };
+    }
+
+    // CJ's own flagged pick first; otherwise the option with the tightest
+    // (fastest) upper bound among those not wildly pricier than the cheapest.
+    const parsed = options.map((o) => {
+      const [minStr, maxStr] = (o.logisticAging ?? "").split("-");
+      return {
+        ...o,
+        minDays: Number(minStr),
+        maxDays: Number(maxStr ?? minStr),
+      };
+    });
+    const cheapest = Math.min(...parsed.map((o) => o.totalPostageFee ?? Infinity));
+    const recommended = parsed.find(
+      (o) => o.compositeRecommendSort === 0 || o.timePrioritySort === 0,
+    );
+    const best =
+      recommended ??
+      parsed
+        .filter((o) => (o.totalPostageFee ?? Infinity) <= cheapest * 2)
+        .sort((a, b) => a.maxDays - b.maxDays)[0] ??
+      parsed[0];
+
+    return {
+      ok: true,
+      estimate: { minDays: best.minDays, maxDays: best.maxDays },
+    };
+  } catch (err) {
+    console.error("CJ freight lookup failed", err);
+    return {
+      ok: false,
+      reason: "We couldn't reach delivery estimates right now. Please try again shortly.",
+    };
+  }
+}
+
 /** Looks up a tracking or order number. Always resolves — never throws. */
 export async function getTracking(trackingNumber: string): Promise<TrackingResult> {
   const clean = trackingNumber.trim();
