@@ -11,10 +11,14 @@ import {
 } from "@/components/ui/Icons";
 import { Magnetic, easeOut } from "@/components/ui/Motion";
 import { useCart } from "@/components/providers/CartProvider";
-import { useLocalizedAmount } from "@/components/providers/LocalizationProvider";
+import {
+  useLocalizedAmount,
+  useLocalization,
+} from "@/components/providers/LocalizationProvider";
 import { formatMoney } from "@/lib/money";
 import { shopifyCheckout } from "@/lib/shopify-checkout";
 import { site } from "@/lib/site";
+import { arrivesShort, regionForCountry } from "@/lib/shipping";
 import type { Product, Variant } from "@/lib/product";
 
 const MAX_QTY = 10;
@@ -41,6 +45,8 @@ export function BuyBox({ product }: { product: Product }) {
   const [buying, setBuying] = useState(false);
   const [buyError, setBuyError] = useState<string | null>(null);
   const { add } = useCart();
+  const { country, defaultCountry } = useLocalization();
+  const shippingRegion = regionForCountry(country ?? defaultCountry?.isoCode);
 
   const selected =
     product.variants.find((v) => v.id === selectedId) ?? product.variants[0];
@@ -202,7 +208,7 @@ export function BuyBox({ product }: { product: Product }) {
           selectedPrice.amount / selected.quantity,
           selectedPrice.currencyCode,
         )}{" "}
-        per band · ships free · arrives in 5–10 days
+        per band · ships free · {arrivesShort(shippingRegion)}
       </p>
 
       {/* ------------------------------- guarantees ------------------------------- */}

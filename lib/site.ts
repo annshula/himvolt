@@ -3,6 +3,8 @@
  * touching a component. Swap the numbers here, not in the JSX.
  */
 
+import { daysRange, defaultRegion } from "@/lib/shipping";
+
 export const site = {
   name: "HimVolt",
   legalName: "HimVolt",
@@ -39,12 +41,12 @@ export const site = {
 
   promise: {
     shipping: "Free tracked shipping worldwide",
-    shippingDetail: "Dispatched in 1–3 business days · 5–10 days to the US & UK",
-    // Full tiered breakdown — used on the FAQ and anywhere there is room for
-    // the honest, country-by-country version rather than the short chip copy
-    // above. Processing + transit, not a single optimistic number.
-    shippingFull:
-      "Orders are processed within 1–3 business days. Tracked delivery then runs 5–10 business days to the US and UK, 6–12 business days to Canada, Australia and the EU, and 7–15 business days everywhere else.",
+    // Day range only — no country named here. The real, per-country transit
+    // times (live CJDropshipping data, lib/shipping.ts) live on the About
+    // page; product/cart surfaces resolve the shopper's own region silently
+    // via useLocalization() instead of repeating a single figure for everyone.
+    shippingDetail: `Dispatched in 1–3 business days · ${daysRange(defaultRegion)} days to arrive`,
+    shippingFull: `Orders are processed within 1–3 business days, then tracked delivery typically takes ${daysRange(defaultRegion)} business days depending on where you are. Full country-by-country transit times are on our About page.`,
     returns: "30-day returns, no questions",
     returnsDetail: "Wear it a full month. Not yours? We pay the label.",
     warranty: "12-month restring guarantee",

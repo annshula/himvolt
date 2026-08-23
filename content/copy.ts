@@ -9,6 +9,8 @@
  * more usefully, makes it sound like it has nothing to prove.
  */
 
+import { daysRangeDisplay, defaultRegion } from "@/lib/shipping";
+
 export const hero = {
   eyebrow: "Black tourmaline collection",
   headline: ["Carry your own", "current."],
@@ -140,7 +142,7 @@ export const faqs = [
   },
   {
     q: "How long does delivery take, and what does it cost?",
-    a: "Shipping is free to every country we serve, with no minimum order. Orders are processed within 1–3 business days, then tracked delivery runs 5–10 business days to the US and UK, 6–12 business days to Canada, Australia and the EU, and 7–15 business days everywhere else. Your tracking number arrives by email the moment the label is scanned.",
+    a: `Shipping is free to every country we serve, with no minimum order. Orders are processed within 1–3 business days, then tracked delivery typically takes ${daysRangeDisplay(defaultRegion)} depending on where you are — see the full country-by-country breakdown on our About page. Your tracking number arrives by email the moment the label is scanned.`,
   },
   {
     q: "What if I do not like it?",

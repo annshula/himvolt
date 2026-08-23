@@ -131,12 +131,12 @@ export default function Nav() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-500 ease-(--ease-out-expo) ${
+        className={`sticky top-0 z-50 px-5 transition-all duration-500 ease-(--ease-out-expo) sm:px-8 ${
           solid ? "bg-canvas/85 backdrop-blur-xl" : "bg-transparent"
         }`}
         style={{ height: "var(--nav-h)" }}
       >
-        <nav className="mx-auto flex h-full max-w-310 items-center justify-between gap-4 px-6 sm:gap-6 sm:px-12 lg:px-16">
+        <nav className="mx-auto flex h-full max-w-310 items-center justify-between gap-4 sm:gap-6">
           <Logo className={solid ? "text-ink" : "text-chalk"} />
 
           <ul className="hidden items-center gap-8 lg:flex">

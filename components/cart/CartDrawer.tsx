@@ -4,11 +4,15 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { useCart } from "@/components/providers/CartProvider";
-import { useLocalizedCart } from "@/components/providers/LocalizationProvider";
+import {
+  useLocalizedCart,
+  useLocalization,
+} from "@/components/providers/LocalizationProvider";
 import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icons";
 import { formatMoney } from "@/lib/money";
 import { shopifyCheckout } from "@/lib/shopify-checkout";
+import { arrivesShort, regionForCountry } from "@/lib/shipping";
 import { cn } from "@/lib/utils";
 
 /**
@@ -26,6 +30,8 @@ export function CartDrawer() {
     subtotal,
     pending: pricePending,
   } = useLocalizedCart(lines);
+  const { country, defaultCountry } = useLocalization();
+  const shippingRegion = regionForCountry(country ?? defaultCountry?.isoCode);
   const [checkingOut, setCheckingOut] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
@@ -192,8 +198,8 @@ export function CartDrawer() {
               </div>
               <p className="mt-2 text-xs leading-relaxed text-ink-mute">
                 {subtotalCents > 0
-                  ? "Free tracked shipping · arrives in 5–10 days."
-                  : "Shipping calculated at checkout · arrives in 5–10 days."}
+                  ? `Free tracked shipping · ${arrivesShort(shippingRegion)}.`
+                  : `Shipping calculated at checkout · ${arrivesShort(shippingRegion)}.`}
               </p>
               {checkoutError && (
                 <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">

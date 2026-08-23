@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-08-23T00:00:00Z",
+  "source": "CJDropshipping calculate_freight (live API, CN → destination). Internal reference only — courier names are not shown on the storefront.",
+  "product": {
+    "pid": "2603100809441624400",
+    "productSku": "CJSL2782519",
+    "productNameEn": "Square Black Tourmaline Bracelet Mens Elastic Mixed-Style Bracelet",
+    "productUrl": "https://www.cjdropshipping.com/product/square-black-tourmaline-bracelet-mens-elastic-mixed-style-bracelet-p-2603100809441624400.html"
+  },
+  "originCountry": "CN",
+  "defaultRegionCode": "US",
+  "regions": [
+    {
+      "code": "US",
+      "label": "United States",
+      "group": "North America",
+      "minDays": 4,
+      "maxDays": 6,
+      "_internalCourier": "CJPacket Fast Ordinary",
+      "_internalPriceUsd": 6.13
+    },
+    {
+      "code": "CA",
+      "label": "Canada",
+      "group": "North America",
+      "minDays": 4,
+      "maxDays": 7,
+      "_internalCourier": "CJPacket Ordinary",
+      "_internalPriceUsd": 4.32
+    },
+    {
+      "code": "MX",
+      "label": "Mexico",
+      "group": "North America",
+      "minDays": 6,
+      "maxDays": 9,
+      "_internalCourier": "YunExpress Ordinary",
+      "_internalPriceUsd": 4.30
+    },
+    {
+      "code": "IN",
+      "label": "India",
+      "group": "Asia",
+      "minDays": 6,
+      "maxDays": 14,
+      "_internalCourier": "CJPacket Asia Ordinary",
+      "_internalPriceUsd": 3.39
+    },
+    {
+      "code": "AU",
+      "label": "Australia",
+      "group": "Oceania",
+      "minDays": 4,
+      "maxDays": 8,
+      "_internalCourier": "CJPacket Ordinary",
+      "_internalPriceUsd": 9.69
+    },
+    {
+      "code": "GB",
+      "label": "United Kingdom",
+      "group": "Europe",
+      "minDays": 4,
+      "maxDays": 5,
+      "_internalCourier": "CJPacket Fast Ordinary",
+      "_internalPriceUsd": 3.50
+    }
+  ],
+  "variantWeights": [
+    { "sku": "CJSL278251902BY", "title": "One band", "vid": "2603100809441624800", "weightGrams": 40 },
+    { "sku": "CJSL278251901AZ", "title": "Two bands", "vid": "2603110333051608500", "weightGrams": 74 },
+    { "sku": "CJSL278251903CX", "title": "Four bands", "vid": "2603100809441625100", "weightGrams": 148 }
+  ]
+}

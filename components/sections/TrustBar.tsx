@@ -1,3 +1,5 @@
+"use client";
+
 import Counter from "@/components/ui/Counter";
 import {
   StarIcon,
@@ -6,7 +8,9 @@ import {
   CheckIcon,
 } from "@/components/ui/Icons";
 import { Stagger, StaggerItem } from "@/components/ui/Motion";
+import { useLocalization } from "@/components/providers/LocalizationProvider";
 import { site } from "@/lib/site";
+import { daysRange, regionForCountry } from "@/lib/shipping";
 
 /**
  * The credibility strip. Deliberately typographic — no imagery, no cards, no
@@ -14,6 +18,9 @@ import { site } from "@/lib/site";
  */
 export default function TrustBar() {
   const { metrics, promise } = site;
+  const { country, defaultCountry } = useLocalization();
+  const shippingRegion = regionForCountry(country ?? defaultCountry?.isoCode);
+  const shippingLabel = `Dispatched in 1–3 business days · ${daysRange(shippingRegion)} days to arrive`;
 
   return (
     <section
@@ -52,7 +59,7 @@ export default function TrustBar() {
         <Item
           icon={<GlobeIcon />}
           headline={<>Free</>}
-          label={promise.shippingDetail}
+          label={shippingLabel}
         />
 
         <Item

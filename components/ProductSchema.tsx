@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import { defaultRegion } from "@/lib/shipping";
 import type { Product } from "@/lib/product";
 
 /**
@@ -64,7 +65,12 @@ export default function ProductSchema({ product }: { product: Product }) {
           deliveryTime: {
             "@type": "ShippingDeliveryTime",
             handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" },
-            transitTime: { "@type": "QuantitativeValue", minValue: 5, maxValue: 9, unitCode: "DAY" },
+            transitTime: {
+              "@type": "QuantitativeValue",
+              minValue: defaultRegion.minDays,
+              maxValue: defaultRegion.maxDays,
+              unitCode: "DAY",
+            },
           },
         },
         hasMerchantReturnPolicy: {
