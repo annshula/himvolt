@@ -46,7 +46,7 @@ properties, which the compositor animates without a single React re-render.
 app/
   layout.tsx           metadata, fonts, the `.js` gate for scroll reveals
   page.tsx             composes the sections; static with 1h revalidate
-  opengraph-image.tsx  1200×630 social card, generated at build time
+  opengraph-image.jpg  Social card — Next.js auto-serves this as og:image/twitter:image
   robots.ts sitemap.ts manifest.ts
   api/checkout/        POSTs a variant, returns a Shopify checkout URL
 components/
