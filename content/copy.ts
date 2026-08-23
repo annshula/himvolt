@@ -141,6 +141,10 @@ export const faqs = [
     a: "Real natural black tourmaline — schorl. It is opaque, dense, cool to the touch on first contact, and it warms slowly. Coated glass and resin warm instantly and feel light. At 40 grams for sixteen stones, the weight in the box is the fastest way to tell.",
   },
   {
+    q: "What are the benefits of a black tourmaline bracelet?",
+    a: "Two separate things, and we will not blur them together. What is measurable: black tourmaline (schorl) is pyroelectric and piezoelectric — it develops a real electrical charge when warmed or squeezed, and at 7–7.5 on the Mohs scale it is genuinely harder-wearing than most everyday jewellery. What is cultural: it has been carried as a grounding and protective stone across many traditions for centuries, which is exactly why men reach for a black stone bracelet before a big meeting or a long flight — not because we are claiming it changes the outcome. We sell a well-made, heavy, good-looking object with a real mineral behind it. That is the whole pitch.",
+  },
+  {
     q: "How long does delivery take, and what does it cost?",
     a: `Shipping is free to every country we serve, with no minimum order. Orders are processed within 1–3 business days, then tracked delivery typically takes ${daysRangeDisplay(defaultRegion)} depending on where you are — see the full country-by-country breakdown on our About page. Your tracking number arrives by email the moment the label is scanned.`,
   },
@@ -170,6 +174,7 @@ export const footerNav = [
     title: "Shop",
     links: [
       { label: "The Tourmaline Band", href: "/products/the-tourmaline-band" },
+      { label: "Blog", href: "/blog" },
       { label: "Why tourmaline", href: "#stone" },
       { label: "Sizing", href: "#faq" },
       { label: "Gift sets", href: "/products/the-tourmaline-band" },
