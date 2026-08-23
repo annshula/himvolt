@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-08-23T00:00:00Z",
-  "source": "CJDropshipping calculate_freight (live API, CN → destination). Internal reference only — courier names are not shown on the storefront.",
+  "source": "CJDropshipping calculate_freight (live API, CN → destination). Internal reference only — courier names are not shown on the storefront. Recommended courier per region is CJ's own flagged pick (recommendLogisticsTypeList/compositeRecommendSort in the API response) where the API returns one; where CJ returns no flag for that route (CA, MX, IN, AU, GB as of generatedAt), the fastest courier at a reasonable price was chosen by hand instead.",
   "product": {
     "pid": "2603100809441624400",
     "productSku": "CJSL2782519",
@@ -15,9 +15,10 @@
       "label": "United States",
       "group": "North America",
       "minDays": 4,
-      "maxDays": 6,
-      "_internalCourier": "CJPacket Fast Ordinary",
-      "_internalPriceUsd": 6.13
+      "maxDays": 7,
+      "_internalCourier": "YunExpress Ordinary",
+      "_internalPriceUsd": 5.62,
+      "_internalRecommendedBy": "CJ (compositeRecommendSort + timePrioritySort flagged)"
     },
     {
       "code": "CA",
