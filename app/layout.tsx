@@ -72,14 +72,19 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   generator: undefined,
+  // Curated against Google Trends US search interest (12mo): dropped terms
+  // with zero measured volume (schorl bracelet, square bead bracelet men,
+  // elastic stone bracelet, mens/grounding-bracelet-for-men phrasing) and
+  // added verified-demand terms in their place.
   keywords: [
     "black tourmaline bracelet",
-    "mens tourmaline bracelet",
-    "square bead bracelet men",
-    "schorl bracelet",
-    "grounding bracelet for men",
-    "elastic stone bracelet",
+    "black tourmaline jewelry",
+    "black bracelet men",
+    "mens beaded bracelets",
     "mens beaded bracelet",
+    "tourmaline jewelry",
+    "protection bracelet men",
+    "grounding bracelet",
     "HimVolt",
   ],
   authors: [{ name: site.name, url: site.url }],
