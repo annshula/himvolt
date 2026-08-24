@@ -35,9 +35,13 @@ function reducer(state: CartLine[], action: Action): CartLine[] {
     case "add": {
       const existing = state.find((l) => l.variantId === action.variantId);
       if (existing) {
+        // Re-adding an already-in-cart variant sets its quantity to whatever
+        // was just picked on the product page, rather than summing on top of
+        // what's already there — picking "3" a second time means "3 total",
+        // not "however many were there plus 3 more".
         return state.map((l) =>
           l.variantId === action.variantId
-            ? { ...l, qty: Math.min(l.qty + action.qty, 20) }
+            ? { ...l, qty: Math.min(action.qty, 20) }
             : l,
         );
       }
@@ -68,7 +72,10 @@ export type ResolvedLine = CartLine & {
 
 interface CartContextValue {
   lines: ResolvedLine[];
+  /** Total units across every line (quantities summed) — used for the bag drawer's own "(N)" heading. */
   count: number;
+  /** Distinct products in the bag, regardless of quantity — used for the nav badge. */
+  itemCount: number;
   subtotalCents: number;
   isOpen: boolean;
   open: () => void;
@@ -152,7 +159,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const add = useCallback((variantId: string, qty = 1) => {
     dispatch({ type: "add", variantId, qty });
-    setOpen(true);
   }, []);
 
   // Stable identity: consumers (e.g. the post-payment <ClearCart/>) must be
@@ -173,6 +179,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     () => ({
       lines,
       count: lines.reduce((n, l) => n + l.qty, 0),
+      itemCount: lines.length,
       subtotalCents: lines.reduce((n, l) => n + l.lineTotalCents, 0),
       isOpen,
       open: () => setOpen(true),

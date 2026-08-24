@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/components/providers/CartProvider";
 import { LocalizationProvider } from "@/components/providers/LocalizationProvider";
+import { Toaster } from "sonner";
 import Footer from "@/components/sections/Footer";
 import Nav from "@/components/sections/Nav";
 import { site } from "@/lib/site";
@@ -178,6 +179,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <CartDrawer />
           </CartProvider>
         </LocalizationProvider>
+        <Toaster
+          position="bottom-center"
+          toastOptions={{
+            unstyled: true,
+            classNames: {
+              toast:
+                "flex items-center gap-3 rounded-full bg-ink px-5 py-3 shadow-(--shadow-lift)",
+              icon: "m-0 shrink-0",
+              title: "text-[0.82rem] font-medium text-white",
+              description: "text-[0.78rem] text-white/60",
+            },
+          }}
+        />
         <GoogleAnalytics />
       </body>
     </html>

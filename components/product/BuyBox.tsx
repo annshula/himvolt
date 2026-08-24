@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useState } from "react";
+import { toast } from "sonner";
 import {
   CheckIcon,
   GlobeIcon,
@@ -167,7 +168,17 @@ export function BuyBox({
         <Magnetic strength={0.15} className="block flex-1">
           <button
             type="button"
-            onClick={() => add(selected.id, quantity)}
+            onClick={() => {
+              add(selected.id, quantity);
+              toast.success("Added to cart", {
+                description: product.title,
+                icon: (
+                  <span className="grid size-5 shrink-0 place-items-center rounded-full bg-emerald-500 text-white">
+                    <CheckIcon className="size-3" />
+                  </span>
+                ),
+              });
+            }}
             className="group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-linear-to-b from-volt-hot to-volt font-display text-[0.88rem] font-semibold tracking-widest whitespace-nowrap text-on-accent uppercase transition-all duration-400 ease-(--ease-out-expo) hover:-translate-y-0.5 active:scale-[0.98]"
           >
             <span

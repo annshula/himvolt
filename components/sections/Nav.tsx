@@ -66,7 +66,7 @@ function CartButton({
   solid: boolean;
   onOpen?: () => void;
 }) {
-  const { count, open } = useCart();
+  const { itemCount, open } = useCart();
   return (
     <IconButton
       solid={solid}
@@ -74,17 +74,19 @@ function CartButton({
         onOpen?.();
         open();
       }}
-      aria-label={`Open shopping bag${count > 0 ? ` (${count} items)` : ""}`}
+      aria-label={`Open shopping bag${itemCount > 0 ? ` (${itemCount} item${itemCount === 1 ? "" : "s"})` : ""}`}
     >
-      <Icon name="bag" className="size-5" />
-      {count > 0 && (
-        <span
-          aria-hidden="true"
-          className="absolute -top-1 -right-1 grid h-5 min-w-5 place-items-center rounded-full bg-accent px-1 font-display text-[0.6rem] font-semibold tracking-tight text-on-accent tabular-nums"
-        >
-          {count > 99 ? "99+" : count}
-        </span>
-      )}
+      <span className="relative inline-flex">
+        <Icon name="bag" className="size-5" />
+        {itemCount > 0 && (
+          <span
+            aria-hidden="true"
+            className="absolute -top-1.5 -right-1.5 grid h-4 min-w-4 place-items-center rounded-full bg-accent px-0.5 font-display text-[0.58rem] font-semibold tracking-tight text-on-accent tabular-nums"
+          >
+            {itemCount > 99 ? "99+" : itemCount}
+          </span>
+        )}
+      </span>
     </IconButton>
   );
 }
