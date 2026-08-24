@@ -13,14 +13,10 @@ import {
 import { Magnetic, easeOut } from "@/components/ui/Motion";
 import { DeliveryPincodeCheck } from "@/components/product/DeliveryPincodeCheck";
 import { useCart } from "@/components/providers/CartProvider";
-import {
-  useLocalizedAmount,
-  useLocalization,
-} from "@/components/providers/LocalizationProvider";
+import { useLocalizedAmount } from "@/components/providers/LocalizationProvider";
 import { formatMoney } from "@/lib/money";
 import { shopifyCheckout } from "@/lib/shopify-checkout";
 import { site } from "@/lib/site";
-import { arrivesShort, regionForCountry } from "@/lib/shipping";
 import type { Product } from "@/lib/product";
 
 const MAX_QTY = 10;
@@ -57,8 +53,6 @@ export function BuyBox({
   const [buying, setBuying] = useState(false);
   const [buyError, setBuyError] = useState<string | null>(null);
   const { add } = useCart();
-  const { country, defaultCountry } = useLocalization();
-  const shippingRegion = regionForCountry(country ?? defaultCountry?.isoCode);
 
   const selected =
     product.variants.find((v) => v.id === selectedId) ?? product.variants[0];
@@ -118,11 +112,6 @@ export function BuyBox({
           {product.material}
         </li>
       </ul>
-
-      {/* --------------------------- delivery estimate ---------------------------- */}
-      <div className="mt-5">
-        <DeliveryPincodeCheck />
-      </div>
 
       {/* ------------------------------ variant picker ----------------------------- */}
       {product.variants.length > 1 && (
@@ -212,21 +201,23 @@ export function BuyBox({
         </p>
       )}
 
-      <p className="mt-3 text-center text-[0.74rem] text-ink-mute">
-        {selected.quantity > 1 && (
-          <>
-            {formatMoney(
-              selectedPrice.amount / selected.quantity,
-              selectedPrice.currencyCode,
-            )}{" "}
-            each ·{" "}
-          </>
-        )}
-        ships free · {arrivesShort(shippingRegion)}
-      </p>
+      {selected.quantity > 1 && (
+        <p className="mt-3 text-center text-[0.74rem] text-ink-mute">
+          {formatMoney(
+            selectedPrice.amount / selected.quantity,
+            selectedPrice.currencyCode,
+          )}{" "}
+          each
+        </p>
+      )}
+
+      {/* --------------------------- delivery estimate ---------------------------- */}
+      <div className="mt-5">
+        <DeliveryPincodeCheck />
+      </div>
 
       {/* ------------------------------- guarantees ------------------------------- */}
-      <ul className="mt-7 flex flex-col gap-2.5 border-t border-line pt-6 text-[0.8rem] text-ink-soft">
+      <ul className="mt-6 flex flex-col gap-2.5 text-[0.8rem] text-ink-soft">
         <Guarantee icon={<GlobeIcon />}>{site.promise.shipping}</Guarantee>
         <Guarantee icon={<ReturnIcon />}>{site.promise.returns}</Guarantee>
         <Guarantee icon={<CheckIcon />}>{site.promise.warranty}</Guarantee>
@@ -259,7 +250,10 @@ function Guarantee({
  * that way, and duplicating it as structured data would just be two sources
  * of truth to keep in sync.
  */
-function splitVariantTitle(title: string): { axis1: string; axis2: string | null } {
+function splitVariantTitle(title: string): {
+  axis1: string;
+  axis2: string | null;
+} {
   const [axis1, axis2] = title.split(" · ");
   return { axis1, axis2: axis2 ?? null };
 }
@@ -294,12 +288,17 @@ function VariantPicker({
   selectedId: string;
   onSelect: (id: string) => void;
 }) {
-  const parsed = product.variants.map((v) => ({ v, ...splitVariantTitle(v.title) }));
+  const parsed = product.variants.map((v) => ({
+    v,
+    ...splitVariantTitle(v.title),
+  }));
   const selected = parsed.find((p) => p.v.id === selectedId) ?? parsed[0];
   const isTwoAxis = parsed.some((p) => p.axis2 !== null);
 
   if (!isTwoAxis) {
-    const sortedFlat = [...parsed].sort((a, b) => bySizeAscending(a.axis1, b.axis1));
+    const sortedFlat = [...parsed].sort((a, b) =>
+      bySizeAscending(a.axis1, b.axis1),
+    );
     return (
       <fieldset className="mt-8">
         <legend className="mb-2.5 text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
@@ -348,7 +347,9 @@ function VariantPicker({
           <legend className="text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
             Style
           </legend>
-          <span className="text-[0.8rem] font-medium text-ink">{selected.axis1}</span>
+          <span className="text-[0.8rem] font-medium text-ink">
+            {selected.axis1}
+          </span>
         </div>
         <div className="flex flex-wrap gap-2.5">
           {axis1Order.map((axis1) => {
@@ -395,7 +396,9 @@ function VariantPicker({
           <legend className="text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
             Size
           </legend>
-          <span className="text-[0.8rem] font-medium text-ink">{selected.axis2}</span>
+          <span className="text-[0.8rem] font-medium text-ink">
+            {selected.axis2}
+          </span>
         </div>
         <div className="flex flex-wrap gap-2">
           {axis2Options.map(({ v, axis2 }) => (

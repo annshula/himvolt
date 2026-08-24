@@ -48,7 +48,7 @@ export function ProductGallery({
     <div className="lg:sticky lg:top-28 lg:self-start">
       <div className="flex flex-col-reverse gap-4 lg:flex-row">
         {gallery.length > 1 && (
-          <div className="scrollbar-none flex flex-wrap justify-center gap-2.5 pb-1 [&::-webkit-scrollbar]:hidden lg:max-h-115 lg:w-16 lg:shrink-0 lg:flex-nowrap lg:flex-col lg:justify-start lg:overflow-x-hidden lg:overflow-y-auto lg:pb-0">
+          <div className="scrollbar-none flex flex-wrap justify-center gap-2.5 pb-1 [&::-webkit-scrollbar]:hidden lg:max-h-115 lg:w-19 lg:shrink-0 lg:flex-nowrap lg:flex-col lg:items-center lg:justify-start lg:overflow-x-hidden lg:overflow-y-auto lg:py-1.5">
             {gallery.map((img, i) => (
               <button
                 key={img.src}
