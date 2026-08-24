@@ -18,6 +18,7 @@ import { useLocalizedAmount } from "@/components/providers/LocalizationProvider"
 import { formatMoney } from "@/lib/money";
 import { shopifyCheckout } from "@/lib/shopify-checkout";
 import { site } from "@/lib/site";
+import { cn } from "@/lib/utils";
 import type { Product } from "@/lib/product";
 
 const MAX_QTY = 10;
@@ -101,10 +102,16 @@ export function BuyBox({
             )}
           </span>
         )}
-        {save > 0 && (
-          <span className="rounded-full bg-accent-soft px-2.5 py-1 text-[0.7rem] font-semibold text-volt">
-            Save {save}%
+        {save >= 45 ? (
+          <span className="rounded-full bg-volt px-2.5 py-1 text-[0.7rem] font-bold tracking-wide text-on-accent uppercase">
+            Buy 1, get 1 free
           </span>
+        ) : (
+          save > 0 && (
+            <span className="rounded-full bg-accent-soft px-2.5 py-1 text-[0.7rem] font-semibold text-volt">
+              Save {save}%
+            </span>
+          )
         )}
       </div>
 
@@ -328,23 +335,47 @@ function VariantPicker({
     const sortedFlat = [...parsed].sort((a, b) =>
       bySizeAscending(a.axis1, b.axis1),
     );
+    // A pack-count axis ("1 bracelet" / "2 bracelets") reads oddly under a
+    // "Size" legend — every value naming the product itself (not a
+    // measurement) means this is a quantity choice, not a fit choice.
+    const isPackCount = sortedFlat.every(({ axis1 }) =>
+      /\b(bracelets?|rings?|bands?|pieces?)\b/i.test(axis1),
+    );
     return (
       <fieldset className="mt-8">
         <legend className="mb-2.5 text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
-          Size
+          {isPackCount ? "Quantity" : "Size"}
         </legend>
         <div className="flex flex-wrap gap-2">
-          {sortedFlat.map(({ v, axis1 }) => (
-            <button
-              key={v.id}
-              type="button"
-              aria-pressed={v.id === selectedId}
-              onClick={() => onSelect(v.id)}
-              className={pillClass(v.id === selectedId)}
-            >
-              {axis1}
-            </button>
-          ))}
+          {sortedFlat.map(({ v, axis1 }) => {
+            const dealPct =
+              v.compareAtPrice && v.compareAtPrice.amount > v.price.amount
+                ? Math.round((1 - v.price.amount / v.compareAtPrice.amount) * 100)
+                : 0;
+            return (
+              <button
+                key={v.id}
+                type="button"
+                aria-pressed={v.id === selectedId}
+                onClick={() => onSelect(v.id)}
+                className={cn(pillClass(v.id === selectedId), "inline-flex items-center gap-1.5")}
+              >
+                {axis1}
+                {isPackCount && dealPct >= 20 && (
+                  <span
+                    className={cn(
+                      "rounded-full px-1.5 py-0.5 text-[0.62rem] font-bold tracking-wide uppercase",
+                      dealPct >= 45
+                        ? "bg-volt text-on-accent"
+                        : "bg-accent-soft text-volt",
+                    )}
+                  >
+                    {dealPct >= 45 ? "1 free" : `−${dealPct}%`}
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
       </fieldset>
     );
