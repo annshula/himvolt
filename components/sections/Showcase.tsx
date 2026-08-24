@@ -7,19 +7,29 @@ import { showcase } from "@/content/copy";
 import { getProduct } from "@/lib/shopify";
 
 /**
- * The product, shot large — real Shopify photography via getProduct() (the
- * synced catalog, data/product.json), never a local file: this section
- * (and every other one on the product/home pages) serves strictly
- * Shopify → data/product.json → UI, so a new photo added in Shopify shows
- * up here after the next sync without a code change.
+ * The product, shot large — static local photography from public/media
+ * (origin.webp + himvolt_worn.webp), never the synced Shopify catalog
+ * images: these two curated shots stay stable regardless of what is
+ * uploaded in Shopify.
  */
 export default async function Showcase() {
   const product = await getProduct();
-  // "Cut" = the hero shot; "Worn" = the last gallery image, which on every
-  // product synced so far is the lifestyle/on-body shot — not a filename
-  // guess, just the convention this store's photos are uploaded in.
-  const cut = product.gallery[0];
-  const worn = product.gallery[product.gallery.length - 1] ?? cut;
+  // Static local gallery — "Cut" is the moody on-rock hero shot, "Worn" is
+  // the lifestyle on-body shot. Fixed paths, not product.gallery.
+  const localGallery = {
+    cut: {
+      src: "/media/origin.webp",
+      alt: "Hematite bracelet resting on a piece of dark stone",
+      width: 2000,
+      height: 1333,
+    },
+    worn: {
+      src: "/media/himvolt_worn.webp",
+      alt: "Hematite bracelet worn on a wrist",
+      width: 1679,
+      height: 937,
+    },
+  };
 
   return (
     <Section id="showcase" className="grain overflow-hidden">
@@ -44,7 +54,10 @@ export default async function Showcase() {
 
         <Tilt className="scroll-scale relative mx-auto max-w-180" max={7}>
           <div className="tilt__layer" style={{ ["--z" as string]: "50px" }}>
-            <ImageComparison before={cut} after={worn} />
+            <ImageComparison
+              before={localGallery.cut}
+              after={localGallery.worn}
+            />
           </div>
         </Tilt>
 
@@ -98,10 +111,10 @@ export default async function Showcase() {
           className="relative overflow-hidden rounded-(--radius-card) border border-line"
         >
           <Image
-            src={worn.src}
-            alt={worn.alt}
-            width={worn.width}
-            height={worn.height}
+            src={localGallery.worn.src}
+            alt={localGallery.worn.alt}
+            width={localGallery.worn.width}
+            height={localGallery.worn.height}
             quality={82}
             sizes="(max-width: 1023px) 92vw, 660px"
             className="parallax h-full min-h-75 w-full scale-105 object-cover object-[center_58%]"
