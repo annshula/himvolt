@@ -130,6 +130,23 @@
             "alt": "Hematite Men's Bracelet",
             "width": 1470,
             "height": 1125
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/c5273e32d238461d9a160391122d4b61.thumbnail.0000000000.jpg?v=1787554441",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-1080p-2.5Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-720p-1.6Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.SD-480p-0.9Mbps-92431002.mp4",
+                "type": "video/mp4"
+              }
+            ]
           }
         },
         {
@@ -1318,6 +1335,23 @@
             "alt": "7ad3df0f5d7e83d1ca053273a1164d2",
             "width": 695,
             "height": 695
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/c5273e32d238461d9a160391122d4b61.thumbnail.0000000000.jpg?v=1787554441",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-1080p-2.5Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-720p-1.6Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.SD-480p-0.9Mbps-92431002.mp4",
+                "type": "video/mp4"
+              }
+            ]
           }
         },
         {
