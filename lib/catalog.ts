@@ -29,6 +29,8 @@ export type SyncedVariant = {
   price: number;
   compareAtPrice: number | null;
   availableForSale: boolean;
+  /** Real Shopify inventory count, only when Shopify is tracking it for this variant — null for untracked variants or a product synced before this field existed. Never fabricated. */
+  stockQuantity?: number | null;
   /** Per-country price list, from the store's real (single-country) Shopify Markets only — see lib/shopify/sync-product.ts. Empty until a product has been through that sync. */
   pricesByMarket?: Record<string, MarketPrice>;
   /** The real Shopify variant image (per finish/colour) — undefined for a product synced before images were added to the schema. */

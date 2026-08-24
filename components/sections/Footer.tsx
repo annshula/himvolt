@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { LogoMark, Wordmark } from "@/components/ui/Logo";
+import { NewsletterForm } from "@/components/marketing/NewsletterForm";
 import { Reveal } from "@/components/ui/Motion";
 import { footerNav } from "@/content/copy";
 import { site } from "@/lib/site";
@@ -62,6 +63,8 @@ export default function Footer() {
               country we serve, and 30 days to send it back if it is not for
               you.
             </p>
+
+            <NewsletterForm light={light} />
 
             <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2">
               {socials.map((s) => (

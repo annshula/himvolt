@@ -142,6 +142,7 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
             price
             compareAtPrice
             availableForSale
+            inventoryQuantity
             image { url altText width height }
           }
         }
@@ -177,6 +178,7 @@ type VariantNode = {
   price: string | null;
   compareAtPrice: string | null;
   availableForSale: boolean;
+  inventoryQuantity: number | null;
   image: ImageNode | null;
 };
 
@@ -248,6 +250,7 @@ type SyncedVariant = {
   price: number;
   compareAtPrice: number | null;
   availableForSale: boolean;
+  stockQuantity: number | null;
   pricesByMarket: Record<string, MarketPrice>;
   image: string | null;
   shopifyTitle: string;
@@ -450,6 +453,14 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
         price: variantPrice,
         compareAtPrice: compare != null && compare > variantPrice ? compare : null,
         availableForSale: v.availableForSale,
+        // Only meaningful when Shopify is actually tracking inventory for
+        // this variant — untracked variants report a large/negative
+        // placeholder, not a real count, so null it out rather than show a
+        // nonsense number.
+        stockQuantity:
+          typeof v.inventoryQuantity === "number" && v.inventoryQuantity >= 0
+            ? v.inventoryQuantity
+            : null,
         pricesByMarket: pricesByVariant.get(v.id) ?? {},
         image: v.image?.url ?? curated?.image ?? null,
         shopifyTitle: v.title,

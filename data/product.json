@@ -55,7 +55,8 @@
           "shopifyTitle": "1PC",
           "subtitle": "The everyday",
           "quantity": 1,
-          "weightGrams": 70
+          "weightGrams": 70,
+          "stockQuantity": 8064
         }
       ],
       "images": [
@@ -274,7 +275,8 @@
           "shopifyTitle": "Golden Hematite Bracelet / 10mm",
           "subtitle": "10mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 8465
         },
         {
           "id": "gid://shopify/ProductVariant/49583348515043",
@@ -309,7 +311,8 @@
           "shopifyTitle": "Golden Hematite Bracelet / 12mm",
           "subtitle": "12mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 8100
         },
         {
           "id": "gid://shopify/ProductVariant/49583348547811",
@@ -344,7 +347,8 @@
           "shopifyTitle": "Golden Hematite Bracelet / 2mm",
           "subtitle": "2mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 5296
         },
         {
           "id": "gid://shopify/ProductVariant/49583348580579",
@@ -379,7 +383,8 @@
           "shopifyTitle": "Golden Hematite Bracelet / 3mm",
           "subtitle": "3mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 9547
         },
         {
           "id": "gid://shopify/ProductVariant/49583348613347",
@@ -414,7 +419,8 @@
           "shopifyTitle": "Golden Hematite Bracelet / 4mm",
           "subtitle": "4mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 8010
         },
         {
           "id": "gid://shopify/ProductVariant/49583348646115",
@@ -449,7 +455,8 @@
           "shopifyTitle": "Golden Hematite Bracelet / 6mm",
           "subtitle": "6mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 5018
         },
         {
           "id": "gid://shopify/ProductVariant/49583348678883",
@@ -484,7 +491,8 @@
           "shopifyTitle": "Golden Hematite Bracelet / 8mm",
           "subtitle": "8mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 7150
         },
         {
           "id": "gid://shopify/ProductVariant/49583348711651",
@@ -519,7 +527,8 @@
           "shopifyTitle": "Hematite Bracelet / 10mm",
           "subtitle": "10mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 6099
         },
         {
           "id": "gid://shopify/ProductVariant/49583348744419",
@@ -554,7 +563,8 @@
           "shopifyTitle": "Hematite Bracelet / 12mm",
           "subtitle": "12mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 6433
         },
         {
           "id": "gid://shopify/ProductVariant/49583348777187",
@@ -589,7 +599,8 @@
           "shopifyTitle": "Hematite Bracelet / 2mm",
           "subtitle": "2mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 9471
         },
         {
           "id": "gid://shopify/ProductVariant/49583348809955",
@@ -624,7 +635,8 @@
           "shopifyTitle": "Hematite Bracelet / 3mm",
           "subtitle": "3mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 8889
         },
         {
           "id": "gid://shopify/ProductVariant/49583348842723",
@@ -659,7 +671,8 @@
           "shopifyTitle": "Hematite Bracelet / 4mm",
           "subtitle": "4mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 5949
         },
         {
           "id": "gid://shopify/ProductVariant/49583348875491",
@@ -694,7 +707,8 @@
           "shopifyTitle": "Hematite Bracelet / 6mm",
           "subtitle": "6mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 9915
         },
         {
           "id": "gid://shopify/ProductVariant/49583348908259",
@@ -729,7 +743,8 @@
           "shopifyTitle": "Hematite Bracelet / 8mm",
           "subtitle": "8mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 7674
         },
         {
           "id": "gid://shopify/ProductVariant/49583348941027",
@@ -764,7 +779,8 @@
           "shopifyTitle": "Rose Gold Hematite Bracelet / 10mm",
           "subtitle": "10mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 8420
         },
         {
           "id": "gid://shopify/ProductVariant/49583348973795",
@@ -799,7 +815,8 @@
           "shopifyTitle": "Rose Gold Hematite Bracelet / 12mm",
           "subtitle": "12mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 6274
         },
         {
           "id": "gid://shopify/ProductVariant/49583349006563",
@@ -834,7 +851,8 @@
           "shopifyTitle": "Rose Gold Hematite Bracelet / 2mm",
           "subtitle": "2mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 5038
         },
         {
           "id": "gid://shopify/ProductVariant/49583349039331",
@@ -869,7 +887,8 @@
           "shopifyTitle": "Rose Gold Hematite Bracelet / 3mm",
           "subtitle": "3mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 7167
         },
         {
           "id": "gid://shopify/ProductVariant/49583349072099",
@@ -904,7 +923,8 @@
           "shopifyTitle": "Rose Gold Hematite Bracelet / 4mm",
           "subtitle": "4mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 7271
         },
         {
           "id": "gid://shopify/ProductVariant/49583349104867",
@@ -939,7 +959,8 @@
           "shopifyTitle": "Rose Gold Hematite Bracelet / 6mm",
           "subtitle": "6mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 6503
         },
         {
           "id": "gid://shopify/ProductVariant/49583349137635",
@@ -974,7 +995,8 @@
           "shopifyTitle": "Rose Gold Hematite Bracelet / 8mm",
           "subtitle": "8mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 8409
         },
         {
           "id": "gid://shopify/ProductVariant/49583349170403",
@@ -1009,7 +1031,8 @@
           "shopifyTitle": "Silver Hematite Bracelet / 10mm",
           "subtitle": "10mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 8072
         },
         {
           "id": "gid://shopify/ProductVariant/49583349203171",
@@ -1044,7 +1067,8 @@
           "shopifyTitle": "Silver Hematite Bracelet / 12mm",
           "subtitle": "12mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 8387
         },
         {
           "id": "gid://shopify/ProductVariant/49583349235939",
@@ -1079,7 +1103,8 @@
           "shopifyTitle": "Silver Hematite Bracelet / 2mm",
           "subtitle": "2mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 7454
         },
         {
           "id": "gid://shopify/ProductVariant/49583349268707",
@@ -1114,7 +1139,8 @@
           "shopifyTitle": "Silver Hematite Bracelet / 3mm",
           "subtitle": "3mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 9944
         },
         {
           "id": "gid://shopify/ProductVariant/49583349301475",
@@ -1149,7 +1175,8 @@
           "shopifyTitle": "Silver Hematite Bracelet / 4mm",
           "subtitle": "4mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 6030
         },
         {
           "id": "gid://shopify/ProductVariant/49583349334243",
@@ -1184,7 +1211,8 @@
           "shopifyTitle": "Silver Hematite Bracelet / 6mm",
           "subtitle": "6mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 9103
         },
         {
           "id": "gid://shopify/ProductVariant/49583349367011",
@@ -1219,7 +1247,8 @@
           "shopifyTitle": "Silver Hematite Bracelet / 8mm",
           "subtitle": "8mm bead",
           "quantity": 1,
-          "weightGrams": 30
+          "weightGrams": 30,
+          "stockQuantity": 7788
         }
       ],
       "images": [
@@ -1427,7 +1456,8 @@
           "shopifyTitle": "Black",
           "subtitle": "Black",
           "quantity": 1,
-          "weightGrams": 107
+          "weightGrams": 107,
+          "stockQuantity": 47229
         }
       ],
       "images": [
@@ -1624,7 +1654,8 @@
           "shopifyTitle": "Six black / 10",
           "subtitle": "US ring size",
           "quantity": 1,
-          "weightGrams": 5
+          "weightGrams": 5,
+          "stockQuantity": 29491
         },
         {
           "id": "gid://shopify/ProductVariant/49583113109731",
@@ -1659,7 +1690,8 @@
           "shopifyTitle": "Six black / 11",
           "subtitle": "US ring size",
           "quantity": 1,
-          "weightGrams": 5
+          "weightGrams": 5,
+          "stockQuantity": 29491
         },
         {
           "id": "gid://shopify/ProductVariant/49583113142499",
@@ -1694,7 +1726,8 @@
           "shopifyTitle": "Six black / 12",
           "subtitle": "US ring size",
           "quantity": 1,
-          "weightGrams": 5
+          "weightGrams": 5,
+          "stockQuantity": 29491
         },
         {
           "id": "gid://shopify/ProductVariant/49583113175267",
@@ -1729,7 +1762,8 @@
           "shopifyTitle": "Six black / 6",
           "subtitle": "US ring size",
           "quantity": 1,
-          "weightGrams": 5
+          "weightGrams": 5,
+          "stockQuantity": 29491
         },
         {
           "id": "gid://shopify/ProductVariant/49583113208035",
@@ -1764,7 +1798,8 @@
           "shopifyTitle": "Six black / 7",
           "subtitle": "US ring size",
           "quantity": 1,
-          "weightGrams": 5
+          "weightGrams": 5,
+          "stockQuantity": 29491
         },
         {
           "id": "gid://shopify/ProductVariant/49583113240803",
@@ -1799,7 +1834,8 @@
           "shopifyTitle": "Six black / 8",
           "subtitle": "US ring size",
           "quantity": 1,
-          "weightGrams": 5
+          "weightGrams": 5,
+          "stockQuantity": 29491
         },
         {
           "id": "gid://shopify/ProductVariant/49583113273571",
@@ -1834,7 +1870,8 @@
           "shopifyTitle": "Six black / 9",
           "subtitle": "US ring size",
           "quantity": 1,
-          "weightGrams": 5
+          "weightGrams": 5,
+          "stockQuantity": 29493
         }
       ],
       "images": [
@@ -2020,7 +2057,8 @@
           "shopifyTitle": "Magnetic 10",
           "subtitle": "Man-made magnetic hematite",
           "quantity": 1,
-          "weightGrams": 27
+          "weightGrams": 27,
+          "stockQuantity": 40000
         },
         {
           "id": "gid://shopify/ProductVariant/49583159705827",
@@ -2055,7 +2093,8 @@
           "shopifyTitle": "Magnetic 6",
           "subtitle": "Man-made magnetic hematite",
           "quantity": 1,
-          "weightGrams": 23
+          "weightGrams": 23,
+          "stockQuantity": 40000
         },
         {
           "id": "gid://shopify/ProductVariant/49583159738595",
@@ -2090,7 +2129,8 @@
           "shopifyTitle": "Magnetic 7",
           "subtitle": "Man-made magnetic hematite",
           "quantity": 1,
-          "weightGrams": 24
+          "weightGrams": 24,
+          "stockQuantity": 40000
         },
         {
           "id": "gid://shopify/ProductVariant/49583159771363",
@@ -2125,7 +2165,8 @@
           "shopifyTitle": "Magnetic 8",
           "subtitle": "Man-made magnetic hematite",
           "quantity": 1,
-          "weightGrams": 25
+          "weightGrams": 25,
+          "stockQuantity": 40004
         },
         {
           "id": "gid://shopify/ProductVariant/49583159804131",
@@ -2160,7 +2201,8 @@
           "shopifyTitle": "Magnetic 9",
           "subtitle": "Man-made magnetic hematite",
           "quantity": 1,
-          "weightGrams": 26
+          "weightGrams": 26,
+          "stockQuantity": 40000
         },
         {
           "id": "gid://shopify/ProductVariant/49583159836899",
@@ -2195,7 +2237,8 @@
           "shopifyTitle": "No.10 non magnetic",
           "subtitle": "Natural hematite",
           "quantity": 1,
-          "weightGrams": 27
+          "weightGrams": 27,
+          "stockQuantity": 40000
         },
         {
           "id": "gid://shopify/ProductVariant/49583159869667",
@@ -2230,7 +2273,8 @@
           "shopifyTitle": "No.6 non magnetic",
           "subtitle": "Natural hematite",
           "quantity": 1,
-          "weightGrams": 23
+          "weightGrams": 23,
+          "stockQuantity": 40000
         },
         {
           "id": "gid://shopify/ProductVariant/49583159902435",
@@ -2265,7 +2309,8 @@
           "shopifyTitle": "No.7 non magnetic",
           "subtitle": "Natural hematite",
           "quantity": 1,
-          "weightGrams": 24
+          "weightGrams": 24,
+          "stockQuantity": 40000
         },
         {
           "id": "gid://shopify/ProductVariant/49583159935203",
@@ -2300,7 +2345,8 @@
           "shopifyTitle": "No.8 non magnetic",
           "subtitle": "Natural hematite",
           "quantity": 1,
-          "weightGrams": 25
+          "weightGrams": 25,
+          "stockQuantity": 40000
         },
         {
           "id": "gid://shopify/ProductVariant/49583159967971",
@@ -2335,7 +2381,8 @@
           "shopifyTitle": "No.9 non magnetic",
           "subtitle": "Natural hematite",
           "quantity": 1,
-          "weightGrams": 26
+          "weightGrams": 26,
+          "stockQuantity": 40000
         }
       ],
       "images": [

@@ -64,6 +64,11 @@ export function BuyBox({
     selected.compareAtPrice?.amount ?? null,
   );
 
+  // The real count never reaches this component at all — lib/product.ts
+  // derives this boolean server-side from Shopify's actual inventory, so
+  // there's nothing confidential in the client bundle to accidentally render.
+  const lowStock = selected.lowStock;
+
   const save =
     selectedPrice.compareAtAmount != null &&
     selectedPrice.amount < selectedPrice.compareAtAmount
@@ -104,10 +109,17 @@ export function BuyBox({
 
       {/* --------------------------------- chips --------------------------------- */}
       <ul className="mt-4 flex flex-wrap items-center gap-1.5">
-        <li className="inline-flex h-7 items-center gap-1.5 rounded-full border border-line px-2.5 text-[0.72rem] font-medium text-ink-soft">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-          In stock
-        </li>
+        {lowStock ? (
+          <li className="inline-flex h-7 items-center gap-1.5 rounded-full border border-amber-600/25 bg-amber-500/10 px-2.5 text-[0.72rem] font-medium text-amber-700">
+            <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+            Low stock — order soon
+          </li>
+        ) : (
+          <li className="inline-flex h-7 items-center gap-1.5 rounded-full border border-line px-2.5 text-[0.72rem] font-medium text-ink-soft">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+            In stock
+          </li>
+        )}
         <li className="inline-flex h-7 items-center rounded-full border border-line px-2.5 text-[0.72rem] font-medium text-ink-soft">
           {product.material}
         </li>
@@ -223,6 +235,12 @@ export function BuyBox({
         <Guarantee icon={<CheckIcon />}>{site.promise.warranty}</Guarantee>
         <Guarantee icon={<CheckIcon />}>{site.promise.support}</Guarantee>
       </ul>
+
+      <p className="mt-5 text-[0.72rem] leading-relaxed text-ink-mute">
+        We state what hematite is — composition, hardness, the streak test —
+        not what it will do for you. No "boosts testosterone," no health
+        claims. Just the mineral, honestly described.
+      </p>
     </div>
   );
 }

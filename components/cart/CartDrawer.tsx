@@ -181,6 +181,12 @@ export function CartDrawer() {
             </ul>
 
             <footer className="border-t border-line px-6 py-5">
+              {subtotalCents > 0 && (
+                <div className="mb-4 flex items-center gap-2.5 rounded-xl bg-emerald-500/10 px-3.5 py-2.5 text-[0.78rem] font-medium text-emerald-800">
+                  <Icon name="check" className="size-4 shrink-0" />
+                  Free tracked shipping — already included, no minimum.
+                </div>
+              )}
               <div className="flex items-baseline justify-between">
                 <span className="text-[0.62rem] font-semibold tracking-[0.24em] text-ink-mute uppercase">
                   Subtotal
@@ -198,7 +204,7 @@ export function CartDrawer() {
               </div>
               <p className="mt-2 text-xs leading-relaxed text-ink-mute">
                 {subtotalCents > 0
-                  ? `Free tracked shipping · ${arrivesShort(shippingRegion)}.`
+                  ? `Order today, ${arrivesShort(shippingRegion)}.`
                   : `Shipping calculated at checkout · ${arrivesShort(shippingRegion)}.`}
               </p>
               {checkoutError && (

@@ -48,6 +48,8 @@ export type Variant = {
   offer?: string;
   image: string;
   availableForSale: boolean;
+  /** True when real Shopify inventory for this variant is low — the count itself is never exposed here (it flows through client components, and the number is treated as confidential); this is a derived boolean computed once, server-side, from lib/catalog.ts's SyncedVariant.stockQuantity. */
+  lowStock: boolean;
   weightGrams: number;
 };
 
@@ -71,6 +73,9 @@ export type Product = {
 
 const usd = (amount: number): Money => ({ amount, currencyCode: "USD" });
 
+/** At or below this real Shopify count, a variant is "low stock" — see Variant.lowStock. */
+const LOW_STOCK_THRESHOLD = 10;
+
 export const products: Product[] = catalog.products.map((p) => ({
   id: p.id,
   handle: p.handle,
@@ -91,6 +96,10 @@ export const products: Product[] = catalog.products.map((p) => ({
     compareAtPrice: v.compareAtPrice != null ? usd(v.compareAtPrice) : undefined,
     image: v.image,
     availableForSale: v.availableForSale,
+    lowStock:
+      typeof v.stockQuantity === "number" &&
+      v.stockQuantity > 0 &&
+      v.stockQuantity <= LOW_STOCK_THRESHOLD,
     weightGrams: v.weightGrams,
   })),
 }));
