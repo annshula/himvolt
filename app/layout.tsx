@@ -61,7 +61,7 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-const title = `${site.name} — Hematite Bracelets & Rings for Men`;
+const title = `${site.name} — Genuine Hematite Bracelets & Rings for Men`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

@@ -14,7 +14,7 @@ import { daysRangeDisplay, defaultRegion } from "@/lib/shipping";
 export const hero = {
   eyebrow: "Hematite collection",
   headline: ["Heavy stone.", "Steady hands."],
-  sub: "Polished hematite bracelets and rings, cut from one of the densest stones you can wear. Cool to the touch, unmistakably heavy in hand, carried since antiquity for the grounding it's said to bring.",
+  sub: "Genuine hematite bracelets and rings, cut from one of the densest stones you can wear. Cool to the touch, unmistakably heavy in hand, carried since antiquity for the grounding it's said to bring.",
   cta: "Shop the collection",
   ctaHref: "/shop",
   secondary: "See the stone",
