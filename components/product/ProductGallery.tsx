@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import Tilt from "@/components/ui/Tilt";
@@ -128,6 +128,30 @@ function Lightbox({
 
   useEffect(() => setMounted(true), []);
 
+  // Swipe left/right to move between images — a plain touch delta, not a
+  // gesture library: this is the only gesture the viewer needs. Ignored
+  // while zoomed in, where a horizontal drag more likely means "let me pan
+  // this", and ignored when the gesture reads as more vertical than
+  // horizontal (a scroll attempt, not a swipe).
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const SWIPE_THRESHOLD = 50;
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    if (!start || zoomed || gallery.length <= 1) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+    onIndexChange(
+      dx < 0 ? (index + 1) % gallery.length : (index - 1 + gallery.length) % gallery.length,
+    );
+  };
+
   useEffect(() => {
     if (!open) return;
     setZoomed(false);
@@ -186,7 +210,11 @@ function Lightbox({
           </button>
         </div>
 
-        <div className="relative flex flex-1 items-center justify-center overflow-hidden px-4 pb-4">
+        <div
+          className="relative flex flex-1 items-center justify-center overflow-hidden px-4 pb-4"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
           {gallery.length > 1 && (
             <button
               type="button"
