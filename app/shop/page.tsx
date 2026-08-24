@@ -73,7 +73,7 @@ export default async function ShopPage() {
       </div>
 
       <div className="mx-auto w-full max-w-310 px-5 pt-10 pb-24 sm:px-8 lg:pb-32">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {liveProducts.map((p) => (
             <ProductCard key={p.handle} product={p} />
           ))}

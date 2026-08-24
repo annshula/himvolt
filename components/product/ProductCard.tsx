@@ -8,8 +8,11 @@ import type { Product } from "@/lib/product";
 /**
  * The listing card. One product today, but the shape is a real grid card —
  * cover photo, name, "from" price, view arrow — so a second SKU drops in
- * without a redesign. Capped narrow on purpose: a single card should read as
- * a compact tile, not stretch to fill a three-column grid cell on its own.
+ * without a redesign. Capped narrow from sm up on purpose: a single card
+ * should read as a compact tile, not stretch to fill a two/three-column
+ * grid cell on its own. Below sm the grid is a single column, so the cap
+ * comes off and the card fills its cell instead of sitting cramped and
+ * left-aligned in it.
  */
 export function ProductCard({ product }: { product: Product }) {
   const cheapest = product.variants.reduce((min, v) =>
@@ -19,7 +22,7 @@ export function ProductCard({ product }: { product: Product }) {
   const isBestSeller = product.handle === "hematite-mens-bracelet";
 
   return (
-    <Reveal as="article" className="max-w-72">
+    <Reveal as="article" className="w-full sm:max-w-72">
       <Link
         href={`/products/${product.handle}`}
         className="group block overflow-hidden rounded-(--radius-card) border border-line bg-linen transition-all duration-500 ease-(--ease-out-expo) hover:-translate-y-1 hover:border-ink/15 hover:shadow-(--shadow-e3)"
@@ -29,7 +32,7 @@ export function ProductCard({ product }: { product: Product }) {
             src={cover.src}
             alt={cover.alt}
             fill
-            sizes="(max-width: 639px) 80vw, 288px"
+            sizes="(max-width: 639px) 92vw, 288px"
             className="object-cover transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-105"
           />
           {isBestSeller && (

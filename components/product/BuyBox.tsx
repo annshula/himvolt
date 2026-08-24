@@ -191,7 +191,7 @@ export function BuyBox({
           setBuyError(result.error);
           setBuying(false);
         }}
-        className="mt-2.5 flex h-13 w-full items-center justify-center rounded-full border border-ink/20 font-display text-[0.85rem] font-semibold tracking-widest text-ink uppercase transition-colors duration-300 hover:border-ink/40 hover:bg-ink/3 disabled:opacity-50"
+        className="mt-2.5 flex h-13 w-full items-center justify-center rounded-full bg-ink font-display text-[0.85rem] font-semibold tracking-widest text-white uppercase transition-colors duration-300 hover:bg-ink/85 disabled:opacity-50"
       >
         {buying ? "Taking you to checkout…" : "Buy it now"}
       </button>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ProductPurchase } from "@/components/product/ProductPurchase";
-import { ProductShowcase } from "@/components/product/ProductShowcase";
+import { ProductDetails } from "@/components/product/ProductDetails";
 import Reviews from "@/components/sections/Reviews";
 import ProductSchema from "@/components/ProductSchema";
 import { getProductByHandle, products } from "@/lib/product";
@@ -119,7 +119,7 @@ export default async function ProductPage({
 
       <ProductPurchase product={liveProduct} />
 
-      <ProductShowcase product={liveProduct} />
+      <ProductDetails product={liveProduct} />
 
       <Reviews />
     </main>
