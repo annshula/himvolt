@@ -1,18 +1,22 @@
 /**
  * Product catalog — a typed view over data/product.json, and nothing else.
- * Every field here (title, gallery, specs, descriptionHtml, variant prices
- * and images) is read from that one file at module load; there is no
- * hand-maintained data array in this file to drift out of sync with it.
+ * Every field here (title, subtitle, material, descriptionHtml, gallery,
+ * specs, features, variant prices and images) is read from that one file at
+ * module load; there is no hand-maintained data array in this file to drift
+ * out of sync with it.
  *
- * data/product.json mixes two kinds of field per product/variant:
- *  - Shopify-sourced: id, handle, title (raw), price, compareAtPrice,
- *    availableForSale, images, variant image, pricesByMarket — safe for
- *    `npm run shopify:sync` to overwrite on every run.
- *  - Curated: subtitle, material, descriptionHtml, specs, and the variant's
- *    display `title`/`subtitle` (a cleaned-up version of Shopify's raw
- *    option-value title, kept separately as `shopifyTitle`) — hand-authored
- *    content sync must never touch, since Shopify has no field for "Mohs
- *    hardness" or an honest claims-policy description.
+ * Everything in data/product.json is Shopify-sourced and safe for `npm run
+ * shopify:sync` to overwrite: title and descriptionHtml are the product's
+ * real Shopify fields; subtitle, material, specs and features come from
+ * Shopify Admin metafields (custom.subtitle, custom.material, custom.specs,
+ * custom.feature_highlights — the latter two are lists of Metaobjects, so a
+ * merchant can add/reorder/remove rows from Shopify Admin, not just edit
+ * their text). Editing any of it happens in Shopify, then `npm run
+ * shopify:sync` pulls it in — never here. The one exception is a variant's
+ * display `title`/`subtitle` (a cleaned-up version of Shopify's raw
+ * option-value title, kept separately as `shopifyTitle`), since Shopify has
+ * no per-variant equivalent of a metafield-backed display name to source it
+ * from — see lib/shopify/sync-product.ts for the full account.
  *
  * Five real, live products on the connected Shopify store (vendor HIMVOLT) —
  * three hematite bracelets and two hematite rings, sourced from
@@ -47,6 +51,9 @@ export type Variant = {
   weightGrams: number;
 };
 
+export type CatalogImage = { src: string; alt: string; width: number; height: number };
+export type CatalogVideo = { poster: string; sources: { src: string; type: string }[] };
+
 export type Product = {
   id: string;
   handle: string;
@@ -54,8 +61,11 @@ export type Product = {
   subtitle: string;
   descriptionHtml: string;
   material: string;
-  gallery: { src: string; alt: string; width: number; height: number }[];
-  specs: { label: string; value: string }[];
+  gallery: CatalogImage[];
+  /** From the custom.specs Shopify metafield (a list of Product spec metaobjects) — `description`/`image`/`video` are optional richer content a merchant can add per row from Shopify Admin; `image` falls back to a gallery photo where it's rendered (ProductShowcase) if a row has none yet, and `video` (when present) takes over from `image` there entirely. */
+  specs: { label: string; value: string; description?: string; image?: CatalogImage | null; video?: CatalogVideo | null }[];
+  /** From the custom.feature_highlights Shopify metafield — merchant-editable in Shopify Admin, no code change needed. `icon` is validated against the known set where it's rendered (components/product/ProductShowcase.tsx), not here. */
+  features: { icon: string; label: string; body: string; image?: CatalogImage | null; video?: CatalogVideo | null }[];
   variants: Variant[];
 };
 
@@ -70,6 +80,7 @@ export const products: Product[] = catalog.products.map((p) => ({
   material: p.material,
   gallery: p.images,
   specs: p.specs,
+  features: p.features ?? [],
   variants: p.variants.map((v) => ({
     id: v.id,
     sku: v.sku,

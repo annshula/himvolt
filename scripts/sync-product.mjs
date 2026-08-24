@@ -5,26 +5,30 @@
  * "Exactly the SKUs, no extra items": the set of products synced is driven
  * by the `id`s already present in data/product.json (a `nodes(ids: [...])`
  * lookup), never a title/SKU search — a search can silently match the wrong
- * product on a shared store. To add a sixth product, add its id/handle plus
- * curated fields to data/product.json by hand first; the next sync fills in
- * the live Shopify fields for it. If Shopify no longer has one of the known
+ * product on a shared store. To add a sixth product, add its id/handle to
+ * data/product.json by hand first (Shopify Admin holds everything else now);
+ * the next sync fills in the rest. If Shopify no longer has one of the known
  * ids (deleted upstream), that product is dropped and the run says so loudly
  * rather than leaving a phantom listing in the file forever.
  *
- * Every product/variant record mixes two kinds of field, and this script
- * only ever touches the first kind:
- *  - Shopify-sourced (overwritten every run): images, variant sku/price/
- *    compareAtPrice/availableForSale/image, pricesByMarket.
- *  - Curated (preserved verbatim from the existing file): the product's
- *    display `title`, subtitle, material, descriptionHtml, specs, and each
- *    variant's display `title`/`subtitle`/`quantity`/`weightGrams`/`badge`/
- *    `offer` — hand-authored content Shopify has no field for (Mohs
- *    hardness, an honest claims policy, a cleaned-up name vs. Shopify's raw,
- *    sometimes CJ-sourced-and-wrong title/option string — see `title` vs
- *    `shopifyTitle` below). A genuinely new product/variant with no curated
- *    record yet falls back to the raw Shopify title and gets flagged in the
- *    run's output — there is no way to auto-generate honest marketing copy
- *    for it.
+ * Everything in a product/variant record is Shopify-sourced and overwritten
+ * every run: title, descriptionHtml, subtitle (custom.subtitle metafield),
+ * material (custom.material metafield), specs (custom.specs — a list of
+ * Product spec metaobjects, label+value each), features (custom.
+ * feature_highlights — a list of Feature highlight metaobjects, icon+label+
+ * body each), images, variant sku/price/compareAtPrice/availableForSale/
+ * image, pricesByMarket. Every one of those is editable from Shopify Admin
+ * without touching this repo — that split (code vs. Shopify Admin) used to
+ * run through this file as a curated/Shopify-sourced distinction per field;
+ * it doesn't need to anymore, now that Shopify's own title/description on
+ * this store no longer say "tourmaline" on a hematite product. Only two
+ * things still fall back to whatever was already in the file instead of
+ * wiping it out on a bad read: a variant's display `title`/`subtitle` (a
+ * cleaned-up name vs. Shopify's raw "Golden Hematite Bracelet / 10mm"-style
+ * option string — Shopify has no per-variant equivalent of a metafield-
+ * backed display name) and any of the metaobject-backed fields when the
+ * metafield comes back empty (a merchant clearing a field in Admin shouldn't
+ * delete the content, just leave it stale until it's replaced).
  *
  * "Curated market" = a Shopify Market scoped to exactly one country region —
  * that means it has its own price list worth freezing into this file. A
@@ -174,6 +178,61 @@ query ProductsByIds($ids: [ID!]!) {
       id
       handle
       title
+      descriptionHtml
+      subtitleField: metafield(namespace: "custom", key: "subtitle") { value }
+      materialField: metafield(namespace: "custom", key: "material") { value }
+      specsField: metafield(namespace: "custom", key: "specs") {
+        references(first: 20) {
+          nodes {
+            ... on Metaobject {
+              label: field(key: "label") { value }
+              value: field(key: "value") { value }
+              description: field(key: "description") { value }
+              image: field(key: "image") {
+                reference {
+                  ... on MediaImage {
+                    image { url altText width height }
+                  }
+                }
+              }
+              video: field(key: "video") {
+                reference {
+                  ... on Video {
+                    sources { url mimeType format width height }
+                    preview { image { url width height } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      featureHighlights: metafield(namespace: "custom", key: "feature_highlights") {
+        references(first: 10) {
+          nodes {
+            ... on Metaobject {
+              icon: field(key: "icon") { value }
+              label: field(key: "label") { value }
+              body: field(key: "body") { value }
+              image: field(key: "image") {
+                reference {
+                  ... on MediaImage {
+                    image { url altText width height }
+                  }
+                }
+              }
+              video: field(key: "video") {
+                reference {
+                  ... on Video {
+                    sources { url mimeType format width height }
+                    preview { image { url width height } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       images(first: 20) { nodes { url altText width height } }
       variants(first: 100) {
         nodes {
@@ -252,6 +311,37 @@ async function pricesForMarket(variantIds, country) {
   return prices;
 }
 
+/** Reads a metaobject-reference list's nodes into an array shaped by `pick`, dropping any entry missing one of `requiredKeys` (usually label/value or icon/label/body — text fields with no sane default), or null if nothing survives (never crash the sync, or wipe out existing content, over a merchant leaving a field blank). Optional keys like `description`/`image` pass through as whatever `pick` returns for them, string or object or undefined. */
+function parseMetaobjectList(referencesNodes, requiredKeys, pick) {
+  if (!referencesNodes || referencesNodes.length === 0) return null;
+  const items = referencesNodes
+    .filter((n) => n != null)
+    .map((n) => pick(n))
+    .filter((item) => requiredKeys.every((k) => typeof item[k] === "string"));
+  return items.length > 0 ? items : null;
+}
+
+/** A file_reference metaobject field's MediaImage, in the same {src,alt,width,height} shape as the product gallery — or null if the merchant hasn't picked an image for this entry yet. */
+function toEntryImage(field, fallbackAlt) {
+  const img = field?.reference?.image;
+  if (!img) return null;
+  return { src: img.url, alt: img.altText ?? fallbackAlt, width: img.width, height: img.height };
+}
+
+/** A file_reference metaobject field's Video, in the {poster, sources} shape ParallaxBenefit's media prop expects — or null if the merchant hasn't attached a video to this entry. Shopify auto-transcodes an upload into several mp4 renditions plus an HLS (.m3u8) stream; only the mp4 ones go in `sources` since a plain <video> element can't play HLS without extra JS, sorted HD-first so the browser's first-playable-source pick is the best one. */
+function toEntryVideo(field) {
+  const video = field?.reference;
+  if (!video || !video.sources?.length) return null;
+  const mp4 = video.sources
+    .filter((s) => s.mimeType === "video/mp4")
+    .sort((a, b) => (b.width ?? 0) - (a.width ?? 0));
+  if (mp4.length === 0) return null;
+  return {
+    poster: video.preview?.image?.url ?? "",
+    sources: mp4.map((s) => ({ src: s.url, type: s.mimeType })),
+  };
+}
+
 function toImage(node, fallbackAlt, existingBySrc) {
   const existing = existingBySrc.get(node.url);
   return {
@@ -268,7 +358,7 @@ function toImage(node, fallbackAlt, existingBySrc) {
 async function main() {
   if (!existsSync(OUTPUT)) {
     console.error(
-      `✖ ${OUTPUT} does not exist — this script refreshes known products, it doesn't create the catalog from scratch. Seed it with at least one product's id/handle/curated fields first.`,
+      `✖ ${OUTPUT} does not exist — this script refreshes known products, it doesn't create the catalog from scratch. Seed it with at least one product's id/handle first.`,
     );
     process.exit(1);
   }
@@ -368,6 +458,10 @@ async function main() {
       const variantPrice = Number(v.price);
       return {
         id: v.id,
+        // A variant has no metafield-backed display name of its own, so this
+        // is still the one field preserved rather than pulled from Shopify —
+        // its raw option string ("Golden Hematite Bracelet / 10mm") would
+        // break the site's swatch-parsing, which expects "Gold-plated · 10mm".
         title: curated?.title ?? v.title,
         sku: v.sku,
         price: variantPrice,
@@ -382,14 +476,28 @@ async function main() {
       };
     });
 
+    const specs =
+      parseMetaobjectList(freshProduct.specsField?.references?.nodes, ["label", "value"], (n) => ({
+        label: n.label?.value,
+        value: n.value?.value,
+        description: n.description?.value || undefined,
+        image: toEntryImage(n.image, freshProduct.title),
+        video: toEntryVideo(n.video),
+      })) ?? existingProduct.specs ?? [];
+
+    const features =
+      parseMetaobjectList(freshProduct.featureHighlights?.references?.nodes, ["icon", "label", "body"], (n) => ({
+        icon: n.icon?.value,
+        label: n.label?.value,
+        body: n.body?.value,
+        image: toEntryImage(n.image, freshProduct.title),
+        video: toEntryVideo(n.video),
+      })) ?? existingProduct.features ?? [];
+
     products.push({
       id: freshProduct.id,
       handle: freshProduct.handle,
-      // Shopify's own product title on this shared/CJ-sourced store is not
-      // fit to show a shopper directly (it can still say "tourmaline" on a
-      // hematite product) — curated title is preserved, same as a variant's.
-      title: existingProduct.title,
-      shopifyTitle: freshProduct.title,
+      title: freshProduct.title,
       price,
       compareAtPrice,
       currencyCode: currency,
@@ -398,15 +506,16 @@ async function main() {
       images: (freshProduct.images?.nodes ?? []).map((img) =>
         toImage(img, freshProduct.title, existingImageBySrc),
       ),
-      subtitle: existingProduct.subtitle,
-      material: existingProduct.material,
-      descriptionHtml: existingProduct.descriptionHtml,
-      specs: existingProduct.specs,
+      subtitle: freshProduct.subtitleField?.value ?? existingProduct.subtitle ?? "",
+      material: freshProduct.materialField?.value ?? existingProduct.material ?? "",
+      descriptionHtml: freshProduct.descriptionHtml ?? existingProduct.descriptionHtml ?? "",
+      specs,
+      features,
     });
   }
 
   const record = {
-    version: 5,
+    version: 8,
     syncedAt: new Date().toISOString(),
     shop: {
       domain: cfg.storeDomain,

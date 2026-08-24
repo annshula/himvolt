@@ -6,29 +6,20 @@ import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 import { showcase } from "@/content/copy";
 import { getProduct } from "@/lib/shopify";
 
-const localGallery = {
-  cut: {
-    src: "/media/origin.webp",
-    alt: "Hematite bracelet resting on a piece of dark stone",
-    width: 2000,
-    height: 1333,
-  },
-  worn: {
-    src: "/media/himvolt_worn.webp",
-    alt: "Hematite bracelet worn on a wrist",
-    width: 1679,
-    height: 937,
-  },
-};
-
 /**
  * The product, shot large — real Shopify photography via getProduct() (the
- * synced catalog, data/product.json), not lib/product.ts's hand-written
- * fallback gallery directly, so a new photo added in Shopify shows up here
- * after the next sync without a code change.
+ * synced catalog, data/product.json), never a local file: this section
+ * (and every other one on the product/home pages) serves strictly
+ * Shopify → data/product.json → UI, so a new photo added in Shopify shows
+ * up here after the next sync without a code change.
  */
 export default async function Showcase() {
   const product = await getProduct();
+  // "Cut" = the hero shot; "Worn" = the last gallery image, which on every
+  // product synced so far is the lifestyle/on-body shot — not a filename
+  // guess, just the convention this store's photos are uploaded in.
+  const cut = product.gallery[0];
+  const worn = product.gallery[product.gallery.length - 1] ?? cut;
 
   return (
     <Section id="showcase" className="grain overflow-hidden">
@@ -53,10 +44,7 @@ export default async function Showcase() {
 
         <Tilt className="scroll-scale relative mx-auto max-w-180" max={7}>
           <div className="tilt__layer" style={{ ["--z" as string]: "50px" }}>
-            <ImageComparison
-              before={localGallery.cut}
-              after={localGallery.worn}
-            />
+            <ImageComparison before={cut} after={worn} />
           </div>
         </Tilt>
 
@@ -110,10 +98,10 @@ export default async function Showcase() {
           className="relative overflow-hidden rounded-(--radius-card) border border-line"
         >
           <Image
-            src={localGallery.worn.src}
-            alt={localGallery.worn.alt}
-            width={localGallery.worn.width}
-            height={localGallery.worn.height}
+            src={worn.src}
+            alt={worn.alt}
+            width={worn.width}
+            height={worn.height}
             quality={82}
             sizes="(max-width: 1023px) 92vw, 660px"
             className="parallax h-full min-h-75 w-full scale-105 object-cover object-[center_58%]"

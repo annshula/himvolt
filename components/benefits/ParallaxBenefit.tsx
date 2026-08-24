@@ -3,7 +3,6 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import Image from "next/image";
 import { useRef } from "react";
-import { Reveal } from "@/components/ui/Motion";
 import { cn } from "@/lib/utils";
 
 type VideoSource = { src: string; type: string; media?: string };
@@ -27,6 +26,7 @@ export function ParallaxBenefit({
   body,
   media,
   align = "left",
+  zoom = 1,
 }: {
   index: string;
   eyebrow: string;
@@ -34,6 +34,8 @@ export function ParallaxBenefit({
   body?: string;
   media: Media;
   align?: "left" | "right";
+  /** How much the background media scales in/out as you scroll through the section, from 0 (steady, no zoom) to 1 (the full 1.16 peak). */
+  zoom?: number;
 }) {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
@@ -43,10 +45,12 @@ export function ParallaxBenefit({
   });
 
   const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["-14%", "14%"]);
+  const scalePeak = 1 + 0.16 * zoom;
+  const scaleMid = 1 + 0.02 * zoom;
   const scale = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    reduce ? [1, 1, 1] : [1.16, 1.02, 1.16],
+    reduce ? [1, 1, 1] : [scalePeak, scaleMid, scalePeak],
   );
   const contentOpacity = useTransform(
     scrollYProgress,
@@ -109,7 +113,14 @@ export function ParallaxBenefit({
           align === "right" ? "justify-end text-right" : "justify-start text-left",
         )}
       >
-        <Reveal as="div" className="max-w-lg" y={0} duration={0.5}>
+        {/* No <Reveal> here on purpose: it whileInView-fades once via its own
+            IntersectionObserver, which can miss its window entirely on a
+            fast scroll past a deep section and freeze this text at opacity
+            0 forever after — the parent motion.div's scroll-linked
+            contentOpacity above already fades this in/out continuously and
+            correctly from actual scroll position, so a second, less
+            reliable opacity source here only fights it. */}
+        <div className="max-w-lg">
           <p className="font-display text-[0.72rem] font-semibold tracking-[0.32em] text-volt uppercase">
             {index} · {eyebrow}
           </p>
@@ -121,7 +132,7 @@ export function ParallaxBenefit({
               {body}
             </p>
           )}
-        </Reveal>
+        </div>
       </motion.div>
     </section>
   );

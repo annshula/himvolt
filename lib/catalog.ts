@@ -21,6 +21,7 @@ export type MarketPrice = {
 };
 
 export type SyncedImage = { src: string; alt: string; width: number; height: number };
+export type SyncedVideo = { poster: string; sources: { src: string; type: string }[] };
 
 export type SyncedVariant = {
   id: string;
@@ -45,6 +46,10 @@ export type SyncedProduct = {
   variants: SyncedVariant[];
   /** The real Shopify product gallery — undefined for a product synced before images were added to the schema. */
   images?: SyncedImage[];
+  /** The custom.feature_highlights Shopify metafield — merchant-editable in Shopify Admin, undefined for a product synced before this field existed. */
+  features?: { icon: string; label: string; body: string; image?: SyncedImage | null; video?: SyncedVideo | null }[];
+  /** The custom.specs Shopify metafield — undefined for a product synced before this field existed. */
+  specs?: { label: string; value: string; description?: string; image?: SyncedImage | null; video?: SyncedVideo | null }[];
 };
 
 export const syncedProducts: SyncedProduct[] = catalog.products;

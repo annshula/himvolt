@@ -1,6 +1,6 @@
 {
-  "version": 5,
-  "syncedAt": "2026-08-23T17:56:43.558Z",
+  "version": 8,
+  "syncedAt": "2026-08-24T06:05:08.553Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -17,7 +17,6 @@
       "id": "gid://shopify/Product/9617475797219",
       "handle": "hematite-mens-bracelet",
       "title": "Hematite Men's Bracelet",
-      "shopifyTitle": "Hematite Men's Bracelet",
       "price": 41.16,
       "compareAtPrice": null,
       "currencyCode": "USD",
@@ -31,6 +30,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 43.19,
+              "compareAtAmount": 50.97,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 44.88,
               "compareAtAmount": 56.55,
@@ -45,14 +49,9 @@
               "amount": 22.3,
               "compareAtAmount": 27.43,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 43.19,
-              "compareAtAmount": 50.97,
-              "currencyCode": "CAD"
             }
           },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/67d2af94-7728-4f68-bbf6-f626e558b76f.jpg?v=1787497706",
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
           "shopifyTitle": "1PC",
           "subtitle": "The everyday",
           "quantity": 1,
@@ -91,31 +90,128 @@
       "specs": [
         {
           "label": "Stone",
-          "value": "Natural hematite (iron oxide)"
+          "value": "Natural hematite (iron oxide)",
+          "description": "Iron oxide - one of the most abundant iron ores on Earth, cut and polished for jewellery rather than industrial use.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
+            "alt": "Hematite Men's Bracelet",
+            "width": 1200,
+            "height": 1200
+          }
         },
         {
           "label": "Hardness",
-          "value": "5.5–6.5 Mohs"
+          "value": "5.5-6.5 Mohs",
+          "description": "Roughly level with hardened steel - hard enough for daily wear without a special sizing chart.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
+            "alt": "Hematite Men's Bracelet",
+            "width": 1200,
+            "height": 1200
+          }
         },
         {
           "label": "Density",
-          "value": "Notably dense — heavier in hand than its size suggests"
+          "value": "Notably dense - heavier in hand than its size suggests",
+          "description": "Iron content makes hematite dense - pick a piece up and it is heavier than its size suggests.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
+            "alt": "Hematite Men's Bracelet",
+            "width": 2025,
+            "height": 1359
+          }
         },
         {
           "label": "Streak test",
-          "value": "Red-brown when scratched, despite the metallic black surface"
+          "value": "Red-brown when scratched, despite the metallic black surface",
+          "description": "Scratch it against unglazed ceramic and it leaves red-brown, not black - the mineralogist's standard test for the real stone.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/lifestyle.jpg?v=1787507733",
+            "alt": "Hematite Men's Bracelet",
+            "width": 1470,
+            "height": 1125
+          }
         },
         {
           "label": "Weight",
-          "value": "70 g"
+          "value": "70 g",
+          "description": "70 grams on a single strand - present enough to feel deliberate, low enough to slide under a cuff.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
+            "alt": "Hematite Men's Bracelet",
+            "width": 1200,
+            "height": 1200
+          }
         },
         {
           "label": "Core",
-          "value": "Stretch elastic, no clasp"
+          "value": "Stretch elastic, no clasp",
+          "description": "A stretch elastic core, not a clasp - nothing to fasten, nothing to break.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
+            "alt": "Hematite Men's Bracelet",
+            "width": 1200,
+            "height": 1200
+          }
         },
         {
           "label": "Finish",
-          "value": "Hand-polished"
+          "value": "Hand-polished",
+          "description": "Hand-polished to a metallic gunmetal shine, no coating over the stone.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
+            "alt": "Hematite Men's Bracelet",
+            "width": 2025,
+            "height": 1359
+          }
+        }
+      ],
+      "features": [
+        {
+          "icon": "stone",
+          "label": "Natural hematite",
+          "body": "Genuine iron oxide, not resin or dyed glass. Streak-tests red-brown under the polish.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
+            "alt": "Hematite Men's Bracelet",
+            "width": 1200,
+            "height": 1200
+          }
+        },
+        {
+          "icon": "fit",
+          "label": "Stretch elastic fit",
+          "body": "One elastic core, no clasp, no sizing chart. Roll it on and forget it's there.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
+            "alt": "Hematite Men's Bracelet",
+            "width": 1200,
+            "height": 1200
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/5e35b05f52d84e4db3df7c57c0319de5.thumbnail.0000000000.jpg?v=1787552415",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.HD-720p-1.6Mbps-92428482.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.SD-480p-0.9Mbps-92428482.mp4",
+                "type": "video/mp4"
+              }
+            ]
+          }
+        },
+        {
+          "icon": "ship",
+          "label": "Free tracked shipping",
+          "body": "Every order, every country, no threshold. Dispatched within 1-3 business days.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
+            "alt": "Hematite Men's Bracelet",
+            "width": 2025,
+            "height": 1359
+          }
         }
       ]
     },
@@ -123,7 +219,6 @@
       "id": "gid://shopify/Product/9617681973475",
       "handle": "natural-black-tourmaline-and-hematite-single-strand-round-bead-bracelet",
       "title": "Hematite Round Bead Bracelet",
-      "shopifyTitle": "Natural Black Tourmaline And Hematite Single-Strand Round Bead Bracelet",
       "price": 14.44,
       "compareAtPrice": null,
       "currencyCode": "USD",
@@ -137,6 +232,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 20,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 21,
               "compareAtAmount": null,
@@ -151,11 +251,6 @@
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 20,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -172,6 +267,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 24,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 25,
               "compareAtAmount": null,
@@ -186,11 +286,6 @@
               "amount": 13,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 24,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -207,6 +302,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
@@ -221,11 +321,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -242,6 +337,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
@@ -256,11 +356,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -277,6 +372,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
@@ -291,11 +391,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -312,6 +407,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
@@ -326,11 +426,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -347,6 +442,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
@@ -361,11 +461,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -382,6 +477,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 15,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 16,
               "compareAtAmount": null,
@@ -396,11 +496,6 @@
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 15,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -417,6 +512,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
@@ -431,11 +531,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -452,6 +547,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 17,
               "compareAtAmount": null,
@@ -466,11 +566,6 @@
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -487,6 +582,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 15,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 16,
               "compareAtAmount": null,
@@ -501,11 +601,6 @@
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 15,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -522,6 +617,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 17,
               "compareAtAmount": null,
@@ -536,11 +636,6 @@
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -557,6 +652,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 13,
               "compareAtAmount": null,
@@ -571,11 +671,6 @@
               "amount": 7,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 13,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -592,6 +687,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 17,
               "compareAtAmount": null,
@@ -606,11 +706,6 @@
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -627,6 +722,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 20,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 21,
               "compareAtAmount": null,
@@ -641,11 +741,6 @@
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 20,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -662,6 +757,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 24,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 25,
               "compareAtAmount": null,
@@ -676,11 +776,6 @@
               "amount": 13,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 24,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -697,6 +792,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
@@ -711,11 +811,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -732,6 +827,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
@@ -746,11 +846,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -767,6 +862,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
@@ -781,11 +881,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -802,6 +897,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
@@ -816,11 +916,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -837,6 +932,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
@@ -851,11 +951,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -872,6 +967,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 20,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 21,
               "compareAtAmount": null,
@@ -886,11 +986,6 @@
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 20,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -907,6 +1002,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 24,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 25,
               "compareAtAmount": null,
@@ -921,11 +1021,6 @@
               "amount": 13,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 24,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -942,6 +1037,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
@@ -956,11 +1056,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -977,6 +1072,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
@@ -991,11 +1091,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1012,6 +1107,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
@@ -1026,11 +1126,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1047,6 +1142,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
@@ -1061,11 +1161,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1082,6 +1177,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
@@ -1096,11 +1196,6 @@
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1172,27 +1267,117 @@
       "specs": [
         {
           "label": "Stone",
-          "value": "Natural hematite"
+          "value": "Natural hematite",
+          "description": "The same natural hematite underneath every finish - plating changes the surface colour, not the mineral.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+            "alt": "d93b41bd9c378a5d187d5c49583976fa",
+            "width": 1000,
+            "height": 1000
+          }
         },
         {
           "label": "Cut",
-          "value": "Round beads, 7 sizes: 2–12mm"
+          "value": "Round beads, 7 sizes: 2-12mm",
+          "description": "Round beads across seven sizes, so the fit and the presence on the wrist are entirely up to you.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/0b149ace-582c-4ed5-9563-5637479cd194.jpg?v=1787502800",
+            "alt": "8f3065e04902a81cfac73b1dbf89797c",
+            "width": 800,
+            "height": 800
+          }
         },
         {
           "label": "Finishes",
-          "value": "Natural, gold-plated, silver-plated, rose-gold-plated"
+          "value": "Natural, gold-plated, silver-plated, rose-gold-plated",
+          "description": "Natural gunmetal, or gold-, silver- or rose-gold-plated over the same stone.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
+            "alt": "bd3c4cc2ef44477f9eeec5dfe7cfc2fd",
+            "width": 800,
+            "height": 800
+          }
         },
         {
           "label": "Hardness",
-          "value": "5.5–6.5 Mohs"
+          "value": "5.5-6.5 Mohs",
+          "description": "Roughly level with hardened steel.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
+            "alt": "17bd5eb1b26db334bafd5998aa0ed632",
+            "width": 695,
+            "height": 695
+          }
         },
         {
           "label": "Streak test",
-          "value": "Red-brown when scratched, despite the metallic black surface"
+          "value": "Red-brown when scratched, despite the metallic black surface",
+          "description": "Red-brown when scratched, whatever the plating on top looks like.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
+            "alt": "7ad3df0f5d7e83d1ca053273a1164d2",
+            "width": 695,
+            "height": 695
+          }
         },
         {
           "label": "Core",
-          "value": "Stretch elastic, no clasp"
+          "value": "Stretch elastic, no clasp",
+          "description": "A stretch elastic cord - roll it on, no clasp to fumble.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/7b7aa4b8-81a4-4239-921a-34ccfbce58f5.jpg?v=1787502800",
+            "alt": "fc90845d3ef8adf86e3ea534aecc6a15",
+            "width": 500,
+            "height": 500
+          }
+        }
+      ],
+      "features": [
+        {
+          "icon": "stone",
+          "label": "Natural or plated hematite",
+          "body": "Four finishes on the same real stone: natural, gold-, silver- or rose-gold-plated.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+            "alt": "d93b41bd9c378a5d187d5c49583976fa",
+            "width": 1000,
+            "height": 1000
+          }
+        },
+        {
+          "icon": "fit",
+          "label": "Seven bead sizes",
+          "body": "2mm to 12mm on one stretch cord - the most customizable piece in the collection.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/794b80c2-7f83-405b-8bef-55ff095033a8.jpg?v=1787502800",
+            "alt": "fb1b0ad29e11048e90192ba47e60c7e0",
+            "width": 1600,
+            "height": 1600
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/5e35b05f52d84e4db3df7c57c0319de5.thumbnail.0000000000.jpg?v=1787552415",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.HD-720p-1.6Mbps-92428482.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.SD-480p-0.9Mbps-92428482.mp4",
+                "type": "video/mp4"
+              }
+            ]
+          }
+        },
+        {
+          "icon": "ship",
+          "label": "Free tracked shipping",
+          "body": "Every order, every country, no threshold. Dispatched within 1-3 business days.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c9ce7006-0d9a-4bff-8103-42e0a7c35ff4.jpg?v=1787502800",
+            "alt": "1efdbe40e6dd1f86adcf83c524463931",
+            "width": 500,
+            "height": 500
+          }
         }
       ]
     },
@@ -1200,7 +1385,6 @@
       "id": "gid://shopify/Product/9617569120483",
       "handle": "black-gallstone-bracelet-hematite-jewelry-terahertz",
       "title": "The Hematite Drop Bracelet",
-      "shopifyTitle": "Black Gallstone Bracelet Hematite Jewelry Terahertz",
       "price": 42.14,
       "compareAtPrice": null,
       "currencyCode": "USD",
@@ -1214,6 +1398,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 42.93,
+              "compareAtAmount": 51.52,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 44.66,
               "compareAtAmount": 58.05,
@@ -1228,11 +1417,6 @@
               "amount": 22.05,
               "compareAtAmount": 25.8,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 42.93,
-              "compareAtAmount": 51.52,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
@@ -1280,27 +1464,117 @@
       "specs": [
         {
           "label": "Stone",
-          "value": "Hematite"
+          "value": "Hematite",
+          "description": "Hematite, cut in a geometric facet rather than a plain round bead.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
+            "alt": "1680fb7322775765a8387a07353e0ef1",
+            "width": 1000,
+            "height": 1000
+          }
         },
         {
           "label": "Cut",
-          "value": "Geometric, hand-strung"
+          "value": "Geometric, hand-strung",
+          "description": "Hand-strung, geometric-cut beads for sharper light than a rounded bead gives.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1e3fb0a6-4353-457f-8ce1-cf918421091b.jpg?v=1787500281",
+            "alt": "8db361fd4080efb0f68d95dfa2f04d42",
+            "width": 1000,
+            "height": 1000
+          }
         },
         {
           "label": "Hardness",
-          "value": "5.5–6.5 Mohs"
+          "value": "5.5-6.5 Mohs",
+          "description": "Roughly level with hardened steel.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/3bab1e98-71a4-460a-87d5-f19cfcf46cf6.jpg?v=1787500281",
+            "alt": "8c82154c3c58158fdbaa8696ffd74e06",
+            "width": 1000,
+            "height": 1000
+          }
         },
         {
           "label": "Density",
-          "value": "Notably dense — heavier in hand than its size suggests"
+          "value": "Notably dense - heavier in hand than its size suggests",
+          "description": "Notably heavy in hand - the densest-feeling piece in the collection.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/cc625092-0dcb-491d-a934-cb3f94dfaba0.jpg?v=1787500281",
+            "alt": "b633eeb25e2283dc780872f97823b3e8",
+            "width": 1000,
+            "height": 1000
+          }
         },
         {
           "label": "Weight",
-          "value": "107 g"
+          "value": "107 g",
+          "description": "107 grams - the heaviest piece here, built to be felt.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/4dbb02ed-8ac9-4dff-9509-1e27592e42dd.jpg?v=1787500281",
+            "alt": "214b44d0942e967dfac2decfd9667ef",
+            "width": 1000,
+            "height": 1000
+          }
         },
         {
           "label": "Finish",
-          "value": "Polished"
+          "value": "Polished",
+          "description": "Polished to a dark gunmetal shine.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
+            "alt": "1680fb7322775765a8387a07353e0ef1",
+            "width": 1000,
+            "height": 1000
+          }
+        }
+      ],
+      "features": [
+        {
+          "icon": "stone",
+          "label": "Hand-strung hematite",
+          "body": "Geometric-cut beads, hand-strung and polished to a dark gunmetal shine.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
+            "alt": "1680fb7322775765a8387a07353e0ef1",
+            "width": 1000,
+            "height": 1000
+          }
+        },
+        {
+          "icon": "fit",
+          "label": "The heaviest piece",
+          "body": "107 grams - built to be felt on the wrist, not just seen.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1e3fb0a6-4353-457f-8ce1-cf918421091b.jpg?v=1787500281",
+            "alt": "8db361fd4080efb0f68d95dfa2f04d42",
+            "width": 1000,
+            "height": 1000
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/5e35b05f52d84e4db3df7c57c0319de5.thumbnail.0000000000.jpg?v=1787552415",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.HD-720p-1.6Mbps-92428482.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.SD-480p-0.9Mbps-92428482.mp4",
+                "type": "video/mp4"
+              }
+            ]
+          }
+        },
+        {
+          "icon": "ship",
+          "label": "Free tracked shipping",
+          "body": "Every order, every country, no threshold. Dispatched within 1-3 business days.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/3bab1e98-71a4-460a-87d5-f19cfcf46cf6.jpg?v=1787500281",
+            "alt": "8c82154c3c58158fdbaa8696ffd74e06",
+            "width": 1000,
+            "height": 1000
+          }
         }
       ]
     },
@@ -1308,7 +1582,6 @@
       "id": "gid://shopify/Product/9617580785891",
       "handle": "hematite-ring-without-magnetic-surface",
       "title": "Hematite Band Ring",
-      "shopifyTitle": "Hematite Ring Without Magnetic  Surface",
       "price": 33.74,
       "compareAtPrice": null,
       "currencyCode": "USD",
@@ -1322,8 +1595,13 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
-              "amount": 48,
+              "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
@@ -1336,11 +1614,6 @@
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1357,8 +1630,13 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
-              "amount": 48,
+              "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
@@ -1371,11 +1649,6 @@
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1392,8 +1665,13 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
-              "amount": 48,
+              "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
@@ -1406,11 +1684,6 @@
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1427,8 +1700,13 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
-              "amount": 48,
+              "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
@@ -1441,11 +1719,6 @@
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1462,8 +1735,13 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
-              "amount": 48,
+              "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
@@ -1476,11 +1754,6 @@
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1497,6 +1770,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 41,
               "compareAtAmount": null,
@@ -1511,11 +1789,6 @@
               "amount": 22,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1532,8 +1805,13 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 47,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
             "AU": {
-              "amount": 48,
+              "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
@@ -1546,11 +1824,6 @@
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1598,23 +1871,106 @@
       "specs": [
         {
           "label": "Stone",
-          "value": "Hematite (natural, not magnetic)"
+          "value": "Hematite (natural, not magnetic)",
+          "description": "Solid, natural hematite - not magnetic, no plating, the colour is the stone.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+            "alt": "8f1882e99cbe7faf765afbe9102c4a5",
+            "width": 534,
+            "height": 521
+          }
         },
         {
           "label": "Hardness",
-          "value": "5.5–6.5 Mohs"
+          "value": "5.5-6.5 Mohs",
+          "description": "Roughly level with hardened steel.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032939277.jpg?v=1787500449",
+            "alt": "46bc5713e167d413b871b34dd1eeb437",
+            "width": 535,
+            "height": 521
+          }
         },
         {
           "label": "Density",
-          "value": "Notably dense — heavier in hand than its size suggests"
+          "value": "Notably dense - heavier in hand than its size suggests",
+          "description": "Heavier in hand than a ring its size usually is.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032948208.jpg?v=1787500449",
+            "alt": "f8b904a91dbf85b4c539f98f5ce4e6e1",
+            "width": 800,
+            "height": 800
+          }
         },
         {
           "label": "Sizes",
-          "value": "6–12"
+          "value": "6-12",
+          "description": "Standard US ring sizing, 6 through 12.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032948211.jpg?v=1787500449",
+            "alt": "b546bcf730cb11763756ed4260d982d2",
+            "width": 800,
+            "height": 800
+          }
         },
         {
           "label": "Finish",
-          "value": "Polished, solid band"
+          "value": "Polished, solid band",
+          "description": "Polished to a dark metallic shine, solid band.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032939274.jpg?v=1787500449",
+            "alt": "ebdca5c1beb4e94dd08d079038d5b7f1",
+            "width": 527,
+            "height": 530
+          }
+        }
+      ],
+      "features": [
+        {
+          "icon": "stone",
+          "label": "Solid hematite",
+          "body": "No plating, no coating - the colour is the stone itself.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+            "alt": "8f1882e99cbe7faf765afbe9102c4a5",
+            "width": 534,
+            "height": 521
+          }
+        },
+        {
+          "icon": "fit",
+          "label": "True to size",
+          "body": "Runs true to standard US ring sizing, 6-12.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032939277.jpg?v=1787500449",
+            "alt": "46bc5713e167d413b871b34dd1eeb437",
+            "width": 535,
+            "height": 521
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/5e35b05f52d84e4db3df7c57c0319de5.thumbnail.0000000000.jpg?v=1787552415",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.HD-720p-1.6Mbps-92428482.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.SD-480p-0.9Mbps-92428482.mp4",
+                "type": "video/mp4"
+              }
+            ]
+          }
+        },
+        {
+          "icon": "ship",
+          "label": "Free tracked shipping",
+          "body": "Every order, every country, no threshold. Dispatched within 1-3 business days.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032948208.jpg?v=1787500449",
+            "alt": "f8b904a91dbf85b4c539f98f5ce4e6e1",
+            "width": 800,
+            "height": 800
+          }
         }
       ]
     },
@@ -1622,7 +1978,6 @@
       "id": "gid://shopify/Product/9617597890787",
       "handle": "fashion-curved-hematite-magnetic-ring",
       "title": "Curved Hematite Ring",
-      "shopifyTitle": "Fashion Curved Hematite Magnetic Ring",
       "price": 31.72,
       "compareAtPrice": null,
       "currencyCode": "USD",
@@ -1636,6 +1991,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 42.57,
               "compareAtAmount": 50.65,
@@ -1650,11 +2010,6 @@
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1671,6 +2026,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 46,
               "compareAtAmount": null,
@@ -1685,11 +2045,6 @@
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1706,6 +2061,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 46,
               "compareAtAmount": null,
@@ -1720,11 +2080,6 @@
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1741,6 +2096,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 46,
               "compareAtAmount": null,
@@ -1755,11 +2115,6 @@
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1776,6 +2131,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 46,
               "compareAtAmount": null,
@@ -1790,11 +2150,6 @@
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1811,6 +2166,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 42,
               "compareAtAmount": null,
@@ -1825,11 +2185,6 @@
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1846,6 +2201,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 42,
               "compareAtAmount": null,
@@ -1860,11 +2220,6 @@
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1881,6 +2236,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 42,
               "compareAtAmount": null,
@@ -1895,11 +2255,6 @@
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1916,6 +2271,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 42,
               "compareAtAmount": null,
@@ -1930,11 +2290,6 @@
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1951,6 +2306,11 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "pricesByMarket": {
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
+            },
             "AU": {
               "amount": 42,
               "compareAtAmount": null,
@@ -1965,11 +2325,6 @@
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2017,23 +2372,106 @@
       "specs": [
         {
           "label": "Stone",
-          "value": "Hematite"
+          "value": "Hematite",
+          "description": "Hematite in two finishes - natural or a magnetic composite, sold and labelled as what each actually is.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+            "alt": "48aa5300c06a2bb9add520d89ef7358d",
+            "width": 750,
+            "height": 750
+          }
         },
         {
           "label": "Magnetic variants",
-          "value": "Man-made magnetic hematite (\"hematine\"), not natural"
+          "value": "Man-made magnetic hematite (\"hematine\"), not natural",
+          "description": "A man-made magnetic hematite composite, often called hematine - not the weakly-magnetic natural stone.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682374.jpg?v=1787500786",
+            "alt": "16fcbe9fb898dba6e73e2df93b0fe6b0",
+            "width": 800,
+            "height": 800
+          }
         },
         {
           "label": "Non-magnetic variants",
-          "value": "Natural hematite"
+          "value": "Natural hematite",
+          "description": "The real, natural hematite, unmodified.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682372.jpg?v=1787500786",
+            "alt": "34f12d04ed36efb78c82126e12c0e54b",
+            "width": 800,
+            "height": 800
+          }
         },
         {
           "label": "Sizes",
-          "value": "6–10"
+          "value": "6-10",
+          "description": "Standard US ring sizing, 6 through 10.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682375.jpg?v=1787500786",
+            "alt": "5a712713e8368f68d8ab033d0d98ac7b",
+            "width": 800,
+            "height": 800
+          }
         },
         {
           "label": "Finish",
-          "value": "Polished, curved band"
+          "value": "Polished, curved band",
+          "description": "Polished, curved band.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682376.jpg?v=1787500786",
+            "alt": "3e87a39dbbf4514bfc6f6dbf90816844",
+            "width": 1600,
+            "height": 1600
+          }
+        }
+      ],
+      "features": [
+        {
+          "icon": "stone",
+          "label": "Natural or magnetic hematite",
+          "body": "Choose natural non-magnetic hematite, or a magnetic hematite (hematine) finish - labelled honestly on every listing.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+            "alt": "48aa5300c06a2bb9add520d89ef7358d",
+            "width": 750,
+            "height": 750
+          }
+        },
+        {
+          "icon": "fit",
+          "label": "True to size",
+          "body": "Runs true to standard US ring sizing, 6-10.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682374.jpg?v=1787500786",
+            "alt": "16fcbe9fb898dba6e73e2df93b0fe6b0",
+            "width": 800,
+            "height": 800
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/5e35b05f52d84e4db3df7c57c0319de5.thumbnail.0000000000.jpg?v=1787552415",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.HD-720p-1.6Mbps-92428482.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.SD-480p-0.9Mbps-92428482.mp4",
+                "type": "video/mp4"
+              }
+            ]
+          }
+        },
+        {
+          "icon": "ship",
+          "label": "Free tracked shipping",
+          "body": "Every order, every country, no threshold. Dispatched within 1-3 business days.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682372.jpg?v=1787500786",
+            "alt": "34f12d04ed36efb78c82126e12c0e54b",
+            "width": 800,
+            "height": 800
+          }
         }
       ]
     }

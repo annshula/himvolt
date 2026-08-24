@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ProductPurchase } from "@/components/product/ProductPurchase";
-import { ProductSpecShowcase } from "@/components/product/ProductSpecShowcase";
+import { ProductShowcase } from "@/components/product/ProductShowcase";
 import Reviews from "@/components/sections/Reviews";
 import ProductSchema from "@/components/ProductSchema";
 import { getProductByHandle, products } from "@/lib/product";
@@ -25,53 +25,53 @@ export function generateStaticParams() {
   return products.map((p) => ({ handle: p.handle }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
   params: Promise<{ handle: string }>;
 }): Promise<Metadata> {
-  return params.then(({ handle }) => {
-    const product = getProductByHandle(handle);
-    if (!product) {
-      return { title: "Product not found", robots: { index: false, follow: false } };
-    }
-
-    const path = pathForHandle(product.handle);
-    const { title } = product;
-    const description = `${product.subtitle}. ${site.promise.shipping}. ${site.promise.returns}.`;
-    const cover = product.gallery[0];
-
+  const { handle } = await params;
+  const product = getProductByHandle(handle);
+  if (!product) {
     return {
-      title,
-      description,
-      alternates: { canonical: path },
-      openGraph: {
-        type: "website",
-        title: `${title} · ${site.name}`,
-        description,
-        url: absoluteUrl(path),
-        siteName: site.name,
-        images: [
-          {
-            url: cover.src,
-            width: cover.width,
-            height: cover.height,
-            alt: cover.alt,
-          },
-        ],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: `${title} · ${site.name}`,
-        description,
-        images: [cover.src],
-      },
-      other: {
-        "product:brand": site.name,
-        "product:availability": "in stock",
-      },
+      title: "Product not found",
+      robots: { index: false, follow: false },
     };
-  });
+  }
+  const path = pathForHandle(product.handle);
+  const { title } = product;
+  const description = `${product.subtitle}. ${site.promise.shipping}. ${site.promise.returns}.`;
+  const cover = product.gallery[0];
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      type: "website",
+      title: `${title} · ${site.name}`,
+      description,
+      url: absoluteUrl(path),
+      siteName: site.name,
+      images: [
+        {
+          url: cover.src,
+          width: cover.width,
+          height: cover.height,
+          alt: cover.alt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} · ${site.name}`,
+      description,
+      images: [cover.src],
+    },
+    other: {
+      "product:brand": site.name,
+      "product:availability": "in stock",
+    },
+  };
 }
 
 /**
@@ -119,7 +119,7 @@ export default async function ProductPage({
 
       <ProductPurchase product={liveProduct} />
 
-      <ProductSpecShowcase product={liveProduct} />
+      <ProductShowcase product={liveProduct} />
 
       <Reviews />
     </main>
