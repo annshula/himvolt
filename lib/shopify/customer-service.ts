@@ -526,6 +526,7 @@ export async function requestReturn(
         lineItemId: item.lineItemId,
         quantity: item.quantity,
         returnReason: item.reason,
+        customerNote: item.note || undefined,
       })),
     },
     retries: 1,

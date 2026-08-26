@@ -124,6 +124,21 @@ export function returnReasonLabel(reason: ReturnReason): string {
   return RETURN_REASONS[reason];
 }
 
+/**
+ * Whether this reason is one our supplier dispute process actually needs
+ * detail on. HimVolt ships via CJdropshipping, and CJ's own dispute policy
+ * requires a description (and photo/video evidence) for damaged, wrong-item
+ * and not-as-described claims before they'll refund or replace it on our
+ * end — a size/style/colour return doesn't go through that process at all.
+ */
+export function reasonNeedsDetail(reason: ReturnReason): boolean {
+  return (
+    reason === "DEFECTIVE" ||
+    reason === "WRONG_ITEM" ||
+    reason === "NOT_AS_DESCRIBED"
+  );
+}
+
 /** Everything a shopper may pick — `UNKNOWN` is Shopify's, never theirs. */
 export const SELECTABLE_RETURN_REASONS: Exclude<ReturnReason, "UNKNOWN">[] = [
   "SIZE_TOO_SMALL",

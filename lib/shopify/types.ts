@@ -145,6 +145,8 @@ export type ReturnLineItemInput = {
   lineItemId: string;
   quantity: number;
   reason: ReturnReason;
+  /** Free-text detail from the shopper — Shopify's own `customerNote` field on the return request. Used to capture what a supplier dispute (damage, wrong item) needs to describe, since there's no attachment field on this mutation. */
+  note?: string;
 };
 
 /**

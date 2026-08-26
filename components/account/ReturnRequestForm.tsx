@@ -10,13 +10,20 @@ import {
 import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icons";
 import {
+  reasonNeedsDetail,
   returnReasonLabel,
   SELECTABLE_RETURN_REASONS,
 } from "@/lib/account/order-status";
 import { formatMoney } from "@/lib/money";
-import type { Order, OrderLineItem } from "@/lib/shopify/types";
+import { site } from "@/lib/site";
+import type {
+  Order,
+  OrderLineItem,
+  ReturnReason,
+} from "@/lib/shopify/types";
 
-type Selection = { quantity: number; reason: string };
+type Selection = { quantity: number; reason: string; note: string };
+type EvidenceState = { uploading: boolean; count: number; error: string | null };
 
 const labelClass =
   "text-[0.7rem] font-semibold tracking-[0.14em] text-ink-soft uppercase";
@@ -38,6 +45,7 @@ export function ReturnRequestForm({
 }) {
   const router = useRouter();
   const [selections, setSelections] = useState<Record<string, Selection>>({});
+  const [evidence, setEvidence] = useState<Record<string, EvidenceState>>({});
   const [error, setError] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
 
@@ -47,9 +55,55 @@ export function ReturnRequestForm({
       [itemId]: {
         quantity: current[itemId]?.quantity ?? 0,
         reason: current[itemId]?.reason ?? "",
+        note: current[itemId]?.note ?? "",
         ...patch,
       },
     }));
+
+  const uploadEvidence = async (itemId: string, fileList: FileList) => {
+    if (fileList.length === 0) return;
+    setEvidence((cur) => ({
+      ...cur,
+      [itemId]: { uploading: true, count: cur[itemId]?.count ?? 0, error: null },
+    }));
+    const body = new FormData();
+    for (const file of Array.from(fileList)) body.append("files", file);
+    try {
+      const res = await fetch("/api/account/return-evidence", {
+        method: "POST",
+        body,
+      });
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        setEvidence((cur) => ({
+          ...cur,
+          [itemId]: {
+            uploading: false,
+            count: cur[itemId]?.count ?? 0,
+            error: data.error ?? "Upload failed.",
+          },
+        }));
+        return;
+      }
+      setEvidence((cur) => ({
+        ...cur,
+        [itemId]: {
+          uploading: false,
+          count: (cur[itemId]?.count ?? 0) + data.count,
+          error: null,
+        },
+      }));
+    } catch {
+      setEvidence((cur) => ({
+        ...cur,
+        [itemId]: {
+          uploading: false,
+          count: cur[itemId]?.count ?? 0,
+          error: "Upload failed — try again.",
+        },
+      }));
+    }
+  };
 
   const selectedCount = Object.values(selections).reduce(
     (sum, s) => sum + Math.max(0, s.quantity),
@@ -79,10 +133,20 @@ export function ReturnRequestForm({
         setError("Choose a reason for each item you want to return.");
         return;
       }
+      if (
+        reasonNeedsDetail(selection.reason as ReturnReason) &&
+        !selection.note.trim()
+      ) {
+        setError(
+          "Describe what's wrong for any item marked damaged, wrong, or not as described — we need this to file a claim on your behalf.",
+        );
+        return;
+      }
       payload.push({
         lineItemId: item.id,
         quantity: selection.quantity,
         reason: selection.reason,
+        note: selection.note.trim() || undefined,
       });
     }
 
@@ -159,31 +223,99 @@ export function ReturnRequestForm({
               </div>
 
               {quantity > 0 && (
-                <label className="mt-5 flex max-w-sm flex-col gap-2">
-                  <span className={labelClass}>
-                    Why are you sending it back?
-                  </span>
-                  <div className="relative">
-                    <select
-                      value={selection?.reason ?? ""}
-                      onChange={(event) =>
-                        update(item.id, { reason: event.target.value })
-                      }
-                      className="w-full cursor-pointer appearance-none rounded-full border border-line bg-parchment px-4 py-3 pr-11 text-sm text-ink transition-colors duration-300 hover:border-ink/30 focus:border-ink focus:outline-none"
-                    >
-                      <option value="">Select a reason</option>
-                      {SELECTABLE_RETURN_REASONS.map((reason) => (
-                        <option key={reason} value={reason}>
-                          {returnReasonLabel(reason)}
-                        </option>
-                      ))}
-                    </select>
-                    <Icon
-                      name="chevron-down"
-                      className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-ink-mute"
-                    />
-                  </div>
-                </label>
+                <div className="mt-5 flex max-w-sm flex-col gap-4">
+                  <label className="flex flex-col gap-2">
+                    <span className={labelClass}>
+                      Why are you sending it back?
+                    </span>
+                    <div className="relative">
+                      <select
+                        value={selection?.reason ?? ""}
+                        onChange={(event) =>
+                          update(item.id, { reason: event.target.value })
+                        }
+                        className="w-full cursor-pointer appearance-none rounded-full border border-line bg-parchment px-4 py-3 pr-11 text-sm text-ink transition-colors duration-300 hover:border-ink/30 focus:border-ink focus:outline-none"
+                      >
+                        <option value="">Select a reason</option>
+                        {SELECTABLE_RETURN_REASONS.map((reason) => (
+                          <option key={reason} value={reason}>
+                            {returnReasonLabel(reason)}
+                          </option>
+                        ))}
+                      </select>
+                      <Icon
+                        name="chevron-down"
+                        className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-ink-mute"
+                      />
+                    </div>
+                  </label>
+
+                  {selection?.reason &&
+                    reasonNeedsDetail(selection.reason as ReturnReason) && (
+                    <>
+                      <label className="flex flex-col gap-2">
+                        <span className={labelClass}>
+                          Describe what&rsquo;s wrong
+                        </span>
+                        <textarea
+                          value={selection.note}
+                          onChange={(event) =>
+                            update(item.id, { note: event.target.value })
+                          }
+                          rows={3}
+                          maxLength={500}
+                          placeholder="What's damaged, wrong, or different from what you expected?"
+                          className="w-full resize-none rounded-2xl border border-line bg-parchment px-4 py-3 text-sm text-ink transition-colors duration-300 hover:border-ink/30 focus:border-ink focus:outline-none"
+                        />
+                      </label>
+
+                      <div className="flex flex-col gap-2">
+                        <span className={labelClass}>
+                          Attach photos or a video
+                        </span>
+                        <input
+                          type="file"
+                          accept="image/*,video/*"
+                          multiple
+                          onChange={(event) => {
+                            if (event.target.files) {
+                              uploadEvidence(item.id, event.target.files);
+                            }
+                            event.target.value = "";
+                          }}
+                          className="cursor-pointer text-sm text-ink-soft file:mr-3 file:cursor-pointer file:rounded-full file:border-0 file:bg-ink file:px-4 file:py-2 file:text-xs file:font-semibold file:tracking-wide file:text-white file:uppercase"
+                        />
+                        {evidence[item.id]?.uploading && (
+                          <p className="text-xs text-ink-mute">Uploading…</p>
+                        )}
+                        {!evidence[item.id]?.uploading &&
+                          !!evidence[item.id]?.count && (
+                            <p className="text-xs text-emerald-700">
+                              {evidence[item.id].count} file
+                              {evidence[item.id].count === 1 ? "" : "s"}{" "}
+                              attached.
+                            </p>
+                          )}
+                        {evidence[item.id]?.error && (
+                          <p className="text-xs text-red-600">
+                            {evidence[item.id].error}{" "}
+                            <a
+                              href={`mailto:${site.email}?subject=${encodeURIComponent(
+                                `Return evidence — order ${order.name}`,
+                              )}&body=${encodeURIComponent(
+                                `Item: ${item.title}\nOrder: ${order.name}\n\nAttach your photos or a short video here and send — this helps us resolve it faster.`,
+                              )}`}
+                              className="underline decoration-red-600/40 underline-offset-2 hover:decoration-red-600"
+                            >
+                              Email us instead
+                            </a>
+                            .
+                          </p>
+                        )}
+                      </div>
+                    </>
+                    )}
+                </div>
               )}
             </li>
           );

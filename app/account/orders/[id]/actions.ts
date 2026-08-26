@@ -21,6 +21,7 @@ export type ReturnSelection = {
   lineItemId: string;
   quantity: number;
   reason: string;
+  note?: string;
 };
 
 const allowedReasons = new Set<string>(SELECTABLE_RETURN_REASONS);
@@ -93,6 +94,7 @@ export async function requestReturnAction(
       lineItemId: item.id,
       quantity: selection.quantity,
       reason: selection.reason as ReturnReason,
+      note: selection.note?.trim().slice(0, 500) || undefined,
     });
   }
 
