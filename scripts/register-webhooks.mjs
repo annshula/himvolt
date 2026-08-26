@@ -6,12 +6,16 @@
  * any missing required topics. Idempotent — an already-registered topic is
  * left alone.
  *
- * Ported from the crawlandcuddle reference (scripts/register-webhooks.ts),
- * scoped to the order purchase event: `ORDERS_PAID` is the "a purchase really
- * happened" signal this site needs — it drives the server-side purchase
- * analytics in app/api/webhooks/shopify-order-paid/route.ts (Meta CAPI +
- * GA4 Measurement Protocol), because the shopper pays on Shopify's hosted
- * checkout and never returns to a client-side success page here.
+ * Ported from the crawlandcuddle reference (scripts/register-webhooks.ts).
+ * Two families of topics:
+ *  - `ORDERS_PAID` — the "a purchase really happened" signal this site needs;
+ *    it drives the server-side purchase analytics in
+ *    app/api/webhooks/shopify-order-paid/route.ts (Meta CAPI + GA4
+ *    Measurement Protocol), because the shopper pays on Shopify's hosted
+ *    checkout and never returns to a client-side success page here.
+ *  - `PRODUCTS_CREATE` / `PRODUCTS_UPDATE` — keep the synced catalog
+ *    (data/product.json) current when a product is added or edited in
+ *    Shopify Admin, handled by app/api/webhooks/products/route.ts.
  *
  * The Admin access token is generated at runtime via the client-credentials
  * grant (Client ID + Secret → 24h token) — never passed in directly.
@@ -177,11 +181,17 @@ const WEBHOOK_SUBSCRIPTION_DELETE_MUTATION = /* GraphQL */ `
 `;
 
 /**
- * The order purchase event. `ORDERS_PAID` fires when payment clears, which is
- * exactly the conversion signal the /api/webhooks/shopify-order-paid handler
- * forwards to Meta Conversions API and GA4 Measurement Protocol.
+ * Which events this site subscribes to, and the route that handles each:
+ *  - ORDERS_PAID      → /api/webhooks/shopify-order-paid (purchase analytics)
+ *  - PRODUCTS_CREATE  → /api/webhooks/products (seed + catalog sync)
+ *  - PRODUCTS_UPDATE  → /api/webhooks/products (catalog sync)
  */
-const REQUIRED_TOPICS = ["ORDERS_PAID"];
+const WEBHOOK_ENDPOINTS = {
+  ORDERS_PAID: "/api/webhooks/shopify-order-paid",
+  PRODUCTS_CREATE: "/api/webhooks/products",
+  PRODUCTS_UPDATE: "/api/webhooks/products",
+};
+const REQUIRED_TOPICS = Object.keys(WEBHOOK_ENDPOINTS);
 
 async function main() {
   // Site URL comes from `--website https://…` (space or `=`), `--url=…`, or
@@ -218,8 +228,13 @@ async function main() {
     );
   }
 
-  const callbackUrl = `${siteUrl}/api/webhooks/shopify-order-paid`;
-  console.log(`\nWebhook subscriptions → ${callbackUrl}\n`);
+  console.log(
+    `\nWebhook subscriptions:\n` +
+      REQUIRED_TOPICS.map(
+        (topic) => `  • ${topic}  →  ${siteUrl}${WEBHOOK_ENDPOINTS[topic]}`,
+      ).join("\n") +
+      "\n",
+  );
 
   const existing = await adminRequest(WEBHOOK_SUBSCRIPTIONS_QUERY);
   const allNodes = existing?.webhookSubscriptions?.nodes ?? [];
@@ -242,6 +257,7 @@ async function main() {
   let deleted = 0;
   for (const node of allNodes) {
     if (!REQUIRED_TOPICS.includes(node.topic)) continue;
+    const callbackUrl = `${siteUrl}${WEBHOOK_ENDPOINTS[node.topic]}`;
     if (node.endpoint?.callbackUrl === callbackUrl) continue;
 
     const result = await adminRequest(WEBHOOK_SUBSCRIPTION_DELETE_MUTATION, {
@@ -263,7 +279,8 @@ async function main() {
       .filter(
         (node) =>
           REQUIRED_TOPICS.includes(node.topic) &&
-          node.endpoint?.callbackUrl === callbackUrl,
+          node.endpoint?.callbackUrl ===
+            `${siteUrl}${WEBHOOK_ENDPOINTS[node.topic]}`,
       )
       .map((node) => node.topic),
   );
@@ -277,7 +294,7 @@ async function main() {
 
     const result = await adminRequest(WEBHOOK_SUBSCRIPTION_CREATE_MUTATION, {
       topic,
-      callbackUrl,
+      callbackUrl: `${siteUrl}${WEBHOOK_ENDPOINTS[topic]}`,
     });
 
     const errors = result?.webhookSubscriptionCreate?.userErrors ?? [];

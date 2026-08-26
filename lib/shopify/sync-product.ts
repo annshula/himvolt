@@ -77,27 +77,54 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
         handle
         title
         descriptionHtml
-        subtitleField: metafield(namespace: "custom", key: "subtitle") { value }
-        materialField: metafield(namespace: "custom", key: "material") { value }
+        subtitleField: metafield(namespace: "custom", key: "subtitle") {
+          value
+        }
+        materialField: metafield(namespace: "custom", key: "material") {
+          value
+        }
         specsField: metafield(namespace: "custom", key: "specs") {
           references(first: 20) {
             nodes {
               ... on Metaobject {
-                label: field(key: "label") { value }
-                value: field(key: "value") { value }
-                description: field(key: "description") { value }
+                label: field(key: "label") {
+                  value
+                }
+                value: field(key: "value") {
+                  value
+                }
+                description: field(key: "description") {
+                  value
+                }
                 image: field(key: "image") {
                   reference {
                     ... on MediaImage {
-                      image { url altText width height }
+                      image {
+                        url
+                        altText
+                        width
+                        height
+                      }
                     }
                   }
                 }
                 video: field(key: "video") {
                   reference {
                     ... on Video {
-                      sources { url mimeType format width height }
-                      preview { image { url width height } }
+                      sources {
+                        url
+                        mimeType
+                        format
+                        width
+                        height
+                      }
+                      preview {
+                        image {
+                          url
+                          width
+                          height
+                        }
+                      }
                     }
                   }
                 }
@@ -105,25 +132,51 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
             }
           }
         }
-        featureHighlights: metafield(namespace: "custom", key: "feature_highlights") {
+        featureHighlights: metafield(
+          namespace: "custom"
+          key: "feature_highlights"
+        ) {
           references(first: 10) {
             nodes {
               ... on Metaobject {
-                icon: field(key: "icon") { value }
-                label: field(key: "label") { value }
-                body: field(key: "body") { value }
+                icon: field(key: "icon") {
+                  value
+                }
+                label: field(key: "label") {
+                  value
+                }
+                body: field(key: "body") {
+                  value
+                }
                 image: field(key: "image") {
                   reference {
                     ... on MediaImage {
-                      image { url altText width height }
+                      image {
+                        url
+                        altText
+                        width
+                        height
+                      }
                     }
                   }
                 }
                 video: field(key: "video") {
                   reference {
                     ... on Video {
-                      sources { url mimeType format width height }
-                      preview { image { url width height } }
+                      sources {
+                        url
+                        mimeType
+                        format
+                        width
+                        height
+                      }
+                      preview {
+                        image {
+                          url
+                          width
+                          height
+                        }
+                      }
                     }
                   }
                 }
@@ -132,7 +185,12 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
           }
         }
         images(first: 20) {
-          nodes { url altText width height }
+          nodes {
+            url
+            altText
+            width
+            height
+          }
         }
         variants(first: 100) {
           nodes {
@@ -143,7 +201,12 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
             compareAtPrice
             availableForSale
             inventoryQuantity
-            image { url altText width height }
+            image {
+              url
+              altText
+              width
+              height
+            }
           }
         }
       }
@@ -169,7 +232,12 @@ const MARKETS_QUERY = /* GraphQL */ `
   }
 `;
 
-type ImageNode = { url: string; altText: string | null; width: number; height: number };
+type ImageNode = {
+  url: string;
+  altText: string | null;
+  width: number;
+  height: number;
+};
 
 type VariantNode = {
   id: string;
@@ -186,10 +254,19 @@ type MetaobjectImageField = {
   reference: { image: ImageNode } | null;
 } | null;
 
-type VideoSourceNode = { url: string; mimeType: string; format: string; width: number | null; height: number | null };
+type VideoSourceNode = {
+  url: string;
+  mimeType: string;
+  format: string;
+  width: number | null;
+  height: number | null;
+};
 
 type MetaobjectVideoField = {
-  reference: { sources: VideoSourceNode[]; preview: { image: { url: string; width: number; height: number } } | null } | null;
+  reference: {
+    sources: VideoSourceNode[];
+    preview: { image: { url: string; width: number; height: number } } | null;
+  } | null;
 } | null;
 
 type FeatureHighlightNode = {
@@ -216,12 +293,18 @@ type ProductNode = {
   subtitleField: { value: string } | null;
   materialField: { value: string } | null;
   specsField: { references: { nodes: SpecNode[] } | null } | null;
-  featureHighlights: { references: { nodes: FeatureHighlightNode[] } | null } | null;
+  featureHighlights: {
+    references: { nodes: FeatureHighlightNode[] } | null;
+  } | null;
   images: { nodes: ImageNode[] } | null;
   variants: { nodes: VariantNode[] } | null;
 };
 
-type MarketPrice = { amount: number; compareAtAmount: number | null; currencyCode: string };
+type MarketPrice = {
+  amount: number;
+  compareAtAmount: number | null;
+  currencyCode: string;
+};
 
 type SyncedImage = { src: string; alt: string; width: number; height: number };
 
@@ -299,10 +382,18 @@ function parseMetaobjectList<Node, T extends Record<string, unknown>>(
 }
 
 /** A file_reference metaobject field's MediaImage, in the same {src,alt,width,height} shape as the product gallery — or null if the merchant hasn't picked an image for this entry yet. */
-function toEntryImage(field: MetaobjectImageField, fallbackAlt: string): SyncedImage | null {
+function toEntryImage(
+  field: MetaobjectImageField,
+  fallbackAlt: string,
+): SyncedImage | null {
   const img = field?.reference?.image;
   if (!img) return null;
-  return { src: img.url, alt: img.altText ?? fallbackAlt, width: img.width, height: img.height };
+  return {
+    src: img.url,
+    alt: img.altText ?? fallbackAlt,
+    width: img.width,
+    height: img.height,
+  };
 }
 
 /** A file_reference metaobject field's Video, in the {poster, sources} shape ParallaxBenefit's media prop expects — or null if the merchant hasn't attached a video to this entry. Shopify auto-transcodes an upload into several mp4 renditions plus an HLS (.m3u8) stream; only the mp4 ones go in `sources` since a plain <video> element can't play HLS without extra JS, sorted HD-first so the browser's first-playable-source pick is the best one. */
@@ -321,16 +412,27 @@ function toEntryVideo(field: MetaobjectVideoField): SyncedVideo | null {
 
 /** Single-country markets are real, merchant-priced markets; multi-country ones are the "sell everywhere" catch-all. */
 async function discoverCuratedMarketCountries(
-  adminRequest: <T>(query: string, variables?: Record<string, unknown>) => Promise<T>,
+  adminRequest: <T>(
+    query: string,
+    variables?: Record<string, unknown>,
+  ) => Promise<T>,
 ): Promise<string[]> {
   const data = await adminRequest<{
-    markets: { nodes: { name: string; enabled: boolean; regions: { nodes: { code?: string }[] } }[] };
+    markets: {
+      nodes: {
+        name: string;
+        enabled: boolean;
+        regions: { nodes: { code?: string }[] };
+      }[];
+    };
   }>(MARKETS_QUERY);
 
   const codes = new Set<string>();
   for (const market of data.markets.nodes) {
     if (!market.enabled) continue;
-    const regionCodes = market.regions.nodes.map((r) => r.code).filter((c): c is string => Boolean(c));
+    const regionCodes = market.regions.nodes
+      .map((r) => r.code)
+      .filter((c): c is string => Boolean(c));
     if (regionCodes.length === 1) codes.add(regionCodes[0]);
   }
   return [...codes];
@@ -365,7 +467,10 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
   const adminToken = await getAdminToken();
   // The Admin API authenticates via X-Shopify-Access-Token, not a bearer
   // Authorization header (that header is Storefront/Customer Account only).
-  const adminRequest = <T>(query: string, variables: Record<string, unknown> = {}) =>
+  const adminRequest = <T>(
+    query: string,
+    variables: Record<string, unknown> = {},
+  ) =>
     graphqlRequest<T>({
       endpoint,
       query,
@@ -374,12 +479,21 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
     });
 
   const [shopData, fresh] = await Promise.all([
-    adminRequest<{ shop: { name: string; currencyCode: string } | null }>(SHOP_QUERY),
-    adminRequest<{ nodes: (ProductNode | null)[] }>(PRODUCTS_BY_ID_QUERY, { ids: knownIds }),
+    adminRequest<{ shop: { name: string; currencyCode: string } | null }>(
+      SHOP_QUERY,
+    ),
+    adminRequest<{ nodes: (ProductNode | null)[] }>(PRODUCTS_BY_ID_QUERY, {
+      ids: knownIds,
+    }),
   ]);
-  const currency = shopData.shop?.currencyCode || existing.shop?.currencyCode || "USD";
+  const currency =
+    shopData.shop?.currencyCode || existing.shop?.currencyCode || "USD";
 
-  const freshById = new Map(fresh.nodes.filter((p): p is ProductNode => p != null).map((p) => [p.id, p]));
+  const freshById = new Map(
+    fresh.nodes
+      .filter((p): p is ProductNode => p != null)
+      .map((p) => [p.id, p]),
+  );
   const existingById = new Map(existing.products.map((p) => [p.id, p]));
 
   for (const id of knownIds) {
@@ -392,10 +506,12 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
 
   // A permissions gap (e.g. the Admin app is missing the read_markets scope)
   // must not take down the base sync — just skip market prices.
-  const markets = await discoverCuratedMarketCountries(adminRequest).catch(() => []);
+  const markets = await discoverCuratedMarketCountries(adminRequest).catch(
+    () => [],
+  );
 
-  const allVariantIds = [...freshById.values()].flatMap(
-    (p) => (p.variants?.nodes ?? []).map((v) => v.id),
+  const allVariantIds = [...freshById.values()].flatMap((p) =>
+    (p.variants?.nodes ?? []).map((v) => v.id),
   );
   const pricesByVariant = new Map<string, Record<string, MarketPrice>>(
     allVariantIds.map((id) => [id, {}]),
@@ -404,16 +520,19 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
   if (markets.length > 0 && isStorefrontConfigured(cfg)) {
     await Promise.all(
       markets.map(async (country) => {
-        const priceMap = await getLocalizedVariantPrices(allVariantIds, country).catch(
-          () => new Map(),
-        );
+        const priceMap = await getLocalizedVariantPrices(
+          allVariantIds,
+          country,
+        ).catch(() => new Map());
         for (const [variantId, localized] of priceMap) {
           const bucket = pricesByVariant.get(variantId);
           if (!bucket) continue;
           bucket[country] = {
             amount: Number(localized.amount),
             compareAtAmount:
-              localized.compareAtAmount != null ? Number(localized.compareAtAmount) : null,
+              localized.compareAtAmount != null
+                ? Number(localized.compareAtAmount)
+                : null,
             currencyCode: localized.currencyCode,
           };
         }
@@ -428,20 +547,31 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
     if (!freshProduct) continue; // deleted upstream — dropped, already warned above
     const existingProduct = existingById.get(id)!;
 
-    const existingVariantById = new Map(existingProduct.variants.map((v) => [v.id, v]));
-    const existingImageBySrc = new Map(existingProduct.images.map((img) => [img.src, img]));
+    const existingVariantById = new Map(
+      existingProduct.variants.map((v) => [v.id, v]),
+    );
+    const existingImageBySrc = new Map(
+      existingProduct.images.map((img) => [img.src, img]),
+    );
 
     const rawVariants = freshProduct.variants?.nodes ?? [];
     const priced = rawVariants.filter((v) => v.price != null);
     const saleVariant = priced.find((v) => v.availableForSale) ?? priced[0];
-    const price = saleVariant ? Number(saleVariant.price) : existingProduct.price;
-    const compareRaw = saleVariant?.compareAtPrice != null ? Number(saleVariant.compareAtPrice) : null;
-    const compareAtPrice = compareRaw != null && compareRaw > price ? compareRaw : null;
+    const price = saleVariant
+      ? Number(saleVariant.price)
+      : existingProduct.price;
+    const compareRaw =
+      saleVariant?.compareAtPrice != null
+        ? Number(saleVariant.compareAtPrice)
+        : null;
+    const compareAtPrice =
+      compareRaw != null && compareRaw > price ? compareRaw : null;
 
     const variants: SyncedVariant[] = priced.map((v) => {
       const curated = existingVariantById.get(v.id);
       const variantPrice = Number(v.price);
-      const compare = v.compareAtPrice != null ? Number(v.compareAtPrice) : null;
+      const compare =
+        v.compareAtPrice != null ? Number(v.compareAtPrice) : null;
       return {
         id: v.id,
         // A variant has no metafield-backed display name of its own, so this
@@ -451,7 +581,8 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
         title: curated?.title ?? v.title,
         sku: v.sku,
         price: variantPrice,
-        compareAtPrice: compare != null && compare > variantPrice ? compare : null,
+        compareAtPrice:
+          compare != null && compare > variantPrice ? compare : null,
         availableForSale: v.availableForSale,
         // Only meaningful when Shopify is actually tracking inventory for
         // this variant — untracked variants report a large/negative
@@ -471,13 +602,19 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
     });
 
     const specs =
-      parseMetaobjectList(freshProduct.specsField?.references?.nodes, ["label", "value"], (n: SpecNode) => ({
-        label: n.label?.value,
-        value: n.value?.value,
-        description: n.description?.value || undefined,
-        image: toEntryImage(n.image, freshProduct.title),
-        video: toEntryVideo(n.video),
-      })) ?? existingProduct.specs ?? [];
+      parseMetaobjectList(
+        freshProduct.specsField?.references?.nodes,
+        ["label", "value"],
+        (n: SpecNode) => ({
+          label: n.label?.value,
+          value: n.value?.value,
+          description: n.description?.value || undefined,
+          image: toEntryImage(n.image, freshProduct.title),
+          video: toEntryVideo(n.video),
+        }),
+      ) ??
+      existingProduct.specs ??
+      [];
 
     const features =
       parseMetaobjectList(
@@ -490,7 +627,9 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
           image: toEntryImage(n.image, freshProduct.title),
           video: toEntryVideo(n.video),
         }),
-      ) ?? existingProduct.features ?? [];
+      ) ??
+      existingProduct.features ??
+      [];
 
     products.push({
       id: freshProduct.id,
@@ -510,9 +649,12 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
         width: img.width,
         height: img.height,
       })),
-      subtitle: freshProduct.subtitleField?.value ?? existingProduct.subtitle ?? "",
-      material: freshProduct.materialField?.value ?? existingProduct.material ?? "",
-      descriptionHtml: freshProduct.descriptionHtml ?? existingProduct.descriptionHtml ?? "",
+      subtitle:
+        freshProduct.subtitleField?.value ?? existingProduct.subtitle ?? "",
+      material:
+        freshProduct.materialField?.value ?? existingProduct.material ?? "",
+      descriptionHtml:
+        freshProduct.descriptionHtml ?? existingProduct.descriptionHtml ?? "",
       specs: specs as SyncedSpec[],
       features: features as SyncedFeature[],
     });
@@ -536,4 +678,85 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
   await rename(tmpPath, OUTPUT_PATH);
 
   return record;
+}
+
+/**
+ * Ensures a Shopify product id exists in data/product.json so a following
+ * syncAllProducts() includes it. syncAllProducts() only refreshes ids already
+ * present in the file, so a products/create webhook must seed the new id here
+ * first. Still "Exactly the SKUs" — only the exact id the webhook named is
+ * ever added, never a title/SKU search that could match the wrong product on
+ * a shared store. Returns whether the product was already present.
+ */
+export async function seedProductIntoCatalog(
+  productId: string,
+  fallback: { title?: string; handle?: string } = {},
+): Promise<{ existed: boolean }> {
+  const raw = await readFile(OUTPUT_PATH, "utf8").catch(() => null);
+  if (!raw) {
+    throw new Error(
+      `${OUTPUT_PATH} does not exist — this seeds known products, it can't create the catalog from scratch.`,
+    );
+  }
+  const record = JSON.parse(raw) as SyncedCatalogRecord;
+  if (record.products.some((p) => p.id === productId)) return { existed: true };
+
+  // Every field is a placeholder — the following syncAllProducts() overwrites
+  // everything from Shopify (title, handle, price, variants, images, …). Only
+  // the id matters here; the fallback title/handle are just for readable logs.
+  record.products.push({
+    id: productId,
+    handle: fallback.handle ?? "",
+    title: fallback.title ?? "",
+    price: 0,
+    compareAtPrice: null,
+    currencyCode: record.shop.currencyCode ?? "USD",
+    availableForSale: false,
+    variants: [],
+    images: [],
+    subtitle: "",
+    material: "",
+    descriptionHtml: "",
+    specs: [],
+    features: [],
+  });
+
+  // Same atomic write as syncAllProducts — a crash mid-write must never leave
+  // data/product.json truncated.
+  const tmpPath = `${OUTPUT_PATH}.tmp`;
+  await writeFile(tmpPath, `${JSON.stringify(record, null, 2)}\n`);
+  await rename(tmpPath, OUTPUT_PATH);
+
+  return { existed: false };
+}
+
+export type ProductWebhookSyncResult = {
+  action: "synced" | "added-and-synced";
+  handle: string | null;
+  products: number;
+};
+
+/**
+ * Webhook entry point for products/create + products/update: makes sure the
+ * named product is in the catalog (seeding it on create), then refreshes the
+ * whole file from Shopify. A full sync (not a single-product fetch) is used
+ * deliberately — it's the same job POST /api/admin/sync-product does, reuses
+ * the one tested code path, and keeps the file internally consistent (shared
+ * store, shared market prices).
+ */
+export async function syncProductFromWebhook(
+  productId: string | number,
+  fallback: { title?: string; handle?: string } = {},
+): Promise<ProductWebhookSyncResult> {
+  const gid = String(productId).startsWith("gid://")
+    ? String(productId)
+    : `gid://shopify/Product/${String(productId).split("/").pop()}`;
+
+  const { existed } = await seedProductIntoCatalog(gid, fallback);
+  const record = await syncAllProducts();
+  return {
+    action: existed ? "synced" : "added-and-synced",
+    handle: fallback.handle ?? null,
+    products: record.products.length,
+  };
 }
