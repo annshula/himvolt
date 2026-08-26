@@ -20,7 +20,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
         href={`/blog/${post.slug}`}
         className="group block overflow-hidden rounded-(--radius-card) border border-line bg-linen transition-all duration-500 ease-(--ease-out-expo) hover:-translate-y-1 hover:border-ink/15 hover:shadow-(--shadow-e3)"
       >
-        <div className="relative aspect-[3/2] overflow-hidden bg-parchment">
+        <div className="relative aspect-3/2 overflow-hidden bg-parchment">
           <Image
             src={post.coverImage.src}
             alt={post.coverImage.alt}
@@ -31,8 +31,10 @@ export function BlogCard({ post }: { post: BlogPost }) {
         </div>
 
         <div className="p-5">
-          <div className="flex items-center gap-2 text-[0.66rem] tracking-[0.1em] text-ink-mute uppercase">
-            <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+          <div className="flex items-center gap-2 text-[0.66rem] tracking-widest text-ink-mute uppercase">
+            <time dateTime={post.publishedAt}>
+              {formatDate(post.publishedAt)}
+            </time>
             <span aria-hidden="true">·</span>
             <span>{post.readingMinutes} min read</span>
           </div>
