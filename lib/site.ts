@@ -19,10 +19,10 @@ export const site = {
   currency: "USD",
 
   socials: {
-    instagram: "https://instagram.com/himvolt",
+    instagram: "https://www.instagram.com/himvolt_official",
     tiktok: "https://tiktok.com/@himvolt",
-    x: "https://x.com/himvolt",
-    youtube: "https://youtube.com/@himvolt",
+    facebook: "https://facebook.com/himvolt",
+    youtube: "https://youtube.com/@himvolt_official",
   },
 
   /**

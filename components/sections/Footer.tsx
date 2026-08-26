@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 const socials = [
   { label: "Instagram", href: site.socials.instagram },
   { label: "TikTok", href: site.socials.tiktok },
-  { label: "X", href: site.socials.x },
+  { label: "Facebook", href: site.socials.facebook },
   { label: "YouTube", href: site.socials.youtube },
 ];
 
@@ -127,7 +127,12 @@ export default function Footer() {
             light ? "border-line" : "border-white/10",
           )}
         >
-          <p className={cn("text-[0.72rem]", light ? "text-ink-mute" : "text-ash")}>
+          <p
+            className={cn(
+              "text-[0.72rem]",
+              light ? "text-ink-mute" : "text-ash",
+            )}
+          >
             © {new Date().getFullYear()} {site.legalName}. All rights reserved.
           </p>
           <p
