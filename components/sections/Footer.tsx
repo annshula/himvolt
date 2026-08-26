@@ -42,7 +42,10 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              <LogoMark className="h-8 w-8" />
+              <LogoMark
+                variant={light ? "black" : "white"}
+                className="h-8 w-8"
+              />
               <Wordmark className="text-[1.2rem]" />
             </div>
             <p

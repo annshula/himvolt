@@ -42,7 +42,11 @@ function IconButton({
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <button type="button" className={iconButtonClass(solid, className)} {...rest} />
+    <button
+      type="button"
+      className={iconButtonClass(solid, className)}
+      {...rest}
+    />
   );
 }
 
@@ -139,7 +143,11 @@ export default function Nav() {
         style={{ height: "var(--nav-h)" }}
       >
         <nav className="mx-auto flex h-full max-w-310 items-center justify-between gap-4 sm:gap-6">
-          <Logo className={solid ? "text-ink" : "text-chalk"} />
+          <Logo
+            variant={solid ? "black" : "white"}
+            priority
+            className={solid ? "text-ink" : "text-chalk"}
+          />
 
           <ul className="hidden items-center gap-8 lg:flex">
             {links.map((l) => (
@@ -231,7 +239,7 @@ export default function Nav() {
 
             <div className="relative flex h-full flex-col px-6 pt-6 pb-[calc(env(safe-area-inset-bottom)+1.5rem)]">
               <div className="flex items-center justify-between">
-                <Logo className="text-chalk" />
+                <Logo variant="white" className="text-chalk" />
                 <IconButton
                   solid={false}
                   onClick={() => setMenuOpen(false)}
