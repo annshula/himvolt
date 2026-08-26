@@ -194,6 +194,12 @@ body {
   border-radius: 4px;
 }
 
+/* The footer newsletter field uses its own quiet styling — suppress the
+   global orange focus ring here. */
+.newsletter-form input:focus-visible {
+  outline: none;
+}
+
 /* Utility escape hatch for the display face. Reference-style: family only —
    weight and tracking come from per-element utilities or the base heading
    rule below. */

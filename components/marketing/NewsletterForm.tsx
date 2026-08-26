@@ -68,7 +68,7 @@ export function NewsletterForm({ light }: { light: boolean }) {
   }
 
   return (
-    <form onSubmit={submit} className="mt-7 max-w-[34ch]">
+    <form onSubmit={submit} className="newsletter-form mt-7 max-w-[34ch]">
       <label
         htmlFor={inputId}
         className={cn(
