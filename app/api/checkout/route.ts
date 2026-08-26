@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+
+import { getVariantById } from "@/lib/catalog";
 import { createCheckout, shopifyEnabled } from "@/lib/shopify";
 
 export const runtime = "edge";
@@ -27,10 +29,25 @@ export async function POST(request: Request) {
   }
 
   if (!body.variantId) {
-    return NextResponse.json({ reason: "No variant selected." }, { status: 400 });
+    return NextResponse.json(
+      { reason: "No variant selected." },
+      { status: 400 },
+    );
   }
 
-  const checkoutUrl = await createCheckout(body.variantId, body.quantity ?? 1);
+  // Same catalog/availability validation as /api/shopify/cart — reject unknown
+  // or out-of-stock variants instead of handing an unbounded primitive to
+  // Shopify's cartCreate.
+  const variant = getVariantById(body.variantId);
+  if (!variant || !variant.availableForSale) {
+    return NextResponse.json(
+      { reason: "This item is not available for purchase right now." },
+      { status: 400 },
+    );
+  }
+
+  const quantity = Math.max(1, Math.min(Number(body.quantity) || 1, 20));
+  const checkoutUrl = await createCheckout(body.variantId, quantity);
 
   if (!checkoutUrl) {
     return NextResponse.json(

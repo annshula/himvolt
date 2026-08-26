@@ -8,7 +8,12 @@
  */
 
 import { priceForMarket } from "./catalog";
-import { getProductByHandle, product as mainProduct, type Product, type Variant } from "./product";
+import {
+  getProductByHandle,
+  product as mainProduct,
+  type Product,
+  type Variant,
+} from "./product";
 
 const DOMAIN = process.env.SHOPIFY_STORE_DOMAIN;
 const TOKEN = process.env.SHOPIFY_STOREFRONT_API_TOKEN;
@@ -68,10 +73,16 @@ export async function getProduct(handle?: string): Promise<Product> {
     const defaultPrice = priceForMarket(v.id, null);
     return {
       ...v,
-      price: { amount: defaultPrice.amount, currencyCode: defaultPrice.currencyCode },
+      price: {
+        amount: defaultPrice.amount,
+        currencyCode: defaultPrice.currencyCode,
+      },
       compareAtPrice:
         defaultPrice.compareAtAmount != null
-          ? { amount: defaultPrice.compareAtAmount, currencyCode: defaultPrice.currencyCode }
+          ? {
+              amount: defaultPrice.compareAtAmount,
+              currencyCode: defaultPrice.currencyCode,
+            }
           : undefined,
     };
   });
@@ -98,12 +109,20 @@ export async function createCheckout(
   variantId: string,
   quantity = 1,
 ): Promise<string | null> {
+  // Defense-in-depth: every caller's quantity is coerced to a finite integer
+  // and clamped to the store's 1-20 range before reaching Shopify, so no route
+  // can create carts with unbounded/nonsensical quantities.
+  const safeQuantity = Math.max(1, Math.min(Number(quantity) || 1, 20));
   const data = await storefront<{
     cartCreate: {
       cart: { checkoutUrl: string } | null;
       userErrors: { message: string }[];
     };
-  }>(CART_CREATE, { lines: [{ merchandiseId: variantId, quantity }] }, 0);
+  }>(
+    CART_CREATE,
+    { lines: [{ merchandiseId: variantId, quantity: safeQuantity }] },
+    0,
+  );
 
   return data?.cartCreate.cart?.checkoutUrl ?? null;
 }

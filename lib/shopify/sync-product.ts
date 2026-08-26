@@ -2,6 +2,8 @@ import "server-only";
 import { readFile, writeFile, rename } from "node:fs/promises";
 import { join } from "node:path";
 
+import DOMPurify from "isomorphic-dompurify";
+
 import { graphqlRequest } from "@/lib/shopify/client";
 import { getAdminToken } from "@/lib/shopify/admin-token";
 import {
@@ -653,8 +655,13 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
         freshProduct.subtitleField?.value ?? existingProduct.subtitle ?? "",
       material:
         freshProduct.materialField?.value ?? existingProduct.material ?? "",
-      descriptionHtml:
+      // Description HTML is merchant-controlled (shared Shopify store) and is
+      // rendered through dangerouslySetInnerHTML on product pages — sanitize it
+      // once here at the source so the catalog never carries executable markup.
+      descriptionHtml: DOMPurify.sanitize(
         freshProduct.descriptionHtml ?? existingProduct.descriptionHtml ?? "",
+        { USE_PROFILES: { html: true } },
+      ),
       specs: specs as SyncedSpec[],
       features: features as SyncedFeature[],
     });

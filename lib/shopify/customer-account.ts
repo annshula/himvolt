@@ -78,7 +78,9 @@ export async function createCodeChallenge(verifier: string): Promise<string> {
 export function safeReturnTo(input: string | null | undefined): string {
   if (!input) return "/account";
   if (!input.startsWith("/") || input.startsWith("//")) return "/account";
-  if (/[\\]/.test(input)) return "/account";
+  // Reject backslashes (normalised to slashes by URL resolution) and control
+  // characters that can smuggle off-host or CRLF-injected redirects.
+  if (/[\\\u0000-\u001f\u007f]/.test(input)) return "/account";
   return input;
 }
 

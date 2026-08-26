@@ -18,8 +18,13 @@ const WELCOME_CODE = "WELCOME10";
 const CUSTOMER_CREATE = /* GraphQL */ `
   mutation NewsletterSignup($input: CustomerInput!) {
     customerCreate(input: $input) {
-      customer { id }
-      userErrors { field message }
+      customer {
+        id
+      }
+      userErrors {
+        field
+        message
+      }
     }
   }
 `;
@@ -32,6 +37,30 @@ type CustomerCreateResponse = {
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const EMAIL_MAX_LENGTH = 254;
+
+// In-memory sliding-window rate limiter for signup abuse. Bounds the number
+// of Shopify customerCreate calls per client IP and per email address. For
+// multi-instance deployments, replace with a shared store (e.g. Upstash
+// Redis or Vercel KV) keyed identically.
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const MAX_SIGNUPS_PER_IP = 5;
+const MAX_SIGNUPS_PER_EMAIL = 3;
+const signupAttempts = new Map<string, number[]>();
+
+function isRateLimited(key: string, max: number): boolean {
+  const now = Date.now();
+  const recent = (signupAttempts.get(key) ?? []).filter(
+    (t) => now - t < RATE_WINDOW_MS,
+  );
+  if (recent.length >= max) {
+    signupAttempts.set(key, recent);
+    return true;
+  }
+  recent.push(now);
+  signupAttempts.set(key, recent);
+  return false;
+}
 
 /**
  * POST /api/newsletter — captures an email as a real Shopify customer with
@@ -51,10 +80,33 @@ export async function POST(request: NextRequest) {
 
   const body = await request.json().catch(() => null);
   const email = typeof body?.email === "string" ? body.email.trim() : "";
-  if (!EMAIL_RE.test(email)) {
+  if (!EMAIL_RE.test(email) || email.length > EMAIL_MAX_LENGTH) {
     return NextResponse.json(
       { ok: false, error: "Enter a valid email address." },
       { status: 400 },
+    );
+  }
+
+  // Unauthenticated, state-changing endpoint — throttle per client IP and per
+  // email address so an attacker can't fabricate unbounded Shopify customers.
+  const clientIp =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  if (isRateLimited(`ip:${clientIp}`, MAX_SIGNUPS_PER_IP)) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "Too many signup attempts. Please try again later.",
+      },
+      { status: 429 },
+    );
+  }
+  if (isRateLimited(`email:${email.toLowerCase()}`, MAX_SIGNUPS_PER_EMAIL)) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "Too many signup attempts. Please try again later.",
+      },
+      { status: 429 },
     );
   }
 
@@ -66,9 +118,12 @@ export async function POST(request: NextRequest) {
       variables: {
         input: {
           email,
+          // Double opt-in: consent starts PENDING (not a fabricated SUBSCRIBED
+          // record) and Shopify emails the address a confirmation link; only a
+          // real owner clicking it flips the state to SUBSCRIBED.
           emailMarketingConsent: {
-            marketingState: "SUBSCRIBED",
-            marketingOptInLevel: "SINGLE_OPT_IN",
+            marketingState: "PENDING",
+            marketingOptInLevel: "CONFIRMED_OPT_IN",
           },
           tags: ["newsletter"],
         },
@@ -79,8 +134,7 @@ export async function POST(request: NextRequest) {
     });
 
     const alreadyExists = data.customerCreate.userErrors.some(
-      (e) =>
-        e.field?.includes("email") && /taken|already/i.test(e.message),
+      (e) => e.field?.includes("email") && /taken|already/i.test(e.message),
     );
     if (!data.customerCreate.customer && !alreadyExists) {
       const message =

@@ -12,11 +12,18 @@
     "shopify:sync": "node scripts/sync-product.mjs"
   },
   "dependencies": {
+    "isomorphic-dompurify": "^3.19.0",
     "motion": "^12.23.12",
     "next": "15.5.23",
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "sonner": "^2.0.8"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.26",
+      "sharp": "0.35.3"
+    }
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",
