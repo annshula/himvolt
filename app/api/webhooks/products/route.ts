@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import { revalidateProduct } from "@/lib/catalog/tags";
 import { isAdminConfigured } from "@/lib/shopify/config";
 import { syncProductFromWebhook } from "@/lib/shopify/sync-product";
 import {
@@ -80,6 +81,10 @@ export async function POST(request: NextRequest) {
       title: payload.title,
       handle: payload.handle,
     });
+    // The catalog file changed on disk — flush the ISR cache for the touched
+    // product (and the catalog tag) so storefront pages reflect the update
+    // without waiting for a revalidation window or a manual /api/admin/revalidate.
+    if (result.handle) revalidateProduct(result.handle);
     console.log(
       `[webhook/products] ${topic} → ${result.action} (${result.handle ?? payload.id}), ${result.products} products in catalog`,
     );
