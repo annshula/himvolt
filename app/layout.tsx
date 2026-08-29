@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Inter, Jost, Oswald } from "next/font/google";
+import { ClarityAnalytics } from "@/components/analytics/ClarityAnalytics";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/components/providers/CartProvider";
@@ -192,6 +193,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             },
           }}
         />
+        <ClarityAnalytics />
         <GoogleAnalytics />
       </body>
     </html>

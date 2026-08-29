@@ -33,21 +33,43 @@ const PUBLIC_ACCOUNT_PATHS = new Set([
 
 const IS_DEV = process.env.NODE_ENV !== "production";
 
+/**
+ * Microsoft Clarity origins, allowed only when a project id is configured —
+ * the tag script lives on clarity.ms, and replay/heatmap payloads upload to
+ * regional *.clarity.ms hosts. With no id the app never loads Clarity, so the
+ * CSP stays as tight as it was.
+ */
+const CLARITY_ENABLED = Boolean(process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID);
+const CLARITY_SRC = CLARITY_ENABLED
+  ? " https://www.clarity.ms https://*.clarity.ms"
+  : "";
+
+/**
+ * Microsoft Clarity also fires a sync/telemetry beacon as an <img> from
+ * c.bing.com (Clarity rides on Microsoft's Bing infrastructure). It's a
+ * plain image load, so it needs `img-src` but not `script-src` or
+ * `connect-src`. Gated the same way as the rest of Clarity.
+ */
+const CLARITY_IMG_SRC = CLARITY_ENABLED ? " https://c.bing.com" : "";
+
 const CSP = [
   `default-src 'self'`,
   // See module doc for why 'unsafe-inline' is here (Next's inline RSC payload).
   // googletagmanager.com hosts the gtag.js/GTM loaders and GTM-injected tags.
-  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com${IS_DEV ? ` 'unsafe-eval'` : ""}`,
+  // clarity.ms hosts the Clarity tag script.
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com${CLARITY_SRC}${IS_DEV ? ` 'unsafe-eval'` : ""}`,
   // Components set dynamic inline styles, so styles need 'unsafe-inline' —
   // styles cannot execute script, so this is low risk.
   `style-src 'self' 'unsafe-inline'`,
   // Product imagery + video come from Shopify's CDN once the store is live.
-  // GA4 also paints a 1px beacon from google-analytics.com.
-  `img-src 'self' data: blob: https://cdn.shopify.com https://*.myshopify.com https://www.google-analytics.com https://*.google-analytics.com`,
+  // GA4 also paints a 1px beacon from google-analytics.com; Clarity beacons
+  // from c.bing.com.
+  `img-src 'self' data: blob: https://cdn.shopify.com https://*.myshopify.com https://www.google-analytics.com https://*.google-analytics.com${CLARITY_SRC}${CLARITY_IMG_SRC}`,
   `media-src 'self' https://cdn.shopify.com https://*.myshopify.com`,
   `font-src 'self' data:`,
-  // gtag.js sends hits to the GA4 endpoints over fetch/XHR.
-  `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${IS_DEV ? " ws://localhost:* wss://localhost:*" : ""}`,
+  // gtag.js sends hits to the GA4 endpoints over fetch/XHR; Clarity uploads
+  // replay/heatmap payloads to regional clarity.ms hosts.
+  `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${CLARITY_SRC}${IS_DEV ? " ws://localhost:* wss://localhost:*" : ""}`,
   // GTM's noscript fallback embeds an iframe from googletagmanager.com.
   `frame-src 'self' https://www.googletagmanager.com`,
   `object-src 'none'`,
