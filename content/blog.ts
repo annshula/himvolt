@@ -387,9 +387,9 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 5,
     coverImage: {
       src: "/blog/do-hematite-bracelets-work.webp",
-      alt: "Photograph of a man's wrist wearing the Hematite Men's Bracelet outdoors on dark rock",
-      width: 1264,
-      height: 843,
+      alt: "Close-up photograph of a man's wrist wearing the Hematite Men's Bracelet, resting on dark wet volcanic rock",
+      width: 2528,
+      height: 1696,
     },
     body: `
 <p>"Do hematite bracelets work" has been one of the fastest-growing hematite searches this year, and most pages that rank for it dodge the question. We would rather answer it directly, even though the honest answer has two parts that do not fully agree with each other.</p>
@@ -446,9 +446,9 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 5,
     coverImage: {
       src: "/blog/hematite-ring-benefits.webp",
-      alt: "Product photograph of three polished Hematite Band Rings on a white background",
-      width: 1264,
-      height: 843,
+      alt: "Macro studio photograph of the Hematite Band Ring standing upright against a dark background with a single specular highlight",
+      width: 2528,
+      height: 1696,
     },
     body: `
 <p>"Hematite ring benefits" gets searched almost as often as the bracelet version, but a ring is a genuinely different object on the hand — worn constantly, knocked against more surfaces, seen up close by the person wearing it more than almost any other piece of jewellery. Here is what actually changes.</p>
@@ -500,9 +500,9 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 5,
     coverImage: {
       src: "/blog/magnetic-hematite-ring.webp",
-      alt: "Product photograph of five Curved Hematite Rings in graduated sizes on a white background",
-      width: 1264,
-      height: 843,
+      alt: "Macro studio photograph of two pairs of Curved Hematite Rings tilted toward each other on a dark reflective surface",
+      width: 2528,
+      height: 1696,
     },
     body: `
 <p>"Magnetic hematite ring" is one of the fastest-rising hematite searches this year, and it is also one of the most misleadingly named products in the category. Here is what is actually on your finger when a hematite ring snaps to a fridge door.</p>
@@ -560,9 +560,9 @@ export const blogPosts: BlogPost[] = [
     readingMinutes: 5,
     coverImage: {
       src: "/blog/hematite-chakra-healing.webp",
-      alt: "Product photograph of the Hematite Men's Bracelet laid flat in an oval coil on a white background",
-      width: 1264,
-      height: 843,
+      alt: "Overhead photograph of the Hematite Men's Bracelet coiled in a loose oval on a dark slate surface under soft single-source light",
+      width: 2528,
+      height: 1696,
     },
     body: `
 <p>"Chakra healing bracelet" and "chakra bracelet meaning" are both searched heavily, and hematite comes up in almost every list of chakra stones as the go-to root chakra pick. We sell hematite, not a seven-stone chakra bracelet, so here is the honest version of where the two overlap and where they do not.</p>
