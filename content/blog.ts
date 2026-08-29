@@ -20,12 +20,30 @@ export type BlogPost = {
   /** Meta description + card excerpt. Kept under ~155 chars for SERP display. */
   excerpt: string;
   targetKeyword: string;
+  /**
+   * A single self-contained 1–3 sentence answer to the post's core question,
+   * rendered as a highlighted callout right under the headline (see
+   * app/blog/[slug]/page.tsx) and mirrored into the BlogPosting schema's
+   * `abstract`. GEO/AEO answer engines lift the most extractable,
+   * self-contained block on a page rather than synthesizing across
+   * paragraphs — this exists to be that block.
+   */
+  quickAnswer: string;
   tags: string[];
   publishedAt: string;
   updatedAt: string;
   readingMinutes: number;
   coverImage: { src: string; alt: string; width: number; height: number };
   body: string;
+  /**
+   * Direct question/answer pairs for AEO (Google featured snippets, voice
+   * assistants) and GEO (answer engines like ChatGPT/Perplexity that lift
+   * self-contained Q&A blocks verbatim). Rendered both as visible on-page
+   * copy and as FAQPage JSON-LD — see components/blog/FAQSchema.tsx.
+   * Optional: only add where the question genuinely matches a real,
+   * frequently-searched query, not as a keyword-stuffing device.
+   */
+  faqs?: { question: string; answer: string }[];
 };
 
 const author = "The HimVolt Team";
@@ -38,6 +56,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Hematite gets called a grounding stone, a focus stone, a confidence stone. Here is what is measurable about iron oxide, what is tradition, and what we will not claim.",
     targetKeyword: "hematite bracelet benefits",
+    quickAnswer:
+      "Hematite is a dense, hard iron oxide (Fe₂O₃) safe for daily wear. Any grounding, focus, or confidence benefit attached to it is a tradition dating to antiquity, not a documented physical effect.",
     tags: ["Hematite", "Buying guide"],
     publishedAt: "2026-03-02",
     updatedAt: "2026-08-23",
@@ -77,6 +97,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       'Natural hematite, gold-plated hematite, magnetic hematite, hematine — the honest differences between what gets sold as a "hematite bracelet," and what to check before you buy.',
     targetKeyword: "hematite stone bracelet",
+    quickAnswer:
+      "\"Hematite bracelet\" covers natural, plated, and magnetic products sold under one name — magnetic hematite is almost always a man-made composite (hematine), not the natural stone. Check the listing language and weight before buying.",
     tags: ["Buying guide", "Hematite"],
     publishedAt: "2026-03-09",
     updatedAt: "2026-08-23",
@@ -115,6 +137,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "How to actually wear a men's beaded bracelet — stacking, sizing, pairing with a watch, and the mistakes that make a good bracelet look cheap.",
     targetKeyword: "mens beaded bracelets",
+    quickAnswer:
+      "Stick to 6–8mm beads, stack no more than two or three from the same material family, and pick a stretch elastic core over a fixed link count so sizing is never the reason it stops getting worn.",
     tags: ["Style", "How-to"],
     publishedAt: "2026-03-16",
     updatedAt: "2026-08-23",
@@ -157,6 +181,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A hematite ring breaking is one of the most-searched questions about the stone. Here is the folklore, the real physical reason, and magnetic vs. natural hematite explained.",
     targetKeyword: "hematite ring meaning",
+    quickAnswer:
+      "A hematite ring usually cracks from a sharp impact or a too-tight fit, not a mysterious cause — hematite is hard but brittle, and magnetic hematite rings (a man-made composite) crack more often than natural, non-magnetic ones.",
     tags: ["Hematite", "Rings"],
     publishedAt: "2026-03-23",
     updatedAt: "2026-08-23",
@@ -190,6 +216,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Hematite is iron ore, not a crystal-shop invention. Here is what the mineral actually is, how it forms, and how to tell a genuine piece from a coated imitation.",
     targetKeyword: "what is hematite",
+    quickAnswer:
+      "Hematite is iron(III) oxide (Fe₂O₃), a dense, hard iron ore identified by its red-brown streak. The grounding and protective meaning attached to it is a real, centuries-old tradition, not a property of the mineral itself.",
     tags: ["Hematite", "Guide"],
     publishedAt: "2026-08-26",
     updatedAt: "2026-08-26",
@@ -230,6 +258,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Black tourmaline and hematite get combined in the same bracelet more than almost any other pairing. Here is what each stone actually is, and why they work together.",
     targetKeyword: "black tourmaline bracelet benefits",
+    quickAnswer:
+      "Black tourmaline (schorl) and hematite are two different, genuine minerals — a harder glassy silicate and a dense metallic iron oxide — commonly paired for both visual contrast and a shared \"protective, grounding\" tradition.",
     tags: ["Black Tourmaline", "Hematite"],
     publishedAt: "2026-09-02",
     updatedAt: "2026-09-02",
@@ -267,6 +297,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Most \"magnetic hematite\" jewellery isn't natural hematite at all. Here is the honest difference between the real mineral and the man-made magnetic composite sold under its name.",
     targetKeyword: "magnetic hematite bracelet",
+    quickAnswer:
+      "Natural hematite is only weakly magnetic. A bracelet that snaps together strongly is almost always a man-made magnetic composite (often called hematine), not the natural stone.",
     tags: ["Hematite", "Buying guide"],
     publishedAt: "2026-09-09",
     updatedAt: "2026-09-09",
@@ -306,6 +338,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Buying a bracelet for someone else is harder than buying one for yourself — no sizing chart, no chance to try it on. Here is how to actually get it right.",
     targetKeyword: "gifts for men bracelet",
+    quickAnswer:
+      "The safest men's bracelet gift is a genuine stone in the 6–8mm range on a stretch elastic core — sizing risk, not style, is what usually sinks a bracelet gift.",
     tags: ["Gift guide", "Style"],
     publishedAt: "2026-09-16",
     updatedAt: "2026-09-16",
@@ -338,6 +372,234 @@ export const blogPosts: BlogPost[] = [
 
 <p>If you are shopping now: <a href="${productPath}">the Hematite Men's Bracelet</a> is natural polished hematite on a stretch elastic core, and it pairs cleanly with the <a href="${pathForHandle("hematite-ring-without-magnetic-surface")}">Hematite Band Ring</a> for a set that reads as more than the sum of two separate impulse buys.</p>
 `,
+  },
+  {
+    slug: "do-hematite-bracelets-work",
+    title: "Do Hematite Bracelets Work? A Straight Answer",
+    excerpt:
+      '"Do hematite bracelets work" is one of the fastest-rising hematite searches this year. Here is what "work" would even mean, and what is fact versus tradition.',
+    targetKeyword: "do hematite bracelets work",
+    quickAnswer:
+      "No clinical study shows a hematite bracelet producing a measurable physical effect. What it reliably gives you is a deliberate, weighted object to wear, backed by a real, old tradition — not a medical mechanism.",
+    tags: ["Hematite", "Buying guide"],
+    publishedAt: "2026-09-23",
+    updatedAt: "2026-09-23",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/mens-beaded-bracelets-guide.webp",
+      alt: "Photograph of a man's wrist wearing a natural hematite beaded bracelet",
+      width: 2528,
+      height: 1696,
+    },
+    body: `
+<p>"Do hematite bracelets work" has been one of the fastest-growing hematite searches this year, and most pages that rank for it dodge the question. We would rather answer it directly, even though the honest answer has two parts that do not fully agree with each other.</p>
+
+<h2>The short answer</h2>
+<p>No documented clinical study shows a hematite bracelet producing a measurable physical or medical effect on the person wearing it. If "work" means a proven biological mechanism — like a drug or a supplement — the answer is no, and anyone telling you otherwise is not describing accepted science.</p>
+
+<h2>What "work" actually means to most people who search this</h2>
+<p>Almost nobody buying a hematite bracelet expects it to work like medicine. What they are really asking is closer to: does carrying this object genuinely help someone feel more grounded or focused, the way people search for it? That is a different, more honest question, and the answer is more nuanced. A worn object you chose on purpose — something with weight, texture, and a story behind it — is a real psychological anchor for a lot of people. That is not hematite doing something to your body. It is a deliberate physical habit doing something for your attention, the same mechanism behind a worry stone, a fidget object, or any object you touch on purpose to interrupt a spiral.</p>
+
+<h2>What is measurable about the stone itself</h2>
+<p>Separate from any of that, hematite is a real, dense iron oxide — Fe₂O₃ — sitting at 5.5–6.5 on the Mohs hardness scale, notably heavier in hand than its size suggests. That weight and the cool-to-warm temperature shift on skin are the two physical sensations people actually notice wearing one, and they are genuinely there, measurable, no interpretation required. See <a href="/blog/what-is-hematite">what hematite actually is</a> for the full mineral rundown.</p>
+
+<h2>What we will not claim</h2>
+<p>We will not tell you a bracelet reduces stress, improves focus, or changes an outcome in your day. That is not something we can back up, and treating it as fact would be dishonest regardless of how often the claim gets repeated online. What we will say is that grounding, protective, and confidence-related meaning has been attached to hematite since antiquity, it is a real and old tradition, and choosing to wear something with that history is a legitimate reason on its own — it just is not evidence of a physical effect.</p>
+
+<h2>The honest bottom line</h2>
+<p>A hematite bracelet does not "work" in a clinical sense, and no seller can honestly promise it does. What it is: a dense, genuinely old iron ore, cut and polished, that a lot of people find meaningful to wear on purpose. If that is the reason you are shopping for one, <a href="${productPath}">the Hematite Men's Bracelet</a> is natural, polished stone on a stretch elastic core — no claim attached beyond what the stone actually is.</p>
+`,
+    faqs: [
+      {
+        question: "Do hematite bracelets actually work?",
+        answer:
+          "No clinical study shows a hematite bracelet producing a measurable medical or physical effect. What it can do is act as a deliberate worn object some people find grounding — a psychological habit, not a property of the mineral itself.",
+      },
+      {
+        question: "Is there scientific evidence behind hematite bracelet benefits?",
+        answer:
+          "No. The grounding, focus, and protective effects attributed to hematite come from tradition dating back to antiquity, not clinical research. The stone's measurable properties are its density, hardness, and iron oxide composition — not a documented effect on the body.",
+      },
+      {
+        question: "Why do so many people say hematite bracelets help them?",
+        answer:
+          "Most people describing a benefit are describing the effect of wearing a deliberate, tactile object on purpose — the same mechanism behind a worry stone or fidget item — combined with a centuries-old tradition of hematite as a grounding stone, not a measured chemical or biological effect from the mineral.",
+      },
+      {
+        question: "Is a hematite bracelet worth buying without proven health effects?",
+        answer:
+          "Yes, if you are buying it for what it actually is: a genuinely dense, hard, historically significant iron ore with a real five-thousand-year worn tradition — not as a substitute for medical treatment.",
+      },
+    ],
+  },
+  {
+    slug: "hematite-ring-benefits",
+    title: "Hematite Ring Benefits: What the Stone Does on Your Finger",
+    excerpt:
+      "Hematite ring benefits, separated into what the mineral actually does and what tradition claims — plus why a ring wears differently than a bracelet of the same stone.",
+    targetKeyword: "hematite ring benefits",
+    quickAnswer:
+      "A hematite ring gives you the same measurable density and hardness as a hematite bracelet, worn in continuous skin contact. Any grounding or confidence benefit beyond that is tradition, not documented science.",
+    tags: ["Hematite", "Rings"],
+    publishedAt: "2026-09-30",
+    updatedAt: "2026-09-30",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/what-is-hematite.webp",
+      alt: "Macro photograph of a polished hematite band ring beside loose raw hematite stone",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Hematite ring benefits" gets searched almost as often as the bracelet version, but a ring is a genuinely different object on the hand — worn constantly, knocked against more surfaces, seen up close by the person wearing it more than almost any other piece of jewellery. Here is what actually changes.</p>
+
+<h2>The same mineral, a different way of wearing it</h2>
+<p>A hematite ring is cut from the same iron(III) oxide — Fe₂O₃ — as a hematite bracelet: dense, 5.5–6.5 on the Mohs scale, with a metallic black-grey surface and a red-brown streak underneath. None of the physical facts change between the two forms. What changes is contact: a ring sits against skin continuously, all day, in a way a beaded bracelet on an elastic cord does not, which is why people who wear one report noticing its weight and cool temperature more, not because the mineral behaves any differently on a finger.</p>
+
+<h2>What tradition says about a ring specifically</h2>
+<p>In grounding traditions, a ring is often treated as a more "active" way to carry a stone than a bracelet — closer to the hand, involved in every gesture you make during the day. That is a real, widely held belief, and we will always call it belief rather than dress it up as documented fact. What is true regardless of tradition: a ring is the one piece of hematite jewellery most likely to take a direct knock, which is the actual reason hematite rings are the ones that crack — see our <a href="/blog/hematite-ring-meaning-breaking">full breakdown of why hematite rings break</a> for the mechanics.</p>
+
+<h2>What we will not claim</h2>
+<p>We will not tell you a hematite ring improves focus, confidence, or grounding through any documented mechanism — no ring, in any material, does that. What we will tell you is that hematite has been worn as a ring stone since antiquity, that its weight and coolness are real physical sensations you will notice more on a finger than a wrist, and that choosing to wear one for what it represents to you is a legitimate reason that needs no embellishment.</p>
+
+<h2>Natural vs. magnetic: the distinction that matters most for a ring</h2>
+<p>A large share of "hematite ring benefit" claims online are actually describing magnetic hematite rings — a man-made magnetic composite, not the natural stone, which is only weakly magnetic on its own. The composite is also generally more brittle than solid natural hematite, one more reason to know which one you are buying before it is on your finger daily. Our full <a href="/blog/magnetic-hematite-ring">magnetic hematite ring guide</a> covers the difference in detail.</p>
+
+<h2>The honest bottom line</h2>
+<p>A hematite ring gives you the same real mineral as a hematite bracelet, worn in the way that puts it in contact with your hand the most. If you want the natural, non-magnetic version, <a href="${pathForHandle("hematite-ring-without-magnetic-surface")}">our Hematite Band Ring</a> is solid polished stone with nothing plated or engineered into it.</p>
+`,
+    faqs: [
+      {
+        question: "What are the benefits of wearing a hematite ring?",
+        answer:
+          "Physically, hematite is a dense, hard iron oxide that feels noticeably heavy and cool against skin. Beyond that, any grounding, focus, or protective benefit attributed to a hematite ring is traditional and cultural, not a documented physical or medical effect.",
+      },
+      {
+        question: "Is a hematite ring better than a hematite bracelet?",
+        answer:
+          "Neither is objectively better — they are the same mineral. A ring sits in continuous skin contact and takes more direct impacts during the day, which is also why rings crack more often than bracelets of the same stone.",
+      },
+      {
+        question: "Does a hematite ring have to be magnetic to work?",
+        answer:
+          "No. Natural hematite is only weakly magnetic on its own. A strongly magnetic hematite ring is almost always a man-made composite (often called hematine), not the natural stone — magnetism is a manufacturing choice, not a requirement of the mineral.",
+      },
+    ],
+  },
+  {
+    slug: "magnetic-hematite-ring",
+    title: 'Magnetic Hematite Ring: What It Actually Is (And Isn\'t)',
+    excerpt:
+      '"Magnetic hematite ring" searches are rising fast. Here is the honest difference between the natural, weakly-magnetic mineral and the engineered composite most magnetic rings are made from.',
+    targetKeyword: "magnetic hematite ring",
+    quickAnswer:
+      "A ring marketed as \"magnetic hematite\" is almost always a man-made magnetic composite (often called hematine), not natural hematite, which is only weakly magnetic on its own.",
+    tags: ["Hematite", "Buying guide"],
+    publishedAt: "2026-10-07",
+    updatedAt: "2026-10-07",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/magnetic-hematite-bracelet-guide.webp",
+      alt: "Macro photograph of a magnetic hematite ring band with visible metallic sheen",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Magnetic hematite ring" is one of the fastest-rising hematite searches this year, and it is also one of the most misleadingly named products in the category. Here is what is actually on your finger when a hematite ring snaps to a fridge door.</p>
+
+<h2>Natural hematite is only weakly magnetic</h2>
+<p>Hematite is iron(III) oxide, Fe₂O₃. It is chemically close to magnetite (Fe₃O₄), the strongly magnetic iron oxide, but the difference in oxidation state matters a great deal: magnetite is ferrimagnetic and pulls hard toward a magnet, while pure natural hematite is antiferromagnetic under most conditions — only weakly magnetic, with no real pull you would notice in daily wear. A genuine natural hematite ring will not snap to another ring or grab a fridge magnet.</p>
+
+<h2>So what is a "magnetic hematite ring" actually made of?</h2>
+<p>What is sold under that name is almost always a man-made composite — sintered iron oxide powder built around a strong magnetic core, engineered specifically to pull the way natural hematite does not. It is often called hematine or "hemalyke" elsewhere in the market. It is a real, deliberately manufactured material, not a scam — the issue is purely one of naming: calling it "hematite" implies the natural mineral when it is a different, man-made product.</p>
+
+<h2>Why this distinction matters more for a ring than a bracelet</h2>
+<p>A magnetic composite ring is generally more brittle under sudden impact than a solid natural hematite band, and a ring takes far more knocks in daily wear than a bracelet ever does — against doorframes, gripped tight at the gym, squeezed under a glove. That is one real, practical reason magnetic hematite rings crack more often than natural ones, on top of whatever meaning gets read into a ring breaking. Our <a href="/blog/hematite-ring-meaning-breaking">guide to why hematite rings crack</a> covers that mechanism in full.</p>
+
+<h2>What we will not claim</h2>
+<p>Some sellers attach "magnetic therapy" language to these rings — claims about circulation, pain relief, or energy balance. We will not make those claims, and you should be sceptical of them anywhere you see them: there is no accepted clinical evidence that a bracelet- or ring-strength magnet affects circulation or pain. If you want a magnetic hematite ring for the satisfying pull of the beads or the look of it, that is a fine reason. It does not need a medical claim attached.</p>
+
+<h2>How to tell which one you are buying</h2>
+<ul>
+<li><strong>Test the pull.</strong> Hold it near a fridge magnet or another ring. A strong, obvious snap means an engineered magnetic composite, not natural hematite.</li>
+<li><strong>Read the listing carefully.</strong> "Natural" or "genuine hematite" should mean the mineral. "Magnetic hematite" or "hematine" means the composite — a real product, just a different one.</li>
+<li><strong>Ask before you buy.</strong> A seller who will not clearly say which one you are getting is leaving out a fact that changes both the ring's durability and what it actually is.</li>
+</ul>
+
+<p>Our own <a href="${pathForHandle("fashion-curved-hematite-magnetic-ring")}">Curved Hematite Ring</a> is sold in both a natural non-magnetic finish and a magnetic hematine finish, labelled plainly as which is which — and if you want the solid natural stone with no engineered core, <a href="${pathForHandle("hematite-ring-without-magnetic-surface")}">the Hematite Band Ring</a> is that piece.</p>
+`,
+    faqs: [
+      {
+        question: "Is a magnetic hematite ring real hematite?",
+        answer:
+          "Usually not entirely. Natural hematite is only weakly magnetic. A ring that pulls strongly to a magnet is almost always a man-made composite (often called hematine) built with a magnetic core, not solid natural hematite.",
+      },
+      {
+        question: "Are magnetic hematite rings safe to wear?",
+        answer:
+          "The composite material itself is safe to wear as jewellery. What is not supported is any claim that the magnet provides a therapeutic or medical effect — there is no accepted clinical evidence for magnetic therapy at bracelet or ring strength.",
+      },
+      {
+        question: "Why do magnetic hematite rings crack more than natural ones?",
+        answer:
+          "The engineered magnetic composite is generally more brittle under sudden impact than solid natural hematite, and rings take frequent knocks in daily wear — a combination that makes magnetic hematite rings crack more often than natural, non-magnetic ones.",
+      },
+    ],
+  },
+  {
+    slug: "hematite-chakra-healing",
+    title: "Hematite and Chakra Healing: Where the Stone Actually Fits",
+    excerpt:
+      'Hematite gets sold constantly as a root chakra stone. Here is what that tradition actually claims, what is measurable about the mineral, and how it compares to a general "chakra healing bracelet."',
+    targetKeyword: "chakra healing bracelet",
+    quickAnswer:
+      "Hematite is one of the most commonly cited root chakra stones in chakra tradition, valued for its grounding association. That is a spiritual framework, not a clinically measured effect.",
+    tags: ["Hematite", "Guide"],
+    publishedAt: "2026-10-14",
+    updatedAt: "2026-10-14",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/black-tourmaline-hematite-bracelet-benefits.webp",
+      alt: "Macro photograph of a dark metallic hematite beaded bracelet associated with root chakra grounding",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Chakra healing bracelet" and "chakra bracelet meaning" are both searched heavily, and hematite comes up in almost every list of chakra stones as the go-to root chakra pick. We sell hematite, not a seven-stone chakra bracelet, so here is the honest version of where the two overlap and where they do not.</p>
+
+<h2>What the chakra tradition actually claims about hematite</h2>
+<p>In chakra practice, the root chakra (Muladhara) is associated with stability, security, and a sense of being grounded — physically and otherwise. Hematite is one of the most commonly cited root chakra stones specifically because of its weight, its iron-rich composition, and the "grounding" language that has followed the mineral since antiquity. A typical seven-chakra bracelet pairs a different stone to each of the seven chakras, with hematite (or another dark, dense stone) almost always taking the root position at the base.</p>
+<p>That is a real, widely practiced spiritual framework with its own internal logic. We are not going to tell you it is wrong to find meaning in it. We are also not going to describe it as measurable or clinically validated, because chakras are not a physical structure in the body that can be tested for — that is a distinction worth being upfront about rather than blurring.</p>
+
+<h2>What is actually measurable about the stone itself</h2>
+<p>Separate from the chakra framework, hematite is iron(III) oxide, Fe₂O₃, sitting at 5.5–6.5 on the Mohs scale — dense, hard, and distinctly heavy for its size. That density is the real, physical reason hematite reads as "grounding" to a lot of people wearing it: it has genuine presence and weight against the skin, unlike a light glass or resin bead. See our <a href="/blog/what-is-hematite">full breakdown of what hematite is</a> for the mineral facts on their own.</p>
+
+<h2>Single-stone hematite vs. a seven-chakra bracelet</h2>
+<p>A multi-stone chakra bracelet is built around the idea of addressing all seven chakras in one piece — a different design goal than a single-mineral bracelet. A hematite-only piece does not claim to touch every chakra; it leans into one specific, long-associated meaning (root chakra, grounding) with one real, dense mineral rather than seven stones of varying quality strung together, which is also where a lot of budget "chakra bracelets" cut corners on the individual stones to hit a price point.</p>
+
+<h2>What we will not claim</h2>
+<p>We will not tell you a hematite bracelet balances your root chakra, and no seller can honestly promise a measurable energetic effect from any stone. What we will tell you: hematite is a real, ancient, dense iron ore with a long-standing association to grounding across multiple traditions, chakra practice included, and wearing one for that meaning is a legitimate personal choice that does not require a scientific claim to justify it.</p>
+
+<h2>The honest bottom line</h2>
+<p>If you are drawn to hematite specifically for its root chakra association, you are choosing the stone most consistently linked to that meaning across chakra traditions — and you are also getting a genuinely dense, hard, five-thousand-year-old worn mineral either way. <a href="${productPath}">The Hematite Men's Bracelet</a> is a single strand of natural, polished hematite on a stretch elastic core, sold as exactly what it is.</p>
+`,
+    faqs: [
+      {
+        question: "Is hematite a root chakra stone?",
+        answer:
+          "In chakra tradition, yes — hematite is one of the most commonly cited stones for the root chakra (Muladhara), associated with grounding and stability. This is a spiritual framework, not a clinically measured effect.",
+      },
+      {
+        question: "Does hematite actually balance chakras?",
+        answer:
+          "There is no clinical or scientific evidence that any stone measurably balances a chakra. What is real is hematite's density and weight, which many people experience as a grounding physical sensation when worn.",
+      },
+      {
+        question: "What's the difference between a hematite bracelet and a chakra bracelet?",
+        answer:
+          "A seven-chakra bracelet strings a different stone for each of the seven chakras in one piece. A hematite-only bracelet is a single mineral leaning into one specific, long-standing association — grounding and the root chakra — rather than covering all seven.",
+      },
+    ],
   },
 ];
 

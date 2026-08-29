@@ -6,6 +6,7 @@ import { ProductPurchase } from "@/components/product/ProductPurchase";
 import { ProductDetails } from "@/components/product/ProductDetails";
 import Reviews from "@/components/sections/Reviews";
 import ProductSchema from "@/components/ProductSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { getProductByHandle, products } from "@/lib/product";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
@@ -97,6 +98,13 @@ export default async function ProductPage({
   return (
     <main>
       <ProductSchema product={liveProduct} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Shop", path: "/shop" },
+          { name: liveProduct.title, path: `/products/${liveProduct.handle}` },
+        ]}
+      />
 
       <div className="mx-auto w-full max-w-310 px-5 pt-12 sm:px-8 sm:pt-16">
         <nav

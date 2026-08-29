@@ -4,7 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import BlogPostingSchema from "@/components/blog/BlogPostingSchema";
+import FAQSchema from "@/components/blog/FAQSchema";
 import { BlogCard } from "@/components/blog/BlogCard";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Reveal } from "@/components/ui/Motion";
 import { blogAuthor, blogPosts, getBlogPost } from "@/content/blog";
 import { site } from "@/lib/site";
@@ -84,6 +86,14 @@ export default async function BlogPostPage({
   return (
     <main>
       <BlogPostingSchema post={post} />
+      <FAQSchema post={post} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]}
+      />
 
       <article className="mx-auto w-full max-w-184 px-5 pt-12 pb-20 sm:px-8 sm:pt-16 lg:pb-28">
         <nav
@@ -132,6 +142,13 @@ export default async function BlogPostPage({
           </div>
         </header>
 
+        <p className="mt-6 rounded-(--radius-card) border border-line bg-parchment px-5 py-4 text-[0.95rem] leading-[1.65] text-ink">
+          <span className="font-display mr-1.5 text-[0.66rem] font-semibold tracking-widest text-ink-mute uppercase">
+            Quick answer —
+          </span>
+          {post.quickAnswer}
+        </p>
+
         <div className="relative mt-8 aspect-3/2 overflow-hidden rounded-(--radius-card) bg-parchment">
           <Image
             src={post.coverImage.src}
@@ -148,6 +165,29 @@ export default async function BlogPostPage({
           // Author-controlled HTML, same trust model as lib/product.ts's descriptionHtml — never user input.
           dangerouslySetInnerHTML={{ __html: post.body }}
         />
+
+        {post.faqs && post.faqs.length > 0 && (
+          <section className="mt-12" aria-labelledby="faq-heading">
+            <h2
+              id="faq-heading"
+              className="font-display text-[1.05rem] font-bold tracking-[-0.02em] text-ink"
+            >
+              Frequently asked questions
+            </h2>
+            <dl className="mt-4 divide-y divide-line border-t border-line">
+              {post.faqs.map((faq) => (
+                <div key={faq.question} className="py-4">
+                  <dt className="text-[0.95rem] font-semibold text-ink">
+                    {faq.question}
+                  </dt>
+                  <dd className="mt-1.5 text-[0.9rem] leading-[1.7] text-ink-soft">
+                    {faq.answer}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )}
 
         <div className="mt-12 rounded-(--radius-card) border border-line bg-parchment p-7 text-center">
           <p className="font-display text-[1.05rem] font-semibold tracking-[-0.02em] text-ink">

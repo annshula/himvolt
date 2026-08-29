@@ -19,6 +19,7 @@ export default function BlogPostingSchema({ post }: { post: BlogPost }) {
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     headline: post.title,
     description: post.excerpt,
+    abstract: post.quickAnswer,
     image: [imageUrl],
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,

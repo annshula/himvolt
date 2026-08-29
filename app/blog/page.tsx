@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { BlogCard } from "@/components/blog/BlogCard";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { blogPosts } from "@/content/blog";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
@@ -35,6 +36,12 @@ const posts = [...blogPosts].sort(
 export default function BlogIndexPage() {
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+        ]}
+      />
       <div className="mx-auto w-full max-w-310 px-5 pt-12 pb-2 sm:px-8 sm:pt-16">
         <nav
           aria-label="Breadcrumb"

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ProductCard } from "@/components/product/ProductCard";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { products } from "@/lib/product";
 import { getProduct } from "@/lib/shopify";
 import { site } from "@/lib/site";
@@ -51,6 +52,12 @@ export default async function ShopPage() {
 
   return (
     <main>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Shop", path: "/shop" },
+        ]}
+      />
       <div className="mx-auto w-full max-w-310 px-5 pt-12 pb-2 sm:px-8 sm:pt-16">
         <nav
           aria-label="Breadcrumb"
