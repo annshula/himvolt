@@ -100,7 +100,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mt-7 max-w-[46ch] text-[1.02rem] leading-[1.65] text-steel text-pretty">
+          <p className="mx-auto mt-7 max-w-[46ch] text-[1.02rem] leading-[1.65] text-steel text-pretty">
             {hero.sub}
           </p>
 
