@@ -91,7 +91,7 @@ export default function Hero() {
 
           <motion.p
             variants={item}
-            className="mt-7 max-w-[46ch] text-[1.02rem] leading-[1.65] text-steel text-pretty"
+            className="mt-7 max-w-[62ch] text-[0.94rem] leading-[1.65] text-steel text-pretty"
           >
             {hero.sub}
           </motion.p>

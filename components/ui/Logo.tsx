@@ -26,7 +26,7 @@ export function LogoMark({
   return (
     <Image
       src={LOGO_SRC[variant]}
-      alt=""
+      alt={site.name}
       width={512}
       height={512}
       priority={priority}

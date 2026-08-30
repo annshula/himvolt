@@ -14,7 +14,7 @@ import { daysRangeDisplay, defaultRegion } from "@/lib/shipping";
 export const hero = {
   eyebrow: "Hematite collection",
   headline: ["Heavy stone.", "Steady hands."],
-  sub: "Genuine hematite bracelets and rings, cut from one of the densest stones you can wear. Cool to the touch, unmistakably heavy in hand, carried since antiquity for the grounding it's said to bring.",
+  sub: "HimVolt hematite bracelets and rings are cut from genuine hematite — iron(III) oxide, Fe₂O₃ — one of the densest stones you can wear, at roughly 70 grams on a single strand. Rated 5.5–6.5 on the Mohs hardness scale, on par with hardened steel, it resists the daily knocks that dull resin or dyed glass. Cool to the touch and unmistakably heavy in hand, hematite has been carried since antiquity — roughly five thousand years — for the grounding it's said to bring, not for a passing trend.",
   cta: "Shop the collection",
   ctaHref: "/shop",
   secondary: "See the stone",

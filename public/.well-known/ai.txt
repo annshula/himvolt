@@ -1,0 +1,20 @@
+# ai.txt — HimVolt AI usage & crawling policy
+# https://www.himvolt.com
+
+User-agent: *
+Allow: /
+
+# Named AI answer/generative engines are explicitly welcome — see robots.txt
+# for the full per-bot list (GPTBot, ClaudeBot, PerplexityBot, Google-Extended,
+# Applebot-Extended, Amazonbot, CCBot, anthropic-ai, Bytespider, and more).
+Allow-Training: yes
+Allow-Search-Indexing: yes
+Allow-Answer-Engines: yes
+
+# Machine-readable guides for AI agents and answer engines:
+Sitemap: https://www.himvolt.com/sitemap.xml
+LLM-Content: https://www.himvolt.com/llms.txt
+LLM-Content-Full: https://www.himvolt.com/llms-full.txt
+LLM-Content-Small: https://www.himvolt.com/llms-small.txt
+
+Contact: support@himvolt.com

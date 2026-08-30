@@ -71,6 +71,32 @@ export default function Stone() {
           >
             {stone.body}
           </Reveal>
+
+          <Reveal
+            as="p"
+            delay={0.34}
+            className="mt-4 text-[0.72rem] leading-relaxed text-ink-mute"
+          >
+            Sources:{" "}
+            <a
+              href="https://en.wikipedia.org/wiki/Mohs_scale"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="underline underline-offset-2 hover:text-ink"
+            >
+              Mohs hardness scale
+            </a>
+            ,{" "}
+            <a
+              href="https://en.wikipedia.org/wiki/Hematite"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="underline underline-offset-2 hover:text-ink"
+            >
+              hematite (iron oxide)
+            </a>
+            .
+          </Reveal>
         </div>
 
         <Stagger className="space-y-px overflow-hidden rounded-(--radius-card) border border-line bg-line">

@@ -37,7 +37,19 @@ export default function Schema() {
       name: site.name,
       description: site.description,
       publisher: { "@id": `${url}/#organization` },
+      about: { "@id": `${url}/#hematite` },
       inLanguage: "en",
+    },
+    {
+      "@type": "Thing",
+      "@id": `${url}/#hematite`,
+      name: "Hematite",
+      alternateName: "Iron(III) oxide",
+      sameAs: [
+        "https://en.wikipedia.org/wiki/Hematite",
+        "https://www.wikidata.org/wiki/Q83437",
+      ],
+      identifier: "Fe2O3",
     },
     {
       "@type": "FAQPage",
@@ -47,6 +59,35 @@ export default function Schema() {
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },
       })),
+    },
+    {
+      "@type": "HowTo",
+      "@id": `${url}/#how-to-wear`,
+      name: "How to wear and care for a hematite bracelet",
+      description:
+        "How to fit, put on and maintain a genuine hematite (iron oxide) bracelet with a stretch elastic core.",
+      step: [
+        {
+          "@type": "HowToStep",
+          name: "Confirm your fit",
+          text: "Bracelets use a stretch elastic core that fits most adult wrists with no sizing chart. Rings run true to standard US sizing 6–12 and do not stretch, so check your ring size before ordering.",
+        },
+        {
+          "@type": "HowToStep",
+          name: "Put it on",
+          text: "There is no clasp to fasten. Stretch the band open and roll it onto your wrist, or slide a ring on as you would any fitted ring.",
+        },
+        {
+          "@type": "HowToStep",
+          name: "Care for it daily",
+          text: "Hematite is non-porous — rinse it under water and wipe with a cloth as needed. Avoid prolonged contact with harsh soaps or chlorine, and avoid hard impacts against tile or metal: at 5.5–6.5 on the Mohs scale hematite is hard but can chip like any polished stone.",
+        },
+        {
+          "@type": "HowToStep",
+          name: "Verify it is genuine hematite",
+          text: "A light scratch on an inconspicuous spot should leave a red-brown streak — the iron oxide underneath the metallic black-grey surface. Coated glass or resin will not streak red-brown.",
+        },
+      ],
     },
   ];
 
