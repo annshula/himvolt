@@ -601,6 +601,62 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "hematite-hardness",
+    title: "Hematite Hardness: Is It Hard Enough to Wear Every Day?",
+    excerpt:
+      "Hematite rates 5.5 to 6.5 on the Mohs scale — roughly level with hardened steel. Here is what that number means for daily wear, and where hematite can still chip.",
+    targetKeyword: "hematite hardness",
+    quickAnswer:
+      "Hematite rates 5.5 to 6.5 on the Mohs hardness scale — harder than glass or a knife blade (both 5.5) and close to hardened steel (6.5). That is hard enough to resist daily scratches, but a hard direct impact against tile or metal can still chip its polished surface.",
+    tags: ["Hematite", "Mineral facts"],
+    publishedAt: "2026-10-21",
+    updatedAt: "2026-10-21",
+    readingMinutes: 4,
+    coverImage: {
+      src: "/blog/hematite-hardness.webp",
+      alt: "Macro photograph of a polished hematite stone with a small scratch revealing its red-brown iron oxide streak under dramatic side lighting",
+      width: 2528,
+      height: 1696,
+    },
+    body: `
+<p>"How hard is hematite" comes up constantly from people about to wear one every day — in the gym, in the shower, at a desk job typing eight hours a day. The number has a real answer, and it is more useful than most jewellery copy makes it sound.</p>
+
+<h2>The number: 5.5 to 6.5 on the Mohs scale</h2>
+<p>Hematite sits at <strong>5.5 to 6.5</strong> on the <a href="https://en.wikipedia.org/wiki/Mohs_scale" target="_blank" rel="noopener noreferrer">Mohs hardness scale</a>, the standard mineralogists use to rank how resistant a material is to being scratched by another material. For reference: a fingernail is about 2.5, a knife blade and window glass both sit around 5.5, and hardened steel tops out near 6.5. That puts hematite level with — and at its upper range, harder than — the steel in a typical pocketknife or belt buckle.</p>
+<p>The range (rather than one fixed number) exists because hematite is not perfectly uniform: iron oxide content and how tightly the crystal structure formed vary slightly piece to piece, which is normal for a natural mineral and not a sign of lower quality.</p>
+
+<h2>What that hardness actually means for daily wear</h2>
+<ul>
+<li><strong>Scratch resistance:</strong> at 5.5–6.5, hematite will not pick up the fine surface scratches that dull soft stones like turquoise (5–6) or dyed howlite, and it will not scratch from a fingernail, keys, or fabric.</li>
+<li><strong>Steel and hard surfaces:</strong> because it is close to steel's own hardness, hematite can hold up against light contact with a belt buckle, a watch case, or a doorframe far better than resin or dyed glass.</li>
+<li><strong>Impact is a different property from hardness:</strong> Mohs hardness measures scratch resistance, not toughness against a hard direct blow. A hard drop onto tile, concrete, or metal can still chip a polished hematite bead, the way it would chip most polished stone in the 5–7 range. Hardness and durability against a scratch are not the same thing as shatter-resistance against an impact.</li>
+</ul>
+
+<h2>How hardness ties back to what hematite actually is</h2>
+<p>Hematite is <strong>iron(III) oxide</strong> — <a href="https://en.wikipedia.org/wiki/Hematite" target="_blank" rel="noopener noreferrer">Fe₂O₃</a> — one of the most abundant iron ores on Earth, and its density is the other physical trait people notice alongside its hardness: it is heavier in hand than a stone its size has any right to be. See our <a href="/blog/what-is-hematite">full breakdown of what hematite is</a> for the rest of the mineral facts, including the red-brown streak test used to verify a piece is genuine.</p>
+
+<h2>The honest bottom line</h2>
+<p>5.5–6.5 on the Mohs scale is hard enough that a hematite bracelet or ring can be worn daily — gym, shower, desk — without the surface dulling the way resin or dyed glass would. It is not indestructible: treat a direct hard impact the way you would treat any polished stone, and it will outlast almost anything else in that price range. <a href="${productPath}">The Hematite Men's Bracelet</a> is cut from genuine natural hematite on a stretch elastic core — no coating to wear through, because there is nothing coated to begin with.</p>
+`,
+    faqs: [
+      {
+        question: "Is hematite a hard stone?",
+        answer:
+          "Yes. Hematite rates 5.5 to 6.5 on the Mohs hardness scale, roughly level with hardened steel and harder than glass or a knife blade (both around 5.5) — hard enough for daily wear.",
+      },
+      {
+        question: "Can a hematite bracelet scratch or break?",
+        answer:
+          "It resists everyday scratches well at 5.5–6.5 Mohs, but Mohs hardness measures scratch resistance, not impact resistance. A hard direct drop onto tile, concrete, or metal can still chip a polished hematite bead, the same as most polished stone.",
+      },
+      {
+        question: "Is hematite harder than steel?",
+        answer:
+          "It is close to it. Hardened steel sits around 6.5 on the Mohs scale, the top end of hematite's own 5.5–6.5 range — so hematite is roughly on par with, not clearly above, everyday steel.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

@@ -21,6 +21,16 @@ export default function BlogPostingSchema({ post }: { post: BlogPost }) {
     description: post.excerpt,
     abstract: post.quickAnswer,
     image: [imageUrl],
+    about: {
+      "@type": "Thing",
+      name: "Hematite",
+      alternateName: "Iron(III) oxide",
+      sameAs: [
+        "https://en.wikipedia.org/wiki/Hematite",
+        "https://www.wikidata.org/wiki/Q83437",
+      ],
+      identifier: "Fe2O3",
+    },
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     keywords: [post.targetKeyword, ...post.tags].join(", "),
