@@ -63,7 +63,7 @@ export async function readJsonFile<T>(filePath: string): Promise<T | null> {
   if (useBlobStorage()) {
     try {
       const result = await get(blobPathname(filePath), {
-        access: "public",
+        access: "private",
         useCache: false,
       });
       if (result) {
@@ -97,7 +97,7 @@ export async function writeJsonFileAtomic(
 
   if (useBlobStorage()) {
     await put(blobPathname(filePath), serialized, {
-      access: "public",
+      access: "private",
       addRandomSuffix: false,
       allowOverwrite: true,
       contentType: "application/json",
@@ -144,7 +144,7 @@ export async function acquireLock(
         await put(
           lockPathname,
           JSON.stringify({ pid: process.pid, at: Date.now() }),
-          { access: "public", addRandomSuffix: false },
+          { access: "private", addRandomSuffix: false },
         );
         return {
           release: async () => {
