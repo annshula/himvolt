@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 
-import DOMPurify from "isomorphic-dompurify";
-
 import { BuyBox } from "@/components/product/BuyBox";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { Reveal } from "@/components/ui/Motion";
@@ -63,11 +61,14 @@ export function ProductPurchase({ product }: { product: Product }) {
             className="mt-8 max-w-[52ch] text-[0.9rem] leading-[1.65] text-ink-soft [&_p]:mt-3 [&_p:first-child]:mt-0"
             dangerouslySetInnerHTML={{
               // Description HTML originates in the shared Shopify store and is
-              // merchant-controlled — never trust it. DOMPurify strips scripts
-              // and event handlers even if a bad payload reaches the sink.
-              __html: DOMPurify.sanitize(product.descriptionHtml, {
-                USE_PROFILES: { html: true },
-              }),
+              // merchant-controlled, never end-user input. It's sanitized once,
+              // at the trust boundary, in lib/sanitize-html.ts's
+              // sanitizeProductHtml() — called from lib/shopify/sync-product.ts
+              // before this ever reaches data/product.json. Re-sanitizing
+              // already-clean local data here would just pull an HTML-parsing
+              // library into the client bundle for no benefit — same trust
+              // model as content/blog.ts's post bodies.
+              __html: product.descriptionHtml,
             }}
           />
         </Reveal>
