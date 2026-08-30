@@ -183,7 +183,7 @@ export default function BenefitsPage() {
             Convinced, or just curious — either way, go look at it.
           </h2>
           <p className="mx-auto mt-5 max-w-[42ch] text-[1rem] leading-[1.65] text-steel text-pretty">
-            Free tracked shipping worldwide. 30 days to change your mind.
+            {site.promise.shipping}. {site.promise.returns}.
           </p>
           <div className="mt-9 flex justify-center">
             <Magnetic>

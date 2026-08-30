@@ -62,9 +62,8 @@ export default function Footer() {
                 light ? "text-ink-mute" : "text-ash",
               )}
             >
-              A small collection, made properly. Free tracked shipping to every
-              country we serve, and 30 days to send it back if it is not for
-              you.
+              A small collection, made properly. {site.promise.shipping}, and{" "}
+              {site.promise.returns.charAt(0).toLowerCase() + site.promise.returns.slice(1)}.
             </p>
 
             <NewsletterForm light={light} />

@@ -83,7 +83,7 @@ export default function Hero() {
             delay with resource loading already done. Motion stays on the
             buttons/promise-line below, which aren't LCP-critical.
           */}
-          <h1 className="font-mega text-[clamp(2.9rem,7.2vw,5.2rem)] leading-[0.88] text-chalk">
+          <h1 className="font-mega text-[clamp(2.2rem,5.4vw,4rem)] leading-[0.95] text-chalk">
             {hero.headline[0]}
             <br />
             <span className="relative inline-block">
@@ -124,7 +124,7 @@ export default function Hero() {
             variants={item}
             className="mt-8 text-[0.72rem] tracking-[0.06em] text-steel"
           >
-            {site.promise.shipping} · {site.promise.returns} · Dispatched in 1–3 days
+            {site.promise.shipping} · Dispatched in 1–3 days
           </motion.p>
         </motion.div>
       </motion.div>
