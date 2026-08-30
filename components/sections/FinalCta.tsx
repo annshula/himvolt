@@ -1,10 +1,6 @@
-import Image from "next/image";
 import Button from "@/components/ui/Button";
 import { Magnetic, Reveal } from "@/components/ui/Motion";
 import { finalCta } from "@/content/copy";
-import { product } from "@/lib/product";
-
-const flat = product.gallery[0];
 
 export default function FinalCta() {
   return (
@@ -17,22 +13,6 @@ export default function FinalCta() {
             "radial-gradient(circle, rgba(0,0,0,0.07) 0%, rgba(0,0,0,0.03) 42%, transparent 68%)",
         }}
       />
-
-      {/* the stone, floating large and half out of frame */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-[-14%] -z-10 mx-auto max-w-205 opacity-[0.22]"
-      >
-        <Image
-          src={flat.src}
-          alt=""
-          width={flat.width}
-          height={flat.height}
-          quality={55}
-          sizes="100vw"
-          className="float-slow w-full"
-        />
-      </div>
 
       <div className="mx-auto max-w-216 text-center">
         <Reveal

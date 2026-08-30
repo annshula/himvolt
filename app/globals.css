@@ -320,6 +320,10 @@ p {
   animation: hv-marquee var(--dur, 42s) linear infinite;
 }
 .marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
 
 /* ------------------------- scroll-driven progress ------------------------- */
 /* Progressive enhancement: browsers without scroll timelines simply show

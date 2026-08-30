@@ -509,6 +509,7 @@ export const featureIcons = {
   stone: StoneIcon,
   fit: FitIcon,
   ship: ShipIcon,
+  shield: ShieldIcon,
 } as const;
 
 /* ── Name-based Icon component (account / cart) ────────────────────────── */

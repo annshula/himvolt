@@ -29,9 +29,9 @@ export const hero = {
 };
 
 export const showcase = {
-  eyebrow: "The object",
+  eyebrow: "Hematite jewelry",
   headline: "Cut from the earth's own iron.",
-  body: "Every piece starts as raw, natural hematite — iron oxide, mined and hand-polished until the surface reads as a hard, cool, metallic black. No dye, no coating: what you see under a loupe is what you feel on your wrist.",
+  body: "Every piece of hematite jewelry here starts as raw, natural hematite — iron oxide, mined and hand-polished until the surface reads as a hard, cool, metallic black. No dye, no coating: what you see under a loupe is what you feel on your wrist.",
   points: [
     {
       title: "No clasp to fail",
@@ -49,17 +49,17 @@ export const showcase = {
 };
 
 export const stone = {
-  eyebrow: "Why hematite",
+  eyebrow: "Hematite meaning",
   headline: "The stone the ancient world called blood.",
   lede: "Hematite takes its name from the Greek haimatites lithos — “blood-like stone” — coined by the naturalist Theophrastus around 300 BCE. Scratch its metallic black surface and it leaves a deep red-brown streak: the same iron oxide that gives the stone both its name and its weight.",
   body: "That contradiction — a hard black metallic shell hiding a red heart — is what has kept people picking hematite up for roughly five thousand years, long before anyone called it a grounding stone.",
   paragraphs: [
     {
       title: "What it is",
-      body: "Hematite: iron(III) oxide, Fe₂O₃, one of the most abundant iron ores on Earth and one of the oldest minerals worked into jewellery and pigment. It sits at 5.5–6.5 on the Mohs scale — roughly level with hardened steel — and its density is the first thing most people notice: it is heavier in hand than a stone its size has any right to be.",
+      body: "Hematite: iron(III) oxide, Fe₂O₃, one of the most abundant iron ores on Earth and one of the oldest minerals worked into jewellery and pigment. Its defining properties are hardness and weight — 5.5–6.5 on the Mohs scale, roughly level with hardened steel — and density is the first thing most people notice: it is heavier in hand than a stone its size has any right to be.",
     },
     {
-      title: "What people wear it for",
+      title: "What hematite means",
       body: "Hematite has been carried since antiquity — Egyptian amulets, Mesopotamian seals, and centuries of grounding and protective folk tradition since. Today it is one of the most reached-for stones for grounding, focus, confidence and resilience — put on before a hard meeting or a long day for exactly that reason. That is a tradition, and we will always tell you it is a tradition. Plenty of people wear it for exactly that reason and we think that is a good enough reason.",
     },
     {
@@ -69,23 +69,84 @@ export const stone = {
   ],
 };
 
-export const features = [
-  {
-    icon: "stone" as const,
-    label: "Natural hematite",
-    body: "Genuine iron oxide, not resin, not dyed glass. Every piece is cut from the same mineral and streak-tests red-brown under the polish.",
-  },
-  {
-    icon: "fit" as const,
-    label: "Stretch elastic fit",
-    body: "One elastic core, no clasp, no sizing chart to guess at. Roll it on and forget it is there.",
-  },
-  {
-    icon: "ship" as const,
-    label: "Free tracked shipping",
-    body: "Every order, every country, no threshold. Dispatched within 1–3 business days of you clicking buy.",
-  },
-];
+/**
+ * The policy/trust band (components/sections/Guarantee.tsx) — every claim
+ * in `items` is a real, already-established policy (lib/site.ts
+ * `promise.*`), not new copy invented for this band. Kept in sync by
+ * pulling the same strings rather than re-wording them, the same discipline
+ * as the returns/warranty fix elsewhere in this file.
+ */
+export const guarantee = {
+  eyebrow: "Buy with confidence",
+  // Deliberately not another "genuine hematite bracelets" headline — that
+  // exact phrase is already the H1. Repeating it as this section's H2 too
+  // reads as keyword stuffing to a crawler, not just to a reader. This
+  // section's actual subject is the policies, so it's titled as that.
+  headline: "What every order includes.",
+  body: "Free tracked shipping worldwide, a real fix if anything arrives wrong, and natural iron oxide in every piece — not a coated imitation.",
+  items: [
+    {
+      icon: "stone" as const,
+      label: "Genuine natural hematite",
+      body: "Real iron oxide, not resin or dyed glass. Every piece streak-tests red-brown under the polish — the same mineralogy test used to identify hematite for two thousand years.",
+    },
+    {
+      icon: "ship" as const,
+      label: site.promise.shipping,
+      body: site.promise.shippingFull,
+    },
+    {
+      icon: "shield" as const,
+      label: site.promise.returns,
+      body: site.promise.returnsDetail,
+    },
+    {
+      icon: "fit" as const,
+      label: "Secure checkout",
+      body: "Payment is processed by Shopify, not us — your card details never touch our servers.",
+    },
+  ],
+};
+
+/**
+ * Real hematite vs. what commonly gets sold under the same name. Every row
+ * restates a fact already established elsewhere on this site (Mohs scale,
+ * the streak test, the natural-vs-hematine distinction in lib/site.ts and
+ * the claim policy at the top of this file) — nothing new is asserted here,
+ * it is just organised as a comparison.
+ */
+export const comparison = {
+  eyebrow: "Know what you're buying",
+  headline: "Genuine hematite, or something sold as hematite.",
+  body: "\"Hematite\" gets used loosely — for the real mineral, for coated glass, and for a magnetic composite that shares the name but not the material. Here is how to tell them apart before you buy, from us or anywhere else.",
+  columns: ["Genuine hematite", "Coated glass or resin", "Magnetic hematite (hematine)"],
+  rows: [
+    {
+      label: "Material",
+      values: ["Natural iron oxide, Fe₂O₃", "Glass or resin core with a coating", "Man-made magnetic composite"],
+    },
+    {
+      label: "Mohs hardness",
+      values: ["5.5–6.5 — on par with hardened steel", "5–6, and the coating wears through", "Softer, more prone to chipping"],
+    },
+    {
+      label: "Weight in hand",
+      values: ["Notably dense for its size", "Noticeably lighter", "Similar or heavier, but for a different reason"],
+    },
+    {
+      label: "The streak test",
+      values: ["Leaves a red-brown streak", "No red-brown streak — shows the core colour instead", "No red-brown streak"],
+    },
+    {
+      label: "Magnetic?",
+      values: ["Only very weakly", "No", "Strongly — that's the point of it"],
+    },
+    {
+      label: "Sold as",
+      values: ["Labelled genuine hematite, plainly", "Often mislabelled \"hematite\"", "Often mislabelled \"hematite\" without disclosing it's a composite"],
+    },
+  ],
+};
 
 /**
  * ⚠️ PLACEHOLDER TESTIMONIALS.
@@ -182,7 +243,7 @@ export const footerNav = [
     links: [
       { label: "Hematite bracelets", href: "/shop" },
       { label: "Blog", href: "/blog" },
-      { label: "Why hematite", href: "#stone" },
+      { label: "Hematite meaning", href: "#stone" },
       { label: "Sizing", href: "/faq" },
       { label: "Gift sets", href: "/shop" },
     ],

@@ -70,6 +70,12 @@ async function sendMetaPurchase(
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim();
   const accessToken = process.env.META_CAPI_ACCESS_TOKEN?.trim();
   const version = process.env.META_GRAPH_API_VERSION?.trim() || "v21.0";
+  // Meta Events Manager → Test Events issues a per-account code that tags an
+  // event as test traffic: it shows up live in that tool but is excluded
+  // from ad optimization and reporting. Unset in production; set locally or
+  // in a staging env when verifying this pipeline end-to-end so a manual
+  // test never counts as a real conversion.
+  const testEventCode = process.env.META_TEST_EVENT_CODE?.trim();
   if (!pixelId || !accessToken) return;
 
   const items = (order.line_items ?? []).filter(isOurLineItem);
@@ -85,6 +91,7 @@ async function sendMetaPurchase(
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           access_token: accessToken,
+          ...(testEventCode ? { test_event_code: testEventCode } : {}),
           data: [
             {
               event_name: "Purchase",
@@ -197,13 +204,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
+  // x-forwarded-for is a comma-separated proxy chain (client, proxy1,
+  // proxy2, …) behind any reverse proxy/CDN — Meta's client_ip_address
+  // expects a single address, so take just the first hop.
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null;
+  const userAgent = request.headers.get("user-agent");
+
   // Fire both analytics beacons in parallel and let them fail independently.
   await Promise.allSettled([
-    sendMetaPurchase(
-      order,
-      request.headers.get("x-forwarded-for"),
-      request.headers.get("user-agent"),
-    ),
+    sendMetaPurchase(order, ip, userAgent),
     sendGa4Purchase(order),
   ]);
 
