@@ -1,5 +1,3 @@
-import { readFile } from "node:fs/promises";
-import path from "node:path";
 import { NextRequest, NextResponse } from "next/server";
 
 /**
@@ -12,15 +10,24 @@ import { NextRequest, NextResponse } from "next/server";
  * when deciding what an <img>/<picture> can render — and returning whichever
  * file matches, so posters get the same format negotiation ordinary content
  * images get for free from next/image.
+ *
+ * Deliberately fetches the file via its own public URL rather than reading
+ * it off disk with `fs`. A serverless deploy (Vercel) only bundles files a
+ * Route Handler's static file-trace can prove it needs, and a path built
+ * from a runtime `POSTERS[name]` lookup defeats that trace — it works under
+ * `next dev`/`next start` on a real filesystem and then 500s once deployed.
+ * Fetching the asset's real /public URL instead goes through the same
+ * static-asset serving path every other image on the site uses, so it works
+ * the same way everywhere.
  */
 const POSTERS: Record<string, { avif: string; webp: string }> = {
   hero: {
-    avif: "public/videos/himvolt-hero-poster.avif",
-    webp: "public/videos/himvolt-hero-poster.webp",
+    avif: "/videos/himvolt-hero-poster.avif",
+    webp: "/videos/himvolt-hero-poster.webp",
   },
   stone: {
-    avif: "public/media/current-poster.avif",
-    webp: "public/media/current-poster.webp",
+    avif: "/media/current-poster.avif",
+    webp: "/media/current-poster.webp",
   },
 };
 
@@ -34,11 +41,15 @@ export async function GET(
 
   const accept = request.headers.get("accept") ?? "";
   const wantsAvif = accept.includes("image/avif");
-  const relativePath = wantsAvif ? poster.avif : poster.webp;
+  const assetPath = wantsAvif ? poster.avif : poster.webp;
   const contentType = wantsAvif ? "image/avif" : "image/webp";
 
-  const file = await readFile(path.join(process.cwd(), relativePath));
-  return new NextResponse(new Uint8Array(file), {
+  const upstream = await fetch(new URL(assetPath, request.url));
+  if (!upstream.ok || !upstream.body) {
+    return new NextResponse("Not found", { status: 404 });
+  }
+
+  return new NextResponse(upstream.body, {
     headers: {
       "Content-Type": contentType,
       "Cache-Control": "public, max-age=31536000, immutable",
