@@ -25,7 +25,11 @@ const nextConfig: NextConfig = {
   },
 
   experimental: {
-    optimizeCss: true,
+    // `optimizeCss` (critters) was tried here for critical-CSS inlining, but
+    // it only wires into the Pages Router's postProcessHTML step — this app
+    // is 100% App Router, so it silently did nothing. There is no App
+    // Router equivalent shipped by Next today; don't re-add it without
+    // checking that's changed.
     // Ship the smallest possible client bundle for the shared chunk.
     optimizePackageImports: ["@/components"],
   },
