@@ -1,6 +1,7 @@
 import { blogPosts } from "@/content/blog";
 import { faqs } from "@/content/copy";
-import { products } from "@/lib/product";
+import { getLiveProducts } from "@/lib/product-live";
+import type { Product } from "@/lib/product";
 import { site } from "@/lib/site";
 
 export const revalidate = 3600;
@@ -11,9 +12,13 @@ export const revalidate = 3600;
  * Claude, Perplexity, …) to read instead of crawling and parsing full HTML.
  * Generated from the same data the pages themselves render from (products,
  * blogPosts, faqs) so it can never drift out of sync with what a visitor —
- * or a structured-data crawler — actually sees.
+ * or a structured-data crawler — actually sees. Products come from
+ * getLiveProducts() (lib/product.ts) rather than the plain build-time
+ * `products` export, so a sync that ran after the last deploy shows up here
+ * without a redeploy — this is informational text only, no cart/checkout
+ * path depends on the price shown here, so it's safe to read live.
  */
-function buildLlmsTxt(): string {
+function buildLlmsTxt(products: Product[]): string {
   const lines: string[] = [];
 
   lines.push(`# ${site.name}`);
@@ -75,8 +80,9 @@ function buildLlmsTxt(): string {
   return lines.join("\n") + "\n";
 }
 
-export function GET() {
-  return new Response(buildLlmsTxt(), {
+export async function GET() {
+  const products = await getLiveProducts();
+  return new Response(buildLlmsTxt(products), {
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
       "Cache-Control": "public, max-age=3600",

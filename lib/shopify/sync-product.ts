@@ -1,8 +1,7 @@
 import "server-only";
-import { readFile, writeFile, rename } from "node:fs/promises";
-import { join } from "node:path";
 
 import { sanitizeProductHtml } from "@/lib/sanitize-html";
+import { CATALOG_PATH, acquireLock, readJsonFile, writeJsonFileAtomic } from "@/lib/catalog/storage";
 
 import { graphqlRequest } from "@/lib/shopify/client";
 import { getAdminToken } from "@/lib/shopify/admin-token";
@@ -60,7 +59,7 @@ import { getLocalizedVariantPrices } from "@/lib/shopify/localization-service";
  *    would just go stale if snapshotted, so it isn't.
  */
 
-const OUTPUT_PATH = join(process.cwd(), "data", "product.json");
+const OUTPUT_PATH = CATALOG_PATH;
 
 const SHOP_QUERY = /* GraphQL */ `
   query Shop {
@@ -456,13 +455,12 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
     );
   }
 
-  const existingRaw = await readFile(OUTPUT_PATH, "utf8").catch(() => null);
-  if (!existingRaw) {
+  const existing = await readJsonFile<SyncedCatalogRecord>(OUTPUT_PATH);
+  if (!existing) {
     throw new Error(
       `${OUTPUT_PATH} does not exist — this refreshes known products, it doesn't create the catalog from scratch. Seed it with at least one product's id/handle first.`,
     );
   }
-  const existing = JSON.parse(existingRaw) as SyncedCatalogRecord;
   const knownIds = existing.products.map((p) => p.id);
 
   const endpoint = adminEndpoint(cfg);
@@ -678,10 +676,14 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
     products,
   };
 
-  // Atomic write — a crash mid-write must never leave data/product.json truncated.
-  const tmpPath = `${OUTPUT_PATH}.tmp`;
-  await writeFile(tmpPath, `${JSON.stringify(record, null, 2)}\n`);
-  await rename(tmpPath, OUTPUT_PATH);
+  // Locked, atomic write — a crash mid-write must never leave data/product.json
+  // truncated, and two syncs racing must never interleave their writes.
+  const lock = await acquireLock();
+  try {
+    await writeJsonFileAtomic(OUTPUT_PATH, record);
+  } finally {
+    await lock.release();
+  }
 
   return record;
 }
@@ -698,42 +700,43 @@ export async function seedProductIntoCatalog(
   productId: string,
   fallback: { title?: string; handle?: string } = {},
 ): Promise<{ existed: boolean }> {
-  const raw = await readFile(OUTPUT_PATH, "utf8").catch(() => null);
-  if (!raw) {
-    throw new Error(
-      `${OUTPUT_PATH} does not exist — this seeds known products, it can't create the catalog from scratch.`,
-    );
+  const lock = await acquireLock();
+  try {
+    // Re-read inside the lock: another writer may have persisted since any
+    // earlier read this caller did.
+    const record = await readJsonFile<SyncedCatalogRecord>(OUTPUT_PATH);
+    if (!record) {
+      throw new Error(
+        `${OUTPUT_PATH} does not exist — this seeds known products, it can't create the catalog from scratch.`,
+      );
+    }
+    if (record.products.some((p) => p.id === productId)) return { existed: true };
+
+    // Every field is a placeholder — the following syncAllProducts() overwrites
+    // everything from Shopify (title, handle, price, variants, images, …). Only
+    // the id matters here; the fallback title/handle are just for readable logs.
+    record.products.push({
+      id: productId,
+      handle: fallback.handle ?? "",
+      title: fallback.title ?? "",
+      price: 0,
+      compareAtPrice: null,
+      currencyCode: record.shop.currencyCode ?? "USD",
+      availableForSale: false,
+      variants: [],
+      images: [],
+      subtitle: "",
+      material: "",
+      descriptionHtml: "",
+      specs: [],
+      features: [],
+    });
+
+    await writeJsonFileAtomic(OUTPUT_PATH, record);
+    return { existed: false };
+  } finally {
+    await lock.release();
   }
-  const record = JSON.parse(raw) as SyncedCatalogRecord;
-  if (record.products.some((p) => p.id === productId)) return { existed: true };
-
-  // Every field is a placeholder — the following syncAllProducts() overwrites
-  // everything from Shopify (title, handle, price, variants, images, …). Only
-  // the id matters here; the fallback title/handle are just for readable logs.
-  record.products.push({
-    id: productId,
-    handle: fallback.handle ?? "",
-    title: fallback.title ?? "",
-    price: 0,
-    compareAtPrice: null,
-    currencyCode: record.shop.currencyCode ?? "USD",
-    availableForSale: false,
-    variants: [],
-    images: [],
-    subtitle: "",
-    material: "",
-    descriptionHtml: "",
-    specs: [],
-    features: [],
-  });
-
-  // Same atomic write as syncAllProducts — a crash mid-write must never leave
-  // data/product.json truncated.
-  const tmpPath = `${OUTPUT_PATH}.tmp`;
-  await writeFile(tmpPath, `${JSON.stringify(record, null, 2)}\n`);
-  await rename(tmpPath, OUTPUT_PATH);
-
-  return { existed: false };
 }
 
 export type ProductWebhookSyncResult = {

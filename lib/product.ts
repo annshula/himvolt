@@ -32,6 +32,7 @@
  */
 
 import catalog from "@/data/product.json";
+import type { SyncedCatalogRecord } from "@/lib/shopify/sync-product";
 
 export type Money = { amount: number; currencyCode: string };
 
@@ -76,33 +77,53 @@ const usd = (amount: number): Money => ({ amount, currencyCode: "USD" });
 /** At or below this real Shopify count, a variant is "low stock" — see Variant.lowStock. */
 const LOW_STOCK_THRESHOLD = 10;
 
-export const products: Product[] = catalog.products.map((p) => ({
-  id: p.id,
-  handle: p.handle,
-  title: p.title,
-  subtitle: p.subtitle,
-  descriptionHtml: p.descriptionHtml,
-  material: p.material,
-  gallery: p.images,
-  specs: p.specs,
-  features: p.features ?? [],
-  variants: p.variants.map((v) => ({
-    id: v.id,
-    sku: v.sku,
-    title: v.title,
-    subtitle: v.subtitle,
-    quantity: v.quantity,
-    price: usd(v.price),
-    compareAtPrice: v.compareAtPrice != null ? usd(v.compareAtPrice) : undefined,
-    image: v.image,
-    availableForSale: v.availableForSale,
-    lowStock:
-      typeof v.stockQuantity === "number" &&
-      v.stockQuantity > 0 &&
-      v.stockQuantity <= LOW_STOCK_THRESHOLD,
-    weightGrams: v.weightGrams,
-  })),
-}));
+/**
+ * Exported so lib/product-live.ts (server-only) can reuse this exact mapping
+ * for freshly Blob-read data — kept in this file, not there, so there is
+ * only ever one place that turns a synced record into a `Product`.
+ */
+export function mapSyncedProducts(
+  syncedProducts: SyncedCatalogRecord["products"],
+): Product[] {
+  return syncedProducts.map((p) => ({
+    id: p.id,
+    handle: p.handle,
+    title: p.title,
+    subtitle: p.subtitle,
+    descriptionHtml: p.descriptionHtml,
+    material: p.material,
+    gallery: p.images,
+    specs: p.specs,
+    features: p.features ?? [],
+    variants: p.variants.map((v) => ({
+      id: v.id,
+      sku: v.sku,
+      title: v.title,
+      subtitle: v.subtitle,
+      quantity: v.quantity,
+      price: usd(v.price),
+      compareAtPrice: v.compareAtPrice != null ? usd(v.compareAtPrice) : undefined,
+      // A variant with no image of its own (Shopify allows this) falls back
+      // to the product's main photo rather than rendering blank.
+      image: v.image ?? p.images[0]?.src ?? "",
+      availableForSale: v.availableForSale,
+      lowStock:
+        typeof v.stockQuantity === "number" &&
+        v.stockQuantity > 0 &&
+        v.stockQuantity <= LOW_STOCK_THRESHOLD,
+      weightGrams: v.weightGrams,
+    })),
+  }));
+}
+
+/**
+ * Build-time snapshot — whatever was committed to data/product.json as of
+ * the last deploy. Used by anything that must stay synchronous: client-side
+ * cart validation (lib/cart-catalog.ts, which a browser can call without a
+ * server round-trip), and any type-only import. Never edit this file by
+ * hand; `npm run shopify:sync` regenerates it from Shopify.
+ */
+export const products: Product[] = mapSyncedProducts(catalog.products);
 
 /** The main/hero product — every generic "shop now" CTA hands off here. */
 export const product: Product = products[0];

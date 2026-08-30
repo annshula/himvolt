@@ -1,5 +1,6 @@
 import { blogPosts } from "@/content/blog";
-import { products } from "@/lib/product";
+import { getLiveProducts } from "@/lib/product-live";
+import type { Product } from "@/lib/product";
 import { site } from "@/lib/site";
 
 export const revalidate = 3600;
@@ -7,9 +8,10 @@ export const revalidate = 3600;
 /**
  * /llms-small.txt — a condensed, link-only variant of /llms.txt for models or
  * retrieval systems that want the site map without prose. Same data sources
- * as llms.txt so it can never drift out of sync.
+ * as llms.txt so it can never drift out of sync. Live-synced products (see
+ * app/llms.txt/route.ts's note) — informational only, no checkout path.
  */
-function buildLlmsSmallTxt(): string {
+function buildLlmsSmallTxt(products: Product[]): string {
   const lines: string[] = [];
 
   lines.push(`# ${site.name} — condensed index`);
@@ -39,8 +41,9 @@ function buildLlmsSmallTxt(): string {
   return lines.join("\n") + "\n";
 }
 
-export function GET() {
-  return new Response(buildLlmsSmallTxt(), {
+export async function GET() {
+  const products = await getLiveProducts();
+  return new Response(buildLlmsSmallTxt(products), {
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
       "Cache-Control": "public, max-age=3600",

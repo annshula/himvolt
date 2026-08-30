@@ -1,6 +1,7 @@
 import { blogPosts } from "@/content/blog";
 import { faqs } from "@/content/copy";
-import { products } from "@/lib/product";
+import { getLiveProducts } from "@/lib/product-live";
+import type { Product } from "@/lib/product";
 import { site } from "@/lib/site";
 
 export const revalidate = 3600;
@@ -10,9 +11,10 @@ export const revalidate = 3600;
  * product descriptions and full blog post bodies inline, rather than the
  * truncated summaries in /llms.txt, so a model can answer from this one file
  * without a further fetch. Same data sources as llms.txt so it can never
- * drift out of sync with what a visitor sees.
+ * drift out of sync with what a visitor sees. Live-synced products (see
+ * app/llms.txt/route.ts's note) — informational only, no checkout path.
  */
-function buildLlmsFullTxt(): string {
+function buildLlmsFullTxt(products: Product[]): string {
   const lines: string[] = [];
 
   lines.push(`# ${site.name} — full content`);
@@ -77,8 +79,9 @@ function buildLlmsFullTxt(): string {
   return lines.join("\n") + "\n";
 }
 
-export function GET() {
-  return new Response(buildLlmsFullTxt(), {
+export async function GET() {
+  const products = await getLiveProducts();
+  return new Response(buildLlmsFullTxt(products), {
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
       "Cache-Control": "public, max-age=3600",
