@@ -12,6 +12,10 @@ const CATEGORIES = [
   "Something else",
 ];
 
+// Same pattern app/api/newsletter/route.ts uses — kept in sync so this form
+// validates the same way the real endpoint will once one exists.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const labelClass =
   "text-[0.7rem] font-semibold tracking-[0.14em] text-ink-soft uppercase";
 const fieldClass =
@@ -25,6 +29,7 @@ const fieldClass =
  */
 export function ContactForm() {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [category, setCategory] = useState(CATEGORIES[0]);
   const [message, setMessage] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -33,8 +38,12 @@ export function ContactForm() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !message.trim()) {
-      setError("Fill in your name and a message — we need both to reply.");
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setError("Fill in your name, email, and a message — we need all three to reply.");
+      return;
+    }
+    if (!EMAIL_RE.test(email.trim())) {
+      setError("That email doesn't look right — double-check it.");
       return;
     }
     setError(null);
@@ -70,6 +79,17 @@ export function ContactForm() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Your name"
+          className={fieldClass}
+        />
+      </label>
+
+      <label className="flex flex-col gap-2">
+        <span className={labelClass}>Email</span>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@example.com"
           className={fieldClass}
         />
       </label>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 import { faqs } from "@/content/copy";
@@ -18,13 +19,19 @@ export default function Faq() {
             title="The questions we actually get."
             body="If yours is not here, email us. A person answers, usually within a few hours."
           />
-          <Reveal delay={0.2} className="mt-8">
+          <Reveal delay={0.2} className="mt-8 flex flex-col items-start gap-3">
             <a
               href={`mailto:${site.email}`}
               className="inline-flex items-center gap-2 text-[0.82rem] font-medium text-volt transition-opacity hover:opacity-75"
             >
               {site.email}
             </a>
+            <Link
+              href="/faq"
+              className="inline-flex items-center gap-2 text-[0.82rem] font-medium text-ink-soft underline underline-offset-4 transition-colors hover:text-ink"
+            >
+              See the full FAQ
+            </Link>
           </Reveal>
         </div>
 

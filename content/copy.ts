@@ -176,7 +176,7 @@ export const footerNav = [
       { label: "Hematite bracelets", href: "/shop" },
       { label: "Blog", href: "/blog" },
       { label: "Why hematite", href: "#stone" },
-      { label: "Sizing", href: "#faq" },
+      { label: "Sizing", href: "/faq" },
       { label: "Gift sets", href: "/shop" },
     ],
   },
@@ -185,7 +185,7 @@ export const footerNav = [
     links: [
       { label: "Shipping policy", href: "/shipping-policy" },
       { label: "Refund & return policy", href: "/refund-policy" },
-      { label: "FAQ", href: "#faq" },
+      { label: "FAQ", href: "/faq" },
       { label: "Contact us", href: "/contact" },
     ],
   },
