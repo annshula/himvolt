@@ -27,8 +27,11 @@ export function LogoMark({
     <Image
       src={LOGO_SRC[variant]}
       alt={site.name}
-      width={512}
-      height={512}
+      // Rendered at 28-32px everywhere it's used (see Nav.tsx, Footer.tsx) —
+      // 128 covers up to 4x DPR with room to spare, without next/image
+      // computing a srcset toward the mark's actual 512x512 source file.
+      width={128}
+      height={128}
       priority={priority}
       className={className}
     />

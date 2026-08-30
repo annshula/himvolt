@@ -51,7 +51,7 @@ export default function Stone() {
               muted
               loop
               playsInline
-              poster="/media/current.webp"
+              poster="/poster/stone"
               className="h-auto w-full object-cover"
             >
               <source

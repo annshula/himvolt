@@ -131,7 +131,7 @@ export default function BenefitsPage() {
           muted
           loop
           playsInline
-          poster="/media/current.webp"
+          poster="/poster/stone"
           className="pointer-events-none absolute inset-0 -z-20 h-full w-full object-cover"
         >
           <source

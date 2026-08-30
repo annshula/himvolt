@@ -45,7 +45,7 @@ export default function Hero() {
         loop
         playsInline
         preload="auto"
-        poster="/videos/himvolt-hero-poster.webp"
+        poster="/poster/hero"
       >
         <source media="(max-width: 640px)" src="/videos/himvolt-hero-sm.mp4" type="video/mp4" />
         <source src="/videos/himvolt-hero.mp4" type="video/mp4" />
