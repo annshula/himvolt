@@ -10,11 +10,18 @@
  */
 
 import { daysRangeDisplay, defaultRegion } from "@/lib/shipping";
+import { site } from "@/lib/site";
 
 export const hero = {
   eyebrow: "Hematite collection",
   headline: ["Genuine hematite bracelets.", "Cut for steady hands."],
-  sub: "Genuine, natural hematite bracelets and rings, cut from one of the densest stones you can wear. Cool to the touch, unmistakably heavy in hand, carried since antiquity for the grounding it's said to bring.",
+  // Same copy as the meta description (lib/site.ts) rather than its own
+  // independently-worded line — the H1 already carries "genuine hematite
+  // bracelets"; repeating that exact phrase again here just wastes the
+  // subhead's second keyword slot instead of widening it the way the meta
+  // description does. One source of truth also means the two can't quietly
+  // drift apart the way promise.returns and this used to.
+  sub: site.description,
   cta: "Shop the collection",
   ctaHref: "/shop",
   secondary: "See the stone",

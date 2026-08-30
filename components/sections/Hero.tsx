@@ -3,7 +3,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import Button from "@/components/ui/Button";
-import { Magnetic, easeOut } from "@/components/ui/Motion";
+import { easeOut } from "@/components/ui/Motion";
 import { hero } from "@/content/copy";
 import { site } from "@/lib/site";
 
@@ -108,16 +108,12 @@ export default function Hero() {
             variants={item}
             className="mt-10 flex flex-wrap items-center justify-center gap-4"
           >
-            <Magnetic>
-              <Button href={hero.ctaHref} arrow variant="invert">
-                {hero.cta}
-              </Button>
-            </Magnetic>
-            <Magnetic strength={0.25}>
-              <Button href={hero.secondaryHref} variant="ghost">
-                {hero.secondary}
-              </Button>
-            </Magnetic>
+            <Button href={hero.ctaHref} arrow variant="invert">
+              {hero.cta}
+            </Button>
+            <Button href={hero.secondaryHref} variant="ghost">
+              {hero.secondary}
+            </Button>
           </motion.div>
 
           <motion.p

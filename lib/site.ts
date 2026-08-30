@@ -14,7 +14,7 @@ export const site = {
   email: "support@himvolt.com",
   address: "Toronto, Ontario, Canada",
   description:
-    "HimVolt makes genuine hematite bracelets and rings for men. Real stone, elastic and band fits, free tracked shipping worldwide, free fix for damaged or wrong items.",
+    "Natural hematite stone bracelets and rings for men — real iron oxide, not resin or dye. Free tracked worldwide shipping, free fix for damaged or wrong items.",
   locale: "en_US",
   currency: "USD",
 
