@@ -142,6 +142,7 @@ export default function Reviews() {
                 className="group flex flex-col rounded-xl border border-line bg-linen p-5 transition-all duration-500 ease-(--ease-out-expo) hover:-translate-y-1 hover:border-ink/15"
               >
                 <span
+                  role="img"
                   className="flex gap-0.5 text-volt"
                   aria-label={`${r.stars} out of 5 stars`}
                 >

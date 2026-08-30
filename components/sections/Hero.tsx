@@ -73,10 +73,17 @@ export default function Hero() {
           animate="visible"
           className="relative z-10 mx-auto max-w-176 text-center"
         >
-          <motion.h1
-            variants={item}
-            className="font-mega text-[clamp(2.9rem,7.2vw,5.2rem)] leading-[0.88] text-chalk"
-          >
+          {/*
+            h1 and the subhead below render as plain elements, not
+            motion.* with variants={item} — they are the LCP candidate, and
+            an opacity:0 → 1 entrance driven by Framer Motion means the
+            browser can't count them as "rendered" until JS hydrates *and*
+            the stagger/transition timeline finishes (~1s of animation on
+            top of hydration cost). That showed up as ~2.7s of LCP render
+            delay with resource loading already done. Motion stays on the
+            buttons/promise-line below, which aren't LCP-critical.
+          */}
+          <h1 className="font-mega text-[clamp(2.9rem,7.2vw,5.2rem)] leading-[0.88] text-chalk">
             {hero.headline[0]}
             <br />
             <span className="relative inline-block">
@@ -91,14 +98,11 @@ export default function Hero() {
                 className="absolute -right-1 -bottom-1 h-0.75 w-[42%] rounded-full bg-linear-to-r from-transparent via-chalk/60 to-transparent"
               />
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={item}
-            className="mt-7 max-w-[62ch] text-[0.94rem] leading-[1.65] text-steel text-pretty"
-          >
+          <p className="mt-7 max-w-[62ch] text-[0.94rem] leading-[1.65] text-steel text-pretty">
             {hero.sub}
-          </motion.p>
+          </p>
 
           <motion.div
             variants={item}
