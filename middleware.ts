@@ -85,6 +85,17 @@ const META_EVENT_SRC = META_PIXEL_ENABLED
   ? " https://*.run.app https://*.on.aws"
   : "";
 
+/**
+ * Bïrch Signals Gateway — a Meta Conversions API (CAPI) server-side tracking
+ * partner configured through Meta Business Manager's Partner Integrations,
+ * not through anything in this codebase. fbevents.js calls out to it
+ * directly (signals.birch.click) as part of that partner config, so it needs
+ * its own connect-src entry alongside the pixel's own hosts above. With no
+ * pixel id the app never loads fbevents.js, so the CSP stays as tight as it
+ * was.
+ */
+const META_BIRCH_SRC = META_PIXEL_ENABLED ? " https://signals.birch.click" : "";
+
 const CSP = [
   `default-src 'self'`,
   // See module doc for why 'unsafe-inline' is here (Next's inline RSC payload).
@@ -105,7 +116,7 @@ const CSP = [
   // gtag.js sends hits to the GA4 endpoints over fetch/XHR; Clarity uploads
   // replay/heatmap payloads to regional clarity.ms hosts; the Meta Pixel
   // posts events via form/fetch to facebook.com and CAPI collection hosts.
-  `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${META_PIXEL_SRC}${META_EVENT_SRC}${CLARITY_SRC}${IS_DEV ? " ws://localhost:* wss://localhost:*" : ""}`,
+  `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${META_PIXEL_SRC}${META_EVENT_SRC}${META_BIRCH_SRC}${CLARITY_SRC}${IS_DEV ? " ws://localhost:* wss://localhost:*" : ""}`,
   // GTM's noscript fallback embeds an iframe from googletagmanager.com; the
   // Meta Pixel opens an iframe on facebook.com.
   `frame-src 'self'${META_FRAME_SRC} https://www.googletagmanager.com`,
