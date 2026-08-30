@@ -4,8 +4,8 @@ import Counter from "@/components/ui/Counter";
 import {
   StarIcon,
   GlobeIcon,
-  ReturnIcon,
   CheckIcon,
+  StoneIcon,
 } from "@/components/ui/Icons";
 import { Stagger, StaggerItem } from "@/components/ui/Motion";
 import { useLocalization } from "@/components/providers/LocalizationProvider";
@@ -17,7 +17,7 @@ import { daysRange, regionForCountry } from "@/lib/shipping";
  * colour. It reads as fact rather than marketing, which is the whole job.
  */
 export default function TrustBar() {
-  const { metrics, promise } = site;
+  const { metrics } = site;
   const { country, defaultCountry } = useLocalization();
   const shippingRegion = regionForCountry(country ?? defaultCountry?.isoCode);
   const shippingLabel = `Dispatched in 1–3 business days · ${daysRange(shippingRegion)} days to arrive`;
@@ -59,9 +59,9 @@ export default function TrustBar() {
         <Item icon={<GlobeIcon />} headline={<>Free</>} label={shippingLabel} />
 
         <Item
-          icon={<ReturnIcon />}
-          headline={<>30 days</>}
-          label={promise.returnsDetail}
+          icon={<StoneIcon />}
+          headline={<>5.5–6.5</>}
+          label="Mohs hardness, on par with steel"
         />
       </Stagger>
     </section>

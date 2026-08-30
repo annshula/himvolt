@@ -14,7 +14,7 @@ export const site = {
   email: "support@himvolt.com",
   address: "Toronto, Ontario, Canada",
   description:
-    "HimVolt makes genuine hematite bracelets and rings for men. Real stone, elastic and band fits, free tracked shipping worldwide, 30-day returns.",
+    "HimVolt makes genuine hematite bracelets and rings for men. Real stone, elastic and band fits, free tracked shipping worldwide, free fix for damaged or wrong items.",
   locale: "en_US",
   currency: "USD",
 
@@ -47,9 +47,18 @@ export const site = {
     // via useLocalization() instead of repeating a single figure for everyone.
     shippingDetail: `Dispatched in 1–3 business days · ${daysRange(defaultRegion)} days to arrive`,
     shippingFull: `Orders are processed within 1–3 business days, then tracked delivery typically takes ${daysRange(defaultRegion)} business days depending on where you are. Full country-by-country transit times are on our About page.`,
-    returns: "30-day returns, no questions",
-    returnsDetail: "Wear it a full month. Not yours? We pay the label.",
-    warranty: "12-month workmanship guarantee",
+    // Accurate scope: our supplier's dispute process only backs damaged,
+    // missing, and wrong-item claims — there is no general change-of-mind
+    // return, so the copy must never imply one. See
+    // lib/account/order-status.ts's reasonNeedsDetail() for the same line.
+    returns: "Free fix for damaged, missing, or wrong items",
+    returnsDetail:
+      "Send a photo within 30 days of delivery and we'll ship a free replacement or refund — that covers damage, missing items, and mis-ships, not general change-of-mind returns.",
+    // Verified, not promotional: the mineral's own Mohs hardness rating
+    // (see content/copy.ts stone.paragraphs). There is no workmanship or
+    // time-based warranty to advertise — do not add one without a real,
+    // written guarantee to back it.
+    durability: "5.5–6.5 Mohs hardness — on par with hardened steel",
     support: "Human replies in under 12 hours",
   },
 } as const;

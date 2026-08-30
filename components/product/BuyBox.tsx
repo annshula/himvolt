@@ -250,7 +250,7 @@ export function BuyBox({
       <ul className="mt-6 flex flex-col gap-2.5 text-[0.8rem] text-ink-soft">
         <Guarantee icon={<GlobeIcon />}>{site.promise.shipping}</Guarantee>
         <Guarantee icon={<ReturnIcon />}>{site.promise.returns}</Guarantee>
-        <Guarantee icon={<CheckIcon />}>{site.promise.warranty}</Guarantee>
+        <Guarantee icon={<CheckIcon />}>{site.promise.durability}</Guarantee>
         <Guarantee icon={<CheckIcon />}>{site.promise.support}</Guarantee>
       </ul>
 

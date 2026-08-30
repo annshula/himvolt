@@ -44,8 +44,12 @@ export default function Hero() {
         muted
         loop
         playsInline
-        src="/videos/himvolt-hero.mp4"
-      />
+        preload="auto"
+        poster="/videos/himvolt-hero-poster.webp"
+      >
+        <source media="(max-width: 640px)" src="/videos/himvolt-hero-sm.mp4" type="video/mp4" />
+        <source src="/videos/himvolt-hero.mp4" type="video/mp4" />
+      </motion.video>
 
       {/* Black scrim over the footage so the white type always reads clearly */}
       <div

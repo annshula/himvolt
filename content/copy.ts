@@ -149,8 +149,8 @@ export const faqs = [
     a: `Shipping is free to every country we serve, with no minimum order. Orders are processed within 1–3 business days, then tracked delivery typically takes ${daysRangeDisplay(defaultRegion)} depending on where you are — see the full country-by-country breakdown on our About page. Your tracking number arrives by email the moment the label is scanned.`,
   },
   {
-    q: "What if I do not like it?",
-    a: "Send it back within 30 days for a full refund and we cover the return label. You do not need to explain yourself and you do not need the original packaging. If a piece arrives damaged, send a photo instead — we will ship a replacement the same day and you keep the first one.",
+    q: "What if I don't like it, or it arrives damaged?",
+    a: "We do not offer change-of-mind returns, so check sizing and details before you order. If your piece arrives damaged, missing, or is not what you ordered, send us a photo within 30 days of delivery and we will ship a free replacement or refund — no need to send anything back.",
   },
   {
     q: "Can I wear it in the shower or the gym?",
@@ -165,7 +165,7 @@ export const faqs = [
 export const finalCta = {
   eyebrow: "Lite your life",
   headline: "Put something solid on.",
-  sub: "Free tracked shipping worldwide. 30 days to change your mind. Dispatched within 1–3 business days.",
+  sub: "Free tracked shipping worldwide. Free fix for damaged, missing, or wrong items. Dispatched within 1–3 business days.",
   cta: "Shop the collection",
 };
 
@@ -211,9 +211,9 @@ export const footerNav = [
 
 export const marqueeWords = [
   "Free worldwide shipping",
-  "30-day returns",
+  "Free fix for damaged or wrong items",
   "Natural hematite, iron oxide",
   "Dispatched in 1–3 business days",
-  "12-month workmanship guarantee",
+  "No clasp to fail — stretch elastic fit",
   "5.5–6.5 Mohs",
 ];

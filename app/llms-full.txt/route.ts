@@ -63,7 +63,7 @@ function buildLlmsFullTxt(): string {
   lines.push("");
   lines.push(`- Shipping: ${site.promise.shippingFull}`);
   lines.push(`- Returns: ${site.promise.returnsDetail}`);
-  lines.push(`- Warranty: ${site.promise.warranty}`);
+  lines.push(`- Durability: ${site.promise.durability}`);
   lines.push(`- Support: ${site.promise.support} — ${site.email}`);
   lines.push("");
 
