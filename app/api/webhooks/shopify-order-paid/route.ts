@@ -76,10 +76,20 @@ async function sendMetaPurchase(
   // in a staging env when verifying this pipeline end-to-end so a manual
   // test never counts as a real conversion.
   const testEventCode = process.env.META_TEST_EVENT_CODE?.trim();
-  if (!pixelId || !accessToken) return;
+  if (!pixelId || !accessToken) {
+    console.log(
+      `[webhook] Meta CAPI skipped for order ${order.id}: NEXT_PUBLIC_META_PIXEL_ID or META_CAPI_ACCESS_TOKEN not set in this environment`,
+    );
+    return;
+  }
 
   const items = (order.line_items ?? []).filter(isOurLineItem);
-  if (items.length === 0) return;
+  if (items.length === 0) {
+    console.log(
+      `[webhook] Meta CAPI skipped for order ${order.id}: no line items matched this store's catalog`,
+    );
+    return;
+  }
 
   const value = Number(order.current_total_price ?? order.total_price ?? 0);
 
@@ -131,7 +141,12 @@ async function sendMetaPurchase(
 async function sendGa4Purchase(order: ShopifyOrder): Promise<void> {
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
   const apiSecret = process.env.GA_MP_API_SECRET;
-  if (!measurementId || !apiSecret) return;
+  if (!measurementId || !apiSecret) {
+    console.log(
+      `[webhook] GA4 MP skipped for order ${order.id}: NEXT_PUBLIC_GA_MEASUREMENT_ID or GA_MP_API_SECRET not set in this environment`,
+    );
+    return;
+  }
 
   const items = (order.line_items ?? []).filter(isOurLineItem).map((line) => ({
     item_id: String(line.variant_id ?? line.id),
@@ -139,7 +154,12 @@ async function sendGa4Purchase(order: ShopifyOrder): Promise<void> {
     price: Number(line.price ?? 0),
     quantity: line.quantity ?? 1,
   }));
-  if (items.length === 0) return;
+  if (items.length === 0) {
+    console.log(
+      `[webhook] GA4 MP skipped for order ${order.id}: no line items matched this store's catalog`,
+    );
+    return;
+  }
 
   try {
     const response = await fetch(
@@ -203,6 +223,12 @@ export async function POST(request: NextRequest) {
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
+
+  // Logged unconditionally, before either analytics call: sendMetaPurchase/
+  // sendGa4Purchase can both no-op silently (missing env config, or no line
+  // item matched this store), which otherwise looks identical in the logs
+  // to this route never having been invoked at all.
+  console.log(`[webhook] order ${order.id} (${order.name ?? "unnamed"}) received, dispatching analytics`);
 
   // x-forwarded-for is a comma-separated proxy chain (client, proxy1,
   // proxy2, …) behind any reverse proxy/CDN — Meta's client_ip_address
