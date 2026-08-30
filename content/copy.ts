@@ -183,9 +183,9 @@ export const footerNav = [
   {
     title: "Help",
     links: [
-      { label: "Shipping", href: "#faq" },
-      { label: "Returns & refunds", href: "#faq" },
-      { label: "Restring guarantee", href: "#faq" },
+      { label: "Shipping policy", href: "/shipping-policy" },
+      { label: "Refund & return policy", href: "/refund-policy" },
+      { label: "FAQ", href: "#faq" },
       { label: "Contact us", href: "/contact" },
     ],
   },
@@ -202,8 +202,9 @@ export const footerNav = [
     title: "Company",
     links: [
       { label: "Our claims policy", href: "#stone" },
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
+      { label: "Privacy policy", href: "/privacy" },
+      { label: "Terms of service", href: "/terms" },
+      { label: "Cookie policy", href: "/cookie-policy" },
       { label: "Accessibility", href: "/accessibility" },
     ],
   },

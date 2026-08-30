@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/blog";
+import { LEGAL_PAGES } from "@/content/legal";
 import { products } from "@/lib/product";
 import { site } from "@/lib/site";
 
@@ -36,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
       images: [`${site.url}${post.coverImage.src}`],
+    })),
+    ...LEGAL_PAGES.map((page) => ({
+      url: `${site.url}/${page.slug}`,
+      lastModified: new Date(page.lastUpdated),
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
     })),
   ];
 }
