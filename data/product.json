@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-08-31T10:16:02.424Z",
+  "syncedAt": "2026-08-31T10:28:56.366Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -18,7 +18,7 @@
       "handle": "hematite-mens-bracelet",
       "title": "Hematite Men's Bracelet",
       "price": 34.88,
-      "compareAtPrice": null,
+      "compareAtPrice": 49.83,
       "currencyCode": "USD",
       "availableForSale": true,
       "variants": [
@@ -27,29 +27,29 @@
           "title": "Tile-Cut · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
-              "compareAtAmount": null,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S2c7c52ec76ce4dab8217561b85bf7f989.jpg?v=1788167608",
@@ -63,29 +63,29 @@
           "title": "Flat-Cut · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": true,
           "stockQuantity": 8063,
           "pricesByMarket": {
-            "CA": {
-              "amount": 43.19,
-              "compareAtAmount": 50.97,
-              "currencyCode": "CAD"
-            },
             "AU": {
-              "amount": 44.88,
-              "compareAtAmount": 56.55,
+              "amount": 50,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 22.3,
-              "compareAtAmount": 27.43,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
-              "amount": 32.66,
-              "compareAtAmount": 39.52,
+              "amount": 34.88,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S0ceef88514dc4a16b15a96a31b0f5074f.jpg?v=1788167608",
@@ -99,29 +99,29 @@
           "title": "Curved Barrel · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
-              "compareAtAmount": null,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S191cd2e83d2e48d392aad3583c8261470.jpg?v=1788167607",
@@ -135,29 +135,29 @@
           "title": "Slim Barrel · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
-              "compareAtAmount": null,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S4b0dc169d3184d9dbf470d7cd198a746A.jpg?v=1788167608",
@@ -171,29 +171,29 @@
           "title": "Chunky Octagon · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
-              "compareAtAmount": null,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5272d1b808d7409c90f8124d1ac010a2W.jpg?v=1788167608",
@@ -207,29 +207,29 @@
           "title": "Micro-Cut · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
-              "compareAtAmount": null,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S59595ea5f22c4c128984ec44dce4938bO.jpg?v=1788167608",
@@ -243,29 +243,29 @@
           "title": "Rectangular · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
-              "compareAtAmount": null,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S64e061cc93924df98b95d858214aa0b8U.jpg?v=1788167608",
@@ -279,29 +279,29 @@
           "title": "Chevron · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
-              "compareAtAmount": null,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S6fdb709f0d9d49ab9917abaa38b3f772F.jpg?v=1788167608",
@@ -315,29 +315,29 @@
           "title": "Bar-Cut · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
-              "compareAtAmount": null,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S72a99afb2419499da033af21b9711af2A.jpg?v=1788167608",
@@ -351,29 +351,29 @@
           "title": "Tile & Bead · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
-              "compareAtAmount": null,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sa32276b6e9d3453b81e110f655051648v.jpg?v=1788167608",
@@ -387,29 +387,29 @@
           "title": "Square & Bead · 1 bracelet",
           "sku": "CJSL274901701AZ",
           "price": 34.88,
-          "compareAtPrice": null,
+          "compareAtPrice": 49.83,
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 71,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 70,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
-              "compareAtAmount": null,
+              "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 38,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sb0806f7e135b44189890ac656c1d9728y.jpg?v=1788167608",
@@ -427,25 +427,25 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
               "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 62,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S2c7c52ec76ce4dab8217561b85bf7f989.jpg?v=1788167608",
@@ -463,25 +463,25 @@
           "availableForSale": true,
           "stockQuantity": 8061,
           "pricesByMarket": {
-            "CA": {
-              "amount": 43.19,
-              "compareAtAmount": 101.94,
-              "currencyCode": "CAD"
-            },
             "AU": {
-              "amount": 44.88,
-              "compareAtAmount": 117.27,
+              "amount": 50,
+              "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 22.3,
-              "compareAtAmount": 54.86,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
-              "amount": 32.66,
-              "compareAtAmount": 79.04,
+              "amount": 34.88,
+              "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S0ceef88514dc4a16b15a96a31b0f5074f.jpg?v=1788167608",
@@ -499,25 +499,25 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
               "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 62,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S191cd2e83d2e48d392aad3583c8261470.jpg?v=1788167607",
@@ -535,25 +535,25 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
               "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 62,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S4b0dc169d3184d9dbf470d7cd198a746A.jpg?v=1788167608",
@@ -571,25 +571,25 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
               "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 62,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5272d1b808d7409c90f8124d1ac010a2W.jpg?v=1788167608",
@@ -607,25 +607,25 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
               "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 62,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S59595ea5f22c4c128984ec44dce4938bO.jpg?v=1788167608",
@@ -643,25 +643,25 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
               "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 62,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S64e061cc93924df98b95d858214aa0b8U.jpg?v=1788167608",
@@ -679,25 +679,25 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
               "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 62,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S6fdb709f0d9d49ab9917abaa38b3f772F.jpg?v=1788167608",
@@ -715,25 +715,25 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
               "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 62,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S72a99afb2419499da033af21b9711af2A.jpg?v=1788167608",
@@ -751,25 +751,25 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
               "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 62,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sa32276b6e9d3453b81e110f655051648v.jpg?v=1788167608",
@@ -787,25 +787,25 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 50,
               "compareAtAmount": 118,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 62,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 49,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 34.88,
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 27,
+              "compareAtAmount": 62,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sb0806f7e135b44189890ac656c1d9728y.jpg?v=1788167608",
@@ -823,6 +823,12 @@
           "height": 800
         },
         {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5b308fe34f1b41b8a3900a9c91c7abc4O.jpg?v=1788167608",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1440,
+          "height": 1440
+        },
+        {
           "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S6fdb709f0d9d49ab9917abaa38b3f772F.jpg?v=1788167608",
           "alt": "Hematite Men's Bracelet",
           "width": 800,
@@ -836,12 +842,6 @@
         },
         {
           "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S221eef4025704d1e801450120299f576X.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 1440,
-          "height": 1440
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5b308fe34f1b41b8a3900a9c91c7abc4O.jpg?v=1788167608",
           "alt": "Hematite Men's Bracelet",
           "width": 1440,
           "height": 1440
@@ -1103,25 +1103,25 @@
           "availableForSale": true,
           "stockQuantity": 8465,
           "pricesByMarket": {
-            "CA": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 21,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 11,
+            "CA": {
+              "amount": 21,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 14.44,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 11,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1139,25 +1139,25 @@
           "availableForSale": true,
           "stockQuantity": 8100,
           "pricesByMarket": {
-            "CA": {
-              "amount": 24,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 25,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 13,
+            "CA": {
+              "amount": 24,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 17.02,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1175,25 +1175,25 @@
           "availableForSale": true,
           "stockQuantity": 5296,
           "pricesByMarket": {
-            "CA": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.99,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1211,25 +1211,25 @@
           "availableForSale": true,
           "stockQuantity": 9547,
           "pricesByMarket": {
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.69,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1247,25 +1247,25 @@
           "availableForSale": true,
           "stockQuantity": 8010,
           "pricesByMarket": {
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.17,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1283,25 +1283,25 @@
           "availableForSale": true,
           "stockQuantity": 5018,
           "pricesByMarket": {
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.27,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1319,25 +1319,25 @@
           "availableForSale": true,
           "stockQuantity": 7150,
           "pricesByMarket": {
-            "CA": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 11,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 13.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 11,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1355,25 +1355,25 @@
           "availableForSale": true,
           "stockQuantity": 6099,
           "pricesByMarket": {
-            "CA": {
-              "amount": 16,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 16,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 9,
+            "CA": {
+              "amount": 16,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 10.83,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 9,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1391,25 +1391,25 @@
           "availableForSale": true,
           "stockQuantity": 6433,
           "pricesByMarket": {
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.58,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1427,25 +1427,25 @@
           "availableForSale": true,
           "stockQuantity": 9471,
           "pricesByMarket": {
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 17,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 9,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 11.86,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 9,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1463,25 +1463,25 @@
           "availableForSale": true,
           "stockQuantity": 8889,
           "pricesByMarket": {
-            "CA": {
-              "amount": 16,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 16,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 9,
+            "CA": {
+              "amount": 16,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 10.83,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 9,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1499,25 +1499,25 @@
           "availableForSale": true,
           "stockQuantity": 5949,
           "pricesByMarket": {
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 17,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 9,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 11.86,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 9,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1535,25 +1535,25 @@
           "availableForSale": true,
           "stockQuantity": 9915,
           "pricesByMarket": {
-            "CA": {
-              "amount": 13,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 13,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 7,
+            "CA": {
+              "amount": 13,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 8.97,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 7,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1571,25 +1571,25 @@
           "availableForSale": true,
           "stockQuantity": 7674,
           "pricesByMarket": {
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 17,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 9,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 11.86,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 9,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1607,25 +1607,25 @@
           "availableForSale": true,
           "stockQuantity": 8420,
           "pricesByMarket": {
-            "CA": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 21,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 11,
+            "CA": {
+              "amount": 21,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 14.44,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 11,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1643,25 +1643,25 @@
           "availableForSale": true,
           "stockQuantity": 6274,
           "pricesByMarket": {
-            "CA": {
-              "amount": 24,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 25,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 13,
+            "CA": {
+              "amount": 24,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 17.02,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1679,25 +1679,25 @@
           "availableForSale": true,
           "stockQuantity": 5038,
           "pricesByMarket": {
-            "CA": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.99,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1715,25 +1715,25 @@
           "availableForSale": true,
           "stockQuantity": 7167,
           "pricesByMarket": {
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.69,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1751,25 +1751,25 @@
           "availableForSale": true,
           "stockQuantity": 7271,
           "pricesByMarket": {
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.17,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1787,25 +1787,25 @@
           "availableForSale": true,
           "stockQuantity": 6503,
           "pricesByMarket": {
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.27,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1823,25 +1823,25 @@
           "availableForSale": true,
           "stockQuantity": 8409,
           "pricesByMarket": {
-            "CA": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 11,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 13.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 11,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1859,25 +1859,25 @@
           "availableForSale": true,
           "stockQuantity": 8072,
           "pricesByMarket": {
-            "CA": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 21,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 11,
+            "CA": {
+              "amount": 21,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 14.44,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 11,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1895,25 +1895,25 @@
           "availableForSale": true,
           "stockQuantity": 8387,
           "pricesByMarket": {
-            "CA": {
-              "amount": 24,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 25,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 13,
+            "CA": {
+              "amount": 24,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 17.02,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1931,25 +1931,25 @@
           "availableForSale": true,
           "stockQuantity": 7454,
           "pricesByMarket": {
-            "CA": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.99,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1967,25 +1967,25 @@
           "availableForSale": true,
           "stockQuantity": 9944,
           "pricesByMarket": {
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.69,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -2003,25 +2003,25 @@
           "availableForSale": true,
           "stockQuantity": 6030,
           "pricesByMarket": {
-            "CA": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.17,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -2039,25 +2039,25 @@
           "availableForSale": true,
           "stockQuantity": 9103,
           "pricesByMarket": {
-            "CA": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 18,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 10,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 12.27,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 10,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -2075,25 +2075,25 @@
           "availableForSale": true,
           "stockQuantity": 7788,
           "pricesByMarket": {
-            "CA": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 19,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 11,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 13.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 11,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -2284,25 +2284,25 @@
           "availableForSale": true,
           "stockQuantity": 47229,
           "pricesByMarket": {
-            "CA": {
-              "amount": 42.93,
-              "compareAtAmount": 51.52,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 44.66,
               "compareAtAmount": 58.05,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 22.05,
-              "compareAtAmount": 25.8,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 42.93,
+              "compareAtAmount": 51.52,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 32.14,
               "compareAtAmount": 39.85,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 22.05,
+              "compareAtAmount": 25.8,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
@@ -2482,25 +2482,25 @@
           "availableForSale": true,
           "stockQuantity": 29489,
           "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 26,
+            "CA": {
+              "amount": 47,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2518,25 +2518,25 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 26,
+            "CA": {
+              "amount": 47,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2554,25 +2554,25 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 26,
+            "CA": {
+              "amount": 47,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2590,25 +2590,25 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 26,
+            "CA": {
+              "amount": 47,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2626,25 +2626,25 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 26,
+            "CA": {
+              "amount": 47,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2662,25 +2662,25 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 41,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 22,
+            "CA": {
+              "amount": 40,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 28.67,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 22,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2698,25 +2698,25 @@
           "availableForSale": true,
           "stockQuantity": 29493,
           "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 49,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 26,
+            "CA": {
+              "amount": 47,
               "compareAtAmount": null,
-              "currencyCode": "GBP"
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 26,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2885,25 +2885,25 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 42.57,
               "compareAtAmount": 50.65,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2921,25 +2921,25 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 46,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2957,25 +2957,25 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 46,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2993,25 +2993,25 @@
           "availableForSale": true,
           "stockQuantity": 40004,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 46,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3029,25 +3029,25 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 46,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3065,25 +3065,25 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 42,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3101,25 +3101,25 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 42,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3137,25 +3137,25 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 42,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3173,25 +3173,25 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 42,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3209,25 +3209,25 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
             "AU": {
               "amount": 42,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "US": {
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "GB": {
+              "amount": 21.24,
+              "compareAtAmount": 25.7,
+              "currencyCode": "GBP"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
