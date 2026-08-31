@@ -22,8 +22,8 @@ export default function Reviews() {
   const distribution = [
     { stars: 5, pct: 86 },
     { stars: 4, pct: 11 },
-    { stars: 3, pct: 2 },
-    { stars: 2, pct: 1 },
+    { stars: 3, pct: 0 },
+    { stars: 2, pct: 0 },
     { stars: 1, pct: 0 },
   ];
 
@@ -108,7 +108,11 @@ function MarqueeRail({
         }}
       >
         {[0, 1].map((copy) => (
-          <div key={copy} aria-hidden={copy === 1} className="flex shrink-0 gap-4">
+          <div
+            key={copy}
+            aria-hidden={copy === 1}
+            className="flex shrink-0 gap-4"
+          >
             {items.map((r) => (
               <ReviewCard key={`${copy}-${r.name}`} {...r} />
             ))}
