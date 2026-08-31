@@ -164,20 +164,6 @@ export const reviews = [
   },
   {
     quote:
-      "Bought the pair. Wear one, gave one to my brother on his fortieth. He has not taken it off since — and he does not wear jewellery.",
-    name: "Tomás R.",
-    meta: "Verified owner · Madrid",
-    stars: 5,
-  },
-  {
-    quote:
-      "It is heavier than I expected in the best way. Feels like a tool, not an accessory. Sits flat under a shirt cuff.",
-    name: "Ade O.",
-    meta: "Verified owner · London",
-    stars: 5,
-  },
-  {
-    quote:
       "Ordered Thursday, tracking number Friday, on my wrist the following Wednesday. Australia. I have waited longer for domestic orders.",
     name: "Jack W.",
     meta: "Verified owner · Melbourne",

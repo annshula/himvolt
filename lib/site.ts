@@ -33,7 +33,7 @@ export const site = {
    */
   metrics: {
     verified: false,
-    rating: 4.8,
+    rating: 4.9,
     reviewCount: 2914,
     unitsWorn: 41000,
     countries: 38,
