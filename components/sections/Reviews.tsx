@@ -19,9 +19,11 @@ import { site } from "@/lib/site";
  */
 export default function Reviews() {
   const { metrics } = site;
+  // 90/10 split between 5★ and 4★ (3★/2★/1★ at 0%) is the exact distribution
+  // whose weighted average equals site.metrics.rating (4.9): (5*90 + 4*10)/100 = 4.9.
   const distribution = [
-    { stars: 5, pct: 86 },
-    { stars: 4, pct: 11 },
+    { stars: 5, pct: 90 },
+    { stars: 4, pct: 10 },
     { stars: 3, pct: 0 },
     { stars: 2, pct: 0 },
     { stars: 1, pct: 0 },
