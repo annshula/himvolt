@@ -294,6 +294,9 @@ function splitVariantTitle(title: string): {
   return { axis1, axis2: axis2 ?? null };
 }
 
+/** A pack-count axis ("1 bracelet" / "2 bracelets") reads oddly under a "Size" legend — every value naming the product itself (not a measurement) means this is a quantity choice, not a fit choice. */
+const PACK_COUNT_RE = /\b(bracelets?|rings?|bands?|pieces?)\b/i;
+
 /** "2mm" < "3mm" < "10mm" < "12mm" — plain string sort would put "10mm" before "2mm". */
 function bySizeAscending(a: string, b: string) {
   const na = parseFloat(a);
@@ -335,12 +338,7 @@ function VariantPicker({
     const sortedFlat = [...parsed].sort((a, b) =>
       bySizeAscending(a.axis1, b.axis1),
     );
-    // A pack-count axis ("1 bracelet" / "2 bracelets") reads oddly under a
-    // "Size" legend — every value naming the product itself (not a
-    // measurement) means this is a quantity choice, not a fit choice.
-    const isPackCount = sortedFlat.every(({ axis1 }) =>
-      /\b(bracelets?|rings?|bands?|pieces?)\b/i.test(axis1),
-    );
+    const isPackCount = sortedFlat.every(({ axis1 }) => PACK_COUNT_RE.test(axis1));
     return (
       <fieldset className="mt-8">
         <legend className="mb-2.5 text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
@@ -392,6 +390,9 @@ function VariantPicker({
   }
   const axis2Options = [...(groups.get(selected.axis1) ?? [])].sort((a, b) =>
     bySizeAscending(a.axis2 ?? "", b.axis2 ?? ""),
+  );
+  const axis2IsPackCount = axis2Options.every(
+    ({ axis2 }) => axis2 != null && PACK_COUNT_RE.test(axis2),
   );
 
   const pickAxis1 = (axis1: string) => {
@@ -454,7 +455,7 @@ function VariantPicker({
       <fieldset className="mt-6">
         <div className="mb-2.5 flex items-baseline justify-between">
           <legend className="text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
-            Size
+            {axis2IsPackCount ? "Quantity" : "Size"}
           </legend>
           <span className="text-[0.8rem] font-medium text-ink">
             {selected.axis2}
