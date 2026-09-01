@@ -70,6 +70,9 @@ export function BuyBox({
   // derives this boolean server-side from Shopify's actual inventory, so
   // there's nothing confidential in the client bundle to accidentally render.
   const lowStock = selected.lowStock;
+  // A sold-out variant can't be ordered — buying it would be rejected by the
+  // cart API, so the whole purchase surface is disabled and labelled instead.
+  const outOfStock = !selected.availableForSale;
 
   const save =
     selectedPrice.compareAtAmount != null &&
@@ -117,7 +120,12 @@ export function BuyBox({
 
       {/* --------------------------------- chips --------------------------------- */}
       <ul className="mt-4 flex flex-wrap items-center gap-1.5">
-        {lowStock ? (
+        {outOfStock ? (
+          <li className="inline-flex h-7 items-center gap-1.5 rounded-full border border-red-600/25 bg-red-500/10 px-2.5 text-[0.72rem] font-medium text-red-700">
+            <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+            Out of stock
+          </li>
+        ) : lowStock ? (
           <li className="inline-flex h-7 items-center gap-1.5 rounded-full border border-amber-600/25 bg-amber-500/10 px-2.5 text-[0.72rem] font-medium text-amber-700">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
             Low stock — order soon
@@ -175,7 +183,9 @@ export function BuyBox({
         <Magnetic strength={0.15} className="block flex-1">
           <button
             type="button"
+            disabled={outOfStock}
             onClick={() => {
+              if (outOfStock) return;
               add(selected.id, quantity);
               toast.success("Added to cart", {
                 description: product.title,
@@ -186,20 +196,23 @@ export function BuyBox({
                 ),
               });
             }}
-            className="group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-linear-to-b from-volt-hot to-volt font-display text-[0.88rem] font-semibold tracking-widest whitespace-nowrap text-on-accent uppercase transition-all duration-400 ease-(--ease-out-expo) hover:-translate-y-0.5 active:scale-[0.98]"
+            className="group relative flex h-14 w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-linear-to-b from-volt-hot to-volt font-display text-[0.88rem] font-semibold tracking-widest whitespace-nowrap text-on-accent uppercase transition-all duration-400 ease-(--ease-out-expo) hover:-translate-y-0.5 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
           >
             <span
               aria-hidden
               className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(105deg,transparent_38%,rgba(255,255,255,0.42)_50%,transparent_62%)] transition-transform duration-900 ease-(--ease-out-expo) group-hover:translate-x-full"
             />
             <span className="relative">
-              Add to bag —{" "}
-              {selectedPrice.pending
-                ? "…"
-                : formatMoney(
-                    selectedPrice.amount * quantity,
-                    selectedPrice.currencyCode,
-                  )}
+              {outOfStock
+                ? "Out of stock"
+                : `Add to bag — ${
+                    selectedPrice.pending
+                      ? "…"
+                      : formatMoney(
+                          selectedPrice.amount * quantity,
+                          selectedPrice.currencyCode,
+                        )
+                  }`}
             </span>
           </button>
         </Magnetic>
@@ -207,7 +220,7 @@ export function BuyBox({
 
       <button
         type="button"
-        disabled={buying}
+        disabled={buying || outOfStock}
         onClick={async () => {
           setBuying(true);
           setBuyError(null);
@@ -255,9 +268,9 @@ export function BuyBox({
       </ul>
 
       <p className="mt-5 text-[0.72rem] leading-relaxed text-ink-mute">
-        We state what hematite is — composition, hardness, the streak test —
-        not what it will do for you. No "boosts testosterone," no health
-        claims. Just the mineral, honestly described.
+        We state what hematite is — composition, hardness, the streak test — not
+        what it will do for you. No "boosts testosterone," no health claims.
+        Just the mineral, honestly described.
       </p>
     </div>
   );
@@ -338,7 +351,9 @@ function VariantPicker({
     const sortedFlat = [...parsed].sort((a, b) =>
       bySizeAscending(a.axis1, b.axis1),
     );
-    const isPackCount = sortedFlat.every(({ axis1 }) => PACK_COUNT_RE.test(axis1));
+    const isPackCount = sortedFlat.every(({ axis1 }) =>
+      PACK_COUNT_RE.test(axis1),
+    );
     return (
       <fieldset className="mt-8">
         <legend className="mb-2.5 text-[0.68rem] font-semibold tracking-[0.2em] text-ink-mute uppercase">
@@ -348,15 +363,23 @@ function VariantPicker({
           {sortedFlat.map(({ v, axis1 }) => {
             const dealPct =
               v.compareAtPrice && v.compareAtPrice.amount > v.price.amount
-                ? Math.round((1 - v.price.amount / v.compareAtPrice.amount) * 100)
+                ? Math.round(
+                    (1 - v.price.amount / v.compareAtPrice.amount) * 100,
+                  )
                 : 0;
             return (
               <button
                 key={v.id}
                 type="button"
+                disabled={!v.availableForSale}
                 aria-pressed={v.id === selectedId}
+                title={v.availableForSale ? undefined : "Out of stock"}
                 onClick={() => onSelect(v.id)}
-                className={cn(pillClass(v.id === selectedId), "inline-flex items-center gap-1.5")}
+                className={cn(
+                  pillClass(v.id === selectedId),
+                  "inline-flex items-center gap-1.5",
+                  !v.availableForSale && "cursor-not-allowed opacity-40",
+                )}
               >
                 {axis1}
                 {isPackCount && dealPct >= 20 && (
@@ -397,8 +420,11 @@ function VariantPicker({
 
   const pickAxis1 = (axis1: string) => {
     const group = groups.get(axis1)!;
-    const sameSize = group.find((p) => p.axis2 === selected.axis2);
-    onSelect((sameSize ?? group[0]).v.id);
+    const sameSize = group.find(
+      (p) => p.axis2 === selected.axis2 && p.v.availableForSale,
+    );
+    const fallback = group.find((p) => p.v.availableForSale) ?? group[0];
+    onSelect((sameSize ?? fallback).v.id);
   };
 
   return (
@@ -416,12 +442,17 @@ function VariantPicker({
           {axis1Order.map((axis1) => {
             const rep = groups.get(axis1)![0].v;
             const isSelected = axis1 === selected.axis1;
+            const groupAvailable = groups
+              .get(axis1)!
+              .some((p) => p.v.availableForSale);
             return (
               <button
                 key={axis1}
                 type="button"
                 aria-label={axis1}
                 aria-pressed={isSelected}
+                disabled={!groupAvailable}
+                title={groupAvailable ? undefined : "Out of stock"}
                 onClick={() => pickAxis1(axis1)}
                 // A plain `border-*` colour utility can't be trusted here — an
                 // unlayered `* { border-color }` reset in globals.css always
@@ -432,7 +463,7 @@ function VariantPicker({
                   isSelected
                     ? "ring-2 ring-ink ring-offset-2"
                     : "hover:ring-1 hover:ring-ink/40 hover:ring-offset-1"
-                }`}
+                } ${groupAvailable ? "" : "cursor-not-allowed opacity-40"}`}
               >
                 <Image
                   src={rep.image}
@@ -466,9 +497,14 @@ function VariantPicker({
             <button
               key={v.id}
               type="button"
+              disabled={!v.availableForSale}
               aria-pressed={v.id === selectedId}
+              title={v.availableForSale ? undefined : "Out of stock"}
               onClick={() => onSelect(v.id)}
-              className={pillClass(v.id === selectedId)}
+              className={cn(
+                pillClass(v.id === selectedId),
+                !v.availableForSale && "cursor-not-allowed opacity-40",
+              )}
             >
               {axis2}
             </button>

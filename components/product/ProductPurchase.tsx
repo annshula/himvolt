@@ -17,9 +17,13 @@ import type { Product } from "@/lib/product";
 export function ProductPurchase({ product }: { product: Product }) {
   // Default to whichever variant carries the deepest real discount (a BOGO
   // or bundle deal) rather than always the first — that's the offer worth
-  // leading with. Falls back to the first variant when nothing is
+  // leading with. Sold-out variants can't be ordered, so they're excluded
+  // from the default unless every variant is sold out (then the picker still
+  // has to show something). Falls back to the first variant when nothing is
   // discounted, so a plain single-SKU product is unaffected.
-  const bestDeal = product.variants.reduce((best, v) => {
+  const buyable = product.variants.filter((v) => v.availableForSale);
+  const candidates = buyable.length > 0 ? buyable : product.variants;
+  const bestDeal = candidates.reduce((best, v) => {
     const pct =
       v.compareAtPrice && v.compareAtPrice.amount > v.price.amount
         ? 1 - v.price.amount / v.compareAtPrice.amount
@@ -29,7 +33,7 @@ export function ProductPurchase({ product }: { product: Product }) {
         ? 1 - best.price.amount / best.compareAtPrice.amount
         : 0;
     return pct > bestPct ? v : best;
-  }, product.variants[0]);
+  }, candidates[0]);
   const [selectedId, setSelectedId] = useState(bestDeal.id);
   const selected =
     product.variants.find((v) => v.id === selectedId) ?? product.variants[0];
