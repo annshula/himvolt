@@ -286,6 +286,20 @@ export function ChevronRightIcon({ className = base }: IconProps) {
   );
 }
 
+export function ChevronLeftIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+      <path
+        d="m15 6-6 6 6 6"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function RefreshIcon({ className = base }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
@@ -475,7 +489,13 @@ export function LogoutIcon({ className = base }: IconProps) {
 export function ZoomIcon({ className = base }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
-      <circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" strokeWidth="1.4" />
+      <circle
+        cx="10.5"
+        cy="10.5"
+        r="6.5"
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
       <path
         d="M15.3 15.3 20 20M10.5 7.8v5.4M7.8 10.5h5.4"
         stroke="currentColor"
@@ -530,6 +550,7 @@ export const iconMap = {
   plus: PlusIcon,
   user: UserIcon,
   "chevron-down": ChevronDownIcon,
+  "chevron-left": ChevronLeftIcon,
   "chevron-right": ChevronRightIcon,
   refresh: RefreshIcon,
   alert: AlertIcon,

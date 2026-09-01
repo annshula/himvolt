@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-08-31T10:28:56.366Z",
+  "syncedAt": "2026-09-01T21:23:59.580Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -31,11 +31,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -45,6 +40,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -67,11 +67,6 @@
           "availableForSale": true,
           "stockQuantity": 8063,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -81,6 +76,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -103,11 +103,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -117,6 +112,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -139,11 +139,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -153,6 +148,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -175,11 +175,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -189,6 +184,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -211,11 +211,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -225,6 +220,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -247,11 +247,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -261,6 +256,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -283,11 +283,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -297,6 +292,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -319,11 +319,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -333,6 +328,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -355,11 +355,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -369,6 +364,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -391,11 +391,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 71,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 70,
@@ -405,6 +400,11 @@
               "amount": 34.88,
               "compareAtAmount": 49.83,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 72,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 27,
@@ -427,11 +427,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -442,9 +437,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -463,11 +463,6 @@
           "availableForSale": true,
           "stockQuantity": 8061,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -478,9 +473,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -499,11 +499,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -514,9 +509,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -535,11 +535,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -550,9 +545,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -571,11 +571,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -586,9 +581,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -607,11 +607,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -622,9 +617,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -643,11 +643,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -658,9 +653,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -679,11 +679,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -694,9 +689,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -715,11 +715,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -730,9 +725,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -751,11 +751,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -766,9 +761,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -787,11 +787,6 @@
           "availableForSale": false,
           "stockQuantity": 0,
           "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 49,
               "compareAtAmount": 115,
@@ -802,9 +797,14 @@
               "compareAtAmount": 82.32,
               "currencyCode": "USD"
             },
+            "AU": {
+              "amount": 50,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 62,
+              "compareAtAmount": 63,
               "currencyCode": "GBP"
             }
           },
@@ -1103,11 +1103,6 @@
           "availableForSale": true,
           "stockQuantity": 8465,
           "pricesByMarket": {
-            "AU": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 21,
               "compareAtAmount": null,
@@ -1117,6 +1112,11 @@
               "amount": 14.44,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 21,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 11,
@@ -1139,11 +1139,6 @@
           "availableForSale": true,
           "stockQuantity": 8100,
           "pricesByMarket": {
-            "AU": {
-              "amount": 25,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 24,
               "compareAtAmount": null,
@@ -1153,6 +1148,11 @@
               "amount": 17.02,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 25,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 13,
@@ -1175,11 +1175,6 @@
           "availableForSale": true,
           "stockQuantity": 5296,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -1189,6 +1184,11 @@
               "amount": 12.99,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -1211,11 +1211,6 @@
           "availableForSale": true,
           "stockQuantity": 9547,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -1225,6 +1220,11 @@
               "amount": 12.69,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -1247,11 +1247,6 @@
           "availableForSale": true,
           "stockQuantity": 8010,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -1261,6 +1256,11 @@
               "amount": 12.17,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -1283,11 +1283,6 @@
           "availableForSale": true,
           "stockQuantity": 5018,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -1297,6 +1292,11 @@
               "amount": 12.27,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -1319,11 +1319,6 @@
           "availableForSale": true,
           "stockQuantity": 7150,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -1333,6 +1328,11 @@
               "amount": 13.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 11,
@@ -1355,11 +1355,6 @@
           "availableForSale": true,
           "stockQuantity": 6099,
           "pricesByMarket": {
-            "AU": {
-              "amount": 16,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 16,
               "compareAtAmount": null,
@@ -1369,6 +1364,11 @@
               "amount": 10.83,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 16,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 9,
@@ -1391,11 +1391,6 @@
           "availableForSale": true,
           "stockQuantity": 6433,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -1405,6 +1400,11 @@
               "amount": 12.58,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -1427,11 +1427,6 @@
           "availableForSale": true,
           "stockQuantity": 9471,
           "pricesByMarket": {
-            "AU": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -1441,6 +1436,11 @@
               "amount": 11.86,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 9,
@@ -1463,11 +1463,6 @@
           "availableForSale": true,
           "stockQuantity": 8889,
           "pricesByMarket": {
-            "AU": {
-              "amount": 16,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 16,
               "compareAtAmount": null,
@@ -1477,6 +1472,11 @@
               "amount": 10.83,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 16,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 9,
@@ -1499,11 +1499,6 @@
           "availableForSale": true,
           "stockQuantity": 5949,
           "pricesByMarket": {
-            "AU": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -1513,6 +1508,11 @@
               "amount": 11.86,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 9,
@@ -1535,11 +1535,6 @@
           "availableForSale": true,
           "stockQuantity": 9915,
           "pricesByMarket": {
-            "AU": {
-              "amount": 13,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 13,
               "compareAtAmount": null,
@@ -1549,6 +1544,11 @@
               "amount": 8.97,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 7,
@@ -1571,11 +1571,6 @@
           "availableForSale": true,
           "stockQuantity": 7674,
           "pricesByMarket": {
-            "AU": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -1585,6 +1580,11 @@
               "amount": 11.86,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 9,
@@ -1607,11 +1607,6 @@
           "availableForSale": true,
           "stockQuantity": 8420,
           "pricesByMarket": {
-            "AU": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 21,
               "compareAtAmount": null,
@@ -1621,6 +1616,11 @@
               "amount": 14.44,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 21,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 11,
@@ -1643,11 +1643,6 @@
           "availableForSale": true,
           "stockQuantity": 6274,
           "pricesByMarket": {
-            "AU": {
-              "amount": 25,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 24,
               "compareAtAmount": null,
@@ -1657,6 +1652,11 @@
               "amount": 17.02,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 25,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 13,
@@ -1679,11 +1679,6 @@
           "availableForSale": true,
           "stockQuantity": 5038,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -1693,6 +1688,11 @@
               "amount": 12.99,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -1715,11 +1715,6 @@
           "availableForSale": true,
           "stockQuantity": 7167,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -1729,6 +1724,11 @@
               "amount": 12.69,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -1751,11 +1751,6 @@
           "availableForSale": true,
           "stockQuantity": 7271,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -1765,6 +1760,11 @@
               "amount": 12.17,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -1787,11 +1787,6 @@
           "availableForSale": true,
           "stockQuantity": 6503,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -1801,6 +1796,11 @@
               "amount": 12.27,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -1823,11 +1823,6 @@
           "availableForSale": true,
           "stockQuantity": 8409,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -1837,6 +1832,11 @@
               "amount": 13.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 11,
@@ -1859,11 +1859,6 @@
           "availableForSale": true,
           "stockQuantity": 8072,
           "pricesByMarket": {
-            "AU": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 21,
               "compareAtAmount": null,
@@ -1873,6 +1868,11 @@
               "amount": 14.44,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 21,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 11,
@@ -1895,11 +1895,6 @@
           "availableForSale": true,
           "stockQuantity": 8387,
           "pricesByMarket": {
-            "AU": {
-              "amount": 25,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 24,
               "compareAtAmount": null,
@@ -1909,6 +1904,11 @@
               "amount": 17.02,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 25,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 13,
@@ -1931,11 +1931,6 @@
           "availableForSale": true,
           "stockQuantity": 7454,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -1945,6 +1940,11 @@
               "amount": 12.99,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -1967,11 +1967,6 @@
           "availableForSale": true,
           "stockQuantity": 9944,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -1981,6 +1976,11 @@
               "amount": 12.69,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -2003,11 +2003,6 @@
           "availableForSale": true,
           "stockQuantity": 6030,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -2017,6 +2012,11 @@
               "amount": 12.17,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -2039,11 +2039,6 @@
           "availableForSale": true,
           "stockQuantity": 9103,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -2053,6 +2048,11 @@
               "amount": 12.27,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 10,
@@ -2075,11 +2075,6 @@
           "availableForSale": true,
           "stockQuantity": 7788,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -2089,6 +2084,11 @@
               "amount": 13.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 11,
@@ -2284,11 +2284,6 @@
           "availableForSale": true,
           "stockQuantity": 47229,
           "pricesByMarket": {
-            "AU": {
-              "amount": 44.66,
-              "compareAtAmount": 58.05,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 42.93,
               "compareAtAmount": 51.52,
@@ -2298,6 +2293,11 @@
               "amount": 32.14,
               "compareAtAmount": 39.85,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 44.66,
+              "compareAtAmount": 58.05,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 22.05,
@@ -2482,11 +2482,6 @@
           "availableForSale": true,
           "stockQuantity": 29489,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 47,
               "compareAtAmount": null,
@@ -2496,6 +2491,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 26,
@@ -2518,11 +2518,6 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 47,
               "compareAtAmount": null,
@@ -2532,6 +2527,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 26,
@@ -2554,11 +2554,6 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 47,
               "compareAtAmount": null,
@@ -2568,6 +2563,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 26,
@@ -2590,11 +2590,6 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 47,
               "compareAtAmount": null,
@@ -2604,6 +2599,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 26,
@@ -2626,11 +2626,6 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 47,
               "compareAtAmount": null,
@@ -2640,6 +2635,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 26,
@@ -2662,11 +2662,6 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "AU": {
-              "amount": 41,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40,
               "compareAtAmount": null,
@@ -2676,6 +2671,11 @@
               "amount": 28.67,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 41,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 22,
@@ -2698,11 +2698,6 @@
           "availableForSale": true,
           "stockQuantity": 29493,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 47,
               "compareAtAmount": null,
@@ -2712,6 +2707,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 26,
@@ -2885,11 +2885,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 42.57,
-              "compareAtAmount": 50.65,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -2899,6 +2894,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 42.57,
+              "compareAtAmount": 50.65,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 21.24,
@@ -2921,11 +2921,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 46,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -2935,6 +2930,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 21.24,
@@ -2957,11 +2957,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 46,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -2971,6 +2966,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 21.24,
@@ -2993,11 +2993,6 @@
           "availableForSale": true,
           "stockQuantity": 40004,
           "pricesByMarket": {
-            "AU": {
-              "amount": 46,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -3007,6 +3002,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 21.24,
@@ -3029,11 +3029,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 46,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -3043,6 +3038,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 21.24,
@@ -3065,11 +3065,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -3079,6 +3074,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 43,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 21.24,
@@ -3101,11 +3101,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -3115,6 +3110,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 43,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 21.24,
@@ -3137,11 +3137,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -3151,6 +3146,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 43,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 21.24,
@@ -3173,11 +3173,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -3187,6 +3182,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 43,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 21.24,
@@ -3209,11 +3209,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -3223,6 +3218,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 43,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             },
             "GB": {
               "amount": 21.24,

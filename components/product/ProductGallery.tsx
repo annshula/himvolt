@@ -1,14 +1,34 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 import Tilt from "@/components/ui/Tilt";
 import { Icon } from "@/components/ui/Icons";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import { useScrollLock } from "@/lib/scroll-lock";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/lib/product";
+
+const LG_QUERY = "(min-width: 1024px)";
+
+/** True at the `lg` breakpoint — the thumbnail rail flips to a vertical column. */
+function useIsDesktop() {
+  return useSyncExternalStore(
+    (onChange) => {
+      const mq = window.matchMedia(LG_QUERY);
+      mq.addEventListener("change", onChange);
+      return () => mq.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(LG_QUERY).matches,
+    () => false,
+  );
+}
 
 /**
  * Amazon-style product gallery: a compact, independently-scrollable
@@ -35,6 +55,7 @@ export function ProductGallery({
   const gallery = product.gallery;
   const [index, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
+  const isDesktop = useIsDesktop();
 
   useEffect(() => {
     if (!activeSrc) return;
@@ -45,34 +66,52 @@ export function ProductGallery({
   const active = gallery[index] ?? gallery[0];
 
   return (
-    <div className="lg:sticky lg:top-28 lg:self-start">
+    // min-w-0: this div is a grid item in ProductPurchase, and grid items
+    // default to min-width:auto — without it the Embla slide row would keep
+    // the grid cell (and page) from shrinking below its full content width.
+    <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
       <div className="flex flex-col-reverse gap-4 lg:flex-row">
         {gallery.length > 1 && (
-          <div className="scrollbar-none flex flex-wrap justify-center gap-2.5 pb-1 [&::-webkit-scrollbar]:hidden lg:max-h-115 lg:w-19 lg:shrink-0 lg:flex-nowrap lg:flex-col lg:items-center lg:justify-start lg:overflow-x-hidden lg:overflow-y-auto lg:py-1.5">
-            {gallery.map((img, i) => (
-              <button
-                key={img.src}
-                type="button"
-                aria-label={`Show image ${i + 1} of ${gallery.length}`}
-                aria-pressed={i === index}
-                onClick={() => setIndex(i)}
-                className={cn(
-                  "relative size-14 shrink-0 overflow-hidden rounded-lg border border-line transition-all duration-300 sm:size-16",
-                  i === index
-                    ? "ring-2 ring-ink ring-offset-2"
-                    : "hover:ring-1 hover:ring-ink/40 hover:ring-offset-1",
-                )}
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="64px"
-                  className="object-cover"
-                />
-              </button>
-            ))}
-          </div>
+          <Carousel
+            orientation={isDesktop ? "vertical" : "horizontal"}
+            // align start + trimSnaps snaps each thumbnail into view on drag;
+            // no dragFree — it collapses Embla's snap list so the arrow
+            // disabled-state (canScrollNext) never enables.
+            opts={{ align: "start", containScroll: "trimSnaps" }}
+            className="w-full min-w-0 lg:w-19 lg:shrink-0"
+          >
+            {/* p-1 keeps the active thumb's ring/offset inside the overflow-hidden
+                viewport instead of clipping it at the strip's edges. */}
+            <CarouselContent
+              viewportClassName="lg:max-h-115"
+              className="gap-2.5 p-1 lg:flex-col lg:py-1.5"
+            >
+              {gallery.map((img, i) => (
+                <CarouselItem key={img.src} className="shrink-0">
+                  <button
+                    type="button"
+                    aria-label={`Show image ${i + 1} of ${gallery.length}`}
+                    aria-pressed={i === index}
+                    onClick={() => setIndex(i)}
+                    className={cn(
+                      "relative size-14 overflow-hidden rounded-lg border border-line transition-all duration-300 sm:size-16",
+                      i === index
+                        ? "ring-2 ring-ink ring-offset-2"
+                        : "hover:ring-1 hover:ring-ink/40 hover:ring-offset-1",
+                    )}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="64px"
+                      className="object-cover"
+                    />
+                  </button>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
         )}
 
         <button
@@ -148,7 +187,9 @@ function Lightbox({
     const dy = t.clientY - start.y;
     if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
     onIndexChange(
-      dx < 0 ? (index + 1) % gallery.length : (index - 1 + gallery.length) % gallery.length,
+      dx < 0
+        ? (index + 1) % gallery.length
+        : (index - 1 + gallery.length) % gallery.length,
     );
   };
 

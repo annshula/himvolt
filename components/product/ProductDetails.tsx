@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -132,11 +137,13 @@ function DetailRow({
       ref={ref}
       className="flex h-svh items-center bg-canvas px-5 sm:px-8"
     >
-      <div className="mx-auto grid w-full max-w-310 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid min-w-0 w-full max-w-310 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <motion.div
           style={{ y: mediaY, scale: mediaScale }}
           className={cn(
-            "relative mx-auto h-80 w-80 overflow-hidden rounded-(--radius-card) border border-line sm:h-96 sm:w-96 lg:h-110 lg:w-110",
+            // aspect-square + w-full (capped by max-w-*) lets the tile shrink on
+            // narrow screens instead of overflowing the grid cell.
+            "relative mx-auto aspect-square w-full max-w-80 overflow-hidden rounded-(--radius-card) border border-line sm:max-w-96 lg:max-w-110",
             imageOnRight ? "order-1 lg:order-2" : "order-1 lg:order-1",
           )}
         >
@@ -167,7 +174,8 @@ function DetailRow({
         <motion.div
           style={{ opacity: textOpacity, y: textY }}
           className={cn(
-            "order-2 max-w-lg",
+            // min-w-0 lets the text column shrink with the grid on small screens.
+            "order-2 min-w-0 max-w-lg",
             imageOnRight ? "lg:order-1" : "lg:order-2",
           )}
         >

@@ -138,6 +138,11 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-h);
   -webkit-text-size-adjust: 100%;
+  /* The page is never meant to pan horizontally — carousels and marquees
+     scroll inside their own overflow-hidden containers. Clipping at the root
+     guarantees no element can ever force a whole-page horizontal scroll on
+     mobile. */
+  overflow-x: clip;
   /* Thin, self-tinted scrollbar (Firefox) — see the WebKit rules below for
      the rest of the design. Built from currentColor, not a fixed colour, so
      it reads correctly on the light canvas and on the dark surfaces (footer,
