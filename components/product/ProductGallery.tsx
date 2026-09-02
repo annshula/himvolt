@@ -17,6 +17,9 @@ import type { Product } from "@/lib/product";
 
 const LG_QUERY = "(min-width: 1024px)";
 
+/** Minimum horizontal drag (px) before a touch gesture counts as a swipe rather than a tap or a vertical scroll — shared by the main-image swipe and the Lightbox. */
+const SWIPE_THRESHOLD = 50;
+
 /** True at the `lg` breakpoint — the thumbnail rail flips to a vertical column. */
 function useIsDesktop() {
   return useSyncExternalStore(
@@ -65,6 +68,30 @@ export function ProductGallery({
 
   const active = gallery[index] ?? gallery[0];
 
+  // Swipe left/right on the main image to move between photos — same plain
+  // touch-delta approach as the Lightbox below, so mobile doesn't need to
+  // open the full-screen viewer just to flip through the gallery. A tap
+  // (movement under the threshold) still opens the lightbox as before:
+  // browsers suppress the synthetic click once touchmove exceeds a few
+  // pixels, which a real swipe always does.
+  const mainTouchStart = useRef<{ x: number; y: number } | null>(null);
+  const onMainTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    mainTouchStart.current = { x: t.clientX, y: t.clientY };
+  };
+  const onMainTouchEnd = (e: React.TouchEvent) => {
+    const start = mainTouchStart.current;
+    mainTouchStart.current = null;
+    if (!start || gallery.length <= 1) return;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+    setIndex((i) =>
+      dx < 0 ? (i + 1) % gallery.length : (i - 1 + gallery.length) % gallery.length,
+    );
+  };
+
   return (
     // min-w-0: this div is a grid item in ProductPurchase, and grid items
     // default to min-width:auto — without it the Embla slide row would keep
@@ -74,10 +101,11 @@ export function ProductGallery({
         {gallery.length > 1 && (
           <Carousel
             orientation={isDesktop ? "vertical" : "horizontal"}
-            // align start + trimSnaps snaps each thumbnail into view on drag;
-            // no dragFree — it collapses Embla's snap list so the arrow
-            // disabled-state (canScrollNext) never enables.
-            opts={{ align: "start", containScroll: "trimSnaps" }}
+            // dragFree: the strip follows the finger/cursor 1:1 with no
+            // hard per-thumbnail snap — this rail has no arrow buttons, so
+            // the canScrollNext side effect dragFree normally causes
+            // elsewhere doesn't apply here.
+            opts={{ align: "start", containScroll: "trimSnaps", dragFree: true }}
             className="w-full min-w-0 lg:w-19 lg:shrink-0"
           >
             {/* p-1 keeps the active thumb's ring/offset inside the overflow-hidden
@@ -117,6 +145,8 @@ export function ProductGallery({
         <button
           type="button"
           onClick={() => setOpen(true)}
+          onTouchStart={onMainTouchStart}
+          onTouchEnd={onMainTouchEnd}
           aria-label="Open full-size image"
           className="group relative mx-auto block w-full max-w-115 cursor-zoom-in"
         >
@@ -173,7 +203,6 @@ function Lightbox({
   // this", and ignored when the gesture reads as more vertical than
   // horizontal (a scroll attempt, not a swipe).
   const touchStart = useRef<{ x: number; y: number } | null>(null);
-  const SWIPE_THRESHOLD = 50;
   const onTouchStart = (e: React.TouchEvent) => {
     const t = e.touches[0];
     touchStart.current = { x: t.clientX, y: t.clientY };

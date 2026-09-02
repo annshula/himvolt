@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-09-02T10:38:28.745Z",
+  "syncedAt": "2026-09-02T11:02:16.745Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -13,6 +13,275 @@
     "US"
   ],
   "products": [
+    {
+      "id": "gid://shopify/Product/9650571346147",
+      "handle": "hematite-mens-bracelet",
+      "title": "Hematite Men's Bracelet",
+      "price": 41.16,
+      "compareAtPrice": null,
+      "currencyCode": "USD",
+      "availableForSale": true,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49659415134435",
+          "title": "1 bracelet",
+          "sku": "HMB-1PC",
+          "price": 41.16,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "stockQuantity": 8064,
+          "pricesByMarket": {
+            "CA": {
+              "amount": 58,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
+            "GB": {
+              "amount": 32,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 41.16,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 59,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/himvolt_image_1.webp?v=1788346038",
+          "shopifyTitle": "1PC",
+          "subtitle": "Tile-Cut / 1PC",
+          "quantity": 1,
+          "weightGrams": 0
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49659425456355",
+          "title": "2 bracelets",
+          "sku": "HMB-2PC",
+          "price": 41.16,
+          "compareAtPrice": 82.32,
+          "availableForSale": true,
+          "stockQuantity": 4000,
+          "pricesByMarket": {
+            "CA": {
+              "amount": 58,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
+            },
+            "GB": {
+              "amount": 32,
+              "compareAtAmount": 63,
+              "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 41.16,
+              "compareAtAmount": 82.32,
+              "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 59,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/himvolt_image_2.webp?v=1788346748",
+          "shopifyTitle": "2PC",
+          "subtitle": "Tile-Cut / 2PC",
+          "quantity": 2,
+          "weightGrams": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/himvolt_image_2.webp?v=1788346748",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5b308fe34f1b41b8a3900a9c91c7abc4O.jpg?v=1788344174",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1440,
+          "height": 1440
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/himvolt_image_1.webp?v=1788346038",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/5513f308-52ed-4438-b0de-76478b27175b.jpg?v=1786992382",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1920,
+          "height": 1920
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
+          "alt": "Hematite Men's Bracelet",
+          "width": 2025,
+          "height": 1359
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S2c7c52ec76ce4dab8217561b85bf7f989.jpg?v=1788344834",
+          "alt": "Hematite Men's Bracelet",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "subtitle": "Polished hematite · elastic fit",
+      "material": "Natural hematite (iron oxide)",
+      "descriptionHtml": "<p>Reclaim Your Edge Confidence Natural Hematite Stone Beaded Stretch Healing Bracelets Gift Jewelry</p>\n<p>Polished hematite beads on a stretch elastic core — no clasp, no hardware, nothing to break. Metallic gunmetal-black, dense enough to notice the moment you pick it up.</p>\n<p>Hematite is an iron oxide — one of the most abundant iron ores on Earth, cut and polished here for jewellery rather than industrial use. That iron content is what gives every bead its weight: pick the bracelet up and it sits heavier in the hand than its size suggests, and under the black polish it streaks red-brown when scratched, the same test a mineralogist would use to confirm the real stone rather than dyed glass or resin.</p>\n<p>At 5.5–6.5 on the Mohs scale, it's roughly as hard as hardened steel — hard enough to take daily knocks against a desk, a doorframe or a dumbbell without dulling, and hard enough that the hand-polished gunmetal finish stays a finish, not a coating that wears through. There's no plating to chip and no coating over the stone: what you see the day it arrives is what you'll still see years in.</p>\n<p>The build is as low-maintenance as the material: a single stretch elastic core threaded through the beads, no clasp and no sizing chart. Roll it over your hand and forget it's there — it fits a range of wrist sizes without ever needing adjustment, and there's no clasp mechanism to eventually fail.</p>\n<ul>\n<li>\n<strong>Genuine stone, not imitation</strong> — real hematite (iron oxide), verifiable by its red-brown streak, not resin or dyed glass standing in for it.</li>\n<li>\n<strong>Built to take daily wear</strong> — 5.5–6.5 Mohs hardness holds up to knocks, desks and gym bags without dulling the polish.</li>\n<li>\n<strong>No clasp to break</strong> — one stretch elastic core, on in one motion, nothing to fasten or eventually snap.</li>\n<li>\n<strong>Fits without sizing</strong> — the elastic core stretches across a wide range of wrist sizes, so there's no chart to check before you order.</li>\n<li>\n<strong>Substantial by design</strong> — 70g of dense, iron-rich stone on a single strand, present enough to feel deliberate under a cuff.</li>\n<li>\n<strong>Finish that lasts</strong> — hand-polished directly on the stone, with no plating or coating to wear through over time.</li>\n<li>\n<strong>Pairs with anything black or steel-toned</strong> — the gunmetal shine reads as understated metal, so it layers cleanly with a watch or a second bracelet without competing for attention.</li>\n</ul>\n<p>We describe hematite for what it verifiably is — composition, hardness, the streak test — not what it will do for you beyond that. No health claims, just a genuine stone built into a bracelet that's easy to wear every day and hard to wear out.</p>",
+      "specs": [
+        {
+          "label": "Stone",
+          "value": "Natural hematite (iron oxide)",
+          "description": "Iron oxide - one of the most abundant iron ores on Earth, cut and polished for jewellery rather than industrial use.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
+            "alt": "Hematite Men's Bracelet",
+            "width": 2025,
+            "height": 1359
+          }
+        },
+        {
+          "label": "Hardness",
+          "value": "5.5-6.5 Mohs",
+          "description": "Roughly level with hardened steel - hard enough for daily wear without a special sizing chart.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/magnetic-hematite-ring.webp?v=1788345981",
+            "alt": "Hand-polished hematite rings showing hardness and shine",
+            "width": 2528,
+            "height": 1696
+          }
+        },
+        {
+          "label": "Density",
+          "value": "Notably dense - heavier in hand than its size suggests",
+          "description": "Iron content makes hematite dense - pick a piece up and it is heavier than its size suggests.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/magnetic-hematite-bracelet-guide.webp?v=1788345980",
+            "alt": "Loose hematite beads showing natural density and weight",
+            "width": 1264,
+            "height": 848
+          }
+        },
+        {
+          "label": "Streak test",
+          "value": "Red-brown when scratched, despite the metallic black surface",
+          "description": "Scratch it against unglazed ceramic and it leaves red-brown, not black - the mineralogist's standard test for the real stone.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hematite-hardness.webp?v=1788345981",
+            "alt": "Hematite streak test showing red-brown mark on polished stone",
+            "width": 2528,
+            "height": 1696
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/c5273e32d238461d9a160391122d4b61.thumbnail.0000000000.jpg?v=1787554441",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-1080p-2.5Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-720p-1.6Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.SD-480p-0.9Mbps-92431002.mp4",
+                "type": "video/mp4"
+              }
+            ]
+          }
+        },
+        {
+          "label": "Weight",
+          "value": "70 g",
+          "description": "70 grams on a single strand - present enough to feel deliberate, low enough to slide under a cuff.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hematite-ring-benefits.webp?v=1788345981",
+            "alt": "Polished hematite band on dark background",
+            "width": 2528,
+            "height": 1696
+          }
+        },
+        {
+          "label": "Core",
+          "value": "Stretch elastic, no clasp",
+          "description": "A stretch elastic core, not a clasp - nothing to fasten, nothing to break.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
+            "alt": "Hematite Men's Bracelet",
+            "width": 1200,
+            "height": 1200
+          }
+        },
+        {
+          "label": "Finish",
+          "value": "Hand-polished",
+          "description": "Hand-polished to a metallic gunmetal shine, no coating over the stone.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S2c7c52ec76ce4dab8217561b85bf7f989.jpg?v=1788344834",
+            "alt": "Hematite Men's Bracelet",
+            "width": 800,
+            "height": 800
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/5e35b05f52d84e4db3df7c57c0319de5.thumbnail.0000000000.jpg?v=1787552415",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.HD-720p-1.6Mbps-92428482.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.SD-480p-0.9Mbps-92428482.mp4",
+                "type": "video/mp4"
+              }
+            ]
+          }
+        }
+      ],
+      "features": [
+        {
+          "icon": "stone",
+          "label": "Natural hematite",
+          "body": "Genuine iron oxide, not resin or dyed glass. Streak-tests red-brown under the polish.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/what-is-hematite.webp?v=1788345980",
+            "alt": "Raw and polished hematite - the mineral stripped of its jewelry finish",
+            "width": 1264,
+            "height": 848
+          }
+        },
+        {
+          "icon": "fit",
+          "label": "Stretch elastic fit",
+          "body": "One elastic core, no clasp, no sizing chart. Roll it on and forget it's there.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5b308fe34f1b41b8a3900a9c91c7abc4O.jpg?v=1788344174",
+            "alt": "Hand stretching the hematite bead bracelet open on its elastic cord",
+            "width": 1440,
+            "height": 1440
+          }
+        }
+      ]
+    },
     {
       "id": "gid://shopify/Product/9617681973475",
       "handle": "natural-black-tourmaline-and-hematite-single-strand-round-bead-bracelet",
@@ -31,11 +300,6 @@
           "availableForSale": true,
           "stockQuantity": 8465,
           "pricesByMarket": {
-            "AU": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 21,
               "compareAtAmount": null,
@@ -50,6 +314,11 @@
               "amount": 14.44,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 21,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -67,11 +336,6 @@
           "availableForSale": true,
           "stockQuantity": 8100,
           "pricesByMarket": {
-            "AU": {
-              "amount": 25,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 24,
               "compareAtAmount": null,
@@ -86,6 +350,11 @@
               "amount": 17.02,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 25,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -103,11 +372,6 @@
           "availableForSale": true,
           "stockQuantity": 5296,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -122,6 +386,11 @@
               "amount": 12.99,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -139,11 +408,6 @@
           "availableForSale": true,
           "stockQuantity": 9547,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -158,6 +422,11 @@
               "amount": 12.69,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -175,11 +444,6 @@
           "availableForSale": true,
           "stockQuantity": 8010,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -194,6 +458,11 @@
               "amount": 12.17,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -211,11 +480,6 @@
           "availableForSale": true,
           "stockQuantity": 5018,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -230,6 +494,11 @@
               "amount": 12.27,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -247,11 +516,6 @@
           "availableForSale": true,
           "stockQuantity": 7150,
           "pricesByMarket": {
-            "AU": {
-              "amount": 20,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -266,6 +530,11 @@
               "amount": 13.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 20,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -283,11 +552,6 @@
           "availableForSale": true,
           "stockQuantity": 6099,
           "pricesByMarket": {
-            "AU": {
-              "amount": 16,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 16,
               "compareAtAmount": null,
@@ -302,6 +566,11 @@
               "amount": 10.83,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 16,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -319,11 +588,6 @@
           "availableForSale": true,
           "stockQuantity": 6433,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -338,6 +602,11 @@
               "amount": 12.58,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -355,11 +624,6 @@
           "availableForSale": true,
           "stockQuantity": 9471,
           "pricesByMarket": {
-            "AU": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -374,6 +638,11 @@
               "amount": 11.86,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -391,11 +660,6 @@
           "availableForSale": true,
           "stockQuantity": 8889,
           "pricesByMarket": {
-            "AU": {
-              "amount": 16,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 16,
               "compareAtAmount": null,
@@ -410,6 +674,11 @@
               "amount": 10.83,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 16,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -427,11 +696,6 @@
           "availableForSale": true,
           "stockQuantity": 5949,
           "pricesByMarket": {
-            "AU": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -446,6 +710,11 @@
               "amount": 11.86,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -463,11 +732,6 @@
           "availableForSale": true,
           "stockQuantity": 9915,
           "pricesByMarket": {
-            "AU": {
-              "amount": 13,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 13,
               "compareAtAmount": null,
@@ -482,6 +746,11 @@
               "amount": 8.97,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 13,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -499,11 +768,6 @@
           "availableForSale": true,
           "stockQuantity": 7674,
           "pricesByMarket": {
-            "AU": {
-              "amount": 17,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -518,6 +782,11 @@
               "amount": 11.86,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 17,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -535,11 +804,6 @@
           "availableForSale": true,
           "stockQuantity": 8420,
           "pricesByMarket": {
-            "AU": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 21,
               "compareAtAmount": null,
@@ -554,6 +818,11 @@
               "amount": 14.44,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 21,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -571,11 +840,6 @@
           "availableForSale": true,
           "stockQuantity": 6274,
           "pricesByMarket": {
-            "AU": {
-              "amount": 25,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 24,
               "compareAtAmount": null,
@@ -590,6 +854,11 @@
               "amount": 17.02,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 25,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -607,11 +876,6 @@
           "availableForSale": true,
           "stockQuantity": 5038,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -626,6 +890,11 @@
               "amount": 12.99,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -643,11 +912,6 @@
           "availableForSale": true,
           "stockQuantity": 7167,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -662,6 +926,11 @@
               "amount": 12.69,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -679,11 +948,6 @@
           "availableForSale": true,
           "stockQuantity": 7271,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -698,6 +962,11 @@
               "amount": 12.17,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -715,11 +984,6 @@
           "availableForSale": true,
           "stockQuantity": 6503,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -734,6 +998,11 @@
               "amount": 12.27,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -751,11 +1020,6 @@
           "availableForSale": true,
           "stockQuantity": 8409,
           "pricesByMarket": {
-            "AU": {
-              "amount": 20,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -770,6 +1034,11 @@
               "amount": 13.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 20,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -787,11 +1056,6 @@
           "availableForSale": true,
           "stockQuantity": 8072,
           "pricesByMarket": {
-            "AU": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 21,
               "compareAtAmount": null,
@@ -806,6 +1070,11 @@
               "amount": 14.44,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 21,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -823,11 +1092,6 @@
           "availableForSale": true,
           "stockQuantity": 8387,
           "pricesByMarket": {
-            "AU": {
-              "amount": 25,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 24,
               "compareAtAmount": null,
@@ -842,6 +1106,11 @@
               "amount": 17.02,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 25,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -859,11 +1128,6 @@
           "availableForSale": true,
           "stockQuantity": 7454,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -878,6 +1142,11 @@
               "amount": 12.99,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -895,11 +1164,6 @@
           "availableForSale": true,
           "stockQuantity": 9944,
           "pricesByMarket": {
-            "AU": {
-              "amount": 19,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -914,6 +1178,11 @@
               "amount": 12.69,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 19,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -931,11 +1200,6 @@
           "availableForSale": true,
           "stockQuantity": 6030,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 17,
               "compareAtAmount": null,
@@ -950,6 +1214,11 @@
               "amount": 12.17,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -967,11 +1236,6 @@
           "availableForSale": true,
           "stockQuantity": 9103,
           "pricesByMarket": {
-            "AU": {
-              "amount": 18,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 18,
               "compareAtAmount": null,
@@ -986,6 +1250,11 @@
               "amount": 12.27,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 18,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1003,11 +1272,6 @@
           "availableForSale": true,
           "stockQuantity": 7788,
           "pricesByMarket": {
-            "AU": {
-              "amount": 20,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 19,
               "compareAtAmount": null,
@@ -1022,6 +1286,11 @@
               "amount": 13.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 20,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1212,11 +1481,6 @@
           "availableForSale": true,
           "stockQuantity": 47229,
           "pricesByMarket": {
-            "AU": {
-              "amount": 44.66,
-              "compareAtAmount": 58.05,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 42.93,
               "compareAtAmount": 51.52,
@@ -1231,6 +1495,11 @@
               "amount": 32.14,
               "compareAtAmount": 39.85,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 44.66,
+              "compareAtAmount": 58.05,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
@@ -1410,11 +1679,6 @@
           "availableForSale": true,
           "stockQuantity": 29489,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 48,
               "compareAtAmount": null,
@@ -1429,6 +1693,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1446,11 +1715,6 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 48,
               "compareAtAmount": null,
@@ -1465,6 +1729,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1482,11 +1751,6 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 48,
               "compareAtAmount": null,
@@ -1501,6 +1765,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1518,11 +1787,6 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 48,
               "compareAtAmount": null,
@@ -1537,6 +1801,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1554,11 +1823,6 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 48,
               "compareAtAmount": null,
@@ -1573,6 +1837,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1590,11 +1859,6 @@
           "availableForSale": true,
           "stockQuantity": 29491,
           "pricesByMarket": {
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40,
               "compareAtAmount": null,
@@ -1609,6 +1873,11 @@
               "amount": 28.67,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 42,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1626,11 +1895,6 @@
           "availableForSale": true,
           "stockQuantity": 29493,
           "pricesByMarket": {
-            "AU": {
-              "amount": 49,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 48,
               "compareAtAmount": null,
@@ -1645,6 +1909,11 @@
               "amount": 33.74,
               "compareAtAmount": null,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 49,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1813,11 +2082,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 42.57,
-              "compareAtAmount": 50.65,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -1832,6 +2096,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 42.57,
+              "compareAtAmount": 50.65,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1849,11 +2118,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 46,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -1868,6 +2132,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1885,11 +2154,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 46,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -1904,6 +2168,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1921,11 +2190,6 @@
           "availableForSale": true,
           "stockQuantity": 40004,
           "pricesByMarket": {
-            "AU": {
-              "amount": 46,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -1940,6 +2204,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1957,11 +2226,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 46,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -1976,6 +2240,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 46,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -1993,11 +2262,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 43,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -2012,6 +2276,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 43,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2029,11 +2298,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 43,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -2048,6 +2312,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 43,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2065,11 +2334,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 43,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -2084,6 +2348,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 43,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2101,11 +2370,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 43,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -2120,6 +2384,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 43,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2137,11 +2406,6 @@
           "availableForSale": true,
           "stockQuantity": 40000,
           "pricesByMarket": {
-            "AU": {
-              "amount": 43,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
             "CA": {
               "amount": 40.86,
               "compareAtAmount": 53.13,
@@ -2156,6 +2420,11 @@
               "amount": 31.23,
               "compareAtAmount": 36.23,
               "currencyCode": "USD"
+            },
+            "AU": {
+              "amount": 43,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2303,179 +2572,6 @@
             "width": 800,
             "height": 800
           }
-        }
-      ]
-    },
-    {
-      "id": "gid://shopify/Product/9650571346147",
-      "handle": "black-hematite-mens-bracelet",
-      "title": "Hematite Men's Bracelet",
-      "price": 41.16,
-      "compareAtPrice": null,
-      "currencyCode": "USD",
-      "availableForSale": true,
-      "variants": [
-        {
-          "id": "gid://shopify/ProductVariant/49659415134435",
-          "title": "1 bracelet",
-          "sku": "HMB-1PC",
-          "price": 41.16,
-          "compareAtPrice": null,
-          "availableForSale": true,
-          "stockQuantity": 8064,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 59,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "CA": {
-              "amount": 58,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 32,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 41.16,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
-          "shopifyTitle": "1PC",
-          "subtitle": "Tile-Cut / 1PC",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49659425456355",
-          "title": "2 bracelets",
-          "sku": "HMB-2PC",
-          "price": 41.16,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 4000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 59,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "CA": {
-              "amount": 58,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 32,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 41.16,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/5513f308-52ed-4438-b0de-76478b27175b.jpg?v=1786992382",
-          "shopifyTitle": "2PC",
-          "subtitle": "Tile-Cut / 2PC",
-          "quantity": 2,
-          "weightGrams": 0
-        }
-      ],
-      "images": [
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
-          "alt": "Hematite Men's Bracelet",
-          "width": 1200,
-          "height": 1200
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5b308fe34f1b41b8a3900a9c91c7abc4O.jpg?v=1788344174",
-          "alt": "Hematite Men's Bracelet",
-          "width": 1440,
-          "height": 1440
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
-          "alt": "Hematite Men's Bracelet",
-          "width": 1200,
-          "height": 1200
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/5513f308-52ed-4438-b0de-76478b27175b.jpg?v=1786992382",
-          "alt": "Hematite Men's Bracelet",
-          "width": 1920,
-          "height": 1920
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
-          "alt": "Hematite Men's Bracelet",
-          "width": 2025,
-          "height": 1359
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S2c7c52ec76ce4dab8217561b85bf7f989.jpg?v=1788344834",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        }
-      ],
-      "subtitle": "Polished hematite · elastic fit",
-      "material": "Natural hematite (iron oxide)",
-      "descriptionHtml": "<p>Reclaim Your Edge Confidence Natural Hematite Stone Beaded Stretch Healing Bracelets Gift Jewelry</p>\n<p>Polished hematite beads on a stretch elastic core — no clasp, no hardware, nothing to break. Metallic gunmetal-black, dense enough to notice the moment you pick it up.</p>\n<p>Now cut in 11 bead styles, from flat-cut and tile-cut to chevron and bar-cut, so you can pick the profile that sits right on your wrist.</p>",
-      "specs": [
-        {
-          "label": "Stone",
-          "value": "Natural hematite (iron oxide)",
-          "description": "Iron oxide - one of the most abundant iron ores on Earth, cut and polished for jewellery rather than industrial use."
-        },
-        {
-          "label": "Hardness",
-          "value": "5.5-6.5 Mohs",
-          "description": "Roughly level with hardened steel - hard enough for daily wear without a special sizing chart."
-        },
-        {
-          "label": "Density",
-          "value": "Notably dense - heavier in hand than its size suggests",
-          "description": "Iron content makes hematite dense - pick a piece up and it is heavier than its size suggests."
-        },
-        {
-          "label": "Streak test",
-          "value": "Red-brown when scratched, despite the metallic black surface",
-          "description": "Scratch it against unglazed ceramic and it leaves red-brown, not black - the mineralogist's standard test for the real stone."
-        },
-        {
-          "label": "Weight",
-          "value": "70 g",
-          "description": "70 grams on a single strand - present enough to feel deliberate, low enough to slide under a cuff."
-        },
-        {
-          "label": "Core",
-          "value": "Stretch elastic, no clasp",
-          "description": "A stretch elastic core, not a clasp - nothing to fasten, nothing to break."
-        },
-        {
-          "label": "Finish",
-          "value": "Hand-polished",
-          "description": "Hand-polished to a metallic gunmetal shine, no coating over the stone."
-        }
-      ],
-      "features": [
-        {
-          "icon": "stone",
-          "label": "Natural hematite",
-          "body": "Genuine iron oxide, not resin or dyed glass. Streak-tests red-brown under the polish."
-        },
-        {
-          "icon": "fit",
-          "label": "Stretch elastic fit",
-          "body": "One elastic core, no clasp, no sizing chart. Roll it on and forget it's there."
         }
       ]
     }
