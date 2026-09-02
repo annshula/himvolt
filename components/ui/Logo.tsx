@@ -33,6 +33,11 @@ export function LogoMark({
       width={128}
       height={128}
       priority={priority}
+      // The mark has real transparency around its shape — the shared
+      // shimmer skeleton is a CSS background, which shows through
+      // transparent pixels instead of being covered by them, so it would
+      // bleed through the logo forever rather than just disappear on load.
+      skeleton={false}
       className={className}
     />
   );

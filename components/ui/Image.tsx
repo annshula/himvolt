@@ -1,3 +1,5 @@
+"use client";
+
 import NextImage, { type ImageLoaderProps, type ImageProps } from "next/image";
 
 import { cn } from "@/lib/utils";
@@ -24,9 +26,22 @@ import { cn } from "@/lib/utils";
  * 2. Shows the shared `.skeleton` shimmer (app/globals.css) as the image's
  *    own CSS background while it loads. A background on a replaced element
  *    like `<img>` paints behind the decoded pixels, so once the photo loads
- *    it naturally covers the shimmer — no onLoad/useState/extra wrapper
- *    needed, so this still renders from server components exactly like
- *    next/image does (no "use client" here).
+ *    it naturally covers the shimmer — no onLoad/useState needed. Only
+ *    right for images that end up fully opaque over their whole box,
+ *    though — a background doesn't get covered by transparent pixels, so
+ *    anything with real transparency (a logo mark, an icon) needs
+ *    `skeleton={false}` or the shimmer shows through around/behind the art
+ *    forever, not just while it loads.
+ *
+ * "use client": required for (1) — `loader` is a plain function, and
+ * next/image only gets special compiler treatment for passing a function
+ * prop like that across the server/client boundary when it's imported and
+ * used directly, not through an intermediary wrapper like this one. Once
+ * this component renders NextImage itself, both need to live in the same
+ * client tree. This costs nothing extra beyond what next/image already
+ * needed client-side (lazy loading, the IntersectionObserver, etc.) — it
+ * was always a client component under the hood, this just makes that
+ * explicit instead of relying on the special-cased passthrough.
  */
 function isShopifyHosted(src: ImageProps["src"]): boolean {
   if (typeof src !== "string") return false;
@@ -50,13 +65,17 @@ export default function Image({
   src,
   loader,
   className,
+  skeleton = true,
   ...rest
-}: ImageProps) {
+}: ImageProps & {
+  /** Set false for anything with real transparency (logo, icon) — see note above. Default true. */
+  skeleton?: boolean;
+}) {
   return (
     <NextImage
       src={src}
       loader={loader ?? (isShopifyHosted(src) ? shopifyLoader : undefined)}
-      className={cn("skeleton", className)}
+      className={skeleton ? cn("skeleton", className) : className}
       {...rest}
     />
   );
