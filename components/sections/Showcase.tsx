@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import Tilt from "@/components/ui/Tilt";
 import ImageComparison from "@/components/ui/ImageComparison";

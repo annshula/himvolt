@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import Image from "next/image";
+import Image from "@/components/ui/Image";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
