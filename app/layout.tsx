@@ -190,11 +190,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           toastOptions={{
             unstyled: true,
             classNames: {
+              // Capped-width card (not a full pill) so a long product name
+              // wraps/clamps instead of stretching the toast off-screen.
               toast:
-                "flex items-center gap-3 rounded-full bg-ink px-5 py-3 shadow-(--shadow-lift)",
+                "flex max-w-[min(92vw,21rem)] items-center gap-3 rounded-2xl bg-ink px-4 py-3.5 shadow-(--shadow-lift)",
               icon: "m-0 shrink-0",
-              title: "text-[0.82rem] font-medium text-white",
-              description: "text-[0.78rem] text-white/60",
+              // Text column must be allowed to shrink for the clamps below.
+              content: "min-w-0 flex-1",
+              // Title stays on its own single row (ellipsis if overlong).
+              title: "block truncate text-[0.82rem] font-semibold text-white",
+              // The description is the product name — cap it at two lines
+              // with an ellipsis so a big title never inflates the toast.
+              // NOTE: no `block` utility here — it would set display:block
+              // and override line-clamp's required display:-webkit-box,
+              // silently disabling the clamp.
+              description:
+                "mt-0.5 text-[0.78rem] leading-snug text-white/70 line-clamp-2",
             },
           }}
         />
