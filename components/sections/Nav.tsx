@@ -175,7 +175,7 @@ export default function Nav() {
             <span className="hidden lg:block">
               <CurrencySelector variant="bar" overHero={!solid} />
             </span>
-            <TrackOrderLink solid={solid} />
+            {/* <TrackOrderLink solid={solid} /> */}
             <span className="hidden sm:block">
               <AccountMenu variant="dropdown" overHero={!solid} />
             </span>
@@ -301,14 +301,14 @@ export default function Nav() {
                     carries the weight. */}
                 <div className="flex items-center justify-center gap-3">
                   <CurrencySelector variant="drawer" dark />
-                  <a
+                  {/* <a
                     href="/track"
                     aria-label="Track your order"
                     onClick={() => setMenuOpen(false)}
                     className={iconButtonClass(false)}
                   >
                     <Icon name="package" className="size-5" />
-                  </a>
+                  </a> */}
                   <AccountMenu variant="list" dark />
                   <IconButton
                     solid={false}
