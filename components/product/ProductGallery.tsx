@@ -1,37 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import Tilt from "@/components/ui/Tilt";
 import { Icon } from "@/components/ui/Icons";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { useScrollLock } from "@/lib/scroll-lock";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/lib/product";
 
-const LG_QUERY = "(min-width: 1024px)";
-
 /** Minimum horizontal drag (px) before a touch gesture counts as a swipe rather than a tap or a vertical scroll — shared by the main-image swipe and the Lightbox. */
 const SWIPE_THRESHOLD = 50;
-
-/** True at the `lg` breakpoint — the thumbnail rail flips to a vertical column. */
-function useIsDesktop() {
-  return useSyncExternalStore(
-    (onChange) => {
-      const mq = window.matchMedia(LG_QUERY);
-      mq.addEventListener("change", onChange);
-      return () => mq.removeEventListener("change", onChange);
-    },
-    () => window.matchMedia(LG_QUERY).matches,
-    () => false,
-  );
-}
 
 /**
  * Amazon-style product gallery: a compact, independently-scrollable
@@ -58,7 +38,6 @@ export function ProductGallery({
   const gallery = product.gallery;
   const [index, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
-  const isDesktop = useIsDesktop();
 
   useEffect(() => {
     if (!activeSrc) return;
@@ -99,47 +78,47 @@ export function ProductGallery({
     <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
       <div className="flex flex-col-reverse gap-4 lg:flex-row">
         {gallery.length > 1 && (
-          <Carousel
-            orientation={isDesktop ? "vertical" : "horizontal"}
-            // dragFree: the strip follows the finger/cursor 1:1 with no
-            // hard per-thumbnail snap — this rail has no arrow buttons, so
-            // the canScrollNext side effect dragFree normally causes
-            // elsewhere doesn't apply here.
-            opts={{ align: "start", containScroll: "trimSnaps", dragFree: true }}
-            className="w-full min-w-0 lg:w-19 lg:shrink-0"
+          // Plain native scrolling, not Embla — Embla only captures pointer
+          // drags, so a desktop trackpad/wheel scroll gesture over the
+          // vertical rail went nowhere and looked like it "snapped back".
+          // A native overflow container picks up wheel, trackpad and touch
+          // scroll alike with real OS momentum, which is what "flows
+          // freely" actually needs here. overscroll-contain keeps a scroll
+          // that hits the rail's own top/bottom from chaining into the page.
+          //
+          // p-1 keeps the active thumb's ring/offset inside the overflow
+          // viewport instead of clipping it at the strip's edges.
+          <div
+            className={cn(
+              "flex w-full min-w-0 gap-2.5 overflow-x-auto overscroll-contain p-1",
+              "lg:w-19 lg:max-h-115 lg:shrink-0 lg:flex-col lg:overflow-x-visible lg:overflow-y-auto lg:py-1.5",
+              "scrollbar-none",
+            )}
           >
-            {/* p-1 keeps the active thumb's ring/offset inside the overflow-hidden
-                viewport instead of clipping it at the strip's edges. */}
-            <CarouselContent
-              viewportClassName="lg:max-h-115"
-              className="gap-2.5 p-1 lg:flex-col lg:py-1.5"
-            >
-              {gallery.map((img, i) => (
-                <CarouselItem key={img.src} className="shrink-0">
-                  <button
-                    type="button"
-                    aria-label={`Show image ${i + 1} of ${gallery.length}`}
-                    aria-pressed={i === index}
-                    onClick={() => setIndex(i)}
-                    className={cn(
-                      "relative size-14 overflow-hidden rounded-lg border border-line transition-all duration-300 sm:size-16",
-                      i === index
-                        ? "ring-2 ring-ink ring-offset-2"
-                        : "hover:ring-1 hover:ring-ink/40 hover:ring-offset-1",
-                    )}
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      sizes="64px"
-                      className="object-cover"
-                    />
-                  </button>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+            {gallery.map((img, i) => (
+              <button
+                key={img.src}
+                type="button"
+                aria-label={`Show image ${i + 1} of ${gallery.length}`}
+                aria-pressed={i === index}
+                onClick={() => setIndex(i)}
+                className={cn(
+                  "relative size-14 shrink-0 overflow-hidden rounded-lg border border-line transition-all duration-300 sm:size-16",
+                  i === index
+                    ? "ring-2 ring-ink ring-offset-2"
+                    : "hover:ring-1 hover:ring-ink/40 hover:ring-offset-1",
+                )}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="64px"
+                  className="object-cover"
+                />
+              </button>
+            ))}
+          </div>
         )}
 
         <button

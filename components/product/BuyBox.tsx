@@ -244,16 +244,6 @@ export function BuyBox({
         </p>
       )}
 
-      {selected.quantity > 1 && (
-        <p className="mt-3 text-center text-[0.74rem] text-ink-mute">
-          {formatMoney(
-            selectedPrice.amount / selected.quantity,
-            selectedPrice.currencyCode,
-          )}{" "}
-          each
-        </p>
-      )}
-
       {/* --------------------------- delivery estimate ---------------------------- */}
       <div className="mt-5">
         <DeliveryPincodeCheck />
