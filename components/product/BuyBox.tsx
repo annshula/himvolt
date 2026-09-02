@@ -257,11 +257,11 @@ export function BuyBox({
         <Guarantee icon={<CheckIcon />}>{site.promise.support}</Guarantee>
       </ul>
 
-      <p className="mt-5 text-[0.72rem] leading-relaxed text-ink-mute">
+      {/* <p className="mt-5 text-[0.72rem] leading-relaxed text-ink-mute">
         We state what hematite is — composition, hardness, the streak test — not
         what it will do for you. No "boosts testosterone," no health claims.
         Just the mineral, honestly described.
-      </p>
+      </p> */}
     </div>
   );
 }
