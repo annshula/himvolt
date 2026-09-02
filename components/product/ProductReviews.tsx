@@ -309,11 +309,13 @@ function ReviewCard({ review }: { review: ProductReview }) {
                 aria-label="Open customer photo"
                 className="group relative block h-24 w-24 overflow-hidden rounded-lg border border-line bg-parchment"
               >
+                {/* Local review photos are pre-optimised WebP (≤1200px) shipped from /public — served directly via `unoptimized` so they never route through Vercel's paid /_next/image optimizer, the same reason Shopify product art uses its CDN loader. */}
                 <Image
                   src={src}
                   alt="Customer photo of the Hematite Men's Bracelet"
                   fill
                   sizes="96px"
+                  unoptimized
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <span className="absolute inset-0 grid place-items-center bg-black/0 transition-colors duration-300 group-hover:bg-black/10">
@@ -422,6 +424,7 @@ function ReviewImageLightbox({
             alt="Customer photo of the Hematite Men's Bracelet"
             fill
             sizes="(max-width: 900px) 100vw, 900px"
+            unoptimized
             className={cn(
               "object-contain transition-transform duration-300",
               zoomed ? "scale-150 cursor-zoom-out" : "cursor-zoom-in",
