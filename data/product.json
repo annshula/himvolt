@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-09-01T22:18:55.478Z",
+  "syncedAt": "2026-09-02T10:38:28.745Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -13,1078 +13,6 @@
     "US"
   ],
   "products": [
-    {
-      "id": "gid://shopify/Product/9617475797219",
-      "handle": "hematite-mens-bracelet",
-      "title": "Hematite Men's Bracelet",
-      "price": 34.88,
-      "compareAtPrice": 49.83,
-      "currencyCode": "USD",
-      "availableForSale": true,
-      "variants": [
-        {
-          "id": "gid://shopify/ProductVariant/49647207940323",
-          "title": "Tile-Cut · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 41000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S2c7c52ec76ce4dab8217561b85bf7f989.jpg?v=1788167608",
-          "shopifyTitle": "1PC / Tile-Cut",
-          "subtitle": "1PC / Tile-Cut",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49582702166243",
-          "title": "Flat-Cut · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 49064,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S0ceef88514dc4a16b15a96a31b0f5074f.jpg?v=1788167608",
-          "shopifyTitle": "1PC / Flat-Cut",
-          "subtitle": "The everyday",
-          "quantity": 1,
-          "weightGrams": 70
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647207907555",
-          "title": "Curved Barrel · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 41000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S191cd2e83d2e48d392aad3583c8261470.jpg?v=1788167607",
-          "shopifyTitle": "1PC / Curved Barrel",
-          "subtitle": "1PC / Curved Barrel",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647207973091",
-          "title": "Slim Barrel · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 41000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S4b0dc169d3184d9dbf470d7cd198a746A.jpg?v=1788167608",
-          "shopifyTitle": "1PC / Slim Barrel",
-          "subtitle": "1PC / Slim Barrel",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208005859",
-          "title": "Chunky Octagon · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 41000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5272d1b808d7409c90f8124d1ac010a2W.jpg?v=1788167608",
-          "shopifyTitle": "1PC / Chunky Octagon",
-          "subtitle": "1PC / Chunky Octagon",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208038627",
-          "title": "Micro-Cut · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 41000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S59595ea5f22c4c128984ec44dce4938bO.jpg?v=1788167608",
-          "shopifyTitle": "1PC / Micro-Cut",
-          "subtitle": "1PC / Micro-Cut",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208071395",
-          "title": "Rectangular · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 41000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S64e061cc93924df98b95d858214aa0b8U.jpg?v=1788167608",
-          "shopifyTitle": "1PC / Rectangular",
-          "subtitle": "1PC / Rectangular",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208104163",
-          "title": "Chevron · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 41000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S6fdb709f0d9d49ab9917abaa38b3f772F.jpg?v=1788167608",
-          "shopifyTitle": "1PC / Chevron",
-          "subtitle": "1PC / Chevron",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208136931",
-          "title": "Bar-Cut · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 41000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S72a99afb2419499da033af21b9711af2A.jpg?v=1788167608",
-          "shopifyTitle": "1PC / Bar-Cut",
-          "subtitle": "1PC / Bar-Cut",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208169699",
-          "title": "Tile & Bead · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 41000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sa32276b6e9d3453b81e110f655051648v.jpg?v=1788167608",
-          "shopifyTitle": "1PC / Tile & Bead",
-          "subtitle": "1PC / Tile & Bead",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208202467",
-          "title": "Square & Bead · 1 bracelet",
-          "sku": "CJSL274901701AZ",
-          "price": 34.88,
-          "compareAtPrice": 49.83,
-          "availableForSale": true,
-          "stockQuantity": 41000,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 72,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 49.83,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 38,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 70,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sb0806f7e135b44189890ac656c1d9728y.jpg?v=1788167608",
-          "shopifyTitle": "1PC / Square & Bead",
-          "subtitle": "1PC / Square & Bead",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208268003",
-          "title": "Tile-Cut · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 100,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S2c7c52ec76ce4dab8217561b85bf7f989.jpg?v=1788167608",
-          "shopifyTitle": "2PC / Tile-Cut",
-          "subtitle": "2PC / Tile-Cut",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49589285978339",
-          "title": "Flat-Cut · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 8061,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S0ceef88514dc4a16b15a96a31b0f5074f.jpg?v=1788167608",
-          "shopifyTitle": "2PC / Flat-Cut",
-          "subtitle": "Buy 1, get 1 free",
-          "quantity": 2,
-          "weightGrams": 140
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208235235",
-          "title": "Curved Barrel · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 100,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S191cd2e83d2e48d392aad3583c8261470.jpg?v=1788167607",
-          "shopifyTitle": "2PC / Curved Barrel",
-          "subtitle": "2PC / Curved Barrel",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208300771",
-          "title": "Slim Barrel · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 100,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S4b0dc169d3184d9dbf470d7cd198a746A.jpg?v=1788167608",
-          "shopifyTitle": "2PC / Slim Barrel",
-          "subtitle": "2PC / Slim Barrel",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208333539",
-          "title": "Chunky Octagon · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 100,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5272d1b808d7409c90f8124d1ac010a2W.jpg?v=1788167608",
-          "shopifyTitle": "2PC / Chunky Octagon",
-          "subtitle": "2PC / Chunky Octagon",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208366307",
-          "title": "Micro-Cut · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 100,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S59595ea5f22c4c128984ec44dce4938bO.jpg?v=1788167608",
-          "shopifyTitle": "2PC / Micro-Cut",
-          "subtitle": "2PC / Micro-Cut",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208399075",
-          "title": "Rectangular · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 100,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S64e061cc93924df98b95d858214aa0b8U.jpg?v=1788167608",
-          "shopifyTitle": "2PC / Rectangular",
-          "subtitle": "2PC / Rectangular",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208431843",
-          "title": "Chevron · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 100,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S6fdb709f0d9d49ab9917abaa38b3f772F.jpg?v=1788167608",
-          "shopifyTitle": "2PC / Chevron",
-          "subtitle": "2PC / Chevron",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208464611",
-          "title": "Bar-Cut · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 100,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S72a99afb2419499da033af21b9711af2A.jpg?v=1788167608",
-          "shopifyTitle": "2PC / Bar-Cut",
-          "subtitle": "2PC / Bar-Cut",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208497379",
-          "title": "Tile & Bead · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 100,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sa32276b6e9d3453b81e110f655051648v.jpg?v=1788167608",
-          "shopifyTitle": "2PC / Tile & Bead",
-          "subtitle": "2PC / Tile & Bead",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/49647208530147",
-          "title": "Square & Bead · 2 bracelets",
-          "sku": "CJSL274901701AZ-2PC",
-          "price": 34.88,
-          "compareAtPrice": 82.32,
-          "availableForSale": true,
-          "stockQuantity": 100,
-          "pricesByMarket": {
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 118,
-              "currencyCode": "AUD"
-            },
-            "US": {
-              "amount": 34.88,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 63,
-              "currencyCode": "GBP"
-            },
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 115,
-              "currencyCode": "CAD"
-            }
-          },
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sb0806f7e135b44189890ac656c1d9728y.jpg?v=1788167608",
-          "shopifyTitle": "2PC / Square & Bead",
-          "subtitle": "2PC / Square & Bead",
-          "quantity": 1,
-          "weightGrams": 0
-        }
-      ],
-      "images": [
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S2c7c52ec76ce4dab8217561b85bf7f989.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5b308fe34f1b41b8a3900a9c91c7abc4O.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 1440,
-          "height": 1440
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S6fdb709f0d9d49ab9917abaa38b3f772F.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S442f83a4208d418caf031c6becdcf72bV.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S221eef4025704d1e801450120299f576X.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 1440,
-          "height": 1440
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S64fb93081d124079a7ea411281b7f541e.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 1200,
-          "height": 1200
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S7a73629cb346491580010156da6f17a7v.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Seecd3533b2bf4422b1ed2c8974d68830l.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S0ceef88514dc4a16b15a96a31b0f5074f.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S191cd2e83d2e48d392aad3583c8261470.jpg?v=1788167607",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S4b0dc169d3184d9dbf470d7cd198a746A.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5272d1b808d7409c90f8124d1ac010a2W.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S59595ea5f22c4c128984ec44dce4938bO.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S64e061cc93924df98b95d858214aa0b8U.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S72a99afb2419499da033af21b9711af2A.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sa32276b6e9d3453b81e110f655051648v.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sb0806f7e135b44189890ac656c1d9728y.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S0b33c1b1375d44b2bfe13be62d3ebbb3h.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S1e652af388b547a491713f2ad4e79179I.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        },
-        {
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S6b57bb82609f4a51950b27efa0399e9dN.jpg?v=1788167608",
-          "alt": "Hematite Men's Bracelet",
-          "width": 800,
-          "height": 800
-        }
-      ],
-      "subtitle": "Polished hematite · elastic fit",
-      "material": "Natural hematite (iron oxide)",
-      "descriptionHtml": "<p>Reclaim Your Edge Confidence Natural Hematite Stone Beaded Stretch Healing Bracelets Gift Jewelry</p>\n<p>Polished hematite beads on a stretch elastic core — no clasp, no hardware, nothing to break. Metallic gunmetal-black, dense enough to notice the moment you pick it up.</p>\n<p>Now cut in 11 bead styles, from flat-cut and tile-cut to chevron and bar-cut, so you can pick the profile that sits right on your wrist.</p>",
-      "specs": [
-        {
-          "label": "Stone",
-          "value": "Natural hematite (iron oxide)",
-          "description": "Iron oxide - one of the most abundant iron ores on Earth, cut and polished for jewellery rather than industrial use.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
-            "alt": "Hematite Men's Bracelet",
-            "width": 1200,
-            "height": 1200
-          }
-        },
-        {
-          "label": "Hardness",
-          "value": "5.5-6.5 Mohs",
-          "description": "Roughly level with hardened steel - hard enough for daily wear without a special sizing chart.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
-            "alt": "Hematite Men's Bracelet",
-            "width": 1200,
-            "height": 1200
-          }
-        },
-        {
-          "label": "Density",
-          "value": "Notably dense - heavier in hand than its size suggests",
-          "description": "Iron content makes hematite dense - pick a piece up and it is heavier than its size suggests.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
-            "alt": "Hematite Men's Bracelet",
-            "width": 2025,
-            "height": 1359
-          }
-        },
-        {
-          "label": "Streak test",
-          "value": "Red-brown when scratched, despite the metallic black surface",
-          "description": "Scratch it against unglazed ceramic and it leaves red-brown, not black - the mineralogist's standard test for the real stone.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/lifestyle.jpg?v=1787507733",
-            "alt": "Hematite Men's Bracelet",
-            "width": 1470,
-            "height": 1125
-          },
-          "video": {
-            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/c5273e32d238461d9a160391122d4b61.thumbnail.0000000000.jpg?v=1787554441",
-            "sources": [
-              {
-                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-1080p-2.5Mbps-92431002.mp4",
-                "type": "video/mp4"
-              },
-              {
-                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-720p-1.6Mbps-92431002.mp4",
-                "type": "video/mp4"
-              },
-              {
-                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.SD-480p-0.9Mbps-92431002.mp4",
-                "type": "video/mp4"
-              }
-            ]
-          }
-        },
-        {
-          "label": "Weight",
-          "value": "70 g",
-          "description": "70 grams on a single strand - present enough to feel deliberate, low enough to slide under a cuff.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
-            "alt": "Hematite Men's Bracelet",
-            "width": 1200,
-            "height": 1200
-          }
-        },
-        {
-          "label": "Core",
-          "value": "Stretch elastic, no clasp",
-          "description": "A stretch elastic core, not a clasp - nothing to fasten, nothing to break.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
-            "alt": "Hematite Men's Bracelet",
-            "width": 1200,
-            "height": 1200
-          }
-        },
-        {
-          "label": "Finish",
-          "value": "Hand-polished",
-          "description": "Hand-polished to a metallic gunmetal shine, no coating over the stone.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
-            "alt": "Hematite Men's Bracelet",
-            "width": 2025,
-            "height": 1359
-          }
-        }
-      ],
-      "features": [
-        {
-          "icon": "stone",
-          "label": "Natural hematite",
-          "body": "Genuine iron oxide, not resin or dyed glass. Streak-tests red-brown under the polish.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
-            "alt": "Hematite Men's Bracelet",
-            "width": 1200,
-            "height": 1200
-          }
-        },
-        {
-          "icon": "fit",
-          "label": "Stretch elastic fit",
-          "body": "One elastic core, no clasp, no sizing chart. Roll it on and forget it's there.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
-            "alt": "Hematite Men's Bracelet",
-            "width": 1200,
-            "height": 1200
-          },
-          "video": {
-            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/5e35b05f52d84e4db3df7c57c0319de5.thumbnail.0000000000.jpg?v=1787552415",
-            "sources": [
-              {
-                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.HD-720p-1.6Mbps-92428482.mp4",
-                "type": "video/mp4"
-              },
-              {
-                "src": "https://cdn.shopify.com/videos/c/vp/5e35b05f52d84e4db3df7c57c0319de5/5e35b05f52d84e4db3df7c57c0319de5.SD-480p-0.9Mbps-92428482.mp4",
-                "type": "video/mp4"
-              }
-            ]
-          }
-        },
-        {
-          "icon": "ship",
-          "label": "Free tracked shipping",
-          "body": "Every order, every country, no threshold. Dispatched within 1-3 business days.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
-            "alt": "Hematite Men's Bracelet",
-            "width": 2025,
-            "height": 1359
-          }
-        }
-      ]
-    },
     {
       "id": "gid://shopify/Product/9617681973475",
       "handle": "natural-black-tourmaline-and-hematite-single-strand-round-bead-bracelet",
@@ -1108,20 +36,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 14.44,
+            "CA": {
+              "amount": 21,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 21,
+            "US": {
+              "amount": 14.44,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1144,20 +72,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 17.02,
+            "CA": {
+              "amount": 24,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 13,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 24,
+            "US": {
+              "amount": 17.02,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1180,20 +108,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.99,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 19,
+            "US": {
+              "amount": 12.99,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1216,20 +144,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.69,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 18,
+            "US": {
+              "amount": 12.69,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1252,20 +180,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.17,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 17,
+            "US": {
+              "amount": 12.17,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1288,20 +216,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.27,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 18,
+            "US": {
+              "amount": 12.27,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1320,24 +248,24 @@
           "stockQuantity": 7150,
           "pricesByMarket": {
             "AU": {
-              "amount": 19,
+              "amount": 20,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 13.3,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 19,
+            "US": {
+              "amount": 13.3,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -1360,20 +288,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 10.83,
+            "CA": {
+              "amount": 16,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 16,
+            "US": {
+              "amount": 10.83,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1392,24 +320,24 @@
           "stockQuantity": 6433,
           "pricesByMarket": {
             "AU": {
-              "amount": 18,
+              "amount": 19,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.58,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 18,
+            "US": {
+              "amount": 12.58,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1432,20 +360,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 11.86,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 17,
+            "US": {
+              "amount": 11.86,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1468,20 +396,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 10.83,
+            "CA": {
+              "amount": 16,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 16,
+            "US": {
+              "amount": 10.83,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1504,20 +432,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 11.86,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 17,
+            "US": {
+              "amount": 11.86,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1540,20 +468,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 8.97,
+            "CA": {
+              "amount": 13,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 7,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 13,
+            "US": {
+              "amount": 8.97,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1576,20 +504,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 11.86,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 17,
+            "US": {
+              "amount": 11.86,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -1612,20 +540,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 14.44,
+            "CA": {
+              "amount": 21,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 21,
+            "US": {
+              "amount": 14.44,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1648,20 +576,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 17.02,
+            "CA": {
+              "amount": 24,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 13,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 24,
+            "US": {
+              "amount": 17.02,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1684,20 +612,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.99,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 19,
+            "US": {
+              "amount": 12.99,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1720,20 +648,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.69,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 18,
+            "US": {
+              "amount": 12.69,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1756,20 +684,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.17,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 17,
+            "US": {
+              "amount": 12.17,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1792,20 +720,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.27,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 18,
+            "US": {
+              "amount": 12.27,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1824,24 +752,24 @@
           "stockQuantity": 8409,
           "pricesByMarket": {
             "AU": {
-              "amount": 19,
+              "amount": 20,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 13.3,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 19,
+            "US": {
+              "amount": 13.3,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1864,20 +792,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 14.44,
+            "CA": {
+              "amount": 21,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 21,
+            "US": {
+              "amount": 14.44,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1900,20 +828,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 17.02,
+            "CA": {
+              "amount": 24,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 13,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 24,
+            "US": {
+              "amount": 17.02,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1936,20 +864,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.99,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 19,
+            "US": {
+              "amount": 12.99,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1972,20 +900,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.69,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 18,
+            "US": {
+              "amount": 12.69,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -2008,20 +936,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.17,
+            "CA": {
+              "amount": 17,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 17,
+            "US": {
+              "amount": 12.17,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -2044,20 +972,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 12.27,
+            "CA": {
+              "amount": 18,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 18,
+            "US": {
+              "amount": 12.27,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -2076,24 +1004,24 @@
           "stockQuantity": 7788,
           "pricesByMarket": {
             "AU": {
-              "amount": 19,
+              "amount": 20,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 13.3,
+            "CA": {
+              "amount": 19,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 19,
+            "US": {
+              "amount": 13.3,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -2289,20 +1217,20 @@
               "compareAtAmount": 58.05,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 32.14,
-              "compareAtAmount": 39.85,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 42.93,
+              "compareAtAmount": 51.52,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 22.05,
               "compareAtAmount": 25.8,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 42.93,
-              "compareAtAmount": 51.52,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 32.14,
+              "compareAtAmount": 39.85,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
@@ -2487,20 +1415,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 33.74,
+            "CA": {
+              "amount": 48,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 47,
+            "US": {
+              "amount": 33.74,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2523,20 +1451,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 33.74,
+            "CA": {
+              "amount": 48,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 47,
+            "US": {
+              "amount": 33.74,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2559,20 +1487,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 33.74,
+            "CA": {
+              "amount": 48,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 47,
+            "US": {
+              "amount": 33.74,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2595,20 +1523,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 33.74,
+            "CA": {
+              "amount": 48,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 47,
+            "US": {
+              "amount": 33.74,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2631,20 +1559,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 33.74,
+            "CA": {
+              "amount": 48,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 47,
+            "US": {
+              "amount": 33.74,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2663,24 +1591,24 @@
           "stockQuantity": 29491,
           "pricesByMarket": {
             "AU": {
-              "amount": 41,
+              "amount": 42,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 28.67,
+            "CA": {
+              "amount": 40,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 22,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40,
+            "US": {
+              "amount": 28.67,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2703,20 +1631,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 33.74,
+            "CA": {
+              "amount": 48,
               "compareAtAmount": null,
-              "currencyCode": "USD"
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 47,
+            "US": {
+              "amount": 33.74,
               "compareAtAmount": null,
-              "currencyCode": "CAD"
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -2890,20 +1818,20 @@
               "compareAtAmount": 50.65,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2926,20 +1854,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2962,20 +1890,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2998,20 +1926,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3034,20 +1962,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3070,20 +1998,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3106,20 +2034,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3142,20 +2070,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3178,20 +2106,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3214,20 +2142,20 @@
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
+            "CA": {
+              "amount": 40.86,
+              "compareAtAmount": 53.13,
+              "currencyCode": "CAD"
             },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
             },
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -3375,6 +2303,179 @@
             "width": 800,
             "height": 800
           }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/9650571346147",
+      "handle": "black-hematite-mens-bracelet",
+      "title": "Hematite Men's Bracelet",
+      "price": 41.16,
+      "compareAtPrice": null,
+      "currencyCode": "USD",
+      "availableForSale": true,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/49659415134435",
+          "title": "1 bracelet",
+          "sku": "HMB-1PC",
+          "price": 41.16,
+          "compareAtPrice": null,
+          "availableForSale": true,
+          "stockQuantity": 8064,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 59,
+              "compareAtAmount": null,
+              "currencyCode": "AUD"
+            },
+            "CA": {
+              "amount": 58,
+              "compareAtAmount": null,
+              "currencyCode": "CAD"
+            },
+            "GB": {
+              "amount": 32,
+              "compareAtAmount": null,
+              "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 41.16,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
+          "shopifyTitle": "1PC",
+          "subtitle": "Tile-Cut / 1PC",
+          "quantity": 1,
+          "weightGrams": 0
+        },
+        {
+          "id": "gid://shopify/ProductVariant/49659425456355",
+          "title": "2 bracelets",
+          "sku": "HMB-2PC",
+          "price": 41.16,
+          "compareAtPrice": 82.32,
+          "availableForSale": true,
+          "stockQuantity": 4000,
+          "pricesByMarket": {
+            "AU": {
+              "amount": 59,
+              "compareAtAmount": 118,
+              "currencyCode": "AUD"
+            },
+            "CA": {
+              "amount": 58,
+              "compareAtAmount": 115,
+              "currencyCode": "CAD"
+            },
+            "GB": {
+              "amount": 32,
+              "compareAtAmount": 63,
+              "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 41.16,
+              "compareAtAmount": 82.32,
+              "currencyCode": "USD"
+            }
+          },
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/5513f308-52ed-4438-b0de-76478b27175b.jpg?v=1786992382",
+          "shopifyTitle": "2PC",
+          "subtitle": "Tile-Cut / 2PC",
+          "quantity": 2,
+          "weightGrams": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5b308fe34f1b41b8a3900a9c91c7abc4O.jpg?v=1788344174",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1440,
+          "height": 1440
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/5513f308-52ed-4438-b0de-76478b27175b.jpg?v=1786992382",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1920,
+          "height": 1920
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
+          "alt": "Hematite Men's Bracelet",
+          "width": 2025,
+          "height": 1359
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S2c7c52ec76ce4dab8217561b85bf7f989.jpg?v=1788344834",
+          "alt": "Hematite Men's Bracelet",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "subtitle": "Polished hematite · elastic fit",
+      "material": "Natural hematite (iron oxide)",
+      "descriptionHtml": "<p>Reclaim Your Edge Confidence Natural Hematite Stone Beaded Stretch Healing Bracelets Gift Jewelry</p>\n<p>Polished hematite beads on a stretch elastic core — no clasp, no hardware, nothing to break. Metallic gunmetal-black, dense enough to notice the moment you pick it up.</p>\n<p>Now cut in 11 bead styles, from flat-cut and tile-cut to chevron and bar-cut, so you can pick the profile that sits right on your wrist.</p>",
+      "specs": [
+        {
+          "label": "Stone",
+          "value": "Natural hematite (iron oxide)",
+          "description": "Iron oxide - one of the most abundant iron ores on Earth, cut and polished for jewellery rather than industrial use."
+        },
+        {
+          "label": "Hardness",
+          "value": "5.5-6.5 Mohs",
+          "description": "Roughly level with hardened steel - hard enough for daily wear without a special sizing chart."
+        },
+        {
+          "label": "Density",
+          "value": "Notably dense - heavier in hand than its size suggests",
+          "description": "Iron content makes hematite dense - pick a piece up and it is heavier than its size suggests."
+        },
+        {
+          "label": "Streak test",
+          "value": "Red-brown when scratched, despite the metallic black surface",
+          "description": "Scratch it against unglazed ceramic and it leaves red-brown, not black - the mineralogist's standard test for the real stone."
+        },
+        {
+          "label": "Weight",
+          "value": "70 g",
+          "description": "70 grams on a single strand - present enough to feel deliberate, low enough to slide under a cuff."
+        },
+        {
+          "label": "Core",
+          "value": "Stretch elastic, no clasp",
+          "description": "A stretch elastic core, not a clasp - nothing to fasten, nothing to break."
+        },
+        {
+          "label": "Finish",
+          "value": "Hand-polished",
+          "description": "Hand-polished to a metallic gunmetal shine, no coating over the stone."
+        }
+      ],
+      "features": [
+        {
+          "icon": "stone",
+          "label": "Natural hematite",
+          "body": "Genuine iron oxide, not resin or dyed glass. Streak-tests red-brown under the polish."
+        },
+        {
+          "icon": "fit",
+          "label": "Stretch elastic fit",
+          "body": "One elastic core, no clasp, no sizing chart. Roll it on and forget it's there."
         }
       ]
     }
