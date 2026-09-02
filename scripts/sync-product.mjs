@@ -234,6 +234,18 @@ query ProductsByIds($ids: [ID!]!) {
         }
       }
       images(first: 20) { nodes { url altText width height } }
+      media(first: 20) {
+        nodes {
+          __typename
+          ... on MediaImage {
+            image { url altText width height }
+          }
+          ... on Video {
+            sources { url mimeType format width height }
+            preview { image { url width height } }
+          }
+        }
+      }
       variants(first: 100) {
         nodes {
           id
@@ -341,6 +353,36 @@ function toEntryVideo(field) {
     poster: video.preview?.image?.url ?? "",
     sources: mp4.map((s) => ({ src: s.url, type: s.mimeType })),
   };
+}
+
+/** The product's actual Shopify media list, images and videos interleaved in Admin's real order, in the shape ProductGallery expects. Skips a MediaImage with no image (still processing) or a Video with no playable mp4 source (HLS-only, before transcoding finishes) rather than erroring the whole sync. */
+function toMediaItems(nodes, fallbackAlt, existingImageBySrc) {
+  if (!nodes) return [];
+  const items = [];
+  for (const node of nodes) {
+    if (node.__typename === "MediaImage") {
+      const img = node.image;
+      if (!img) continue;
+      items.push({
+        kind: "image",
+        src: img.url,
+        alt: existingImageBySrc.get(img.url)?.alt ?? img.altText ?? fallbackAlt,
+        width: img.width,
+        height: img.height,
+      });
+    } else if (node.__typename === "Video") {
+      const mp4 = (node.sources ?? [])
+        .filter((s) => s.mimeType === "video/mp4")
+        .sort((a, b) => (b.width ?? 0) - (a.width ?? 0));
+      if (mp4.length === 0) continue;
+      items.push({
+        kind: "video",
+        poster: node.preview?.image?.url ?? "",
+        sources: mp4.map((s) => ({ src: s.url, type: s.mimeType })),
+      });
+    }
+  }
+  return items;
 }
 
 function toImage(node, fallbackAlt, existingBySrc) {
@@ -515,6 +557,7 @@ async function main() {
       images: (freshProduct.images?.nodes ?? []).map((img) =>
         toImage(img, freshProduct.title, existingImageBySrc),
       ),
+      media: toMediaItems(freshProduct.media?.nodes, freshProduct.title, existingImageBySrc),
       subtitle: freshProduct.subtitleField?.value ?? existingProduct.subtitle ?? "",
       material: freshProduct.materialField?.value ?? existingProduct.material ?? "",
       descriptionHtml: freshProduct.descriptionHtml ?? existingProduct.descriptionHtml ?? "",

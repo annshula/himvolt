@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-09-02T13:06:23.976Z",
+  "syncedAt": "2026-09-02T13:22:41.548Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -41,15 +41,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 41.16,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 32,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 41.16,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/himvolt_image_1.webp?v=1788346038",
@@ -77,15 +77,15 @@
               "compareAtAmount": 115,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 41.16,
-              "compareAtAmount": 82.32,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 32,
               "compareAtAmount": 63,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 41.16,
+              "compareAtAmount": 82.32,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/himvolt_image_2.webp?v=1788346748",
@@ -163,6 +163,106 @@
           "height": 1920
         },
         {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
+          "alt": "Hematite Men's Bracelet",
+          "width": 2025,
+          "height": 1359
+        }
+      ],
+      "media": [
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/himvolt_image_2.webp?v=1788346748",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S40360e697e9141c2aa311f69c5fdf4e9C.jpg?v=1788354200",
+          "alt": "Black Natural HematiteBracelet For Men Reclaim Jewellery Wrist Hematite Stone Beaded Healing Bracelet Edge Confidence For Men",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "kind": "video",
+          "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/ae2f82edd16a4eac97aa886ab7f624d0.thumbnail.0000000000.jpg?v=1788353411",
+          "sources": [
+            {
+              "src": "https://cdn.shopify.com/videos/c/vp/ae2f82edd16a4eac97aa886ab7f624d0/ae2f82edd16a4eac97aa886ab7f624d0.HD-720p-1.6Mbps-93287343.mp4",
+              "type": "video/mp4"
+            },
+            {
+              "src": "https://cdn.shopify.com/videos/c/vp/ae2f82edd16a4eac97aa886ab7f624d0/ae2f82edd16a4eac97aa886ab7f624d0.SD-480p-0.9Mbps-93287343.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5b308fe34f1b41b8a3900a9c91c7abc4O.jpg?v=1788344174",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1440,
+          "height": 1440
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sc0740d508dc949fbb2991e24f49c82d2L.jpg?v=1788352177",
+          "alt": "Black Natural HematiteBracelet For Men Reclaim Jewellery Wrist Hematite Stone Beaded Healing Bracelet Edge Confidence For Men",
+          "width": 1440,
+          "height": 1440
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sbdae622a7b31498487a52b2a26699e4eC.jpg?v=1788354200",
+          "alt": "Black Natural HematiteBracelet For Men Reclaim Jewellery Wrist Hematite Stone Beaded Healing Bracelet Edge Confidence For Men",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5665a2e389f343939f035b94caab2b5as.jpg?v=1788354200",
+          "alt": "Black Natural HematiteBracelet For Men Reclaim Jewellery Wrist Hematite Stone Beaded Healing Bracelet Edge Confidence For Men",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S495f01db7bf04932a631d50fd32e45e6z.jpg?v=1788354200",
+          "alt": "Black Natural HematiteBracelet For Men Reclaim Jewellery Wrist Hematite Stone Beaded Healing Bracelet Edge Confidence For Men",
+          "width": 1728,
+          "height": 2304
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S395a08de24c94387a7831cb015159725o.jpg?v=1788354200",
+          "alt": "Black Natural HematiteBracelet For Men Reclaim Jewellery Wrist Hematite Stone Beaded Healing Bracelet Edge Confidence For Men",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/single.jpg?v=1787507733",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1200,
+          "height": 1200
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/5513f308-52ed-4438-b0de-76478b27175b.jpg?v=1786992382",
+          "alt": "Hematite Men's Bracelet",
+          "width": 1920,
+          "height": 1920
+        },
+        {
+          "kind": "image",
           "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
           "alt": "Hematite Men's Bracelet",
           "width": 2025,
@@ -334,15 +434,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 14.44,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 14.44,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -370,15 +470,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 17.02,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 13,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 17.02,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -406,15 +506,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.99,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.99,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -442,15 +542,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.69,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.69,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -478,15 +578,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.17,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.17,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -514,15 +614,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.27,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.27,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -550,15 +650,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 13.3,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 13.3,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
@@ -586,15 +686,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 10.83,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 10.83,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -622,15 +722,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.58,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.58,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -658,15 +758,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 11.86,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 11.86,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -694,15 +794,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 10.83,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 10.83,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -730,15 +830,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 11.86,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 11.86,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -766,15 +866,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 8.97,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 7,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 8.97,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -802,15 +902,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 11.86,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 11.86,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
@@ -838,15 +938,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 14.44,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 14.44,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -874,15 +974,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 17.02,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 13,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 17.02,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -910,15 +1010,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.99,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.99,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -946,15 +1046,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.69,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.69,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -982,15 +1082,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.17,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.17,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1018,15 +1118,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.27,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.27,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1054,15 +1154,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 13.3,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 13.3,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
@@ -1090,15 +1190,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 14.44,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 14.44,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1126,15 +1226,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 17.02,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 13,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 17.02,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1162,15 +1262,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.99,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.99,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1198,15 +1298,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.69,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.69,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1234,15 +1334,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.17,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.17,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1270,15 +1370,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 12.27,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 10,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 12.27,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1306,15 +1406,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 13.3,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 11,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 13.3,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
@@ -1374,6 +1474,71 @@
           "height": 500
         },
         {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, gold-plated finish",
+          "width": 800,
+          "height": 800
+        }
+      ],
+      "media": [
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c7586cc7-015e-4c36-8e79-808b5dde519c.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, product photo 1",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/794b80c2-7f83-405b-8bef-55ff095033a8.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, product photo 2",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c9ce7006-0d9a-4bff-8103-42e0a7c35ff4.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, product photo 3",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, rose gold-plated finish",
+          "width": 695,
+          "height": 695
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, natural finish",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, silver-plated finish",
+          "width": 695,
+          "height": 695
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/0b149ace-582c-4ed5-9563-5637479cd194.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, product photo 7",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/7b7aa4b8-81a4-4239-921a-34ccfbce58f5.jpg?v=1787502800",
+          "alt": "Hematite Round Bead Bracelet, product photo 8",
+          "width": 500,
+          "height": 500
+        },
+        {
+          "kind": "image",
           "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
           "alt": "Hematite Round Bead Bracelet, gold-plated finish",
           "width": 800,
@@ -1515,15 +1680,15 @@
               "compareAtAmount": 51.52,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 32.14,
-              "compareAtAmount": 39.85,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 22.05,
               "compareAtAmount": 25.8,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 32.14,
+              "compareAtAmount": 39.85,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
@@ -1559,6 +1724,43 @@
           "height": 1000
         },
         {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/4dbb02ed-8ac9-4dff-9509-1e27592e42dd.jpg?v=1787500281",
+          "alt": "The Hematite Drop Bracelet, detail",
+          "width": 1000,
+          "height": 1000
+        }
+      ],
+      "media": [
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
+          "alt": "The Hematite Drop Bracelet",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1e3fb0a6-4353-457f-8ce1-cf918421091b.jpg?v=1787500281",
+          "alt": "The Hematite Drop Bracelet, detail",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/3bab1e98-71a4-460a-87d5-f19cfcf46cf6.jpg?v=1787500281",
+          "alt": "The Hematite Drop Bracelet, detail",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/cc625092-0dcb-491d-a934-cb3f94dfaba0.jpg?v=1787500281",
+          "alt": "The Hematite Drop Bracelet, detail",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "kind": "image",
           "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/4dbb02ed-8ac9-4dff-9509-1e27592e42dd.jpg?v=1787500281",
           "alt": "The Hematite Drop Bracelet, detail",
           "width": 1000,
@@ -1713,15 +1915,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1749,15 +1951,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1785,15 +1987,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1821,15 +2023,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1857,15 +2059,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1893,15 +2095,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 28.67,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 22,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 28.67,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1929,15 +2131,15 @@
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 33.74,
+              "compareAtAmount": null,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
@@ -1973,6 +2175,43 @@
           "height": 800
         },
         {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032939274.jpg?v=1787500449",
+          "alt": "Hematite Band Ring, detail",
+          "width": 527,
+          "height": 530
+        }
+      ],
+      "media": [
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
+          "alt": "Hematite Band Ring â€” solid polished hematite",
+          "width": 534,
+          "height": 521
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032939277.jpg?v=1787500449",
+          "alt": "Hematite Band Ring, detail",
+          "width": 535,
+          "height": 521
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032948208.jpg?v=1787500449",
+          "alt": "Hematite Band Ring worn on the hand",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032948211.jpg?v=1787500449",
+          "alt": "Hematite Band Ring, detail",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "kind": "image",
           "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032939274.jpg?v=1787500449",
           "alt": "Hematite Band Ring, detail",
           "width": 527,
@@ -2116,15 +2355,15 @@
               "compareAtAmount": 53.13,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2152,15 +2391,15 @@
               "compareAtAmount": 53.13,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2188,15 +2427,15 @@
               "compareAtAmount": 53.13,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2224,15 +2463,15 @@
               "compareAtAmount": 53.13,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2260,15 +2499,15 @@
               "compareAtAmount": 53.13,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2296,15 +2535,15 @@
               "compareAtAmount": 53.13,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2332,15 +2571,15 @@
               "compareAtAmount": 53.13,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2368,15 +2607,15 @@
               "compareAtAmount": 53.13,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2404,15 +2643,15 @@
               "compareAtAmount": 53.13,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2440,15 +2679,15 @@
               "compareAtAmount": 53.13,
               "currencyCode": "CAD"
             },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
             "GB": {
               "amount": 21.24,
               "compareAtAmount": 25.7,
               "currencyCode": "GBP"
+            },
+            "US": {
+              "amount": 31.23,
+              "compareAtAmount": 36.23,
+              "currencyCode": "USD"
             }
           },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
@@ -2484,6 +2723,43 @@
           "height": 800
         },
         {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682376.jpg?v=1787500786",
+          "alt": "Curved Hematite Ring, detail",
+          "width": 1600,
+          "height": 1600
+        }
+      ],
+      "media": [
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
+          "alt": "Curved Hematite Ring",
+          "width": 750,
+          "height": 750
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682374.jpg?v=1787500786",
+          "alt": "Curved Hematite Ring, detail",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682372.jpg?v=1787500786",
+          "alt": "Curved Hematite Ring worn on the hand",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682375.jpg?v=1787500786",
+          "alt": "Curved Hematite Ring, detail",
+          "width": 800,
+          "height": 800
+        },
+        {
+          "kind": "image",
           "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682376.jpg?v=1787500786",
           "alt": "Curved Hematite Ring, detail",
           "width": 1600,

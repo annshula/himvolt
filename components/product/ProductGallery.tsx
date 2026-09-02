@@ -8,25 +8,34 @@ import Tilt from "@/components/ui/Tilt";
 import { Icon } from "@/components/ui/Icons";
 import { useScrollLock } from "@/lib/scroll-lock";
 import { cn } from "@/lib/utils";
-import type { Product } from "@/lib/product";
+import type { MediaItem, Product } from "@/lib/product";
 
 /** Minimum horizontal drag (px) before a touch gesture counts as a swipe rather than a tap or a vertical scroll — shared by the main-image swipe and the Lightbox. */
 const SWIPE_THRESHOLD = 50;
 
+/** The thumbnail image for any gallery entry — a video's own poster frame for a video, its photo for an image. */
+function thumbSrc(item: MediaItem): string {
+  return item.kind === "video" ? item.poster : item.src;
+}
+
 /**
  * Amazon-style product gallery: a compact, independently-scrollable
  * thumbnail rail (left of the main image on desktop, a horizontal strip
- * above it on mobile) switches the main image on click, and clicking the
- * main image opens a full-screen lightbox with prev/next and click-to-zoom.
- * No external lightbox library — same plain-CSS-transition modal pattern as
- * CartDrawer, portaled to document.body so it can never get trapped inside
- * a transformed ancestor's stacking context (the Tilt wrapper below sets a
- * CSS `transform`, which would otherwise scope a `position: fixed`
- * descendant to itself instead of the viewport).
+ * above it on mobile) switches the main slot on click, and clicking a photo
+ * opens a full-screen lightbox with prev/next and click-to-zoom. A video
+ * entry (poster + small play badge in the rail) plays inline in the main
+ * slot instead — native `controls`, no lightbox, no swipe-to-advance while
+ * it's the active slide, same as tapping a video thumbnail on a real
+ * Amazon listing. No external lightbox library — same plain-CSS-transition
+ * modal pattern as CartDrawer, portaled to document.body so it can never
+ * get trapped inside a transformed ancestor's stacking context (the Tilt
+ * wrapper below sets a CSS `transform`, which would otherwise scope a
+ * `position: fixed` descendant to itself instead of the viewport).
  *
  * `activeSrc` — the currently selected variant's image, from BuyBox — jumps
  * the main preview to match it without taking over manual thumbnail
- * browsing: only re-syncs when `activeSrc` itself changes.
+ * browsing: only re-syncs when `activeSrc` itself changes. Variant images
+ * are always photos, so this only ever matches an image entry.
  */
 export function ProductGallery({
   product,
@@ -35,24 +44,26 @@ export function ProductGallery({
   product: Product;
   activeSrc?: string;
 }) {
-  const gallery = product.gallery;
+  const media = product.media;
   const [index, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (!activeSrc) return;
-    const i = gallery.findIndex((img) => img.src === activeSrc);
+    const i = media.findIndex((m) => m.kind === "image" && m.src === activeSrc);
     if (i !== -1) setIndex(i);
-  }, [activeSrc, gallery]);
+  }, [activeSrc, media]);
 
-  const active = gallery[index] ?? gallery[0];
+  const active = media[index] ?? media[0];
+  const isVideo = active?.kind === "video";
 
-  // Swipe left/right on the main image to move between photos — same plain
+  // Swipe left/right on the main slot to move between entries — same plain
   // touch-delta approach as the Lightbox below, so mobile doesn't need to
   // open the full-screen viewer just to flip through the gallery. A tap
   // (movement under the threshold) still opens the lightbox as before:
   // browsers suppress the synthetic click once touchmove exceeds a few
-  // pixels, which a real swipe always does.
+  // pixels, which a real swipe always does. Not wired up at all while a
+  // video is active — see the component doc comment.
   const mainTouchStart = useRef<{ x: number; y: number } | null>(null);
   const onMainTouchStart = (e: React.TouchEvent) => {
     const t = e.touches[0];
@@ -61,13 +72,13 @@ export function ProductGallery({
   const onMainTouchEnd = (e: React.TouchEvent) => {
     const start = mainTouchStart.current;
     mainTouchStart.current = null;
-    if (!start || gallery.length <= 1) return;
+    if (!start || media.length <= 1) return;
     const t = e.changedTouches[0];
     const dx = t.clientX - start.x;
     const dy = t.clientY - start.y;
     if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
     setIndex((i) =>
-      dx < 0 ? (i + 1) % gallery.length : (i - 1 + gallery.length) % gallery.length,
+      dx < 0 ? (i + 1) % media.length : (i - 1 + media.length) % media.length,
     );
   };
 
@@ -77,7 +88,7 @@ export function ProductGallery({
     // the grid cell (and page) from shrinking below its full content width.
     <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
       <div className="flex flex-col-reverse gap-4 lg:flex-row">
-        {gallery.length > 1 && (
+        {media.length > 1 && (
           // Plain native scrolling, not Embla — Embla only captures pointer
           // drags, so a desktop trackpad/wheel scroll gesture over the
           // vertical rail went nowhere and looked like it "snapped back".
@@ -95,11 +106,15 @@ export function ProductGallery({
               "scrollbar-none",
             )}
           >
-            {gallery.map((img, i) => (
+            {media.map((item, i) => (
               <button
-                key={img.src}
+                key={thumbSrc(item)}
                 type="button"
-                aria-label={`Show image ${i + 1} of ${gallery.length}`}
+                aria-label={
+                  item.kind === "video"
+                    ? `Play product video`
+                    : `Show image ${i + 1} of ${media.length}`
+                }
                 aria-pressed={i === index}
                 onClick={() => setIndex(i)}
                 className={cn(
@@ -110,44 +125,70 @@ export function ProductGallery({
                 )}
               >
                 <Image
-                  src={img.src}
-                  alt={img.alt}
+                  src={thumbSrc(item)}
+                  alt={item.kind === "video" ? "Product video" : item.alt}
                   fill
                   sizes="64px"
                   className="object-cover"
                 />
+                {item.kind === "video" && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 grid place-items-center bg-black/25"
+                  >
+                    <span className="grid size-6 place-items-center rounded-full bg-white/90 text-ink">
+                      <Icon name="play" className="ml-0.5 size-3" />
+                    </span>
+                  </span>
+                )}
               </button>
             ))}
           </div>
         )}
 
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          onTouchStart={onMainTouchStart}
-          onTouchEnd={onMainTouchEnd}
-          aria-label="Open full-size image"
-          className="group relative mx-auto block w-full max-w-115 cursor-zoom-in"
-        >
-          <Tilt className="relative" max={6}>
-            <Image
-              src={active.src}
-              alt={active.alt}
-              width={active.width}
-              height={active.height}
-              priority={index === 0}
-              sizes="(max-width: 1023px) 92vw, 40vw"
+        {isVideo ? (
+          <div className="relative mx-auto w-full max-w-115 overflow-hidden rounded-(--radius-card) bg-parchment">
+            <video
+              key={active.poster}
+              controls
+              playsInline
+              poster={active.poster}
               className="w-full"
-            />
-          </Tilt>
-          <span className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full bg-white/90 text-ink opacity-0 shadow-(--shadow-e2) transition-opacity duration-300 group-hover:opacity-100">
-            <Icon name="zoom" className="size-4" />
-          </span>
-        </button>
+            >
+              {active.sources.map((s) => (
+                <source key={s.src} src={s.src} type={s.type} />
+              ))}
+            </video>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            onTouchStart={onMainTouchStart}
+            onTouchEnd={onMainTouchEnd}
+            aria-label="Open full-size image"
+            className="group relative mx-auto block w-full max-w-115 cursor-zoom-in"
+          >
+            <Tilt className="relative" max={6}>
+              <Image
+                src={active.src}
+                alt={active.alt}
+                width={active.width}
+                height={active.height}
+                priority={index === 0}
+                sizes="(max-width: 1023px) 92vw, 40vw"
+                className="w-full"
+              />
+            </Tilt>
+            <span className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full bg-white/90 text-ink opacity-0 shadow-(--shadow-e2) transition-opacity duration-300 group-hover:opacity-100">
+              <Icon name="zoom" className="size-4" />
+            </span>
+          </button>
+        )}
       </div>
 
       <Lightbox
-        gallery={gallery}
+        media={media}
         index={index}
         onIndexChange={setIndex}
         open={open}
@@ -158,13 +199,13 @@ export function ProductGallery({
 }
 
 function Lightbox({
-  gallery,
+  media,
   index,
   onIndexChange,
   open,
   onClose,
 }: {
-  gallery: Product["gallery"];
+  media: Product["media"];
   index: number;
   onIndexChange: (i: number) => void;
   open: boolean;
@@ -180,7 +221,10 @@ function Lightbox({
   // gesture library: this is the only gesture the viewer needs. Ignored
   // while zoomed in, where a horizontal drag more likely means "let me pan
   // this", and ignored when the gesture reads as more vertical than
-  // horizontal (a scroll attempt, not a swipe).
+  // horizontal (a scroll attempt, not a swipe). The lightbox never actually
+  // opens on a video entry (see ProductGallery — video plays inline in the
+  // main slot instead), but this still guards on `media.length` the same
+  // way the main gallery's swipe does.
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const onTouchStart = (e: React.TouchEvent) => {
     const t = e.touches[0];
@@ -189,15 +233,13 @@ function Lightbox({
   const onTouchEnd = (e: React.TouchEvent) => {
     const start = touchStart.current;
     touchStart.current = null;
-    if (!start || zoomed || gallery.length <= 1) return;
+    if (!start || zoomed || media.length <= 1) return;
     const t = e.changedTouches[0];
     const dx = t.clientX - start.x;
     const dy = t.clientY - start.y;
     if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
     onIndexChange(
-      dx < 0
-        ? (index + 1) % gallery.length
-        : (index - 1 + gallery.length) % gallery.length,
+      dx < 0 ? (index + 1) % media.length : (index - 1 + media.length) % media.length,
     );
   };
 
@@ -206,17 +248,22 @@ function Lightbox({
     setZoomed(false);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") onIndexChange((index + 1) % gallery.length);
+      if (e.key === "ArrowRight") onIndexChange((index + 1) % media.length);
       if (e.key === "ArrowLeft")
-        onIndexChange((index - 1 + gallery.length) % gallery.length);
+        onIndexChange((index - 1 + media.length) % media.length);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, index, gallery.length, onClose, onIndexChange]);
+  }, [open, index, media.length, onClose, onIndexChange]);
 
   if (!mounted) return null;
 
-  const active = gallery[index] ?? gallery[0];
+  const active = media[index] ?? media[0];
+  // The lightbox is a photo viewer (zoom, pinch-style swipe) — a video entry
+  // never opens it in the first place (ProductGallery plays it inline
+  // instead), but guard here too in case `index` ever lands on one via the
+  // thumbnail strip below while already open.
+  if (active?.kind === "video") return null;
 
   return createPortal(
     <div
@@ -247,7 +294,7 @@ function Lightbox({
       >
         <div className="flex items-center justify-between px-5 py-4 sm:px-8">
           <span className="text-[0.78rem] tracking-widest text-chalk/70 tabular-nums">
-            {index + 1} / {gallery.length}
+            {index + 1} / {media.length}
           </span>
           <button
             type="button"
@@ -264,11 +311,11 @@ function Lightbox({
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          {gallery.length > 1 && (
+          {media.length > 1 && (
             <button
               type="button"
               onClick={() =>
-                onIndexChange((index - 1 + gallery.length) % gallery.length)
+                onIndexChange((index - 1 + media.length) % media.length)
               }
               aria-label="Previous image"
               className="absolute left-2 z-10 grid size-11 shrink-0 place-items-center rounded-full bg-white/10 text-chalk transition-colors duration-300 hover:bg-white/20 sm:left-6"
@@ -299,10 +346,10 @@ function Lightbox({
             />
           </button>
 
-          {gallery.length > 1 && (
+          {media.length > 1 && (
             <button
               type="button"
-              onClick={() => onIndexChange((index + 1) % gallery.length)}
+              onClick={() => onIndexChange((index + 1) % media.length)}
               aria-label="Next image"
               className="absolute right-2 z-10 grid size-11 shrink-0 place-items-center rounded-full bg-white/10 text-chalk transition-colors duration-300 hover:bg-white/20 sm:right-6"
             >
@@ -311,11 +358,11 @@ function Lightbox({
           )}
         </div>
 
-        {gallery.length > 1 && (
+        {media.length > 1 && (
           <div className="flex justify-center gap-2.5 px-5 pb-6">
-            {gallery.map((img, i) => (
+            {media.map((item, i) => (
               <button
-                key={img.src}
+                key={thumbSrc(item)}
                 type="button"
                 aria-label={`Show image ${i + 1}`}
                 aria-pressed={i === index}
@@ -328,12 +375,20 @@ function Lightbox({
                 )}
               >
                 <Image
-                  src={img.src}
-                  alt={img.alt}
+                  src={thumbSrc(item)}
+                  alt={item.kind === "video" ? "Product video" : item.alt}
                   fill
                   sizes="48px"
                   className="object-cover"
                 />
+                {item.kind === "video" && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 grid place-items-center bg-black/25"
+                  >
+                    <Icon name="play" className="size-3.5 text-white" />
+                  </span>
+                )}
               </button>
             ))}
           </div>

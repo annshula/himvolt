@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 
 import { ProductPurchase } from "@/components/product/ProductPurchase";
 import { ProductDetails } from "@/components/product/ProductDetails";
+import ProductReviews from "@/components/product/ProductReviews";
 import Reviews from "@/components/sections/Reviews";
 import ProductSchema from "@/components/ProductSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { reviewSetForHandle } from "@/data/reviews";
 import { getProductByHandle, products } from "@/lib/product";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
@@ -95,6 +97,12 @@ export default async function ProductPage({
   // Synced catalog data (data/product.json) — pricing, stock and photography.
   const liveProduct = await getProduct(handle);
 
+  // The full customer-review experience (its own curated photo set + review
+  // dataset) exists only for the Hematite Men's Bracelet; every other
+  // product page keeps the generic social-proof marquee so no other listing
+  // inherits this one's reviews.
+  const reviewSet = reviewSetForHandle(handle);
+
   return (
     <main>
       <ProductSchema product={liveProduct} />
@@ -125,11 +133,18 @@ export default async function ProductPage({
         </nav>
       </div>
 
-      <ProductPurchase product={liveProduct} />
+      <ProductPurchase product={liveProduct} rating={reviewSet?.summary} />
 
       <ProductDetails product={liveProduct} />
 
-      <Reviews />
+      {reviewSet ? (
+        <ProductReviews
+          reviews={reviewSet.reviews}
+          summary={reviewSet.summary}
+        />
+      ) : (
+        <Reviews />
+      )}
     </main>
   );
 }

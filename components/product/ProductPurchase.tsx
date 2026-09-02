@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type MouseEvent as ReactMouseEvent } from "react";
 
 import { BuyBox } from "@/components/product/BuyBox";
 import { ProductGallery } from "@/components/product/ProductGallery";
+import { ChevronDownIcon } from "@/components/ui/Icons";
+import { RatingStars } from "@/components/ui/Stars";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/lib/product";
 
@@ -15,13 +17,44 @@ function titleSizeClass(title: string) {
 }
 
 /**
+ * Smooth-scroll the header's "4.7 · N reviews" pill to the very start of the
+ * reviews section, clearing the sticky nav by a small breathing gap.
+ *
+ * A plain `#reviews` hash link is unreliable here: the Next client router
+ * keeps a second, hidden copy of the section inside a <template>, and native
+ * hash navigation can resolve to that inert copy (which has no layout box,
+ * so nothing scrolls) or double-count scroll-padding + scroll-margin and
+ * overshoot. Scrolling the rendered (visible) section by measured position
+ * lands consistently every time.
+ */
+function scrollToReviewsSection(e: ReactMouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  const target = Array.from(
+    document.querySelectorAll<HTMLElement>("#reviews"),
+  ).find((el) => el.getClientRects().length > 0);
+  if (!target) return;
+  const nav = document.querySelector<HTMLElement>("header");
+  const navHeight = nav?.getBoundingClientRect().height ?? 68;
+  const top =
+    target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
+  window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+}
+
+/**
  * Gallery + buy box as one coordinated unit — both need to agree on which
  * variant is selected (picking a colour swatch in BuyBox should move
  * ProductGallery's main image to match it), so the selected variant id lives
  * here, one level above both, rather than duplicated as separate internal
  * state in each.
  */
-export function ProductPurchase({ product }: { product: Product }) {
+export function ProductPurchase({
+  product,
+  rating,
+}: {
+  product: Product;
+  /** Aggregate rating shown as a scroll-to-reviews link — only present when this product has a review dataset (the Hematite Men's Bracelet). */
+  rating?: { average: number; count: number };
+}) {
   // Default to whichever variant carries the deepest real discount (a BOGO
   // or bundle deal) rather than always the first — that's the offer worth
   // leading with. Sold-out variants can't be ordered, so they're excluded
@@ -62,6 +95,23 @@ export function ProductPurchase({ product }: { product: Product }) {
           <p className="mt-2 text-[0.95rem] text-ink-soft">
             {product.subtitle}
           </p>
+          {rating && (
+            <a
+              href="#reviews"
+              onClick={scrollToReviewsSection}
+              aria-label={`Rated ${rating.average.toFixed(1)} out of 5 by ${rating.count.toLocaleString("en-US")} customers. Read the reviews.`}
+              className="group mt-4 inline-flex flex-wrap items-center gap-x-2.5 gap-y-1 rounded-full border border-line bg-ivory py-1.5 pr-3.5 pl-2.5 transition-colors duration-200 hover:border-line-strong"
+            >
+              <RatingStars value={rating.average} starClassName="h-3 w-3" />
+              <span className="text-[0.9rem] font-semibold text-ink tabular-nums">
+                {rating.average.toFixed(1)}
+              </span>
+              <span className="text-[0.8rem] text-ink-mute">
+                {rating.count.toLocaleString("en-US")} reviews
+              </span>
+              <ChevronDownIcon className="h-3.5 w-3.5 text-ink-mute transition-transform duration-200 group-hover:translate-y-0.5" />
+            </a>
+          )}
         </div>
 
         <div className="mt-7">

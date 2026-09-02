@@ -57,6 +57,11 @@ export type Variant = {
 export type CatalogImage = { src: string; alt: string; width: number; height: number };
 export type CatalogVideo = { poster: string; sources: { src: string; type: string }[] };
 
+/** One entry in the product's real Shopify media order (images and videos interleaved as merchandised in Admin) — what ProductGallery renders. Distinct from `gallery`, which stays images-only for consumers that can never sensibly land on a video (the listing card's cover photo, a spec/feature's image fallback, OG/meta tags). */
+export type MediaItem =
+  | ({ kind: "image" } & CatalogImage)
+  | ({ kind: "video" } & CatalogVideo);
+
 export type Product = {
   id: string;
   handle: string;
@@ -65,6 +70,7 @@ export type Product = {
   descriptionHtml: string;
   material: string;
   gallery: CatalogImage[];
+  media: MediaItem[];
   /** From the custom.specs Shopify metafield (a list of Product spec metaobjects) — `description`/`image`/`video` are optional richer content a merchant can add per row from Shopify Admin; `image` falls back to a gallery photo where it's rendered (ProductShowcase) if a row has none yet, and `video` (when present) takes over from `image` there entirely. */
   specs: { label: string; value: string; description?: string; image?: CatalogImage | null; video?: CatalogVideo | null }[];
   /** From the custom.feature_highlights Shopify metafield — merchant-editable in Shopify Admin, no code change needed. `icon` is validated against the known set where it's rendered (components/product/ProductShowcase.tsx), not here. */
@@ -93,6 +99,13 @@ export function mapSyncedProducts(
     descriptionHtml: p.descriptionHtml,
     material: p.material,
     gallery: p.images,
+    // Older catalog entries synced before `media` existed have no field for
+    // it at all — fall back to the images-only gallery so those products
+    // still render (just without video) until their next sync.
+    media:
+      p.media && p.media.length > 0
+        ? p.media
+        : p.images.map((img) => ({ kind: "image" as const, ...img })),
     specs: p.specs,
     features: p.features ?? [],
     variants: p.variants.map((v) => ({
@@ -123,7 +136,14 @@ export function mapSyncedProducts(
  * server round-trip), and any type-only import. Never edit this file by
  * hand; `npm run shopify:sync` regenerates it from Shopify.
  */
-export const products: Product[] = mapSyncedProducts(catalog.products);
+// TS infers plain `string` for every JSON field (no `resolveJsonModule`
+// support for literal unions), so a discriminated field like a media
+// entry's `kind: "image" | "video"` widens on this import specifically —
+// the cast trusts the runtime shape scripts/sync-product.mjs actually
+// writes, same as any other JSON-sourced data.
+export const products: Product[] = mapSyncedProducts(
+  catalog.products as SyncedCatalogRecord["products"],
+);
 
 /** The main/hero product — every generic "shop now" CTA hands off here. */
 export const product: Product = products[0];

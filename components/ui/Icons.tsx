@@ -506,6 +506,34 @@ export function ZoomIcon({ className = base }: IconProps) {
   );
 }
 
+export function CameraIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+      <path
+        d="M4 7.6h3.1l1.5-2.1h6.8l1.5 2.1H20A1.5 1.5 0 0 1 21.5 9v9.4A1.5 1.5 0 0 1 20 19.9H4A1.5 1.5 0 0 1 2.5 18.4V9A1.5 1.5 0 0 1 4 7.6Z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+      <circle
+        cx="12"
+        cy="13.4"
+        r="3.7"
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
+    </svg>
+  );
+}
+
+export function PlayIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+      <path d="M8.5 6.2v11.6l9.5-5.8-9.5-5.8Z" fill="currentColor" />
+    </svg>
+  );
+}
+
 export function FeatherIcon({ className = base }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
@@ -563,6 +591,8 @@ export const iconMap = {
   logout: LogoutIcon,
   feather: FeatherIcon,
   zoom: ZoomIcon,
+  play: PlayIcon,
+  camera: CameraIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;

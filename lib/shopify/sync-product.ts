@@ -193,6 +193,18 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
             height
           }
         }
+        media(first: 20) {
+          nodes {
+            __typename
+            ... on MediaImage {
+              image { url altText width height }
+            }
+            ... on Video {
+              sources { url mimeType format width height }
+              preview { image { url width height } }
+            }
+          }
+        }
         variants(first: 100) {
           nodes {
             id
@@ -286,6 +298,20 @@ type SpecNode = {
   video: MetaobjectVideoField;
 };
 
+type MediaNode =
+  | { __typename: "MediaImage"; image: ImageNode | null }
+  | {
+      __typename: "Video";
+      sources: {
+        url: string;
+        mimeType: string;
+        format: string;
+        width: number | null;
+        height: number | null;
+      }[];
+      preview: { image: { url: string; width: number; height: number } } | null;
+    };
+
 type ProductNode = {
   id: string;
   handle: string;
@@ -298,6 +324,7 @@ type ProductNode = {
     references: { nodes: FeatureHighlightNode[] } | null;
   } | null;
   images: { nodes: ImageNode[] } | null;
+  media: { nodes: MediaNode[] } | null;
   variants: { nodes: VariantNode[] } | null;
 };
 
@@ -310,6 +337,11 @@ type MarketPrice = {
 type SyncedImage = { src: string; alt: string; width: number; height: number };
 
 type SyncedVideo = { poster: string; sources: { src: string; type: string }[] };
+
+/** One entry in the product's actual Shopify media order — images and videos interleaved exactly as merchandised in Admin, for the main gallery/carousel (ProductGallery). Distinct from `images` below, which stays images-only for consumers that can never sensibly land on a video (the listing card's cover photo, a spec/feature's image fallback, OG/meta tags). */
+type SyncedMediaItem =
+  | ({ kind: "image" } & SyncedImage)
+  | ({ kind: "video" } & SyncedVideo);
 
 type SyncedFeature = {
   icon: string;
@@ -353,6 +385,8 @@ type SyncedProduct = {
   availableForSale: boolean;
   variants: SyncedVariant[];
   images: SyncedImage[];
+  /** Undefined for a product synced before this field existed — see lib/product.ts's fallback to the images-only gallery. */
+  media?: SyncedMediaItem[];
   subtitle: string;
   material: string;
   descriptionHtml: string;
@@ -409,6 +443,40 @@ function toEntryVideo(field: MetaobjectVideoField): SyncedVideo | null {
     poster: video.preview?.image.url ?? "",
     sources: mp4.map((s) => ({ src: s.url, type: s.mimeType })),
   };
+}
+
+/** The product's actual Shopify media list, images and videos interleaved in Admin's real order, in the shape ProductGallery expects. Skips a MediaImage with no image (still processing) or a Video with no playable mp4 source (HLS-only, before transcoding finishes) rather than erroring the whole sync. */
+function toMediaItems(
+  nodes: MediaNode[] | undefined,
+  fallbackAlt: string,
+  existingImageBySrc: Map<string, SyncedImage>,
+): SyncedMediaItem[] {
+  if (!nodes) return [];
+  const items: SyncedMediaItem[] = [];
+  for (const node of nodes) {
+    if (node.__typename === "MediaImage") {
+      const img = node.image;
+      if (!img) continue;
+      items.push({
+        kind: "image",
+        src: img.url,
+        alt: existingImageBySrc.get(img.url)?.alt ?? img.altText ?? fallbackAlt,
+        width: img.width,
+        height: img.height,
+      });
+    } else if (node.__typename === "Video") {
+      const mp4 = node.sources
+        .filter((s) => s.mimeType === "video/mp4")
+        .sort((a, b) => (b.width ?? 0) - (a.width ?? 0));
+      if (mp4.length === 0) continue;
+      items.push({
+        kind: "video",
+        poster: node.preview?.image.url ?? "",
+        sources: mp4.map((s) => ({ src: s.url, type: s.mimeType })),
+      });
+    }
+  }
+  return items;
 }
 
 /** Single-country markets are real, merchant-priced markets; multi-country ones are the "sell everywhere" catch-all. */
@@ -649,6 +717,11 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
         width: img.width,
         height: img.height,
       })),
+      media: toMediaItems(
+        freshProduct.media?.nodes,
+        freshProduct.title,
+        existingImageBySrc,
+      ),
       subtitle:
         freshProduct.subtitleField?.value ?? existingProduct.subtitle ?? "",
       material:
@@ -725,6 +798,7 @@ export async function seedProductIntoCatalog(
       availableForSale: false,
       variants: [],
       images: [],
+      media: [],
       subtitle: "",
       material: "",
       descriptionHtml: "",
