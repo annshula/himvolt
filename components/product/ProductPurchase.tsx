@@ -4,7 +4,15 @@ import { useState } from "react";
 
 import { BuyBox } from "@/components/product/BuyBox";
 import { ProductGallery } from "@/components/product/ProductGallery";
+import { cn } from "@/lib/utils";
 import type { Product } from "@/lib/product";
+
+/** A long merchant-supplied title needs a smaller ceiling than a short one — otherwise it wraps into a wall of oversized text at the default clamp's 2rem floor. Three fluid bands keyed to length, each still shrinking further on narrow viewports via its own clamp vw term. */
+function titleSizeClass(title: string) {
+  if (title.length > 90) return "text-[clamp(1.3rem,1rem+1.1vw,1.7rem)]";
+  if (title.length > 55) return "text-[clamp(1.6rem,1.1rem+1.6vw,2.2rem)]";
+  return "text-[clamp(2rem,1.3rem+2.4vw,3rem)]";
+}
 
 /**
  * Gallery + buy box as one coordinated unit — both need to agree on which
@@ -43,7 +51,12 @@ export function ProductPurchase({ product }: { product: Product }) {
 
       <div className="lg:sticky lg:top-28 lg:self-start">
         <div>
-          <h1 className="font-display text-[clamp(2rem,1.3rem+2.4vw,3rem)] leading-[1.02] font-extrabold tracking-[-0.04em] text-ink text-balance">
+          <h1
+            className={cn(
+              "font-display leading-[1.05] font-extrabold tracking-[-0.04em] text-ink text-balance",
+              titleSizeClass(product.title),
+            )}
+          >
             {product.title}
           </h1>
           <p className="mt-2 text-[0.95rem] text-ink-soft">
