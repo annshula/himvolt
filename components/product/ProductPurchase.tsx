@@ -53,7 +53,7 @@ export function ProductPurchase({ product }: { product: Product }) {
         <div>
           <h1
             className={cn(
-              "font-display leading-[1.05] font-extrabold tracking-[-0.04em] text-ink text-balance",
+              "font-sans leading-[1.15] font-semibold tracking-[-0.02em] text-ink text-balance",
               titleSizeClass(product.title),
             )}
           >
@@ -73,7 +73,7 @@ export function ProductPurchase({ product }: { product: Product }) {
         </div>
 
         <div
-          className="mt-8 max-w-[52ch] text-[0.9rem] leading-[1.65] text-ink-soft [&_p]:mt-3 [&_p:first-child]:mt-0"
+          className="mt-8 line-clamp-2 max-w-[52ch] text-[0.9rem] leading-[1.65] text-ink-soft [&_p]:inline [&_p]:mt-0"
           dangerouslySetInnerHTML={{
             // Description HTML originates in the shared Shopify store and is
             // merchant-controlled, never end-user input. It's sanitized once,

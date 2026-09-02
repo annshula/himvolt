@@ -46,10 +46,10 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
 
         <div className="p-4">
-          <h2 className="font-display text-[0.95rem] leading-tight font-bold tracking-[-0.02em] text-ink">
+          <h2 className="font-sans line-clamp-2 text-[0.95rem] leading-tight font-semibold tracking-[-0.01em] text-ink">
             {product.title}
           </h2>
-          <p className="mt-1 text-[0.72rem] text-ink-mute">
+          <p className="mt-1 line-clamp-1 text-[0.72rem] text-ink-mute">
             {product.subtitle}
           </p>
 
