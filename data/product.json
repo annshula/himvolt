@@ -410,7 +410,7 @@
       "id": "gid://shopify/Product/9617681973475",
       "handle": "natural-black-tourmaline-and-hematite-single-strand-round-bead-bracelet",
       "title": "Hematite Round Bead Bracelet",
-      "price": 14.44,
+      "price": 28,
       "compareAtPrice": null,
       "currencyCode": "USD",
       "availableForSale": true,
@@ -419,28 +419,28 @@
           "id": "gid://shopify/ProductVariant/49583348482275",
           "title": "Gold-plated · 10mm",
           "sku": "CJSL304925813MN",
-          "price": 14.44,
+          "price": 28,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8465,
           "pricesByMarket": {
             "CA": {
-              "amount": 21,
+              "amount": 25.18,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 21,
+              "amount": 36,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 14.44,
+              "amount": 28,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 11,
+              "amount": 23.6,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -455,28 +455,28 @@
           "id": "gid://shopify/ProductVariant/49583348515043",
           "title": "Gold-plated · 12mm",
           "sku": "CJSL304925814NM",
-          "price": 17.02,
+          "price": 28.5,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8100,
           "pricesByMarket": {
             "CA": {
-              "amount": 24,
+              "amount": 25.68,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 25,
+              "amount": 36.5,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 17.02,
+              "amount": 28.5,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 13,
+              "amount": 24.1,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -491,28 +491,28 @@
           "id": "gid://shopify/ProductVariant/49583348547811",
           "title": "Gold-plated · 2mm",
           "sku": "CJSL304925808HS",
-          "price": 12.99,
+          "price": 27.72,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 5296,
           "pricesByMarket": {
             "CA": {
-              "amount": 19,
+              "amount": 24.9,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 19,
+              "amount": 35.72,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.99,
+              "amount": 27.72,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.32,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -527,28 +527,28 @@
           "id": "gid://shopify/ProductVariant/49583348580579",
           "title": "Gold-plated · 3mm",
           "sku": "CJSL304925809IR",
-          "price": 12.69,
+          "price": 27.66,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 9547,
           "pricesByMarket": {
             "CA": {
-              "amount": 18,
+              "amount": 24.84,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 19,
+              "amount": 35.66,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.69,
+              "amount": 27.66,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -563,28 +563,28 @@
           "id": "gid://shopify/ProductVariant/49583348613347",
           "title": "Gold-plated · 4mm",
           "sku": "CJSL304925810JQ",
-          "price": 12.17,
+          "price": 27.56,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8010,
           "pricesByMarket": {
             "CA": {
-              "amount": 17,
+              "amount": 24.74,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 18,
+              "amount": 35.56,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.17,
+              "amount": 27.56,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.16,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -599,28 +599,28 @@
           "id": "gid://shopify/ProductVariant/49583348646115",
           "title": "Gold-plated · 6mm",
           "sku": "CJSL304925811KP",
-          "price": 12.27,
+          "price": 27.58,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 5018,
           "pricesByMarket": {
             "CA": {
-              "amount": 18,
+              "amount": 24.76,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 18,
+              "amount": 35.58,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.27,
+              "amount": 27.58,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.18,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -635,28 +635,28 @@
           "id": "gid://shopify/ProductVariant/49583348678883",
           "title": "Gold-plated · 8mm",
           "sku": "CJSL304925812LO",
-          "price": 13.3,
+          "price": 27.78,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7150,
           "pricesByMarket": {
             "CA": {
-              "amount": 19,
+              "amount": 24.96,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 19,
+              "amount": 35.78,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 13.3,
+              "amount": 27.78,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 11,
+              "amount": 23.38,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -671,28 +671,28 @@
           "id": "gid://shopify/ProductVariant/49583348711651",
           "title": "Natural · 10mm",
           "sku": "CJSL304925806FU",
-          "price": 10.83,
+          "price": 27.3,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 6099,
           "pricesByMarket": {
             "CA": {
-              "amount": 16,
+              "amount": 24.48,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 16,
+              "amount": 35.3,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 10.83,
+              "amount": 27.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 9,
+              "amount": 22.9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -707,28 +707,28 @@
           "id": "gid://shopify/ProductVariant/49583348744419",
           "title": "Natural · 12mm",
           "sku": "CJSL304925807GT",
-          "price": 12.58,
+          "price": 27.64,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 6433,
           "pricesByMarket": {
             "CA": {
-              "amount": 18,
+              "amount": 24.82,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 18,
+              "amount": 35.64,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.58,
+              "amount": 27.64,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.24,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -743,28 +743,28 @@
           "id": "gid://shopify/ProductVariant/49583348777187",
           "title": "Natural · 2mm",
           "sku": "CJSL304925801AZ",
-          "price": 11.86,
+          "price": 27.5,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 9471,
           "pricesByMarket": {
             "CA": {
-              "amount": 17,
+              "amount": 24.68,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 17,
+              "amount": 35.5,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 11.86,
+              "amount": 27.5,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 9,
+              "amount": 23.1,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -779,28 +779,28 @@
           "id": "gid://shopify/ProductVariant/49583348809955",
           "title": "Natural · 3mm",
           "sku": "CJSL304925802BY",
-          "price": 10.83,
+          "price": 27.3,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8889,
           "pricesByMarket": {
             "CA": {
-              "amount": 16,
+              "amount": 24.48,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 16,
+              "amount": 35.3,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 10.83,
+              "amount": 27.3,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 9,
+              "amount": 22.9,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -815,28 +815,28 @@
           "id": "gid://shopify/ProductVariant/49583348842723",
           "title": "Natural · 4mm",
           "sku": "CJSL304925803CX",
-          "price": 11.86,
+          "price": 27.5,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 5949,
           "pricesByMarket": {
             "CA": {
-              "amount": 17,
+              "amount": 24.68,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 17,
+              "amount": 35.5,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 11.86,
+              "amount": 27.5,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 9,
+              "amount": 23.1,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -851,28 +851,28 @@
           "id": "gid://shopify/ProductVariant/49583348875491",
           "title": "Natural · 6mm",
           "sku": "CJSL304925804DW",
-          "price": 8.97,
+          "price": 26.94,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 9915,
           "pricesByMarket": {
             "CA": {
-              "amount": 13,
+              "amount": 24.12,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 13,
+              "amount": 34.94,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 8.97,
+              "amount": 26.94,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 7,
+              "amount": 22.54,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -887,28 +887,28 @@
           "id": "gid://shopify/ProductVariant/49583348908259",
           "title": "Natural · 8mm",
           "sku": "CJSL304925805EV",
-          "price": 11.86,
+          "price": 27.5,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7674,
           "pricesByMarket": {
             "CA": {
-              "amount": 17,
+              "amount": 24.68,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 17,
+              "amount": 35.5,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 11.86,
+              "amount": 27.5,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 9,
+              "amount": 23.1,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -923,28 +923,28 @@
           "id": "gid://shopify/ProductVariant/49583348941027",
           "title": "Rose gold-plated · 10mm",
           "sku": "CJSL304925827AZ",
-          "price": 14.44,
+          "price": 28,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8420,
           "pricesByMarket": {
             "CA": {
-              "amount": 21,
+              "amount": 25.18,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 21,
+              "amount": 36,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 14.44,
+              "amount": 28,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 11,
+              "amount": 23.6,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -959,28 +959,28 @@
           "id": "gid://shopify/ProductVariant/49583348973795",
           "title": "Rose gold-plated · 12mm",
           "sku": "CJSL304925828BY",
-          "price": 17.02,
+          "price": 28.5,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 6274,
           "pricesByMarket": {
             "CA": {
-              "amount": 24,
+              "amount": 25.68,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 25,
+              "amount": 36.5,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 17.02,
+              "amount": 28.5,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 13,
+              "amount": 24.1,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -995,28 +995,28 @@
           "id": "gid://shopify/ProductVariant/49583349006563",
           "title": "Rose gold-plated · 2mm",
           "sku": "CJSL304925822VE",
-          "price": 12.99,
+          "price": 27.72,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 5038,
           "pricesByMarket": {
             "CA": {
-              "amount": 19,
+              "amount": 24.9,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 19,
+              "amount": 35.72,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.99,
+              "amount": 27.72,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.32,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1031,28 +1031,28 @@
           "id": "gid://shopify/ProductVariant/49583349039331",
           "title": "Rose gold-plated · 3mm",
           "sku": "CJSL304925823WD",
-          "price": 12.69,
+          "price": 27.66,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7167,
           "pricesByMarket": {
             "CA": {
-              "amount": 18,
+              "amount": 24.84,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 19,
+              "amount": 35.66,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.69,
+              "amount": 27.66,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1067,28 +1067,28 @@
           "id": "gid://shopify/ProductVariant/49583349072099",
           "title": "Rose gold-plated · 4mm",
           "sku": "CJSL304925824XC",
-          "price": 12.17,
+          "price": 27.56,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7271,
           "pricesByMarket": {
             "CA": {
-              "amount": 17,
+              "amount": 24.74,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 18,
+              "amount": 35.56,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.17,
+              "amount": 27.56,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.16,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1103,28 +1103,28 @@
           "id": "gid://shopify/ProductVariant/49583349104867",
           "title": "Rose gold-plated · 6mm",
           "sku": "CJSL304925825YB",
-          "price": 12.27,
+          "price": 27.58,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 6503,
           "pricesByMarket": {
             "CA": {
-              "amount": 18,
+              "amount": 24.76,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 18,
+              "amount": 35.58,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.27,
+              "amount": 27.58,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.18,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1139,28 +1139,28 @@
           "id": "gid://shopify/ProductVariant/49583349137635",
           "title": "Rose gold-plated · 8mm",
           "sku": "CJSL304925826ZA",
-          "price": 13.3,
+          "price": 27.78,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8409,
           "pricesByMarket": {
             "CA": {
-              "amount": 19,
+              "amount": 24.96,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 19,
+              "amount": 35.78,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 13.3,
+              "amount": 27.78,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 11,
+              "amount": 23.38,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1175,28 +1175,28 @@
           "id": "gid://shopify/ProductVariant/49583349170403",
           "title": "Silver-plated · 10mm",
           "sku": "CJSL304925820TG",
-          "price": 14.44,
+          "price": 28,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8072,
           "pricesByMarket": {
             "CA": {
-              "amount": 21,
+              "amount": 25.18,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 21,
+              "amount": 36,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 14.44,
+              "amount": 28,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 11,
+              "amount": 23.6,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1211,28 +1211,28 @@
           "id": "gid://shopify/ProductVariant/49583349203171",
           "title": "Silver-plated · 12mm",
           "sku": "CJSL304925821UF",
-          "price": 17.02,
+          "price": 28.5,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8387,
           "pricesByMarket": {
             "CA": {
-              "amount": 24,
+              "amount": 25.68,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 25,
+              "amount": 36.5,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 17.02,
+              "amount": 28.5,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 13,
+              "amount": 24.1,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1247,28 +1247,28 @@
           "id": "gid://shopify/ProductVariant/49583349235939",
           "title": "Silver-plated · 2mm",
           "sku": "CJSL304925815OL",
-          "price": 12.99,
+          "price": 27.72,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7454,
           "pricesByMarket": {
             "CA": {
-              "amount": 19,
+              "amount": 24.9,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 19,
+              "amount": 35.72,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.99,
+              "amount": 27.72,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.32,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1283,28 +1283,28 @@
           "id": "gid://shopify/ProductVariant/49583349268707",
           "title": "Silver-plated · 3mm",
           "sku": "CJSL304925816PK",
-          "price": 12.69,
+          "price": 27.66,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 9944,
           "pricesByMarket": {
             "CA": {
-              "amount": 18,
+              "amount": 24.84,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 19,
+              "amount": 35.66,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.69,
+              "amount": 27.66,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.26,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1319,28 +1319,28 @@
           "id": "gid://shopify/ProductVariant/49583349301475",
           "title": "Silver-plated · 4mm",
           "sku": "CJSL304925817QJ",
-          "price": 12.17,
+          "price": 27.56,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 6030,
           "pricesByMarket": {
             "CA": {
-              "amount": 17,
+              "amount": 24.74,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 18,
+              "amount": 35.56,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.17,
+              "amount": 27.56,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.16,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1355,28 +1355,28 @@
           "id": "gid://shopify/ProductVariant/49583349334243",
           "title": "Silver-plated · 6mm",
           "sku": "CJSL304925818RI",
-          "price": 12.27,
+          "price": 27.58,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 9103,
           "pricesByMarket": {
             "CA": {
-              "amount": 18,
+              "amount": 24.76,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 18,
+              "amount": 35.58,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 12.27,
+              "amount": 27.58,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 10,
+              "amount": 23.18,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -1391,28 +1391,28 @@
           "id": "gid://shopify/ProductVariant/49583349367011",
           "title": "Silver-plated · 8mm",
           "sku": "CJSL304925819SH",
-          "price": 13.3,
+          "price": 27.78,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7788,
           "pricesByMarket": {
             "CA": {
-              "amount": 19,
+              "amount": 24.96,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 19,
+              "amount": 35.78,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 13.3,
+              "amount": 27.78,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 11,
+              "amount": 23.38,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
