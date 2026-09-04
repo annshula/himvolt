@@ -229,7 +229,7 @@ export const footerNav = [
     links: [
       { label: "Hematite bracelets", href: "/shop" },
       { label: "Blog", href: "/blog" },
-      { label: "Hematite meaning", href: "#stone" },
+      { label: "Hematite meaning", href: "/#stone" },
       { label: "Sizing", href: "/faq" },
       { label: "Gift sets", href: "/shop" },
     ],
@@ -255,7 +255,7 @@ export const footerNav = [
   {
     title: "Company",
     links: [
-      { label: "Our claims policy", href: "#stone" },
+      { label: "Our claims policy", href: "/#stone" },
       { label: "Privacy policy", href: "/privacy" },
       { label: "Terms of service", href: "/terms" },
       { label: "Cookie policy", href: "/cookie-policy" },
