@@ -275,6 +275,53 @@ export const LEGAL_PAGES: LegalPage[] = [
     ],
   },
   {
+    slug: "claims-policy",
+    title: "Claims Policy",
+    description: "What we say about hematite, and what we deliberately don't.",
+    lastUpdated: "2026-09-04",
+    requiresMerchantReview: true,
+    sections: [
+      {
+        body: [
+          "This page explains exactly what HimVolt claims about hematite, and where we draw the line. We describe our stone two ways — by verifiable mineral fact, and by cultural tradition — and we never blur the two into a health claim.",
+        ],
+      },
+      {
+        heading: "The mineral fact",
+        body: [
+          "Every piece is genuine hematite: iron(III) oxide, Fe₂O₃, one of the most abundant iron ores on Earth. It rates 5.5–6.5 on the Mohs hardness scale — roughly on par with hardened steel — and is notably dense for its size, which is the first thing most people notice holding it. Scratched against unglazed porcelain, it leaves a red-brown streak: the same mineralogy test used to identify hematite for roughly two thousand years, and the simplest way to tell it apart from coated glass, resin, or magnetic \"hematine\" composites sold under the same name.",
+          "These properties are testable and we stand behind them. If a piece you receive doesn't streak red-brown, contact us — see our Refund & Return Policy.",
+        ],
+      },
+      {
+        heading: "The cultural tradition",
+        body: [
+          "Hematite has been carried since antiquity — in Egyptian amulets, Mesopotamian seals, and centuries of grounding and protective folk tradition since, a lineage stretching back roughly five thousand years. Today it remains one of the most reached-for stones for grounding, focus, confidence, and resilience, often worn before a demanding day for exactly that reason.",
+          "We describe that history and that tradition because it's true and it's why people wear the stone. We do not present it as anything more than what it is: a tradition, not a mechanism.",
+        ],
+      },
+      {
+        heading: "What we do not claim",
+        body: [
+          "We do not say hematite treats, cures, prevents, or diagnoses any medical or psychological condition. We do not say it has a measurable effect on mood, energy, focus, or health. Nothing we sell is a medical device, a supplement, or a therapeutic product, and nothing in our marketing should be read as such.",
+          "If you're buying for a specific health outcome, this isn't the product for that, and we'd rather tell you now than after your order.",
+        ],
+      },
+      {
+        heading: "Marketing and reviews",
+        body: [
+          "Any testimonial or review we publish reflects one customer's personal experience or opinion, not a guaranteed or typical result, and is never edited to imply a health outcome we don't otherwise claim.",
+        ],
+      },
+      {
+        heading: "Questions about a specific claim",
+        body: [
+          "If something on this site reads to you like a health claim, we consider that a bug, not a feature — email us at the address below with the page and the exact wording, and we'll review and correct it.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "accessibility",
     title: "Accessibility",
     description: "Our approach to making himvolt.com usable for everyone.",

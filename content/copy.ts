@@ -255,7 +255,7 @@ export const footerNav = [
   {
     title: "Company",
     links: [
-      { label: "Our claims policy", href: "/#stone" },
+      { label: "Our claims policy", href: "/claims-policy" },
       { label: "Privacy policy", href: "/privacy" },
       { label: "Terms of service", href: "/terms" },
       { label: "Cookie policy", href: "/cookie-policy" },
