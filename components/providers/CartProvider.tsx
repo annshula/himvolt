@@ -12,6 +12,7 @@ import {
 } from "react";
 
 import { resolveCartLine } from "@/lib/cart-catalog";
+import { trackAddToCart } from "@/lib/analytics";
 import { useScrollLock } from "@/lib/scroll-lock";
 
 const STORAGE_KEY = "hv.cart.v1";
@@ -80,7 +81,16 @@ interface CartContextValue {
   isOpen: boolean;
   open: () => void;
   close: () => void;
-  add: (variantId: string, qty?: number) => void;
+  /** `priceCents`/`currency` let a caller pass the shopper's live localized
+   *  price so the fired AddToCart event matches what's on screen; omitted,
+   *  it falls back to the catalog's base USD price — the event still fires
+   *  either way, so no future "add to cart" entry point can forget it. */
+  add: (
+    variantId: string,
+    qty?: number,
+    priceCents?: number,
+    currency?: string,
+  ) => void;
   setQty: (variantId: string, qty: number) => void;
   remove: (variantId: string) => void;
   clear: () => void;
@@ -157,9 +167,24 @@ export function CartProvider({ children }: { children: ReactNode }) {
     [raw],
   );
 
-  const add = useCallback((variantId: string, qty = 1) => {
-    dispatch({ type: "add", variantId, qty });
-  }, []);
+  const add = useCallback(
+    (variantId: string, qty = 1, priceCents?: number, currency = "USD") => {
+      dispatch({ type: "add", variantId, qty });
+      const catalog = resolveCartLine(variantId);
+      if (catalog) {
+        trackAddToCart(
+          {
+            slug: variantId,
+            name: catalog.name,
+            priceCents: priceCents ?? catalog.unitPriceCents,
+            quantity: qty,
+          },
+          currency,
+        );
+      }
+    },
+    [],
+  );
 
   // Stable identity: consumers (e.g. the post-payment <ClearCart/>) must be
   // able to run this exactly once, so it cannot be recreated when `lines`

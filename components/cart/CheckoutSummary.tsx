@@ -32,7 +32,12 @@ export function CheckoutSummary() {
     setCheckingOut(true);
     setCheckoutError(null);
     const result = await shopifyCheckout(
-      lines.map((l) => ({ variantId: l.variantId, qty: l.qty })),
+      lines.map((l) => ({
+        variantId: l.variantId,
+        qty: l.qty,
+        priceCents: Math.round(unitAmountFor(l.variantId) * 100),
+      })),
+      currencyCode,
     );
     if (result.ok) {
       // The bag is committed to Shopify's checkout. It is left untouched here

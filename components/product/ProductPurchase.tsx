@@ -2,6 +2,7 @@
 
 import { useState, type MouseEvent as ReactMouseEvent } from "react";
 
+import { ProductViewTracker } from "@/components/analytics/ProductViewTracker";
 import { BuyBox } from "@/components/product/BuyBox";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { ChevronDownIcon } from "@/components/ui/Icons";
@@ -80,6 +81,15 @@ export function ProductPurchase({
 
   return (
     <div className="mx-auto grid w-full max-w-310 gap-12 px-5 pt-8 pb-16 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:pt-10 lg:pb-24">
+      {/* Fired against the initially-selected variant (bestDeal), not the
+          possibly-since-changed `selected` — one ViewContent per page view,
+          matching what the shopper saw first, not every swatch/size click. */}
+      <ProductViewTracker
+        variantId={bestDeal.id}
+        name={product.title}
+        fallbackAmount={bestDeal.price.amount}
+        fallbackCurrency={bestDeal.price.currencyCode}
+      />
       <ProductGallery product={product} activeSrc={selected.image} />
 
       <div className="lg:sticky lg:top-28 lg:self-start">

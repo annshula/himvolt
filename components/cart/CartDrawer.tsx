@@ -26,6 +26,7 @@ export function CartDrawer() {
     useCart();
   const {
     currencyCode,
+    unitAmountFor,
     lineTotalFor,
     subtotal,
     pending: pricePending,
@@ -40,7 +41,12 @@ export function CartDrawer() {
     setCheckingOut(true);
     setCheckoutError(null);
     const result = await shopifyCheckout(
-      lines.map((l) => ({ variantId: l.variantId, qty: l.qty })),
+      lines.map((l) => ({
+        variantId: l.variantId,
+        qty: l.qty,
+        priceCents: Math.round(unitAmountFor(l.variantId) * 100),
+      })),
+      currencyCode,
     );
     if (result.ok) {
       window.location.href = result.checkoutUrl;

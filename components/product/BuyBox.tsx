@@ -186,7 +186,12 @@ export function BuyBox({
             disabled={outOfStock}
             onClick={() => {
               if (outOfStock) return;
-              add(selected.id, quantity);
+              add(
+                selected.id,
+                quantity,
+                Math.round(selectedPrice.amount * 100),
+                selectedPrice.currencyCode,
+              );
               toast.success("Added to cart", {
                 description: product.title,
                 icon: (
@@ -224,9 +229,16 @@ export function BuyBox({
         onClick={async () => {
           setBuying(true);
           setBuyError(null);
-          const result = await shopifyCheckout([
-            { variantId: selected.id, qty: quantity },
-          ]);
+          const result = await shopifyCheckout(
+            [
+              {
+                variantId: selected.id,
+                qty: quantity,
+                priceCents: Math.round(selectedPrice.amount * 100),
+              },
+            ],
+            selectedPrice.currencyCode,
+          );
           if (result.ok) {
             window.location.href = result.checkoutUrl;
             return;
