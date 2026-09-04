@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 
 import { syncedProducts } from "@/lib/catalog";
@@ -33,6 +34,16 @@ type ShopifyLineItem = {
   title?: string;
 };
 
+type ShopifyAddress = {
+  first_name?: string | null;
+  last_name?: string | null;
+  phone?: string | null;
+  city?: string | null;
+  province_code?: string | null;
+  zip?: string | null;
+  country_code?: string | null;
+};
+
 type ShopifyOrder = {
   id: number;
   name?: string;
@@ -40,7 +51,42 @@ type ShopifyOrder = {
   total_price?: string | number;
   current_total_price?: string | number;
   line_items?: ShopifyLineItem[];
+  email?: string | null;
+  phone?: string | null;
+  customer?: { email?: string | null; phone?: string | null } | null;
+  billing_address?: ShopifyAddress | null;
 };
+
+/** Meta/TikTok require PII lowercased + trimmed, then SHA-256 hex — never send it raw. */
+function sha256(value: string): string {
+  return createHash("sha256").update(value).digest("hex");
+}
+
+function hashField(value: string | null | undefined): string | undefined {
+  const trimmed = value?.trim().toLowerCase();
+  return trimmed ? sha256(trimmed) : undefined;
+}
+
+/** Digits only (Meta's phone spec drops symbols/leading zeros, keeps the country code). */
+function hashPhone(value: string | null | undefined): string | undefined {
+  const digits = value?.replace(/[^0-9]/g, "");
+  return digits ? sha256(digits) : undefined;
+}
+
+/** Advanced-matching fields shared by an order's billing contact, hashed once for reuse across providers. */
+function customerMatchData(order: ShopifyOrder) {
+  const address = order.billing_address ?? undefined;
+  return {
+    em: hashField(order.email ?? order.customer?.email),
+    ph: hashPhone(order.phone ?? order.customer?.phone ?? address?.phone),
+    fn: hashField(address?.first_name),
+    ln: hashField(address?.last_name),
+    ct: hashField(address?.city),
+    st: hashField(address?.province_code),
+    zp: hashField(address?.zip),
+    country: hashField(address?.country_code),
+  };
+}
 
 /* Numeric tails of our catalogue ids — Shopify webhooks send plain numbers,
    while the Storefront/Admin APIs return `gid://shopify/…/123` strings.
@@ -94,6 +140,23 @@ async function sendMetaPurchase(
 
   const value = Number(order.current_total_price ?? order.total_price ?? 0);
 
+  // Meta's advanced-matching fields (em/ph/fn/ln/ct/st/zp/country) are the
+  // strongest signals in Event Match Quality — stronger than IP/UA/fbp/fbc
+  // combined — and each takes an array of hashed values per Meta's spec.
+  const match = customerMatchData(order);
+  const userData = {
+    client_ip_address: ip ?? undefined,
+    client_user_agent: userAgent ?? undefined,
+    em: match.em ? [match.em] : undefined,
+    ph: match.ph ? [match.ph] : undefined,
+    fn: match.fn ? [match.fn] : undefined,
+    ln: match.ln ? [match.ln] : undefined,
+    ct: match.ct ? [match.ct] : undefined,
+    st: match.st ? [match.st] : undefined,
+    zp: match.zp ? [match.zp] : undefined,
+    country: match.country ? [match.country] : undefined,
+  };
+
   try {
     const response = await fetch(
       `https://graph.facebook.com/${version}/${pixelId}/events`,
@@ -109,10 +172,7 @@ async function sendMetaPurchase(
               event_time: Math.floor(Date.now() / 1000),
               event_id: `purchase-${order.id}`,
               action_source: "website",
-              user_data: {
-                client_ip_address: ip ?? undefined,
-                client_user_agent: userAgent ?? undefined,
-              },
+              user_data: userData,
               custom_data: {
                 currency: order.currency ?? "USD",
                 value,
@@ -225,6 +285,10 @@ async function sendTikTokPurchase(
 
   const value = Number(order.current_total_price ?? order.total_price ?? 0);
 
+  // Same hashed-identity boost as Meta CAPI above — TikTok's Events API
+  // matches on `email`/`phone_number` (each a hashed array) too.
+  const match = customerMatchData(order);
+
   try {
     const response = await fetch(
       "https://business-api.tiktok.com/open_api/v1.3/event/track/",
@@ -245,6 +309,8 @@ async function sendTikTokPurchase(
               user: {
                 ip: ip ?? undefined,
                 user_agent: userAgent ?? undefined,
+                email: match.em ? [match.em] : undefined,
+                phone_number: match.ph ? [match.ph] : undefined,
               },
               properties: {
                 contents: items.map((i) => ({
