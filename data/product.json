@@ -38,7 +38,7 @@
             },
             "AU": {
               "amount": 50,
-              "compareAtAmount": 63,
+              "compareAtAmount": 62,
               "currencyCode": "AUD"
             },
             "US": {
@@ -48,7 +48,7 @@
             },
             "GB": {
               "amount": 27,
-              "compareAtAmount": 34,
+              "compareAtAmount": 33,
               "currencyCode": "GBP"
             }
           },
