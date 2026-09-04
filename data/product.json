@@ -27,28 +27,28 @@
           "title": "1 bracelet",
           "sku": "HMB-1PC",
           "price": 34.98,
-          "compareAtPrice": null,
+          "compareAtPrice": 43.73,
           "availableForSale": true,
           "stockQuantity": 8064,
           "pricesByMarket": {
             "CA": {
               "amount": 49,
-              "compareAtAmount": null,
+              "compareAtAmount": 61,
               "currencyCode": "CAD"
             },
             "AU": {
               "amount": 50,
-              "compareAtAmount": null,
+              "compareAtAmount": 63,
               "currencyCode": "AUD"
             },
             "US": {
               "amount": 34.98,
-              "compareAtAmount": null,
+              "compareAtAmount": 43.73,
               "currencyCode": "USD"
             },
             "GB": {
               "amount": 27,
-              "compareAtAmount": null,
+              "compareAtAmount": 34,
               "currencyCode": "GBP"
             }
           },
