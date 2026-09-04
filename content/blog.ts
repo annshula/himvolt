@@ -657,6 +657,427 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "hematite-bracelet-reviews-real-or-fake",
+    title: "Hematite Bracelet Reviews: How to Tell Real From Fake Before You Trust One",
+    excerpt:
+      "\"Is this hematite bracelet actually legit?\" is the real question behind most review searches. Here's how to check any hematite bracelet — ours included — in under a minute.",
+    targetKeyword: "hematite bracelet reviews",
+    quickAnswer:
+      "A star rating tells you nothing about whether a bracelet is genuine hematite. Weight, cool-to-touch feel, and the red-brown streak test tell you everything — and you can check all three yourself before or after you buy, from any brand.",
+    tags: ["Hematite", "Buying guide"],
+    publishedAt: "2026-09-04",
+    updatedAt: "2026-09-04",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/hematite-bracelet-reviews-real-or-fake.webp",
+      alt: "Macro photograph of a polished hematite bracelet beside a jeweler's loupe and a streak-test tile",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>A lot of people land here after typing some version of "hematite bracelet reviews" into Google — usually because they've already found a listing online and want to know if the stone is real before they hand over a card number. Star ratings on a product page won't answer that. Mineralogy will, and it takes about a minute to check.</p>
+
+<h2>Reviews can't verify a mineral. Three tests can.</h2>
+<p>A five-star rating tells you a buyer was happy with delivery speed, packaging, or how the piece looked in photos. None of that confirms the bead sitting on your wrist is genuine iron oxide and not coated glass, dyed howlite, or resin. The stone answers that question directly, regardless of which brand sold it to you:</p>
+<ul>
+<li><strong>Weight.</strong> Hematite is iron(III) oxide — dense enough that a real bead feels heavier in hand than a stone its size has any right to be. If a "hematite" bracelet feels light, that's the first flag.</li>
+<li><strong>Temperature.</strong> Genuine stone feels cool against skin on first contact and warms slowly. Coated glass and resin warm up almost instantly.</li>
+<li><strong>The streak test.</strong> Scratched against an unglazed ceramic tile, real hematite leaves a red-brown mark — the same iron oxide that gave the stone its name (Greek <em>haimatites lithos</em>, "blood-like stone") two thousand years before anyone sold it online. We wouldn't test a finished piece of jewellery this way yourself, but it's worth knowing what the test would show.</li>
+</ul>
+
+<h2>What to check before you buy, not after</h2>
+<p>Since a review can't verify the mineral, verify the listing instead. Look for whether the seller states the material plainly ("natural hematite," not just "hematite-look" or "hematite-style"), whether they show the piece under real light rather than only studio renders, and whether their return policy actually covers a wrong or defective item — not just "all sales final." A seller confident in what they're selling will tell you exactly what it is and back it if they're wrong.</p>
+
+<h2>Where HimVolt stands on this</h2>
+<p>Every piece we sell is genuine natural hematite, described by its verifiable mineral properties — see our <a href="/claims-policy">Claims Policy</a> for exactly what we do and don't say about it. If a piece you receive doesn't hold up to the weight or streak test, that's covered under our <a href="/refund-policy">Refund &amp; Return Policy</a>: a free replacement or refund within 30 days, no argument needed.</p>
+<p>If you want a bracelet cut from the real mineral, <a href="${productPath}">the Hematite Men's Bracelet</a> is a single strand of polished natural hematite on a stretch elastic core — no clasp, no coating, nothing to fake.</p>
+`,
+    faqs: [
+      {
+        question: "How do I know if a hematite bracelet is real?",
+        answer:
+          "Check weight (genuine hematite feels notably heavy for its size), temperature (real stone stays cool longer than glass or resin), and the streak test (a scratch on unglazed ceramic leaves a red-brown mark on real hematite).",
+      },
+      {
+        question: "Do online reviews tell you if a hematite bracelet is genuine?",
+        answer:
+          "Not reliably. Star ratings mostly reflect shipping speed and how a piece looked in photos, not the mineral itself. The weight, temperature, and streak test are the actual verification methods.",
+      },
+    ],
+  },
+  {
+    slug: "hematite-vs-black-onyx-bracelet",
+    title: "Hematite vs. Black Onyx Bracelet: What's the Real Difference?",
+    excerpt:
+      "Both read as a solid black bracelet from across the room. Up close, hematite and black onyx are a different mineral, a different weight, and a different meaning entirely.",
+    targetKeyword: "black onyx bracelet meaning",
+    quickAnswer:
+      "Hematite is a metallic-black iron oxide (Fe₂O₃) that streaks red-brown and is notably dense for its size. Black onyx is a banded chalcedony (a form of quartz) that's matte-black, lighter in hand, and carries its own separate cultural meaning tied to strength and protection.",
+    tags: ["Hematite", "Buying guide"],
+    publishedAt: "2026-09-04",
+    updatedAt: "2026-09-04",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/hematite-vs-black-onyx-bracelet.webp",
+      alt: "Side-by-side comparison of a metallic-black hematite bracelet and a matte-black onyx bracelet on a dark surface",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Black bracelet for men" searches almost always end up comparing the same two stones: hematite and black onyx. They look similar in a thumbnail. In hand, they're not the same mineral, the same weight, or the same story.</p>
+
+<h2>Different mineral, different family</h2>
+<p>Hematite is iron(III) oxide — Fe₂O₃ — one of the most abundant iron ores on Earth, and it's genuinely metallic: under direct light, a polished bead shows a silvery-black sheen, almost gunmetal. Black onyx is a variety of chalcedony, a form of quartz, and its black comes from carbon and other mineral impurities rather than iron. Its finish reads matte and uniformly black rather than metallic.</p>
+
+<h2>Weight is the fastest way to tell them apart in hand</h2>
+<p>Hematite rates 5.5–6.5 on the Mohs hardness scale and is dense — heavier in hand than a stone its size has any right to be. Black onyx sits close in hardness (around 6.5–7, since it's quartz), but noticeably lighter in the hand at the same bead size, because quartz is a lower-density mineral than iron oxide. If you're holding two same-size bracelets and one feels distinctly heavier, that's very likely the hematite.</p>
+
+<h2>Different meaning, not interchangeable ones</h2>
+<p>Hematite has been carried since antiquity — Egyptian amulets, Mesopotamian seals — in a tradition tied to grounding, focus, and resilience. Black onyx carries its own separate lineage, more commonly associated in folk tradition with strength, willpower, and protection against negative energy. They're often shelved next to each other under "black stone jewelry," but the traditions behind them didn't originate together and don't mean the same thing. We'll say the same thing about hematite that we say everywhere else: that's a cultural tradition, not a physical effect — see our <a href="/claims-policy">Claims Policy</a> for exactly where we draw that line.</p>
+
+<h2>Which one to buy</h2>
+<p>If you want the heavier, more metallic look and the streak-test-verifiable mineral fact behind it, hematite is the pick. If you want a uniformly matte black with a slightly lighter everyday feel, black onyx is a legitimate, well-established alternative — we just don't carry it, so we'd rather tell you that plainly than pretend the two are the same stone.</p>
+<p><a href="${productPath}">The Hematite Men's Bracelet</a> is genuine natural hematite on a stretch elastic core — the metallic-black, heavier option of the two.</p>
+`,
+    faqs: [
+      {
+        question: "Is hematite the same as black onyx?",
+        answer:
+          "No. Hematite is iron(III) oxide, a metallic-black mineral that leaves a red-brown streak. Black onyx is a form of quartz (chalcedony), matte-black and noticeably lighter in hand at the same size.",
+      },
+      {
+        question: "Which is heavier, hematite or black onyx?",
+        answer:
+          "Hematite. Iron oxide is denser than quartz, so a hematite bead is distinctly heavier in hand than a same-size black onyx bead — often the fastest way to tell them apart without a loupe.",
+      },
+    ],
+  },
+  {
+    slug: "crystal-energy-bracelet-guide",
+    title: "Crystal Energy Bracelets: What They Are and Where Hematite Fits",
+    excerpt:
+      "\"Crystal energy bracelet\" covers everything from clear quartz to hematite to seven-chakra mixes. Here's what the category actually means, and what's fact versus tradition inside it.",
+    targetKeyword: "crystal energy bracelet",
+    quickAnswer:
+      "A crystal energy bracelet is any beaded bracelet made from a natural stone associated with a particular intention — grounding, focus, calm, protection — through cultural or spiritual tradition, not a documented physical mechanism. Hematite is one of the most common single-stone picks in the category, chosen for its grounding association.",
+    tags: ["Hematite", "Buying guide"],
+    publishedAt: "2026-09-04",
+    updatedAt: "2026-09-04",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/crystal-energy-bracelet-guide.webp",
+      alt: "Assortment of natural stone beaded bracelets arranged on a dark linen surface",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Crystal energy bracelet" is a catch-all — it covers everything from single-stone pieces to seven-chakra mixes to smoky quartz stacks. Before buying into the category, it's worth being clear on what the term actually promises, because most of what's sold under it doesn't explain the difference between mineral fact and cultural tradition.</p>
+
+<h2>What the category actually is</h2>
+<p>A crystal energy bracelet is a beaded bracelet made from one or more natural (or natural-looking) stones, marketed around an intention the stone is traditionally associated with — clarity, calm, protection, confidence. The stone itself is usually real mineralogy: quartz, hematite, obsidian, tourmaline. The "energy" framing is the tradition layered on top, going back centuries in most cases, not a modern invention.</p>
+
+<h2>Where hematite fits in</h2>
+<p>Hematite — iron(III) oxide, Fe₂O₃ — is one of the most reached-for single stones in this category, specifically for grounding, focus, and resilience. That association traces to antiquity: Egyptian amulets, Mesopotamian seals, and a red-brown streak (hence the Greek name <em>haimatites lithos</em>, "blood-like stone") that made it a distinctive, recognizable mineral long before anyone called it a grounding stone. It's also one of the easiest stones in the category to verify as genuine, because the streak test and its notable density are both checkable, unlike a lot of stones sold in the same aisle.</p>
+
+<h2>What we won't tell you</h2>
+<p>We won't tell you a bracelet regulates your energy, your mood, or your focus for you. Nobody can measure that claim, and anyone stating it as fact is selling you certainty they don't have. What's true is that hematite is a real, dense, ancient mineral with a real tradition behind it — and that's a legitimate reason to wear one, separate from any claim about what it does to you physiologically. See our full <a href="/claims-policy">Claims Policy</a> for exactly where we draw that line on every product we sell.</p>
+
+<h2>How to choose one</h2>
+<p>If the category interests you, pick the stone whose tradition actually means something to you rather than the one with the most dramatic marketing copy — and buy from a seller who tells you the mineral fact plainly, not just the folklore. <a href="${productPath}">The Hematite Men's Bracelet</a> is genuine natural hematite on a stretch elastic core, described the same way on this page as everywhere else on this site.</p>
+`,
+  },
+  {
+    slug: "self-care-gifts-for-men",
+    title: "Self-Care Gifts for Men That Don't Feel Like a Spa Kit",
+    excerpt:
+      "Most \"self-care gift for men\" lists default to candles and bath sets. Here's a shorter, more useful list — including where a hematite bracelet actually fits.",
+    targetKeyword: "self care gifts for men",
+    quickAnswer:
+      "Good self-care gifts for men skip the generic spa-kit format and give him something he'll actually use daily — a durable everyday object, better sleep or recovery gear, or a small piece he can wear as a deliberate, low-effort reset, like a natural stone bracelet.",
+    tags: ["Buying guide", "Gifting"],
+    publishedAt: "2026-09-04",
+    updatedAt: "2026-09-04",
+    readingMinutes: 4,
+    coverImage: {
+      src: "/blog/self-care-gifts-for-men.webp",
+      alt: "Flat-lay of a hematite bracelet, a notebook, and a mug arranged as a self-care gift set",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>Search "self care gifts for men" and most lists hand you a repackaged version of a women's spa kit — scented candle, bath salts, a robe. Some men genuinely want that. A lot don't, and the gift ends up in a drawer. Here's a shorter list built around things men actually keep using.</p>
+
+<h2>What makes a self-care gift actually land</h2>
+<p>The gifts that get used share one thing: low effort, daily contact. Nobody keeps up a ten-step routine they didn't choose. What sticks is something that requires zero extra decisions — put it on, use it, done.</p>
+<ul>
+<li><strong>Something worn daily.</strong> A watch, a bracelet, anything that becomes part of getting dressed rather than an extra step.</li>
+<li><strong>Something that improves an existing habit.</strong> A better pillow, a proper foam roller, a decent water bottle — upgrades to things he already does, not new obligations.</li>
+<li><strong>Something with a story he can tell.</strong> A gift that means something beyond its function tends to outlast one that's purely functional — a genuinely old material with a real history behind it does this without trying.</li>
+</ul>
+
+<h2>Where a hematite bracelet fits</h2>
+<p>A natural hematite bracelet checks the "worn daily, zero extra steps" box directly. Hematite has been carried since antiquity for grounding and resilience — the kind of thing worn before a demanding day for exactly that reason. We're not going to tell you it fixes stress for him; we will tell you it's a genuinely dense, hard, five-thousand-year-old mineral, cut and polished into a piece he can put on and forget is there. That's the honest pitch — see our <a href="/claims-policy">Claims Policy</a> for the rest of it.</p>
+
+<h2>The rest of the short list</h2>
+<p>Beyond jewellery: a real leather notebook for the guy who says he'll start journaling, a subscription to something he'd never pay for himself, or simply covering an expense he's been putting off. None of it needs to be elaborate. It needs to get used.</p>
+<p>If a bracelet is the direction you're going, <a href="${productPath}">the Hematite Men's Bracelet</a> ships free worldwide and comes with a straightforward 30-day fix if anything arrives wrong — see our <a href="/shipping-policy">Shipping Policy</a> and <a href="/refund-policy">Refund &amp; Return Policy</a> for the specifics.</p>
+`,
+  },
+  {
+    slug: "hematite-vs-gold-silver-chain-bracelet",
+    title: "Hematite vs. Gold, Silver, and Chain Bracelets: Which Should You Wear Every Day?",
+    excerpt:
+      "Gold, silver, chain, and natural stone all solve \"everyday men's bracelet\" differently. Here's how hematite actually compares on weight, upkeep, and cost.",
+    targetKeyword: "gold bracelet mens",
+    quickAnswer:
+      "Gold and silver chain bracelets need regular cleaning and are vulnerable to bending or tarnishing; a natural hematite bead bracelet needs neither, costs a fraction of precious metal, and is harder than sterling silver on the Mohs scale — the trade-off is that it's stone, not metal, so the look is different.",
+    tags: ["Hematite", "Buying guide"],
+    publishedAt: "2026-09-04",
+    updatedAt: "2026-09-04",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/hematite-vs-gold-silver-chain-bracelet.webp",
+      alt: "Hematite beaded bracelet laid next to a gold chain bracelet and a silver chain bracelet for comparison",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>Most "men's bracelet" searches eventually come down to a choice between metal — gold, silver, a chain link — and natural stone. They're not really competing on the same axis, so here's a direct comparison on the things that actually change your daily experience of wearing one.</p>
+
+<h2>Hardness and everyday scratching</h2>
+<p>Gold (14k–18k) sits around 3–4 on the Mohs hardness scale — soft enough to pick up fine surface scratches from keys, desks, and gym equipment within weeks. Sterling silver is similar, around 2.5–3. Hematite rates 5.5–6.5, roughly level with hardened steel, and resists that everyday scratching far better than either precious metal. It's stone, not metal, so it can still chip on a hard direct impact — but for the daily wear-and-tear of a desk job or a gym, it holds up longer.</p>
+
+<h2>Upkeep</h2>
+<p>Gold and silver both need periodic cleaning — silver visibly tarnishes over weeks, and a chain link bracelet accumulates grime in every join. A single-strand hematite bead bracelet has no chain links to trap dirt and no metal surface to tarnish; a wipe with a soft cloth is the extent of its maintenance.</p>
+
+<h2>Cost</h2>
+<p>A solid 14k gold bracelet routinely runs into the hundreds or thousands of dollars; sterling silver is more accessible but still a precious metal priced by weight. A natural hematite bracelet costs a fraction of either, because iron oxide, while genuinely dense and hard, isn't a precious metal — you're paying for the mineral and the craftsmanship, not a metals-market price.</p>
+
+<h2>What you actually get with each</h2>
+<p>Gold and silver read as classic, dressed-up jewellery — the right call if that's the look you want. A chain bracelet skews casual-to-formal depending on the link style. Hematite reads differently: matte-to-metallic black stone, closer to the ground, with a five-thousand-year-old story behind the material rather than a precious-metal price tag. Neither is objectively better — they're solving for different things.</p>
+<p>If low-maintenance, scratch-resistant, and genuinely old material is what you're after, <a href="${productPath}">the Hematite Men's Bracelet</a> is natural hematite on a stretch elastic core — no clasp to fail, nothing to tarnish.</p>
+`,
+    faqs: [
+      {
+        question: "Is hematite harder than gold or silver?",
+        answer:
+          "Yes. Hematite rates 5.5–6.5 on the Mohs hardness scale; gold sits around 3–4 and sterling silver around 2.5–3. Hematite resists everyday scratching noticeably better than either precious metal.",
+      },
+      {
+        question: "Does a hematite bracelet need the same upkeep as a silver bracelet?",
+        answer:
+          "No. Silver visibly tarnishes over weeks and needs periodic polishing. A single-strand hematite bead bracelet has no metal surface to tarnish and no chain links to trap dirt — a wipe with a soft cloth is enough.",
+      },
+    ],
+  },
+  {
+    slug: "personalized-mens-bracelet-guide",
+    title: "Personalized Men's Bracelets: What Actually Makes a Bracelet Feel Personal",
+    excerpt:
+      "\"Personalized\" usually means an engraved name plate. Here's what else makes a men's bracelet feel like it was chosen for someone specific — engraving included.",
+    targetKeyword: "personalized mens bracelet",
+    quickAnswer:
+      "A personalized men's bracelet usually means an engraved bar, tag, or clasp with initials, a date, or coordinates — but sizing it correctly to his wrist and picking a material that matches how he actually dresses does more to make it feel chosen for him than engraving alone.",
+    tags: ["Buying guide", "Gifting"],
+    publishedAt: "2026-09-04",
+    updatedAt: "2026-09-04",
+    readingMinutes: 4,
+    coverImage: {
+      src: "/blog/personalized-mens-bracelet-guide.webp",
+      alt: "Close-up of a hematite bracelet on a wrist with an engraved metal clasp tag",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Personalized men's bracelet" almost always leads to the same product: a metal bar engraved with initials or a date, on a leather or chain strap. That's a real option and it works. It's also not the only way to make a bracelet feel like it was picked for one specific person rather than pulled off a generic gift shelf.</p>
+
+<h2>Engraving: the obvious route</h2>
+<p>An engraved bar, tag, or dog-tag-style clasp with initials, a date, or coordinates is the standard personalization format, and there's a reason it's standard — it's unambiguous and permanent. If you go this route, keep the text short: initials or a short date read cleanly at bracelet scale; a long phrase gets cramped and hard to read.</p>
+
+<h2>Fit is personalization most people skip</h2>
+<p>A bracelet sized for an average wrist on someone with a noticeably smaller or larger wrist reads as generic no matter what's engraved on it. Stretch-elastic bead bracelets solve this more forgivingly than a fixed-link chain — they flex to the actual wrist rather than needing an exact size guessed in advance, which matters a lot for a gift you can't have him try on first.</p>
+
+<h2>Material as personalization</h2>
+<p>Matching the material to how he actually dresses and what he already wears does more silent personalizing than an engraving most people won't clock unless they look closely. Someone who already wears dark, low-key pieces will get more use out of a natural stone bracelet — like hematite's matte-metallic black — than a shiny gold chain that doesn't match anything else in his rotation. The "personal" part isn't always visible text; it's whether he'd have picked it himself.</p>
+
+<h2>Combining both</h2>
+<p>The strongest personalized gift usually pairs a material he'd actually wear with a small, permanent detail — an engraved clasp on a stretch-fit natural stone bracelet, for instance. If you're building toward that and want the base piece, <a href="${productPath}">the Hematite Men's Bracelet</a>'s stretch elastic core fits most wrists without guessing a size, which is the part most gift-givers get wrong first.</p>
+`,
+  },
+  {
+    slug: "hematite-vs-tennis-bracelet",
+    title: "Hematite Bracelet vs. Tennis Bracelet: Two Very Different Ideas of \"Everyday\"",
+    excerpt:
+      "Both get called an \"everyday bracelet.\" A diamond tennis bracelet and a natural hematite bead bracelet solve for opposite things — here's the actual comparison.",
+    targetKeyword: "mens tennis bracelet",
+    quickAnswer:
+      "A men's tennis bracelet is a fixed line of stones (often diamonds) set in precious metal, built for visible sparkle and formal-to-casual dress. A hematite bead bracelet is a single dense mineral on a stretch cord, built for low-maintenance daily wear rather than visible shine.",
+    tags: ["Hematite", "Buying guide"],
+    publishedAt: "2026-09-04",
+    updatedAt: "2026-09-04",
+    readingMinutes: 4,
+    coverImage: {
+      src: "/blog/hematite-vs-tennis-bracelet.webp",
+      alt: "Hematite beaded bracelet next to a diamond tennis bracelet on a dark surface for comparison",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>Both a tennis bracelet and a hematite bead bracelet get marketed as "the everyday piece" — but they're built to do opposite jobs, and conflating them leads to buying the wrong one.</p>
+
+<h2>What a tennis bracelet actually is</h2>
+<p>A tennis bracelet is a continuous line of same-size stones — traditionally diamonds, increasingly cubic zirconia or moissanite in men's pieces — set in a metal chain, usually gold or silver. It's built to catch light and be visibly noticed, and it sits at a formal-to-smart-casual register. Price scales directly with stone quality and carat weight, which is why real diamond versions run into the thousands.</p>
+
+<h2>What a hematite bracelet actually is</h2>
+<p>A hematite bead bracelet is a single strand of one dense mineral — iron(III) oxide — usually on a stretch elastic core rather than a metal clasp. It's built to be worn and forgotten, not to catch light: the finish is matte-to-metallic black rather than reflective, and it reads casual by default. Its case is weight and material story rather than visible sparkle.</p>
+
+<h2>Where each actually wins</h2>
+<ul>
+<li><strong>Formal occasions, visible shine:</strong> tennis bracelet.</li>
+<li><strong>Gym, shower, forget-it's-there daily wear:</strong> hematite — no clasp to fail, no fine stones to lose a setting on.</li>
+<li><strong>Budget:</strong> hematite by a wide margin; a genuine diamond tennis bracelet is a precious-stone purchase, a hematite bracelet is not.</li>
+<li><strong>Upkeep:</strong> tennis bracelets need occasional prong checks and cleaning to keep the stones secure and sparkling; a stretch-cord hematite bracelet needs a wipe with a cloth.</li>
+</ul>
+
+<h2>The honest recommendation</h2>
+<p>If "everyday" means "worn to the office and out to dinner, meant to be noticed," a tennis bracelet is doing its job. If "everyday" means "on before the gym, in the shower, at a desk, and never thought about again," that's the hematite use case specifically. They're not really substitutes for each other.</p>
+<p><a href="${productPath}">The Hematite Men's Bracelet</a> is the second kind — genuine natural hematite on a stretch elastic core, built for the wear-and-forget case rather than the dress-up one.</p>
+`,
+  },
+  {
+    slug: "hematite-bracelet-care-cleaning-guide",
+    title: "How to Care for a Natural Hematite Bracelet (So It Lasts)",
+    excerpt:
+      "Natural hematite needs less upkeep than almost any other bracelet material — but a few habits make the difference between years of wear and a chipped bead.",
+    targetKeyword: "natural hematite bracelet",
+    quickAnswer:
+      "Wipe a natural hematite bracelet with a soft, dry cloth after wear, keep it away from hard impacts against tile or metal, and take it off before activities with a real risk of a direct hard knock. It doesn't tarnish and doesn't need polishing, unlike metal jewellery.",
+    tags: ["Hematite", "Care guide"],
+    publishedAt: "2026-09-04",
+    updatedAt: "2026-09-04",
+    readingMinutes: 4,
+    coverImage: {
+      src: "/blog/hematite-bracelet-care-cleaning-guide.webp",
+      alt: "Close-up of a hand wiping a hematite bracelet clean with a soft cloth",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>Natural hematite is one of the lowest-maintenance bracelet materials there is — it doesn't tarnish, doesn't need polishing, and isn't going anywhere near the upkeep a chain-link metal piece demands. That said, a few habits make the real difference between a bracelet that looks the same in five years and one with a chipped bead by month three.</p>
+
+<h2>Daily care: almost none required</h2>
+<p>A soft, dry cloth wipe after wear is genuinely enough. Hematite is iron(III) oxide, not a reactive metal, so there's no tarnishing process to manage the way there is with silver, and no coating to wear through the way there is with dyed or resin imitations — because there isn't one.</p>
+
+<h2>What actually damages it</h2>
+<p>Hematite rates 5.5–6.5 on the Mohs hardness scale, which makes it highly resistant to everyday scratching from keys, fabric, or a fingernail. What it isn't resistant to is a hard direct impact — Mohs hardness measures scratch resistance, not impact toughness. A polished bead knocked hard against tile, concrete, or a metal edge can chip, the same as most polished stone in that hardness range. Practically: take it off before contact sports, heavy manual work with a real knock risk, or anything where you'd also take off a watch.</p>
+
+<h2>Water and heat</h2>
+<p>Hematite handles water fine day to day — showering with it on won't damage the mineral itself. The more relevant risk on a stretch-elastic bracelet is the elastic cord, not the stone: repeated heat exposure (a hot car dashboard, a sauna) will degrade elastic faster over time than water will. Store it somewhere it isn't baking in direct heat and the cord will outlast most other wear.</p>
+
+<h2>Storage between wears</h2>
+<p>Nothing elaborate is needed — a drawer or small dish away from harder jewellery that could knock against it in storage is enough. Hematite doesn't need airtight storage or anti-tarnish strips the way silver does.</p>
+
+<h2>The bottom line</h2>
+<p>Wipe it, keep it away from hard direct impacts, and don't leave it baking in heat. That's the entire maintenance routine for a stone that's already harder than most of what it'll come into contact with day to day. <a href="${productPath}">The Hematite Men's Bracelet</a> is built exactly this way — genuine natural hematite on a stretch elastic core, no clasp and no coating to maintain.</p>
+`,
+    faqs: [
+      {
+        question: "Does a hematite bracelet need to be cleaned?",
+        answer:
+          "Minimally — a wipe with a soft, dry cloth after wear is enough. Hematite doesn't tarnish and has no coating to maintain, unlike metal jewellery or coated imitation stones.",
+      },
+      {
+        question: "Can you shower or swim with a hematite bracelet on?",
+        answer:
+          "Showering is fine for the stone itself. The main risk on a stretch-cord bracelet is heat degrading the elastic over time, not water — so avoid leaving it somewhere hot, like a car dashboard or a sauna.",
+      },
+    ],
+  },
+  {
+    slug: "mens-jewelry-trends-2026",
+    title: "Men's Jewelry Trends in 2026: What's Actually Rising, Not Just Loud",
+    excerpt:
+      "Personalized pieces, sterling silver, and natural stone are all up this year. Here's what the search data actually shows about where men's jewelry is heading.",
+    targetKeyword: "mens jewelry",
+    quickAnswer:
+      "Search interest in men's jewelry rises sharply around Q4 (holiday gifting) and again in spring, with personalized pieces, sterling silver bracelets, and natural stone bracelets like hematite all showing real year-over-year growth alongside classic gold and tennis-style pieces.",
+    tags: ["Buying guide"],
+    publishedAt: "2026-09-04",
+    updatedAt: "2026-09-04",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/mens-jewelry-trends-2026.webp",
+      alt: "Flat-lay of several different styles of men's bracelets — gold chain, silver, and natural stone — arranged together",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Men's jewelry trends" gets written every year as a list of vague style predictions. What's actually useful is what people are searching for, because that's a closer signal to what's being bought than any trend forecast. Here's what stands out this year.</p>
+
+<h2>The category is seasonal, and predictably so</h2>
+<p>Search interest in men's jewelry spikes hardest in the run-up to the winter holidays and again in spring, tracking gifting occasions directly — holiday shopping, then Valentine's Day and graduation season. If you're buying, both windows come with more competition for popular pieces; if you're shopping outside them, you'll generally find better availability and less hyped pricing.</p>
+
+<h2>Personalization is genuinely growing</h2>
+<p>Interest in personalized men's bracelets specifically — engraved bars, initials, dates — has trended upward, part of a broader shift toward gifts that read as chosen for one person rather than generic. This tracks with what we see anecdotally too: a gift that's sized right and means something specific outperforms an expensive but generic piece.</p>
+
+<h2>Silver is having a real moment</h2>
+<p>Sterling silver men's bracelets have shown consistent, real growth this year, likely picking up some of the demand priced out of gold as precious metal prices climbed. It's a legitimate mid-price alternative to gold with a similar dressed-up look, though it needs more upkeep than either gold or natural stone to avoid visible tarnish.</p>
+
+<h2>Natural stone hasn't gone anywhere</h2>
+<p>Alongside metal, natural stone bracelets — hematite chief among single-stone picks — remain a consistent, non-trend-dependent category. It's not chasing the same seasonal spikes as gold or silver because it's not priced or positioned as precious-metal jewellery; it's a lower-cost, lower-maintenance category that people buy year-round rather than primarily as a gift-season purchase.</p>
+
+<h2>What this means if you're buying</h2>
+<p>If shine and formality matter most, gold or silver — ideally bought outside the Q4/spring price spikes — is the trend-aligned pick. If low maintenance and daily durability matter more than visible sparkle, natural stone is the steadier, less seasonal category to shop in. <a href="${productPath}">The Hematite Men's Bracelet</a> sits in that second category: genuine natural hematite, priced and built for daily wear rather than gift-season markup.</p>
+`,
+  },
+  {
+    slug: "anxiety-bracelet-does-it-work",
+    title: "Do Anxiety Bracelets Actually Work? What's Real and What's Marketing",
+    excerpt:
+      "\"Anxiety bracelet\" is a real, growing search — and a category full of overpromising. Here's what's actually documented, and what's tradition dressed up as fact.",
+    targetKeyword: "anxiety bracelet",
+    quickAnswer:
+      "No bracelet — stone, magnetic, or otherwise — has clinical evidence of treating anxiety. What's real is that a small, deliberate physical object can function as a grounding ritual for some people; that's a psychological and behavioral effect, not a property of the material itself.",
+    tags: ["Hematite", "Honest answers"],
+    publishedAt: "2026-09-04",
+    updatedAt: "2026-09-04",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/anxiety-bracelet-does-it-work.webp",
+      alt: "Close-up of a hematite bracelet on a wrist, resting calmly on a desk beside a notebook",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Anxiety bracelet" is a real, recurring search — enough that it's clearly a genuine question people are trying to answer before they buy, not just idle curiosity. It deserves a straight answer rather than a marketing one, so here it is.</p>
+
+<h2>What's not documented</h2>
+<p>There is no clinical or scientific evidence that any stone — hematite, black tourmaline, or otherwise — has a measurable physiological effect on anxiety. No peer-reviewed research supports a bracelet regulating cortisol, heart rate, or any other anxiety marker through wear alone. Anyone stating that as settled fact is selling certainty the evidence doesn't back.</p>
+
+<h2>What's actually plausible, and why it's different from a "cure"</h2>
+<p>There is real, well-documented psychology around grounding objects and physical rituals — a small, deliberate action (touching a worn object, a fidget habit, a consistent physical anchor) can interrupt a spiral of anxious thought for some people, the same mechanism behind breathing exercises or a stress ball. That's a behavioral and psychological effect tied to ritual and attention, not a property emitted by the stone itself. A bracelet worn with that intention can function the same way any consistent physical habit does — it's the consistency and the ritual doing the work, not the mineral.</p>
+
+<h2>Where hematite specifically fits</h2>
+<p>Hematite has a genuinely old tradition behind it as a grounding stone — Egyptian amulets, Mesopotamian seals, worn since antiquity for exactly this kind of steadying intention. That tradition is real and worth respecting on its own terms. What we won't do is convert "people have worn this for five thousand years believing it helps them feel grounded" into "this treats anxiety." Those are different claims, and only the first one is something we can actually stand behind. Full detail on exactly where we draw that line is in our <a href="/claims-policy">Claims Policy</a>.</p>
+
+<h2>The honest recommendation</h2>
+<p>If you're managing real anxiety, a bracelet is not a substitute for treatment, and we'd rather say that directly than sell around it. If you want a small, physical, daily object to anchor a grounding habit you're building yourself — the same way some people use a worry stone or a fidget ring — a dense, genuinely old natural mineral is a reasonable choice for that ritual, with the same honest caveat as everywhere else on this site: the ritual is doing the work, not the rock.</p>
+<p><a href="${productPath}">The Hematite Men's Bracelet</a> is genuine natural hematite, sold on that basis and no further.</p>
+`,
+    faqs: [
+      {
+        question: "Do hematite bracelets help with anxiety?",
+        answer:
+          "There's no clinical evidence that hematite or any stone has a physiological effect on anxiety. What can genuinely help is the grounding ritual of wearing and touching a consistent physical object — a documented psychological effect, not a property of the mineral itself.",
+      },
+      {
+        question: "Is there scientific proof that anxiety bracelets work?",
+        answer:
+          "No. No peer-reviewed research supports a stone bracelet measurably reducing anxiety markers like cortisol or heart rate. The plausible mechanism is behavioral — a grounding ritual — not mineralogical.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
