@@ -98,13 +98,18 @@ const META_BIRCH_SRC = META_PIXEL_ENABLED ? " https://signals.birch.click" : "";
 
 /**
  * TikTok Pixel origins, allowed only when a pixel id is configured. The tag
- * script and its event beacons are both served from analytics.tiktok.com, so
- * `script-src` and `connect-src` both need the one host. With no id the app
- * never loads the pixel, so the CSP stays as tight as it was.
+ * script and its event beacons load from analytics.tiktok.com; the pixel also
+ * calls analytics-ipv6.tiktokw.us directly (fetch, not a form/img) to enrich
+ * events with the visitor's IPv6 address, so that host needs `connect-src`
+ * but not `script-src`/`img-src`. With no id the app never loads the pixel,
+ * so the CSP stays as tight as it was.
  */
 const TIKTOK_PIXEL_ENABLED = Boolean(process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID);
 const TIKTOK_SRC = TIKTOK_PIXEL_ENABLED
   ? " https://analytics.tiktok.com"
+  : "";
+const TIKTOK_CONNECT_SRC = TIKTOK_PIXEL_ENABLED
+  ? `${TIKTOK_SRC} https://analytics-ipv6.tiktokw.us`
   : "";
 
 const CSP = [
@@ -127,7 +132,7 @@ const CSP = [
   // gtag.js sends hits to the GA4 endpoints over fetch/XHR; Clarity uploads
   // replay/heatmap payloads to regional clarity.ms hosts; the Meta Pixel
   // posts events via form/fetch to facebook.com and CAPI collection hosts.
-  `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${META_PIXEL_SRC}${META_EVENT_SRC}${META_BIRCH_SRC}${CLARITY_SRC}${TIKTOK_SRC}${IS_DEV ? " ws://localhost:* wss://localhost:*" : ""}`,
+  `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${META_PIXEL_SRC}${META_EVENT_SRC}${META_BIRCH_SRC}${CLARITY_SRC}${TIKTOK_CONNECT_SRC}${IS_DEV ? " ws://localhost:* wss://localhost:*" : ""}`,
   // GTM's noscript fallback embeds an iframe from googletagmanager.com; the
   // Meta Pixel opens an iframe on facebook.com.
   `frame-src 'self'${META_FRAME_SRC} https://www.googletagmanager.com`,
