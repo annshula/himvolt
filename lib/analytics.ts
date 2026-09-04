@@ -90,6 +90,10 @@ export function trackViewContent(item: AnalyticsItem, currency: string) {
     quantity: item.quantity ?? 1,
     currency,
     value,
+    // TikTok's Shop/catalog matching (Video Shopping Ads eligibility, the
+    // Content ID diagnostic) reads content_id from this array, not the flat
+    // field above — both are sent so older and newer TikTok tooling agree.
+    contents: [{ content_id: item.slug, content_name: item.name }],
   });
 }
 
@@ -115,6 +119,9 @@ export function trackAddToCart(item: AnalyticsItem, currency: string) {
     quantity: item.quantity ?? 1,
     currency,
     value,
+    contents: [
+      { content_id: item.slug, content_name: item.name, quantity: item.quantity ?? 1 },
+    ],
   });
 }
 
