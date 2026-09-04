@@ -25,6 +25,7 @@ export function BlogCard({ post }: { post: BlogPost }) {
             src={post.coverImage.src}
             alt={post.coverImage.alt}
             fill
+            unoptimized
             sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 380px"
             className="object-cover transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-105"
           />
