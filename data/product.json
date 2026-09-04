@@ -17,7 +17,7 @@
       "id": "gid://shopify/Product/9650571346147",
       "handle": "hematite-mens-bracelet",
       "title": "Black Natural HematiteBracelet For Men Reclaim Jewellery Wrist Hematite Stone Beaded Healing Bracelet Edge Confidence For Men",
-      "price": 41.16,
+      "price": 34.98,
       "compareAtPrice": null,
       "currencyCode": "USD",
       "availableForSale": true,
@@ -26,28 +26,28 @@
           "id": "gid://shopify/ProductVariant/49659415134435",
           "title": "1 bracelet",
           "sku": "HMB-1PC",
-          "price": 41.16,
+          "price": 34.98,
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8064,
           "pricesByMarket": {
             "CA": {
-              "amount": 58,
+              "amount": 32.40,
               "compareAtAmount": null,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 59,
+              "amount": 42.92,
               "compareAtAmount": null,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 41.16,
+              "amount": 34.98,
               "compareAtAmount": null,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 32,
+              "amount": 30.92,
               "compareAtAmount": null,
               "currencyCode": "GBP"
             }
@@ -62,29 +62,29 @@
           "id": "gid://shopify/ProductVariant/49659425456355",
           "title": "2 bracelets",
           "sku": "HMB-2PC",
-          "price": 41.16,
-          "compareAtPrice": 82.32,
+          "price": 34.98,
+          "compareAtPrice": 69.96,
           "availableForSale": true,
           "stockQuantity": 4000,
           "pricesByMarket": {
             "CA": {
-              "amount": 58,
-              "compareAtAmount": 115,
+              "amount": 32.40,
+              "compareAtAmount": 64.80,
               "currencyCode": "CAD"
             },
             "AU": {
-              "amount": 59,
-              "compareAtAmount": 118,
+              "amount": 42.92,
+              "compareAtAmount": 85.84,
               "currencyCode": "AUD"
             },
             "US": {
-              "amount": 41.16,
-              "compareAtAmount": 82.32,
+              "amount": 34.98,
+              "compareAtAmount": 69.96,
               "currencyCode": "USD"
             },
             "GB": {
-              "amount": 32,
-              "compareAtAmount": 63,
+              "amount": 30.92,
+              "compareAtAmount": 61.84,
               "currencyCode": "GBP"
             }
           },
