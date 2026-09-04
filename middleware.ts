@@ -96,13 +96,24 @@ const META_EVENT_SRC = META_PIXEL_ENABLED
  */
 const META_BIRCH_SRC = META_PIXEL_ENABLED ? " https://signals.birch.click" : "";
 
+/**
+ * TikTok Pixel origins, allowed only when a pixel id is configured. The tag
+ * script and its event beacons are both served from analytics.tiktok.com, so
+ * `script-src` and `connect-src` both need the one host. With no id the app
+ * never loads the pixel, so the CSP stays as tight as it was.
+ */
+const TIKTOK_PIXEL_ENABLED = Boolean(process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID);
+const TIKTOK_SRC = TIKTOK_PIXEL_ENABLED
+  ? " https://analytics.tiktok.com"
+  : "";
+
 const CSP = [
   `default-src 'self'`,
   // See module doc for why 'unsafe-inline' is here (Next's inline RSC payload).
   // googletagmanager.com hosts the gtag.js/GTM loaders and GTM-injected tags.
   // clarity.ms hosts the Clarity tag script; connect.facebook.net the Meta
   // Pixel loader.
-  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com${META_SCRIPT_SRC}${CLARITY_SRC}${IS_DEV ? ` 'unsafe-eval'` : ""}`,
+  `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com${META_SCRIPT_SRC}${CLARITY_SRC}${TIKTOK_SRC}${IS_DEV ? ` 'unsafe-eval'` : ""}`,
   // Components set dynamic inline styles, so styles need 'unsafe-inline' —
   // styles cannot execute script, so this is low risk.
   `style-src 'self' 'unsafe-inline'`,
@@ -110,13 +121,13 @@ const CSP = [
   // GA4 also paints a 1px beacon from google-analytics.com; Clarity beacons
   // from c.bing.com; the Meta Pixel <noscript> fallback loads from
   // facebook.com.
-  `img-src 'self' data: blob: https://cdn.shopify.com https://*.myshopify.com https://www.google-analytics.com https://*.google-analytics.com${META_PIXEL_SRC}${CLARITY_SRC}${CLARITY_IMG_SRC}`,
+  `img-src 'self' data: blob: https://cdn.shopify.com https://*.myshopify.com https://www.google-analytics.com https://*.google-analytics.com${META_PIXEL_SRC}${CLARITY_SRC}${CLARITY_IMG_SRC}${TIKTOK_SRC}`,
   `media-src 'self' https://cdn.shopify.com https://*.myshopify.com`,
   `font-src 'self' data:`,
   // gtag.js sends hits to the GA4 endpoints over fetch/XHR; Clarity uploads
   // replay/heatmap payloads to regional clarity.ms hosts; the Meta Pixel
   // posts events via form/fetch to facebook.com and CAPI collection hosts.
-  `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${META_PIXEL_SRC}${META_EVENT_SRC}${META_BIRCH_SRC}${CLARITY_SRC}${IS_DEV ? " ws://localhost:* wss://localhost:*" : ""}`,
+  `connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${META_PIXEL_SRC}${META_EVENT_SRC}${META_BIRCH_SRC}${CLARITY_SRC}${TIKTOK_SRC}${IS_DEV ? " ws://localhost:* wss://localhost:*" : ""}`,
   // GTM's noscript fallback embeds an iframe from googletagmanager.com; the
   // Meta Pixel opens an iframe on facebook.com.
   `frame-src 'self'${META_FRAME_SRC} https://www.googletagmanager.com`,

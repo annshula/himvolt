@@ -3,6 +3,7 @@ import { Bebas_Neue, Inter, Jost, Oswald } from "next/font/google";
 import { ClarityAnalytics } from "@/components/analytics/ClarityAnalytics";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
+import { TikTokPixel } from "@/components/analytics/TikTokPixel";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/components/providers/CartProvider";
 import { LocalizationProvider } from "@/components/providers/LocalizationProvider";
@@ -212,6 +213,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ClarityAnalytics />
         <GoogleAnalytics />
         <MetaPixel />
+        <TikTokPixel />
       </body>
     </html>
   );

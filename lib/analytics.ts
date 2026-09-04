@@ -2,23 +2,29 @@
 
 /**
  * Client-side analytics helpers — one call fires the matching event to every
- * configured provider (Meta Pixel via `fbq`, Google Analytics 4 via `gtag`).
+ * configured provider (Meta Pixel via `fbq`, Google Analytics 4 via `gtag`,
+ * TikTok Pixel via `ttq`).
  *
- * No provider is ever required: the snippets in MetaPixel / GoogleAnalytics
- * only install `window.fbq` / `window.gtag` when their env var is set, so the
- * optional calls below are silent no-ops on local runs and previews without
- * the ids. Event names are the standard Meta Pixel and GA4 enhanced-ecommerce
- * vocabulary so both platforms line up on the same funnel. The `Purchase` /
- * `purchase` event is intentionally not here — it's sent server-side from the
- * Shopify `orders/paid` webhook (app/api/webhooks/shopify-order-paid/route.ts),
- * since the shopper pays on Shopify's hosted checkout domain and never returns
- * to a client-side success page this app controls.
+ * No provider is ever required: the snippets in MetaPixel / GoogleAnalytics /
+ * TikTokPixel only install `window.fbq` / `window.gtag` / `window.ttq` when
+ * their env var is set, so the optional calls below are silent no-ops on
+ * local runs and previews without the ids. Event names are each platform's
+ * own standard ecommerce vocabulary so all three line up on the same funnel.
+ * The `Purchase` / `purchase` event is intentionally not here — it's sent
+ * server-side from the Shopify `orders/paid` webhook
+ * (app/api/webhooks/shopify-order-paid/route.ts), since the shopper pays on
+ * Shopify's hosted checkout domain and never returns to a client-side
+ * success page this app controls.
  */
 
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
     gtag?: (...args: unknown[]) => void;
+    ttq?: {
+      page: (...args: unknown[]) => void;
+      track: (...args: unknown[]) => void;
+    };
   }
 }
 
@@ -40,6 +46,11 @@ function fbq(event: string, data?: Record<string, unknown>) {
 function gtag(event: string, params?: Record<string, unknown>) {
   if (typeof window === "undefined") return;
   window.gtag?.("event", event, params);
+}
+
+function ttq(event: string, data?: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  window.ttq?.track(event, data);
 }
 
 /** priceCents (int) + quantity → the amount the shopper pays, in the unit currency. */
@@ -72,6 +83,14 @@ export function trackViewContent(item: AnalyticsItem, currency: string) {
     value,
     items: toGtagItems([item]),
   });
+  ttq("ViewContent", {
+    content_type: "product",
+    content_id: item.slug,
+    content_name: item.name,
+    quantity: item.quantity ?? 1,
+    currency,
+    value,
+  });
 }
 
 /** Item added to the bag — Meta `AddToCart`, GA4 `add_to_cart`. */
@@ -88,6 +107,14 @@ export function trackAddToCart(item: AnalyticsItem, currency: string) {
     currency,
     value,
     items: toGtagItems([item]),
+  });
+  ttq("AddToCart", {
+    content_type: "product",
+    content_id: item.slug,
+    content_name: item.name,
+    quantity: item.quantity ?? 1,
+    currency,
+    value,
   });
 }
 
@@ -108,5 +135,15 @@ export function trackInitiateCheckout(
     currency,
     value,
     items: toGtagItems(items),
+  });
+  ttq("InitiateCheckout", {
+    content_type: "product",
+    contents: items.map((item) => ({
+      content_id: item.slug,
+      content_name: item.name,
+      quantity: item.quantity ?? 1,
+    })),
+    currency,
+    value,
   });
 }
