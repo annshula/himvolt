@@ -1,6 +1,11 @@
 "use client";
 
-import { useState, type MouseEvent as ReactMouseEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
 
 import { ProductViewTracker } from "@/components/analytics/ProductViewTracker";
 import { BuyBox } from "@/components/product/BuyBox";
@@ -104,6 +109,23 @@ export function ProductPurchase({
   const [selectedId, setSelectedId] = useState(bestDeal.id);
   const selected =
     product.variants.find((v) => v.id === selectedId) ?? product.variants[0];
+
+  // Description stays 3 lines until "Read more" expands it. The toggle only
+  // renders when the text genuinely overflows the clamp (measured once, while
+  // collapsed), so a short description never shows a pointless link.
+  const descHtml = product.descriptionHtml.replace(/\s*—\s*/g, ", ").trim();
+  const [descExpanded, setDescExpanded] = useState(false);
+  const [descCanExpand, setDescCanExpand] = useState(false);
+  const descRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = descRef.current;
+    if (!el) return;
+    const raf = requestAnimationFrame(() => {
+      setDescCanExpand(el.scrollHeight > el.clientHeight + 1);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [descHtml]);
 
   return (
     <div className="mx-auto grid w-full max-w-310 gap-12 px-5 pt-8 pb-16 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:pt-10 lg:pb-24">
@@ -209,20 +231,44 @@ export function ProductPurchase({
           <span>Tracked door-to-door</span>
         </p>
 
-        <div
-          className="mt-6 text-[0.9rem] leading-[1.65] text-ink-soft [&_p]:inline [&_p]:mt-0"
-          dangerouslySetInnerHTML={{
-            // Description HTML originates in the shared Shopify store and is
-            // merchant-controlled, never end-user input. It's sanitized once,
-            // at the trust boundary, in lib/sanitize-html.ts's
-            // sanitizeProductHtml() — called from lib/shopify/sync-product.ts
-            // before this ever reaches data/product.json. Re-sanitizing
-            // already-clean local data here would just pull an HTML-parsing
-            // library into the client bundle for no benefit — same trust
-            // model as content/blog.ts's post bodies.
-            __html: product.descriptionHtml.replace(/\s*—\s*/g, ", "),
-          }}
-        />
+        {descHtml ? (
+          <div className="mt-6">
+            <div
+              ref={descRef}
+              className={cn(
+                "max-w-[56ch] text-[0.9rem] leading-[1.65] text-ink-soft [&_p]:inline [&_p]:mt-0",
+                !descExpanded && "line-clamp-3",
+              )}
+              dangerouslySetInnerHTML={{
+                // Description HTML originates in the shared Shopify store and is
+                // merchant-controlled, never end-user input. It's sanitized once,
+                // at the trust boundary, in lib/sanitize-html.ts's
+                // sanitizeProductHtml() — called from lib/shopify/sync-product.ts
+                // before this ever reaches data/product.json. Re-sanitizing
+                // already-clean local data here would just pull an HTML-parsing
+                // library into the client bundle for no benefit — same trust
+                // model as content/blog.ts's post bodies.
+                __html: descHtml,
+              }}
+            />
+            {descCanExpand && (
+              <button
+                type="button"
+                onClick={() => setDescExpanded((v) => !v)}
+                aria-expanded={descExpanded}
+                className="group mt-2 inline-flex items-center gap-1.5 text-[0.76rem] font-semibold tracking-[0.08em] text-ink uppercase transition-colors duration-200 hover:text-volt"
+              >
+                {descExpanded ? "Show less" : "Read more"}
+                <ChevronDownIcon
+                  className={cn(
+                    "h-3.5 w-3.5 transition-transform duration-300",
+                    descExpanded && "rotate-180",
+                  )}
+                />
+              </button>
+            )}
+          </div>
+        ) : null}
       </div>
     </div>
   );
