@@ -17,13 +17,6 @@
 export const bracelet = {
   handle: "hematite-mens-bracelet",
 
-  /** Bold strap shown under the product subtitle in the buy-box column. */
-  hook: "Five thousand years of men reaching for the same iron before the moments that matter. It’s your turn.",
-
-  /** Marketing subtitle shown under the H1, replacing the raw merchant subtitle. */
-  subtitle:
-    "Genuine natural hematite, hand-polished. Real iron, no coating, no filler.",
-
   /* ------------------------------------------------------------------ */
   /* Cinematic dark story band — right after the buy box.                */
   /* ------------------------------------------------------------------ */

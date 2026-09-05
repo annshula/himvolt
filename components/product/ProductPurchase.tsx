@@ -73,17 +73,11 @@ function scrollToId(e: ReactMouseEvent<HTMLAnchorElement>, id: string) {
 export function ProductPurchase({
   product,
   rating,
-  subtitle,
-  hook,
   bestSeller = false,
 }: {
   product: Product;
   /** Aggregate rating shown as a scroll-to-reviews link — only present when this product has a real review dataset (gated on verified data). */
   rating?: { average: number; count: number };
-  /** Optional marketing subtitle under the H1, replacing the raw merchant subtitle when set. */
-  subtitle?: string;
-  /** Optional marketing strap under the subtitle — set for the flagship bracelet page (content/product-bracelet.ts). */
-  hook?: string;
   /** Optional "Best seller" pill above the title — set only for the flagship bracelet. */
   bestSeller?: boolean;
 }) {
@@ -182,32 +176,28 @@ export function ProductPurchase({
           >
             {product.title}
           </h1>
-          <p className="mt-2 text-[0.95rem] text-ink-soft">
-            {subtitle ?? product.subtitle}
-          </p>
-          {hook && (
-            <p className="font-sans mt-4 max-w-[42ch] text-[1rem] leading-snug font-semibold text-ink">
-              {hook}
-            </p>
-          )}
 
           <a
             href="#quality-test"
             onClick={(e) => scrollToId(e, "quality-test")}
-            className="group mt-4 inline-flex items-center gap-2.5 text-[0.82rem] font-medium text-ink-soft transition-colors duration-200 hover:text-ink"
+            className="group mt-5 inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-1.5 rounded-full border border-emerald-600/20 bg-emerald-500/6 py-1.5 pr-3 pl-1.5 text-[0.8rem] font-medium text-ink-soft transition-colors duration-200 hover:border-emerald-600/40 hover:text-ink"
           >
             <span
               aria-hidden
-              className="grid size-5 shrink-0 place-items-center rounded-full bg-emerald-500/10 text-emerald-600"
+              className="grid size-6 shrink-0 place-items-center rounded-full bg-emerald-500/10 text-emerald-600"
             >
-              <CheckIcon className="h-3 w-3" />
+              <CheckIcon className="h-3.5 w-3.5" />
             </span>
-            <span>Passed every quality check</span>
-            <span aria-hidden>·</span>
-            <span className="underline decoration-ink-soft/40 underline-offset-2 transition-colors duration-200 group-hover:decoration-ink">
+            <span className="font-semibold whitespace-nowrap text-ink">
+              Quality tested
+            </span>
+            <span aria-hidden className="text-ink-soft/30">
+              ·
+            </span>
+            <span className="underline decoration-ink-soft/40 underline-offset-2 whitespace-nowrap transition-colors duration-200 group-hover:decoration-ink">
               See how we test
             </span>
-            <ChevronRightIcon className="h-3 w-3 text-ink-mute transition-transform duration-200 group-hover:translate-x-0.5" />
+            <ChevronRightIcon className="h-3.5 w-3.5 shrink-0 text-ink-mute transition-transform duration-200 group-hover:translate-x-0.5" />
           </a>
         </div>
 

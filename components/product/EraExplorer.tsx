@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useAnimationControls } from "motion/react";
 import { Icon } from "@/components/ui/Icons";
 import { easeOut } from "@/components/ui/Motion";
@@ -25,6 +25,22 @@ export function EraExplorer({ eras }: { eras: StoryContent["eras"] }) {
   const count = eras.length;
   const progress = useAnimationControls();
 
+  // Touch-swipe plumbing: track where the finger lands so a horizontal flick
+  // flips chapters without fighting vertical page scroll.
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
+
+  // First-time "Swipe" hint for touch users — fades out on its own or the
+  // moment they actually swipe.
+  useEffect(() => {
+    if (!showSwipeHint) return;
+    const t = setTimeout(() => setShowSwipeHint(false), 4000);
+    return () => clearTimeout(t);
+  }, [showSwipeHint]);
+
+  const goTo = (nextIdx: number) =>
+    setIndex(((nextIdx % count) + count) % count);
+
   useEffect(() => {
     if (count < 2) return;
     if (paused) {
@@ -48,6 +64,34 @@ export function EraExplorer({ eras }: { eras: StoryContent["eras"] }) {
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
       onBlurCapture={() => setPaused(false)}
+      onTouchStart={(e) => {
+        const t = e.touches[0];
+        if (!t) return;
+        touchStart.current = { x: t.clientX, y: t.clientY };
+        setPaused(true);
+      }}
+      onTouchEnd={(e) => {
+        const s = touchStart.current;
+        touchStart.current = null;
+        const t = e.changedTouches[0];
+        if (!s || !t) {
+          setPaused(false);
+          return;
+        }
+        const dx = t.clientX - s.x;
+        const dy = t.clientY - s.y;
+        if (Math.abs(dx) > 56 && Math.abs(dx) > Math.abs(dy)) {
+          setShowSwipeHint(false);
+          goTo(index + (dx < 0 ? 1 : -1));
+          setPaused(false);
+        } else {
+          setPaused(false);
+        }
+      }}
+      onTouchCancel={() => {
+        touchStart.current = null;
+        setPaused(false);
+      }}
     >
       {/* ---- progress / chapter select ---- */}
       <div role="tablist" aria-label="Chapters" className="flex gap-2">
@@ -118,7 +162,7 @@ export function EraExplorer({ eras }: { eras: StoryContent["eras"] }) {
         >
           <Icon
             name="chevron-left"
-            className="size-5 text-white opacity-0 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] transition-opacity duration-200 group-hover:opacity-90 group-focus-visible:opacity-90"
+            className="size-5 text-white opacity-60 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] transition-opacity duration-200 group-hover:opacity-90 group-focus-visible:opacity-90 md:opacity-0"
           />
         </button>
         <button
@@ -129,9 +173,20 @@ export function EraExplorer({ eras }: { eras: StoryContent["eras"] }) {
         >
           <Icon
             name="chevron-right"
-            className="size-5 text-white opacity-0 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] transition-opacity duration-200 group-hover:opacity-90 group-focus-visible:opacity-90"
+            className="size-5 text-white opacity-60 drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] transition-opacity duration-200 group-hover:opacity-90 group-focus-visible:opacity-90 md:opacity-0"
           />
         </button>
+
+        {showSwipeHint && (
+          <span
+            aria-hidden
+            className="pointer-events-none absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-ink/70 px-3 py-1.5 text-[0.66rem] font-medium tracking-wide text-white/90 backdrop-blur-sm md:hidden"
+          >
+            <Icon name="chevron-left" className="size-3.5" />
+            Swipe
+            <Icon name="chevron-right" className="size-3.5" />
+          </span>
+        )}
       </div>
 
       {/* ---- copy, in open space, no card ---- */}

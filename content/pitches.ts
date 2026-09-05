@@ -55,10 +55,6 @@ export type Pitch = {
   handle: string;
   /** "bracelet" | "ring" — used in any copy that must match the object. */
   kind: "bracelet" | "ring";
-  /** Marketing descriptor shown under the title in the buy box (no separator characters). */
-  subtitle: string;
-  /** Bold strap under the subtitle in the buy box. */
-  hook: string;
   story: StoryContent;
   moments: MomentsContent;
 };
@@ -197,9 +193,6 @@ export const pitches: Pitch[] = [
     handle:
       "natural-black-tourmaline-and-hematite-single-strand-round-bead-bracelet",
     kind: "bracelet",
-    subtitle:
-      "Natural hematite beads in your exact size and finish. Seven sizes, four finishes.",
-    hook: "Seven bead sizes, four finishes, one real stone. The piece that fits you exactly.",
     story: {
       eyebrow: "The customisable one",
       heading:
@@ -244,9 +237,6 @@ export const pitches: Pitch[] = [
   {
     handle: "black-gallstone-bracelet-hematite-jewelry-terahertz",
     kind: "bracelet",
-    subtitle:
-      "107 grams of hand-strung geometric hematite, polished gunmetal black.",
-    hook: "107 grams of hematite. The heaviest piece we make, built to be felt.",
     story: {
       eyebrow: "The statement piece",
       heading: "The one that doesn’t whisper. It weighs.",
@@ -290,9 +280,6 @@ export const pitches: Pitch[] = [
   {
     handle: "hematite-ring-without-magnetic-surface",
     kind: "ring",
-    subtitle:
-      "A solid natural hematite band. No plating, no coating, not magnetic.",
-    hook: "A solid band of natural hematite. No coating, no plating. The stone itself.",
     story: {
       eyebrow: "The solid band",
       heading: "The ring for men who don’t wear rings.",
@@ -336,9 +323,6 @@ export const pitches: Pitch[] = [
   {
     handle: "fashion-curved-hematite-magnetic-ring",
     kind: "ring",
-    subtitle:
-      "A curved hematite band. Natural or magnetic finish, honestly labelled.",
-    hook: "Two finishes: the natural band, or the magnetic pull. Your call.",
     story: {
       eyebrow: "The curved band",
       heading: "The ring you’ll be asked about.",

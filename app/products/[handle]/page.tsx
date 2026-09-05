@@ -118,7 +118,6 @@ export default async function ProductPage({
   const pitch = pitchFor(liveProduct.handle);
   const story = pitch?.story;
   const moments = pitch?.moments;
-  const hook = pitch?.hook ?? (isBracelet ? braceletCopy.hook : undefined);
 
   // Only the bracelet has a review dataset (data/reviews.ts). Null for every
   // other handle — the scope guard in reviewSetForHandle enforces that.
@@ -157,16 +156,10 @@ export default async function ProductPage({
       <ProductPurchase
         product={liveProduct}
         rating={reviewSet?.summary}
-        subtitle={
-          pitch?.subtitle ?? (isBracelet ? braceletCopy.subtitle : undefined)
-        }
-        hook={hook}
         bestSeller={isBracelet}
       />
 
-      {(isBracelet || pitch) && (
-        <BraceletStory story={story} />
-      )}
+      {(isBracelet || pitch) && <BraceletStory story={story} />}
       {(isBracelet || pitch) && <BraceletMoments moments={moments} />}
 
       <ProductDetails product={liveProduct} />
