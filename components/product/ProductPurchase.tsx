@@ -5,18 +5,21 @@ import {
   useRef,
   useState,
   type MouseEvent as ReactMouseEvent,
+  type ReactNode,
 } from "react";
 
 import { ProductViewTracker } from "@/components/analytics/ProductViewTracker";
 import { BuyBox } from "@/components/product/BuyBox";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import {
-  CheckIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  ShieldIcon,
   StarIcon,
+  WrenchIcon,
 } from "@/components/ui/Icons";
 import { RatingStars } from "@/components/ui/Stars";
+import { quality } from "@/content/pitches";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/lib/product";
 
@@ -61,6 +64,43 @@ function scrollToId(e: ReactMouseEvent<HTMLAnchorElement>, id: string) {
   const top =
     target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
   window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+}
+
+/**
+ * One segment of the proof pill under the title.
+ *
+ * These used to be bare text links, which read as body copy rather than as
+ * something to press. The pill's border and the fill-on-hover are the
+ * affordance now, and the chevron slides in to telegraph "this jumps
+ * somewhere" before the click lands. `min-h-11` holds a 44px touch target
+ * even though the type is small, and the focus ring is pulled inside with a
+ * negative offset because the parent pill clips overflow to keep its rounded
+ * ends — without that, the global :focus-visible outline gets cut off.
+ */
+function ProofLink({
+  targetId,
+  label,
+  icon,
+  children,
+}: {
+  targetId: string;
+  /** Spoken label — says where the jump lands, which the visible text alone doesn't. */
+  label: string;
+  icon: ReactNode;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={`#${targetId}`}
+      aria-label={label}
+      onClick={(e) => scrollToId(e, targetId)}
+      className="group flex min-h-11 touch-manipulation items-center gap-1.5 px-4 text-[0.8rem] font-medium text-ink-soft transition-colors duration-300 ease-(--ease-out-expo) hover:bg-ivory hover:text-ink focus-visible:-outline-offset-2 active:bg-parchment active:duration-100"
+    >
+      {icon}
+      {children}
+      <ChevronRightIcon className="h-3 w-3 shrink-0 -translate-x-1 text-ink-mute opacity-0 transition-all duration-300 ease-(--ease-out-expo) group-hover:translate-x-0 group-hover:opacity-100" />
+    </a>
+  );
 }
 
 /**
@@ -177,28 +217,35 @@ export function ProductPurchase({
             {product.title}
           </h1>
 
-          <a
-            href="#quality-test"
-            onClick={(e) => scrollToId(e, "quality-test")}
-            className="group mt-5 inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-1.5 rounded-full border border-emerald-600/20 bg-emerald-500/6 py-1.5 pr-3 pl-1.5 text-[0.8rem] font-medium text-ink-soft transition-colors duration-200 hover:border-emerald-600/40 hover:text-ink"
-          >
-            <span
-              aria-hidden
-              className="grid size-6 shrink-0 place-items-center rounded-full bg-emerald-500/10 text-emerald-600"
+          {/* Scroll guide to the build & QC sections further down the page,
+              as one bordered pill rather than two bare text links so it
+              reads as pressable at a glance. It carries the same border,
+              fill and elevation tokens as the buy-box card right below it,
+              so the two read as one family. The right segment states the
+              real check count instead of a vague "quality tested" — the
+              number comes from the QC list itself, so it can never drift
+              from the section it jumps to. */}
+          <div className="mt-4 inline-flex items-stretch overflow-hidden rounded-full border border-line bg-ivory/60 shadow-(--shadow-e1)">
+            <ProofLink
+              targetId="build"
+              label="Jump to how this piece is built"
+              icon={
+                <WrenchIcon className="h-3.5 w-3.5 shrink-0 text-volt transition-colors duration-300 group-hover:text-ink" />
+              }
             >
-              <CheckIcon className="h-3.5 w-3.5" />
-            </span>
-            <span className="font-semibold whitespace-nowrap text-ink">
-              Quality tested
-            </span>
-            <span aria-hidden className="text-ink-soft/30">
-              ·
-            </span>
-            <span className="underline decoration-ink-soft/40 underline-offset-2 whitespace-nowrap transition-colors duration-200 group-hover:decoration-ink">
-              See how we test
-            </span>
-            <ChevronRightIcon className="h-3.5 w-3.5 shrink-0 text-ink-mute transition-transform duration-200 group-hover:translate-x-0.5" />
-          </a>
+              Hand-built
+            </ProofLink>
+            <span aria-hidden className="w-px self-stretch bg-line" />
+            <ProofLink
+              targetId="quality-test"
+              label={`Jump to the ${quality.checks.length} quality checks this piece passes`}
+              icon={
+                <ShieldIcon className="h-3.5 w-3.5 shrink-0 text-emerald-600 transition-colors duration-300 group-hover:text-ink" />
+              }
+            >
+              {quality.checks.length} checks passed
+            </ProofLink>
+          </div>
         </div>
 
         <div className="mt-6 overflow-hidden rounded-(--radius-card) border border-line bg-ivory/60 p-4 shadow-(--shadow-e1) sm:p-5">

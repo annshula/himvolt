@@ -160,6 +160,70 @@ export const quality = {
   ],
 };
 
+export type BuildContent = {
+  eyebrow: string;
+  heading: string;
+  lede: string;
+  points: { title: string; body: string }[];
+  note: string;
+};
+
+/* ------------------------------------------------------------------ */
+/* "The build" — how each piece is actually made. Bracelets are strung  */
+/* on a single elastic core (the cord that holds every stone); rings    */
+/* are solid bands. Mounted on every product page with the copy that    */
+/* matches the piece.                                                   */
+/* ------------------------------------------------------------------ */
+export const buildBracelet: BuildContent = {
+  eyebrow: "Hand-built",
+  heading: "One elastic core. Every stone held by it.",
+  lede: "There is no metal wire inside this bracelet and no clasp to snap shut. Every bead is threaded onto a single continuous stretch cord, which is why it rolls on in one motion, sits close to the wrist, and has nothing to catch on a cuff or a door handle.",
+  points: [
+    {
+      title: "One continuous cord",
+      body: "The elastic runs the full loop in a single pass, so tension stays even across every stone. No weak spot where two ends meet, no clasp to wear out over time.",
+    },
+    {
+      title: "Stretch that comes back",
+      body: "It stretches over your hand, then settles back against the wrist. That give is what lets one bracelet fit a wide range of wrist sizes without a clasp or a sizing chart.",
+    },
+    {
+      title: "Strung snug, not strangled",
+      body: "Each bead sits tight enough to stay flush with no gaps, but loose enough to move with you. It flexes as you move instead of digging in or catching on anything.",
+    },
+    {
+      title: "Chosen for daily wear",
+      body: "The cord is rated for repeated stretching, and every bracelet is tension-checked and wear-tested before it ships. It is built to stay on your wrist, not in a drawer.",
+    },
+  ],
+  note: "Roll it on once and you feel the difference: an even, soft hold with nothing pinching and nothing to fasten.",
+};
+
+export const buildRing: BuildContent = {
+  eyebrow: "Hand-built",
+  heading: "A solid band. No coating, no filler.",
+  lede: "Rings in this collection are cut from a solid piece rather than stamped from a sheet or plated over a cheap core. The band is one material all the way through, and that shows in the weight and the way it sits.",
+  points: [
+    {
+      title: "Solid all the way through",
+      body: "No hollow shell and no coating over a base metal. The band is the stone itself, so it will never flake or reveal a different colour underneath.",
+    },
+    {
+      title: "Polished, not painted",
+      body: "The dark metallic finish is polished into the surface rather than applied on top, which is why it keeps its look through daily wear.",
+    },
+    {
+      title: "Sized true",
+      body: "Every band is checked against the US sizing gauge before it ships, so the size on the box is the size on your hand.",
+    },
+    {
+      title: "Built for every day",
+      body: "At 5.5 to 6.5 Mohs it shrugs off desks and doorframes. Magnetic finishes are clearly labelled for exactly what they are.",
+    },
+  ],
+  note: "The size on the box matches the fit on your hand, checked by hand before dispatch.",
+};
+
 /* ------------------------------------------------------------------ */
 /* Generic risk-reversal close (used on every non-flagship product).   */
 /* ------------------------------------------------------------------ */

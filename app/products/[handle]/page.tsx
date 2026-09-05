@@ -10,11 +10,17 @@ import BraceletVersus from "@/components/product/BraceletVersus";
 import BraceletClose from "@/components/product/BraceletClose";
 import ReviewsComing from "@/components/product/ReviewsComing";
 import QualityTests from "@/components/product/QualityTests";
+import BuildSection from "@/components/product/BuildSection";
 import ProductReviews from "@/components/product/ProductReviews";
 import ProductSchema from "@/components/ProductSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { bracelet as braceletCopy } from "@/content/product-bracelet";
-import { closeGeneric, pitchFor } from "@/content/pitches";
+import {
+  buildBracelet,
+  buildRing,
+  closeGeneric,
+  pitchFor,
+} from "@/content/pitches";
 import { reviewSetForHandle } from "@/data/reviews";
 import { getProductByHandle, products } from "@/lib/product";
 import { site } from "@/lib/site";
@@ -163,6 +169,13 @@ export default async function ProductPage({
       {(isBracelet || pitch) && <BraceletMoments moments={moments} />}
 
       <ProductDetails product={liveProduct} />
+
+      {/* The build — how the piece is actually made. Bracelets explain the
+          elastic core that connects the stones; rings explain the solid
+          band. Header "The build" link scrolls here (#build). */}
+      <BuildSection
+        content={pitch?.kind === "ring" ? buildRing : buildBracelet}
+      />
 
       {/* Every product carries the QC band — the header & buy-box "Quality"
           links scroll here (#quality-test). */}
