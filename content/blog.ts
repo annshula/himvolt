@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
     updatedAt: "2026-08-23",
     readingMinutes: 5,
     coverImage: {
-      src: "/blog/black-tourmaline-bracelet-benefits.webp",
+      src: "/blog/hematite-bracelet-benefits.webp",
       alt: "Macro photograph of a polished hematite beaded bracelet on a dark surface",
       width: 2528,
       height: 1696,
@@ -98,7 +98,7 @@ export const blogPosts: BlogPost[] = [
       'Natural hematite, gold-plated hematite, magnetic hematite, hematine — the honest differences between what gets sold as a "hematite bracelet," and what to check before you buy.',
     targetKeyword: "hematite stone bracelet",
     quickAnswer:
-      "\"Hematite bracelet\" covers natural, plated, and magnetic products sold under one name — magnetic hematite is almost always a man-made composite (hematine), not the natural stone. Check the listing language and weight before buying.",
+      '"Hematite bracelet" covers natural, plated, and magnetic products sold under one name — magnetic hematite is almost always a man-made composite (hematine), not the natural stone. Check the listing language and weight before buying.',
     tags: ["Buying guide", "Hematite"],
     publishedAt: "2026-03-09",
     updatedAt: "2026-08-23",
@@ -253,49 +253,10 @@ export const blogPosts: BlogPost[] = [
 `,
   },
   {
-    slug: "black-tourmaline-hematite-bracelet-benefits",
-    title: "Black Tourmaline Bracelet Benefits: Paired With Hematite",
-    excerpt:
-      "Black tourmaline and hematite get combined in the same bracelet more than almost any other pairing. Here is what each stone actually is, and why they work together.",
-    targetKeyword: "black tourmaline bracelet benefits",
-    quickAnswer:
-      "Black tourmaline (schorl) and hematite are two different, genuine minerals — a harder glassy silicate and a dense metallic iron oxide — commonly paired for both visual contrast and a shared \"protective, grounding\" tradition.",
-    tags: ["Black Tourmaline", "Hematite"],
-    publishedAt: "2026-09-02",
-    updatedAt: "2026-09-02",
-    readingMinutes: 5,
-    coverImage: {
-      src: "/blog/black-tourmaline-hematite-bracelet-benefits.webp",
-      alt: "Macro photograph of a beaded bracelet alternating black tourmaline and hematite beads on a dark surface",
-      width: 1264,
-      height: 848,
-    },
-    body: `
-<p>Search "black tourmaline bracelet benefits" and you will mostly find spiritual-meaning listicles with no mineral facts in them at all. We sell a bracelet that pairs black tourmaline with hematite, so here is the version with the facts kept separate from the folklore.</p>
-
-<h2>What black tourmaline actually is</h2>
-<p>Tourmaline is a group of complex borosilicate minerals, and the black variety — <strong>schorl</strong> — is by far the most common form found in nature, typically the sodium-iron-rich end of the group. It sits at 7 to 7.5 on the Mohs scale, harder than hematite, with a glassy lustre and a deep opaque black that reads as pure black rather than the metallic grey-black of hematite. That contrast in finish, not just colour, is why the two stones read so well strung together on the same strand.</p>
-<p>Tourmaline is also naturally pyroelectric and piezoelectric — it can generate a small electrical charge under heat or pressure, a real and measurable property that has made it useful in some scientific instruments historically. That is a genuine physical property of the crystal, distinct from anything claimed about how it feels to wear.</p>
-
-<h2>Why the pairing, specifically</h2>
-<p>In wellness and grounding traditions, black tourmaline is one of the most commonly reached-for "protective" stones, often described alongside hematite as a grounding one — the two get combined constantly in beaded jewellery for exactly that reason, on top of the fact that a matte-black stone next to a metallic-black one is simply a good-looking combination on a wrist. We will tell you plainly: that is tradition and aesthetics, not a documented physical or health effect. Nothing in this pairing changes what either mineral measurably does.</p>
-
-<h2>What to check before buying one</h2>
-<ul>
-<li><strong>Genuine schorl vs. dyed black glass.</strong> Real tourmaline has a glassy, almost vitreous shine even in a rounded bead; dyed glass or plastic substitutes tend to look flatter and more uniform.</li>
-<li><strong>Weight difference between the two bead types.</strong> Hematite (iron oxide) is noticeably denser than tourmaline (a silicate). On a genuine mixed strand you can usually feel a slight difference bead to bead — a strand where every bead feels identical in weight is worth a second look.</li>
-<li><strong>Finish consistency.</strong> Both stones should be uniformly polished with no dulled or scratched beads out of the box — a sign of tumbling low-grade material to hide flaws.</li>
-</ul>
-
-<h2>The honest bottom line</h2>
-<p>Black tourmaline is a hard, genuinely striking silicate mineral; hematite is a dense iron oxide with a red streak underneath a metallic shell. Strung together, you get two real stones with two real, different mineral identities — and a look that has become one of the most popular combinations in men's beaded jewellery for a reason that has as much to do with contrast as it does with tradition. Our own <a href="${pathForHandle("natural-black-tourmaline-and-hematite-single-strand-round-bead-bracelet")}">Hematite Round Bead Bracelet</a> pairs the two on a single stretch strand, no dye and no coating on either stone.</p>
-`,
-  },
-  {
     slug: "magnetic-hematite-bracelet-guide",
     title: 'Magnetic Hematite Bracelet: What "Magnetic" Actually Means',
     excerpt:
-      "Most \"magnetic hematite\" jewellery isn't natural hematite at all. Here is the honest difference between the real mineral and the man-made magnetic composite sold under its name.",
+      'Most "magnetic hematite" jewellery isn\'t natural hematite at all. Here is the honest difference between the real mineral and the man-made magnetic composite sold under its name.',
     targetKeyword: "magnetic hematite bracelet",
     quickAnswer:
       "Natural hematite is only weakly magnetic. A bracelet that snaps together strongly is almost always a man-made magnetic composite (often called hematine), not the natural stone.",
@@ -416,7 +377,8 @@ export const blogPosts: BlogPost[] = [
           "No clinical study shows a hematite bracelet producing a measurable medical or physical effect. What it can do is act as a deliberate worn object some people find grounding — a psychological habit, not a property of the mineral itself.",
       },
       {
-        question: "Is there scientific evidence behind hematite bracelet benefits?",
+        question:
+          "Is there scientific evidence behind hematite bracelet benefits?",
         answer:
           "No. The grounding, focus, and protective effects attributed to hematite come from tradition dating back to antiquity, not clinical research. The stone's measurable properties are its density, hardness, and iron oxide composition — not a documented effect on the body.",
       },
@@ -426,7 +388,8 @@ export const blogPosts: BlogPost[] = [
           "Most people describing a benefit are describing the effect of wearing a deliberate, tactile object on purpose — the same mechanism behind a worry stone or fidget item — combined with a centuries-old tradition of hematite as a grounding stone, not a measured chemical or biological effect from the mineral.",
       },
       {
-        question: "Is a hematite bracelet worth buying without proven health effects?",
+        question:
+          "Is a hematite bracelet worth buying without proven health effects?",
         answer:
           "Yes, if you are buying it for what it actually is: a genuinely dense, hard, historically significant iron ore with a real five-thousand-year worn tradition — not as a substitute for medical treatment.",
       },
@@ -488,12 +451,12 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "magnetic-hematite-ring",
-    title: 'Magnetic Hematite Ring: What It Actually Is (And Isn\'t)',
+    title: "Magnetic Hematite Ring: What It Actually Is (And Isn't)",
     excerpt:
       '"Magnetic hematite ring" searches are rising fast. Here is the honest difference between the natural, weakly-magnetic mineral and the engineered composite most magnetic rings are made from.',
     targetKeyword: "magnetic hematite ring",
     quickAnswer:
-      "A ring marketed as \"magnetic hematite\" is almost always a man-made magnetic composite (often called hematine), not natural hematite, which is only weakly magnetic on its own.",
+      'A ring marketed as "magnetic hematite" is almost always a man-made magnetic composite (often called hematine), not natural hematite, which is only weakly magnetic on its own.',
     tags: ["Hematite", "Buying guide"],
     publishedAt: "2026-10-07",
     updatedAt: "2026-10-07",
@@ -540,7 +503,8 @@ export const blogPosts: BlogPost[] = [
           "The composite material itself is safe to wear as jewellery. What is not supported is any claim that the magnet provides a therapeutic or medical effect — there is no accepted clinical evidence for magnetic therapy at bracelet or ring strength.",
       },
       {
-        question: "Why do magnetic hematite rings crack more than natural ones?",
+        question:
+          "Why do magnetic hematite rings crack more than natural ones?",
         answer:
           "The engineered magnetic composite is generally more brittle under sudden impact than solid natural hematite, and rings take frequent knocks in daily wear — a combination that makes magnetic hematite rings crack more often than natural, non-magnetic ones.",
       },
@@ -595,7 +559,8 @@ export const blogPosts: BlogPost[] = [
           "There is no clinical or scientific evidence that any stone measurably balances a chakra. What is real is hematite's density and weight, which many people experience as a grounding physical sensation when worn.",
       },
       {
-        question: "What's the difference between a hematite bracelet and a chakra bracelet?",
+        question:
+          "What's the difference between a hematite bracelet and a chakra bracelet?",
         answer:
           "A seven-chakra bracelet strings a different stone for each of the seven chakras in one piece. A hematite-only bracelet is a single mineral leaning into one specific, long-standing association — grounding and the root chakra — rather than covering all seven.",
       },
@@ -659,9 +624,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "hematite-bracelet-reviews-real-or-fake",
-    title: "Hematite Bracelet Reviews: How to Tell Real From Fake Before You Trust One",
+    title:
+      "Hematite Bracelet Reviews: How to Tell Real From Fake Before You Trust One",
     excerpt:
-      "\"Is this hematite bracelet actually legit?\" is the real question behind most review searches. Here's how to check any hematite bracelet — ours included — in under a minute.",
+      '"Is this hematite bracelet actually legit?" is the real question behind most review searches. Here\'s how to check any hematite bracelet — ours included — in under a minute.',
     targetKeyword: "hematite bracelet reviews",
     quickAnswer:
       "A star rating tells you nothing about whether a bracelet is genuine hematite. Weight, cool-to-touch feel, and the red-brown streak test tell you everything — and you can check all three yourself before or after you buy, from any brand.",
@@ -700,7 +666,8 @@ export const blogPosts: BlogPost[] = [
           "Check weight (genuine hematite feels notably heavy for its size), temperature (real stone stays cool longer than glass or resin), and the streak test (a scratch on unglazed ceramic leaves a red-brown mark on real hematite).",
       },
       {
-        question: "Do online reviews tell you if a hematite bracelet is genuine?",
+        question:
+          "Do online reviews tell you if a hematite bracelet is genuine?",
         answer:
           "Not reliably. Star ratings mostly reflect shipping speed and how a piece looked in photos, not the mineral itself. The weight, temperature, and streak test are the actual verification methods.",
       },
@@ -775,7 +742,7 @@ export const blogPosts: BlogPost[] = [
 <p>"Crystal energy bracelet" is a catch-all — it covers everything from single-stone pieces to seven-chakra mixes to smoky quartz stacks. Before buying into the category, it's worth being clear on what the term actually promises, because most of what's sold under it doesn't explain the difference between mineral fact and cultural tradition.</p>
 
 <h2>What the category actually is</h2>
-<p>A crystal energy bracelet is a beaded bracelet made from one or more natural (or natural-looking) stones, marketed around an intention the stone is traditionally associated with — clarity, calm, protection, confidence. The stone itself is usually real mineralogy: quartz, hematite, obsidian, tourmaline. The "energy" framing is the tradition layered on top, going back centuries in most cases, not a modern invention.</p>
+<p>A crystal energy bracelet is a beaded bracelet made from one or more natural (or natural-looking) stones, marketed around an intention the stone is traditionally associated with — clarity, calm, protection, confidence. The stone itself is usually real mineralogy: quartz, hematite, obsidian. The "energy" framing is the tradition layered on top, going back centuries in most cases, not a modern invention.</p>
 
 <h2>Where hematite fits in</h2>
 <p>Hematite — iron(III) oxide, Fe₂O₃ — is one of the most reached-for single stones in this category, specifically for grounding, focus, and resilience. That association traces to antiquity: Egyptian amulets, Mesopotamian seals, and a red-brown streak (hence the Greek name <em>haimatites lithos</em>, "blood-like stone") that made it a distinctive, recognizable mineral long before anyone called it a grounding stone. It's also one of the easiest stones in the category to verify as genuine, because the streak test and its notable density are both checkable, unlike a lot of stones sold in the same aisle.</p>
@@ -791,7 +758,7 @@ export const blogPosts: BlogPost[] = [
     slug: "self-care-gifts-for-men",
     title: "Self-Care Gifts for Men That Don't Feel Like a Spa Kit",
     excerpt:
-      "Most \"self-care gift for men\" lists default to candles and bath sets. Here's a shorter, more useful list — including where a hematite bracelet actually fits.",
+      'Most "self-care gift for men" lists default to candles and bath sets. Here\'s a shorter, more useful list — including where a hematite bracelet actually fits.',
     targetKeyword: "self care gifts for men",
     quickAnswer:
       "Good self-care gifts for men skip the generic spa-kit format and give him something he'll actually use daily — a durable everyday object, better sleep or recovery gear, or a small piece he can wear as a deliberate, low-effort reset, like a natural stone bracelet.",
@@ -826,7 +793,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "hematite-vs-gold-silver-chain-bracelet",
-    title: "Hematite vs. Gold, Silver, and Chain Bracelets: Which Should You Wear Every Day?",
+    title:
+      "Hematite vs. Gold, Silver, and Chain Bracelets: Which Should You Wear Every Day?",
     excerpt:
       "Gold, silver, chain, and natural stone all solve \"everyday men's bracelet\" differently. Here's how hematite actually compares on weight, upkeep, and cost.",
     targetKeyword: "gold bracelet mens",
@@ -865,7 +833,8 @@ export const blogPosts: BlogPost[] = [
           "Yes. Hematite rates 5.5–6.5 on the Mohs hardness scale; gold sits around 3–4 and sterling silver around 2.5–3. Hematite resists everyday scratching noticeably better than either precious metal.",
       },
       {
-        question: "Does a hematite bracelet need the same upkeep as a silver bracelet?",
+        question:
+          "Does a hematite bracelet need the same upkeep as a silver bracelet?",
         answer:
           "No. Silver visibly tarnishes over weeks and needs periodic polishing. A single-strand hematite bead bracelet has no metal surface to tarnish and no chain links to trap dirt — a wipe with a soft cloth is enough.",
       },
@@ -873,7 +842,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "personalized-mens-bracelet-guide",
-    title: "Personalized Men's Bracelets: What Actually Makes a Bracelet Feel Personal",
+    title:
+      "Personalized Men's Bracelets: What Actually Makes a Bracelet Feel Personal",
     excerpt:
       "\"Personalized\" usually means an engraved name plate. Here's what else makes a men's bracelet feel like it was chosen for someone specific — engraving included.",
     targetKeyword: "personalized mens bracelet",
@@ -907,9 +877,10 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "hematite-vs-tennis-bracelet",
-    title: "Hematite Bracelet vs. Tennis Bracelet: Two Very Different Ideas of \"Everyday\"",
+    title:
+      'Hematite Bracelet vs. Tennis Bracelet: Two Very Different Ideas of "Everyday"',
     excerpt:
-      "Both get called an \"everyday bracelet.\" A diamond tennis bracelet and a natural hematite bead bracelet solve for opposite things — here's the actual comparison.",
+      'Both get called an "everyday bracelet." A diamond tennis bracelet and a natural hematite bead bracelet solve for opposite things — here\'s the actual comparison.',
     targetKeyword: "mens tennis bracelet",
     quickAnswer:
       "A men's tennis bracelet is a fixed line of stones (often diamonds) set in precious metal, built for visible sparkle and formal-to-casual dress. A hematite bead bracelet is a single dense mineral on a stretch cord, built for low-maintenance daily wear rather than visible shine.",
@@ -996,7 +967,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "mens-jewelry-trends-2026",
-    title: "Men's Jewelry Trends in 2026: What's Actually Rising, Not Just Loud",
+    title:
+      "Men's Jewelry Trends in 2026: What's Actually Rising, Not Just Loud",
     excerpt:
       "Personalized pieces, sterling silver, and natural stone are all up this year. Here's what the search data actually shows about where men's jewelry is heading.",
     targetKeyword: "mens jewelry",
@@ -1033,7 +1005,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "anxiety-bracelet-does-it-work",
-    title: "Do Anxiety Bracelets Actually Work? What's Real and What's Marketing",
+    title:
+      "Do Anxiety Bracelets Actually Work? What's Real and What's Marketing",
     excerpt:
       "\"Anxiety bracelet\" is a real, growing search — and a category full of overpromising. Here's what's actually documented, and what's tradition dressed up as fact.",
     targetKeyword: "anxiety bracelet",
@@ -1053,7 +1026,7 @@ export const blogPosts: BlogPost[] = [
 <p>"Anxiety bracelet" is a real, recurring search — enough that it's clearly a genuine question people are trying to answer before they buy, not just idle curiosity. It deserves a straight answer rather than a marketing one, so here it is.</p>
 
 <h2>What's not documented</h2>
-<p>There is no clinical or scientific evidence that any stone — hematite, black tourmaline, or otherwise — has a measurable physiological effect on anxiety. No peer-reviewed research supports a bracelet regulating cortisol, heart rate, or any other anxiety marker through wear alone. Anyone stating that as settled fact is selling certainty the evidence doesn't back.</p>
+<p>There is no clinical or scientific evidence that any stone, hematite or otherwise, has a measurable physiological effect on anxiety. No peer-reviewed research supports a bracelet regulating cortisol, heart rate, or any other anxiety marker through wear alone. Anyone stating that as settled fact is selling certainty the evidence doesn't back.</p>
 
 <h2>What's actually plausible, and why it's different from a "cure"</h2>
 <p>There is real, well-documented psychology around grounding objects and physical rituals — a small, deliberate action (touching a worn object, a fidget habit, a consistent physical anchor) can interrupt a spiral of anxious thought for some people, the same mechanism behind breathing exercises or a stress ball. That's a behavioral and psychological effect tied to ritual and attention, not a property emitted by the stone itself. A bracelet worn with that intention can function the same way any consistent physical habit does — it's the consistency and the ritual doing the work, not the mineral.</p>

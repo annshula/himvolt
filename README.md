@@ -1,7 +1,7 @@
 # HimVolt
 
-Launch site for **HimVolt** — a men's vital brand built around one product: a
-square-cut black tourmaline bracelet.
+Launch site for **HimVolt** — a men's brand built around genuine natural
+hematite: iron-oxide bracelets and rings for men.
 
 > Lite your life.
 
@@ -144,10 +144,11 @@ change the numbers.
 
 ### Claims policy
 
-The copy describes black tourmaline by its verifiable mineral properties —
-7–7.5 Mohs, pyroelectric, piezoelectric — and by what people traditionally wear
-it for. It makes **no health, medical or therapeutic claim**, and the "What we
-will not claim" block says so out loud. The footer carries a matching
+The copy describes hematite by its verifiable mineral properties —
+5.5–6.5 Mohs, its iron density, the red-brown streak test — and by what people
+traditionally wear it for. It makes **no health, medical or therapeutic
+claim**, and the "What we will not claim" block says so out loud. The footer
+carries a matching
 disclaimer. Keep it that way; it is both the safe position and, on cold traffic,
 the more persuasive one.
 
