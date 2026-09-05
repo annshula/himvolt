@@ -86,11 +86,16 @@ export function EraExplorer({ eras }: { eras: StoryContent["eras"] }) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: easeOut }}
           >
+            {/* Pre-optimised WebP (≤1200px) shipped from /public — served
+                directly via `unoptimized` so it never routes through
+                Vercel's paid /_next/image optimizer, same as the review
+                photos in ProductReviews.tsx. */}
             <Image
               src={era.image.src}
               alt={era.image.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 46vw"
+              unoptimized
               className="object-cover"
             />
           </motion.div>
