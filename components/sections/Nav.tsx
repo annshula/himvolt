@@ -2,7 +2,12 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, type ButtonHTMLAttributes } from "react";
+import {
+  useEffect,
+  useState,
+  type ButtonHTMLAttributes,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
 import { AccountMenu } from "@/components/account/AccountMenu";
 import { CurrencySelector } from "@/components/localization/CurrencySelector";
 import { useCart } from "@/components/providers/CartProvider";
@@ -21,6 +26,18 @@ const links = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
+
+/** Smooth-scroll to an in-page anchor (#id), clearing the sticky header. */
+function scrollToHash(e: ReactMouseEvent<HTMLAnchorElement>, href: string) {
+  e.preventDefault();
+  const target = document.getElementById(href.replace(/^#/, ""));
+  if (!target) return;
+  const nav = document.querySelector<HTMLElement>("header");
+  const navHeight = nav?.getBoundingClientRect().height ?? 68;
+  const top =
+    target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
+  window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+}
 
 /** Shared look for every circular header icon — Track order, Account, Cart,
     the mobile trigger. No border: a plain circle that only picks up a tint
@@ -98,6 +115,7 @@ function CartButton({
 export default function Nav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isProductPage = pathname.startsWith("/products/");
   // /benefits is dark top to bottom (every section is its own full-bleed
   // video/photo), not just a hero — so unlike home it never switches to the
   // light "solid" bar on scroll, it just stays transparent throughout.
@@ -106,6 +124,12 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { open: openCart } = useCart();
   useScrollLock(menuOpen);
+
+  // In-page "Quality" link — only on product pages, where the #quality-test
+  // section exists. Hidden everywhere else so it never points at nothing.
+  const navLinks = isProductPage
+    ? links.concat([{ label: "Quality", href: "#quality-test" }])
+    : links;
 
   // The transparent-over-hero treatment applies to the home page's dark
   // video hero (until scrolled past it) and to /benefits (always). Every
@@ -150,10 +174,13 @@ export default function Nav() {
           />
 
           <ul className="hidden items-center gap-8 lg:flex">
-            {links.map((l) => (
+            {navLinks.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
+                  onClick={(e) =>
+                    l.href.startsWith("#") && scrollToHash(e, l.href)
+                  }
                   className={`font-label group relative text-[0.72rem] font-medium tracking-[0.2em] uppercase transition-colors duration-300 ${
                     solid
                       ? "text-ink-soft hover:text-ink"
@@ -261,7 +288,7 @@ export default function Nav() {
                 }}
               >
                 <ul className="flex flex-col">
-                  {links.map((l) => (
+                  {navLinks.map((l) => (
                     <motion.li
                       key={l.href}
                       className="border-b border-white/10"
@@ -276,7 +303,10 @@ export default function Nav() {
                     >
                       <a
                         href={l.href}
-                        onClick={() => setMenuOpen(false)}
+                        onClick={(e) => {
+                          if (l.href.startsWith("#")) scrollToHash(e, l.href);
+                          setMenuOpen(false);
+                        }}
                         className="font-label group flex items-center justify-between gap-4 py-4 text-[0.92rem] tracking-[0.22em] text-chalk/90 uppercase transition-colors duration-300 hover:text-white active:text-white"
                       >
                         {l.label}

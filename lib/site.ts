@@ -14,7 +14,7 @@ export const site = {
   email: "support@himvolt.com",
   address: "Toronto, Ontario, Canada",
   description:
-    "Natural hematite stone bracelets and rings for men — real iron oxide, not resin or dye. Free tracked worldwide shipping, free fix for damaged or wrong items.",
+    "Natural hematite stone bracelets and rings for men, real iron oxide, not resin or dye. Free tracked worldwide shipping, free fix for damaged or wrong items.",
   locale: "en_US",
   currency: "USD",
 
@@ -53,12 +53,12 @@ export const site = {
     // lib/account/order-status.ts's reasonNeedsDetail() for the same line.
     returns: "Free fix for damaged, missing, or wrong items",
     returnsDetail:
-      "Send a photo within 30 days of delivery and we'll ship a free replacement or refund — that covers damage, missing items, and mis-ships, not general change-of-mind returns.",
+      "Send a photo within 30 days of delivery and we'll ship a free replacement or refund, and that covers damage, missing items, and mis-ships, not general change-of-mind returns.",
     // Verified, not promotional: the mineral's own Mohs hardness rating
     // (see content/copy.ts stone.paragraphs). There is no workmanship or
     // time-based warranty to advertise — do not add one without a real,
     // written guarantee to back it.
-    durability: "5.5–6.5 Mohs hardness — on par with hardened steel",
+    durability: "5.5–6.5 Mohs hardness, on par with hardened steel",
     support: "Human replies in under 12 hours",
   },
 } as const;

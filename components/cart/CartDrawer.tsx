@@ -102,7 +102,7 @@ export function CartDrawer() {
               Your bag is empty
             </p>
             <p className="text-sm leading-relaxed text-ink-soft">
-              One band, two ways to carry it — pick your set and it will show up
+              One band, two ways to carry it, pick your set and it will show up
               here.
             </p>
             <Button href="/shop" onClick={close} arrow>

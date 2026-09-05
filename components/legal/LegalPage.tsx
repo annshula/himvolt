@@ -65,24 +65,25 @@ export function LegalPage({ slug }: { slug: string }) {
             Last updated {formatDate(page.lastUpdated)}
           </p>
 
-          {page.requiresMerchantReview && process.env.NODE_ENV !== "production" && (
-            <div className="mt-8 flex gap-3 rounded-(--radius-card) border border-line bg-parchment p-5">
-              <span className="mt-0.5 h-4.5 w-4.5 shrink-0 text-ink-mute">
-                <AlertIcon />
-              </span>
-              <p className="text-[0.82rem] leading-[1.6] text-ink-soft">
-                <strong className="text-ink">Review before launch.</strong> This
-                page describes how the storefront actually behaves — real
-                analytics, real return terms, real fulfillment partner — but
-                it is not legal advice. Have it reviewed before relying on it
-                in a dispute. Edit the source in{" "}
-                <code className="rounded-xs bg-linen px-1 py-0.5 text-[0.78rem]">
-                  content/legal.ts
-                </code>
-                . This notice is hidden in production.
-              </p>
-            </div>
-          )}
+          {page.requiresMerchantReview &&
+            process.env.NODE_ENV !== "production" && (
+              <div className="mt-8 flex gap-3 rounded-(--radius-card) border border-line bg-parchment p-5">
+                <span className="mt-0.5 h-4.5 w-4.5 shrink-0 text-ink-mute">
+                  <AlertIcon />
+                </span>
+                <p className="text-[0.82rem] leading-[1.6] text-ink-soft">
+                  <strong className="text-ink">Review before launch.</strong>{" "}
+                  This page describes how the storefront actually behaves — real
+                  analytics, real return terms, real fulfillment partner — but
+                  it is not legal advice. Have it reviewed before relying on it
+                  in a dispute. Edit the source in{" "}
+                  <code className="rounded-xs bg-linen px-1 py-0.5 text-[0.78rem]">
+                    content/legal.ts
+                  </code>
+                  . This notice is hidden in production.
+                </p>
+              </div>
+            )}
 
           <div className="mt-10 space-y-9">
             {page.sections.map((section, index) => (

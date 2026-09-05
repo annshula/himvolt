@@ -5,7 +5,12 @@ import { useState, type MouseEvent as ReactMouseEvent } from "react";
 import { ProductViewTracker } from "@/components/analytics/ProductViewTracker";
 import { BuyBox } from "@/components/product/BuyBox";
 import { ProductGallery } from "@/components/product/ProductGallery";
-import { ChevronDownIcon } from "@/components/ui/Icons";
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+  StarIcon,
+} from "@/components/ui/Icons";
 import { RatingStars } from "@/components/ui/Stars";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/lib/product";
@@ -41,6 +46,18 @@ function scrollToReviewsSection(e: ReactMouseEvent<HTMLAnchorElement>) {
   window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
 }
 
+/** Smooth-scroll a same-page anchor to an element id, clearing the sticky header. */
+function scrollToId(e: ReactMouseEvent<HTMLAnchorElement>, id: string) {
+  e.preventDefault();
+  const target = document.getElementById(id);
+  if (!target) return;
+  const nav = document.querySelector<HTMLElement>("header");
+  const navHeight = nav?.getBoundingClientRect().height ?? 68;
+  const top =
+    target.getBoundingClientRect().top + window.scrollY - navHeight - 12;
+  window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+}
+
 /**
  * Gallery + buy box as one coordinated unit — both need to agree on which
  * variant is selected (picking a colour swatch in BuyBox should move
@@ -51,10 +68,19 @@ function scrollToReviewsSection(e: ReactMouseEvent<HTMLAnchorElement>) {
 export function ProductPurchase({
   product,
   rating,
+  subtitle,
+  hook,
+  bestSeller = false,
 }: {
   product: Product;
-  /** Aggregate rating shown as a scroll-to-reviews link — only present when this product has a review dataset (the Hematite Men's Bracelet). */
+  /** Aggregate rating shown as a scroll-to-reviews link — only present when this product has a real review dataset (gated on verified data). */
   rating?: { average: number; count: number };
+  /** Optional marketing subtitle under the H1, replacing the raw merchant subtitle when set. */
+  subtitle?: string;
+  /** Optional marketing strap under the subtitle — set for the flagship bracelet page (content/product-bracelet.ts). */
+  hook?: string;
+  /** Optional "Best seller" pill above the title — set only for the flagship bracelet. */
+  bestSeller?: boolean;
 }) {
   // Default to whichever variant carries the deepest real discount (a BOGO
   // or bundle deal) rather than always the first — that's the offer worth
@@ -92,39 +118,78 @@ export function ProductPurchase({
       />
       <ProductGallery product={product} activeSrc={selected.image} />
 
-      <div className="lg:sticky lg:top-28 lg:self-start">
+      <div id="buy" className="scroll-mt-24 lg:sticky lg:top-28 lg:self-start">
         <div>
+          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+            <p className="font-label flex items-center gap-2.5 text-[0.62rem] font-medium tracking-[0.24em] text-ink-mute uppercase">
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-volt" />
+              {product.material}
+            </p>
+            <div className="flex flex-wrap items-center gap-2">
+              {bestSeller && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-volt px-3 py-1.5 text-[0.64rem] font-semibold tracking-[0.16em] text-on-accent uppercase">
+                  <StarIcon className="h-3.5 w-3.5" filled />
+                  Best seller
+                </span>
+              )}
+              {rating && (
+                <a
+                  href="#reviews"
+                  onClick={scrollToReviewsSection}
+                  aria-label={`Rated ${rating.average.toFixed(1)} out of 5 by ${rating.count.toLocaleString("en-US")} customers. Read the reviews.`}
+                  className="group inline-flex items-center gap-x-2.5 rounded-full border border-line bg-ivory py-1.5 pr-3.5 pl-2.5 transition-colors duration-200 hover:border-line-strong"
+                >
+                  <RatingStars value={rating.average} starClassName="h-3 w-3" />
+                  <span className="text-[0.9rem] font-semibold text-ink tabular-nums">
+                    {rating.average.toFixed(1)}
+                  </span>
+                  <span className="hidden text-[0.8rem] text-ink-mute sm:inline">
+                    {rating.count.toLocaleString("en-US")} reviews
+                  </span>
+                  <ChevronDownIcon className="h-3.5 w-3.5 text-ink-mute transition-transform duration-200 group-hover:translate-y-0.5" />
+                </a>
+              )}
+            </div>
+          </div>
+
           <h1
             className={cn(
-              "font-sans leading-[1.15] font-semibold tracking-[-0.02em] text-ink text-balance",
+              "font-sans mt-5 leading-[1.18] font-semibold tracking-[-0.02em] text-ink text-balance",
               titleSizeClass(product.title),
             )}
           >
             {product.title}
           </h1>
           <p className="mt-2 text-[0.95rem] text-ink-soft">
-            {product.subtitle}
+            {subtitle ?? product.subtitle}
           </p>
-          {rating && (
-            <a
-              href="#reviews"
-              onClick={scrollToReviewsSection}
-              aria-label={`Rated ${rating.average.toFixed(1)} out of 5 by ${rating.count.toLocaleString("en-US")} customers. Read the reviews.`}
-              className="group mt-4 inline-flex flex-wrap items-center gap-x-2.5 gap-y-1 rounded-full border border-line bg-ivory py-1.5 pr-3.5 pl-2.5 transition-colors duration-200 hover:border-line-strong"
-            >
-              <RatingStars value={rating.average} starClassName="h-3 w-3" />
-              <span className="text-[0.9rem] font-semibold text-ink tabular-nums">
-                {rating.average.toFixed(1)}
-              </span>
-              <span className="text-[0.8rem] text-ink-mute">
-                {rating.count.toLocaleString("en-US")} reviews
-              </span>
-              <ChevronDownIcon className="h-3.5 w-3.5 text-ink-mute transition-transform duration-200 group-hover:translate-y-0.5" />
-            </a>
+          {hook && (
+            <p className="font-sans mt-4 max-w-[42ch] text-[1rem] leading-snug font-semibold text-ink">
+              {hook}
+            </p>
           )}
+
+          <a
+            href="#quality-test"
+            onClick={(e) => scrollToId(e, "quality-test")}
+            className="group mt-4 inline-flex items-center gap-2.5 text-[0.82rem] font-medium text-ink-soft transition-colors duration-200 hover:text-ink"
+          >
+            <span
+              aria-hidden
+              className="grid size-5 shrink-0 place-items-center rounded-full bg-emerald-500/10 text-emerald-600"
+            >
+              <CheckIcon className="h-3 w-3" />
+            </span>
+            <span>Passed every quality check</span>
+            <span aria-hidden>·</span>
+            <span className="underline decoration-ink-soft/40 underline-offset-2 transition-colors duration-200 group-hover:decoration-ink">
+              See how we test
+            </span>
+            <ChevronRightIcon className="h-3 w-3 text-ink-mute transition-transform duration-200 group-hover:translate-x-0.5" />
+          </a>
         </div>
 
-        <div className="mt-7">
+        <div className="mt-6 overflow-hidden rounded-(--radius-card) border border-line bg-ivory/60 p-4 shadow-(--shadow-e1) sm:p-5">
           <BuyBox
             product={product}
             selectedId={selectedId}
@@ -132,8 +197,20 @@ export function ProductPurchase({
           />
         </div>
 
+        <p className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-center text-[0.72rem] text-ink-mute">
+          <span>Secure checkout · Shopify Payments</span>
+          <span aria-hidden className="text-ink-soft/40">
+            ·
+          </span>
+          <span>Card details never touch our servers</span>
+          <span aria-hidden className="text-ink-soft/40">
+            ·
+          </span>
+          <span>Tracked door-to-door</span>
+        </p>
+
         <div
-          className="mt-8 line-clamp-2 max-w-[52ch] text-[0.9rem] leading-[1.65] text-ink-soft [&_p]:inline [&_p]:mt-0"
+          className="mt-6 text-[0.9rem] leading-[1.65] text-ink-soft [&_p]:inline [&_p]:mt-0"
           dangerouslySetInnerHTML={{
             // Description HTML originates in the shared Shopify store and is
             // merchant-controlled, never end-user input. It's sanitized once,
@@ -143,7 +220,7 @@ export function ProductPurchase({
             // already-clean local data here would just pull an HTML-parsing
             // library into the client bundle for no benefit — same trust
             // model as content/blog.ts's post bodies.
-            __html: product.descriptionHtml,
+            __html: product.descriptionHtml.replace(/\s*—\s*/g, ", "),
           }}
         />
       </div>

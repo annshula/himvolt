@@ -74,8 +74,8 @@ export default async function ShopPage() {
           Shop HimVolt
         </h1>
         <p className="mt-3 max-w-[52ch] text-[0.95rem] leading-relaxed text-ink-soft">
-          Hematite bracelets and rings, sourced honestly. Open one up to see
-          the full spec.
+          Hematite bracelets and rings, sourced honestly. Open one up to see the
+          full spec.
         </p>
       </div>
 

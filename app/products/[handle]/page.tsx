@@ -4,10 +4,17 @@ import { notFound } from "next/navigation";
 
 import { ProductPurchase } from "@/components/product/ProductPurchase";
 import { ProductDetails } from "@/components/product/ProductDetails";
+import BraceletStory from "@/components/product/BraceletStory";
+import BraceletMoments from "@/components/product/BraceletMoments";
+import BraceletVersus from "@/components/product/BraceletVersus";
+import BraceletClose from "@/components/product/BraceletClose";
+import ReviewsComing from "@/components/product/ReviewsComing";
+import QualityTests from "@/components/product/QualityTests";
 import ProductReviews from "@/components/product/ProductReviews";
-import Reviews from "@/components/sections/Reviews";
 import ProductSchema from "@/components/ProductSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { bracelet as braceletCopy } from "@/content/product-bracelet";
+import { closeGeneric, pitchFor } from "@/content/pitches";
 import { reviewSetForHandle } from "@/data/reviews";
 import { getProductByHandle, products } from "@/lib/product";
 import { site } from "@/lib/site";
@@ -81,9 +88,15 @@ export async function generateMetadata({
  * The product detail page — the only page on the site with a buy button.
  * One sticky two-column split: gallery on the left, everything a shopper
  * needs to decide and buy on the right (title, price, pack picker, "Add to
- * bag"), specs and reviews underneath. Mirrors the reference build's
- * gallery + buy-box pattern rather than the old page-then-separate-section
- * layout.
+ * bag"), specs and reviews underneath.
+ *
+ * The flagship product (Hematite Men's Bracelet) additionally mounts a
+ * full marketing stack below the buy box — BraceletStory (dark heritage
+ * band), BraceletMoments (benefit moments), BraceletVersus (genuine vs
+ * lookalikes) and BraceletClose (risk-reversal CTA) — plus a
+ * verified-reviews landing space. Every other listing keeps the plain
+ * purchase + spec layout. Content for all of it lives in
+ * content/product-bracelet.ts, not in the components.
  */
 export default async function ProductPage({
   params,
@@ -97,11 +110,19 @@ export default async function ProductPage({
   // Synced catalog data (data/product.json) — pricing, stock and photography.
   const liveProduct = await getProduct(handle);
 
-  // The full customer-review experience (its own curated photo set + review
-  // dataset) exists only for the Hematite Men's Bracelet; every other
-  // product page keeps the generic social-proof marquee so no other listing
-  // inherits this one's reviews.
-  const reviewSet = reviewSetForHandle(handle);
+  // Flagship product — the Hematite Men's Bracelet — additionally keeps its
+  // comparison section (Versus), its bespoke pitch and its full review
+  // dataset. Every other piece gets the same playbook from a per-product
+  // pitch in content/pitches.ts so no page is a copy-paste of another.
+  const isBracelet = liveProduct.handle === braceletCopy.handle;
+  const pitch = pitchFor(liveProduct.handle);
+  const story = pitch?.story;
+  const moments = pitch?.moments;
+  const hook = pitch?.hook ?? (isBracelet ? braceletCopy.hook : undefined);
+
+  // Only the bracelet has a review dataset (data/reviews.ts). Null for every
+  // other handle — the scope guard in reviewSetForHandle enforces that.
+  const reviewSet = reviewSetForHandle(liveProduct.handle);
 
   return (
     <main>
@@ -133,17 +154,43 @@ export default async function ProductPage({
         </nav>
       </div>
 
-      <ProductPurchase product={liveProduct} rating={reviewSet?.summary} />
+      <ProductPurchase
+        product={liveProduct}
+        rating={reviewSet?.summary}
+        subtitle={
+          pitch?.subtitle ?? (isBracelet ? braceletCopy.subtitle : undefined)
+        }
+        hook={hook}
+        bestSeller={isBracelet}
+      />
+
+      {(isBracelet || pitch) && (
+        <BraceletStory product={liveProduct} story={story} />
+      )}
+      {(isBracelet || pitch) && <BraceletMoments moments={moments} />}
 
       <ProductDetails product={liveProduct} />
 
+      {/* Every product carries the QC band — the header & buy-box "Quality"
+          links scroll here (#quality-test). */}
+      <QualityTests product={liveProduct} />
+
+      {isBracelet && <BraceletVersus />}
+
+      {/* Risk-reversal close — flagship keeps its own copy, everything else
+          uses the shared, product-neutral version. */}
+      <BraceletClose content={isBracelet ? undefined : closeGeneric} />
+
+      {/* Reviews: the bracelet gets the full customer-reviews feed (its own
+          dataset); every other product shows the verified-only landing state
+          until it has a real dataset of its own. */}
       {reviewSet ? (
         <ProductReviews
           reviews={reviewSet.reviews}
           summary={reviewSet.summary}
         />
       ) : (
-        <Reviews />
+        <ReviewsComing />
       )}
     </main>
   );

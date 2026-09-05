@@ -74,7 +74,7 @@ export function ProductDetails({ product }: { product: Product }) {
         <SectionHeading
           eyebrow="Specification"
           title="Every detail, verified."
-          body="What the piece is actually made of, measured and described plainly — not marketing copy standing in for a spec sheet."
+          body="What the piece is actually made of, measured and described plainly, not marketing copy standing in for a spec sheet."
         />
       </div>
 
@@ -182,7 +182,7 @@ function DetailRow({
           <p className="font-display text-[0.72rem] font-semibold tracking-[0.32em] text-volt uppercase">
             {index} · {entry.eyebrow}
           </p>
-          <h3 className="font-display mt-5 text-[clamp(1.8rem,1.3rem+2.2vw,3rem)] leading-[1.05] font-extrabold tracking-[-0.03em] text-ink text-balance">
+          <h3 className="font-display mt-5 text-[clamp(1.6rem,1.2rem+2vw,2.6rem)] leading-[1.08] font-semibold tracking-[-0.02em] text-ink text-balance">
             {entry.title}
           </h3>
           {entry.description && (

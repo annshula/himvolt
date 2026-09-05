@@ -41,8 +41,8 @@ export default function TrackPage() {
             delay={0.14}
             className="mt-4 text-[0.98rem] leading-[1.7] text-ink-soft text-pretty"
           >
-            Paste the order number from your confirmation email, or the
-            tracking number from your shipping email — either works.
+            Paste the order number from your confirmation email, or the tracking
+            number from your shipping email — either works.
           </Reveal>
 
           <Reveal delay={0.22} className="mt-10">
@@ -51,7 +51,10 @@ export default function TrackPage() {
 
           <p className="mt-8 text-center text-[0.8rem] text-ink-mute">
             Signed in? Your full order history is in{" "}
-            <a href="/account/orders" className="text-volt underline underline-offset-4">
+            <a
+              href="/account/orders"
+              className="text-volt underline underline-offset-4"
+            >
               your account
             </a>
             .

@@ -115,7 +115,7 @@ export default function ProductReviews({
           >
             <div className="rounded-(--radius-card) border border-line bg-ivory p-7 shadow-(--shadow-e1)">
               <div className="flex items-baseline gap-3">
-                <span className="font-display text-[3.2rem] leading-none font-extrabold tracking-[-0.03em] text-ink tabular-nums">
+                <span className="font-display text-[3rem] leading-none font-semibold tracking-[-0.02em] text-ink tabular-nums">
                   {summary.average.toFixed(1)}
                 </span>
                 <span className="text-[0.82rem] text-ink-mute">
@@ -143,7 +143,7 @@ export default function ProductReviews({
                       type="button"
                       onClick={() => chooseFilter(d.stars as Filter)}
                       aria-pressed={filter === d.stars}
-                      aria-label={`Filter to ${d.stars} star reviews — ${d.count}`}
+                      aria-label={`Filter to ${d.stars} star reviews, ${d.count}`}
                       className={cn(
                         "group flex w-full items-center gap-3 rounded-lg px-2 py-1.5 transition-colors duration-200",
                         filter === d.stars
@@ -330,7 +330,7 @@ function ReviewCard({ review }: { review: ProductReview }) {
         ) : null}
 
         <figcaption className="mt-5 flex items-center gap-3 border-t border-line pt-4">
-          <span className="grid size-10 shrink-0 place-items-center rounded-full bg-ink font-display text-[0.9rem] font-bold text-ivory">
+          <span className="grid size-10 shrink-0 place-items-center rounded-full bg-ink font-display text-[0.9rem] font-semibold text-ivory">
             {review.author.charAt(0)}
           </span>
           <span className="min-w-0 flex-1">

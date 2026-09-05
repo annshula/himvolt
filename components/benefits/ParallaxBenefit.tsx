@@ -1,6 +1,11 @@
 "use client";
 
-import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import Image from "@/components/ui/Image";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
@@ -44,7 +49,11 @@ export function ParallaxBenefit({
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["-14%", "14%"]);
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduce ? ["0%", "0%"] : ["-14%", "14%"],
+  );
   const scalePeak = 1 + 0.16 * zoom;
   const scaleMid = 1 + 0.02 * zoom;
   const scale = useTransform(
@@ -57,14 +66,22 @@ export function ParallaxBenefit({
     [0, 0.2, 0.8, 1],
     reduce ? [1, 1, 1, 1] : [0, 1, 1, 0],
   );
-  const contentY = useTransform(scrollYProgress, [0, 0.2], reduce ? [0, 0] : [28, 0]);
+  const contentY = useTransform(
+    scrollYProgress,
+    [0, 0.2],
+    reduce ? [0, 0] : [28, 0],
+  );
 
   return (
     <section
       ref={ref}
       className="relative isolate flex h-svh snap-start items-center overflow-hidden bg-pitch"
     >
-      <motion.div aria-hidden style={{ y, scale }} className="absolute inset-0 -z-20">
+      <motion.div
+        aria-hidden
+        style={{ y, scale }}
+        className="absolute inset-0 -z-20"
+      >
         {media.kind === "video" ? (
           <video
             autoPlay
@@ -110,7 +127,9 @@ export function ParallaxBenefit({
         style={{ opacity: contentOpacity, y: contentY }}
         className={cn(
           "mx-auto flex w-full max-w-310 px-5 sm:px-8",
-          align === "right" ? "justify-end text-right" : "justify-start text-left",
+          align === "right"
+            ? "justify-end text-right"
+            : "justify-start text-left",
         )}
       >
         {/* No <Reveal> here on purpose: it whileInView-fades once via its own

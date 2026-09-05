@@ -48,7 +48,12 @@ export default function FaqPage() {
 
   return (
     <main>
-      <BreadcrumbSchema items={[{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq" }]} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "/" },
+          { name: "FAQ", path: "/faq" },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
@@ -96,7 +101,10 @@ export default function FaqPage() {
                 <h2 className="font-display text-[0.72rem] font-semibold tracking-[0.16em] text-ink-mute uppercase">
                   {group.title}
                 </h2>
-                <Stagger as="div" className="mt-4 divide-y divide-line border-y border-line">
+                <Stagger
+                  as="div"
+                  className="mt-4 divide-y divide-line border-y border-line"
+                >
                   {group.items.map((f) => (
                     <StaggerItem key={f.q} as="div">
                       <details className="faq-item group">
@@ -108,7 +116,11 @@ export default function FaqPage() {
                             aria-hidden
                             className="faq-sign mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-ink-mute"
                           >
-                            <svg viewBox="0 0 20 20" className="h-full w-full" fill="none">
+                            <svg
+                              viewBox="0 0 20 20"
+                              className="h-full w-full"
+                              fill="none"
+                            >
                               <path
                                 d="M10 4v12M4 10h12"
                                 stroke="currentColor"

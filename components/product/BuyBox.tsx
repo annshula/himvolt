@@ -91,7 +91,7 @@ export function BuyBox({
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, ease: easeOut }}
-          className="font-display text-[2.4rem] leading-none font-bold tracking-[-0.03em] text-ink tabular-nums"
+          className="font-display text-[2.2rem] leading-none font-semibold tracking-[-0.02em] text-ink tabular-nums"
         >
           {selectedPrice.pending
             ? priceSkeleton("h-9", "w-28")
@@ -106,7 +106,7 @@ export function BuyBox({
           </span>
         )}
         {save >= 45 ? (
-          <span className="rounded-full bg-volt px-2.5 py-1 text-[0.7rem] font-bold tracking-wide text-on-accent uppercase">
+          <span className="rounded-full bg-volt px-2.5 py-1 text-[0.7rem] font-semibold tracking-wide text-on-accent uppercase">
             Buy 1, get 1 free
           </span>
         ) : (
@@ -128,7 +128,7 @@ export function BuyBox({
         ) : lowStock ? (
           <li className="inline-flex h-7 items-center gap-1.5 rounded-full border border-amber-600/25 bg-amber-500/10 px-2.5 text-[0.72rem] font-medium text-amber-700">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-            Low stock — order soon
+            Low stock, order soon
           </li>
         ) : (
           <li className="inline-flex h-7 items-center gap-1.5 rounded-full border border-line px-2.5 text-[0.72rem] font-medium text-ink-soft">
@@ -210,7 +210,7 @@ export function BuyBox({
             <span className="relative">
               {outOfStock
                 ? "Out of stock"
-                : `Add to bag — ${
+                : `Add to bag · ${
                     selectedPrice.pending
                       ? "…"
                       : formatMoney(
@@ -387,7 +387,7 @@ function VariantPicker({
                 {isPackCount && dealPct >= 20 && (
                   <span
                     className={cn(
-                      "rounded-full px-1.5 py-0.5 text-[0.62rem] font-bold tracking-wide uppercase",
+                      "rounded-full px-1.5 py-0.5 text-[0.62rem] font-semibold tracking-wide uppercase",
                       dealPct >= 45
                         ? "bg-volt text-on-accent"
                         : "bg-accent-soft text-volt",

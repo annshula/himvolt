@@ -35,10 +35,18 @@ export default function ContactPage() {
         <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div>
             <Eyebrow>Get in touch</Eyebrow>
-            <Reveal as="h1" delay={0.06} className="font-display text-[clamp(2rem,4.4vw,3rem)] leading-[1.02] font-extrabold tracking-[-0.04em] text-ink text-balance">
+            <Reveal
+              as="h1"
+              delay={0.06}
+              className="font-display text-[clamp(2rem,4.4vw,3rem)] leading-[1.02] font-extrabold tracking-[-0.04em] text-ink text-balance"
+            >
               Questions get answered by a person.
             </Reveal>
-            <Reveal as="p" delay={0.14} className="mt-5 max-w-[46ch] text-[0.98rem] leading-[1.7] text-ink-soft text-pretty">
+            <Reveal
+              as="p"
+              delay={0.14}
+              className="mt-5 max-w-[46ch] text-[0.98rem] leading-[1.7] text-ink-soft text-pretty"
+            >
               {site.promise.support}. Order questions, sizing, returns —
               whatever it is, use the form or email us directly.
             </Reveal>
@@ -77,7 +85,10 @@ export default function ContactPage() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.1} className="rounded-(--radius-card) border border-line bg-parchment p-6 sm:p-8">
+          <Reveal
+            delay={0.1}
+            className="rounded-(--radius-card) border border-line bg-parchment p-6 sm:p-8"
+          >
             <ContactForm />
           </Reveal>
         </div>

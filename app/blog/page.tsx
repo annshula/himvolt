@@ -30,7 +30,8 @@ export const metadata: Metadata = {
 };
 
 const posts = [...blogPosts].sort(
-  (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+  (a, b) =>
+    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
 );
 
 export default function BlogIndexPage() {
@@ -59,8 +60,8 @@ export default function BlogIndexPage() {
         </h1>
         <p className="mt-3 max-w-[58ch] text-[0.95rem] leading-relaxed text-ink-soft">
           Mineral facts and buying guides for hematite and men's beaded
-          jewellery — what is measurable, what is tradition, and what we
-          will not claim.
+          jewellery — what is measurable, what is tradition, and what we will
+          not claim.
         </p>
       </div>
 
