@@ -129,7 +129,10 @@ export function CartDrawer() {
 
                   <div className="flex min-w-0 flex-1 flex-col gap-2">
                     <div className="flex items-start justify-between gap-3">
-                      <p className="font-display text-[0.95rem] font-semibold text-ink">
+                      <p
+                        title={line.name}
+                        className="font-sans line-clamp-2 text-[0.95rem] leading-snug font-medium text-ink"
+                      >
                         {line.name}
                       </p>
                       <button
