@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useAnimationControls } from "motion/react";
-import Image from "@/components/ui/Image";
 import { Icon } from "@/components/ui/Icons";
 import { easeOut } from "@/components/ui/Motion";
 import type { StoryContent } from "@/content/pitches";
@@ -86,18 +85,28 @@ export function EraExplorer({ eras }: { eras: StoryContent["eras"] }) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: easeOut }}
           >
-            {/* Pre-optimised WebP (≤1200px) shipped from /public — served
-                directly via `unoptimized` so it never routes through
-                Vercel's paid /_next/image optimizer, same as the review
-                photos in ProductReviews.tsx. */}
-            <Image
-              src={era.image.src}
-              alt={era.image.alt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 46vw"
-              unoptimized
-              className="object-cover"
-            />
+            {/* Pre-optimised AVIF + WebP fallback (≤1200px) shipped from
+                /public. A plain <picture> (not next/image) so it never
+                routes through Vercel's paid /_next/image optimizer, same
+                reasoning as the review photos in ProductReviews.tsx — and
+                gets AVIF's real size win where next/image's `unoptimized`
+                flag alone couldn't (that only ever serves the one format
+                you give it). Every /story/*.webp ships with a same-named
+                .avif sibling. */}
+            <picture>
+              <source
+                srcSet={era.image.src.replace(/\.webp$/, ".avif")}
+                type="image/avif"
+              />
+              <source srcSet={era.image.src} type="image/webp" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={era.image.src}
+                alt={era.image.alt}
+                loading="lazy"
+                className="skeleton absolute inset-0 h-full w-full object-cover"
+              />
+            </picture>
           </motion.div>
         </AnimatePresence>
 
