@@ -67,15 +67,11 @@ function scrollToId(e: ReactMouseEvent<HTMLAnchorElement>, id: string) {
 }
 
 /**
- * One segment of the proof pill under the title.
- *
- * These used to be bare text links, which read as body copy rather than as
- * something to press. The pill's border and the fill-on-hover are the
- * affordance now, and the chevron slides in to telegraph "this jumps
- * somewhere" before the click lands. `min-h-11` holds a 44px touch target
- * even though the type is small, and the focus ring is pulled inside with a
- * negative offset because the parent pill clips overflow to keep its rounded
- * ends — without that, the global :focus-visible outline gets cut off.
+ * One quiet scroll-link under the title. Stays plain text at rest (no card,
+ * no border, no shadow) — minimal by default. The hover underline plus the
+ * chevron sliding in are the only affordance, which is enough to read as
+ * "this jumps somewhere" without the link looking like a button. `min-h-11`
+ * keeps a real 44px touch target even though the visible text is small.
  */
 function ProofLink({
   targetId,
@@ -94,7 +90,7 @@ function ProofLink({
       href={`#${targetId}`}
       aria-label={label}
       onClick={(e) => scrollToId(e, targetId)}
-      className="group flex min-h-11 touch-manipulation items-center gap-1.5 px-4 text-[0.8rem] font-medium text-ink-soft transition-colors duration-300 ease-(--ease-out-expo) hover:bg-ivory hover:text-ink focus-visible:-outline-offset-2 active:bg-parchment active:duration-100"
+      className="group inline-flex min-h-11 touch-manipulation items-center gap-1.5 text-[0.8rem] font-medium text-ink-soft underline-offset-4 transition-colors duration-200 hover:text-ink hover:underline focus-visible:underline"
     >
       {icon}
       {children}
@@ -217,35 +213,33 @@ export function ProductPurchase({
             {product.title}
           </h1>
 
-          {/* Scroll guide to the build & QC sections further down the page,
-              as one bordered pill rather than two bare text links so it
-              reads as pressable at a glance. It carries the same border,
-              fill and elevation tokens as the buy-box card right below it,
-              so the two read as one family. The right segment states the
-              real check count instead of a vague "quality tested" — the
-              number comes from the QC list itself, so it can never drift
-              from the section it jumps to. */}
-          <div className="mt-4 inline-flex items-stretch overflow-hidden rounded-full border border-line bg-ivory/60 shadow-(--shadow-e1)">
+          {/* Minimal scroll guide to the build & QC sections further down
+              this page — quiet text at rest, with a hover underline and a
+              sliding chevron as the only "this is clickable" cue. The right
+              link states the real check count instead of a vague "quality
+              tested", pulled from the QC list itself so it can't drift from
+              the section it jumps to. */}
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[0.8rem]">
             <ProofLink
               targetId="build"
               label="Jump to how this piece is built"
               icon={
-                <WrenchIcon className="h-3.5 w-3.5 shrink-0 text-volt transition-colors duration-300 group-hover:text-ink" />
+                <WrenchIcon className="h-3.5 w-3.5 shrink-0 text-volt transition-colors duration-200 group-hover:text-ink" />
               }
             >
               Hand-built
             </ProofLink>
-            <span aria-hidden className="w-px self-stretch bg-line" />
+            <span aria-hidden className="h-3.5 w-px bg-ink-soft/20" />
             <ProofLink
               targetId="quality-test"
               label={`Jump to the ${quality.checks.length} quality checks this piece passes`}
               icon={
-                <ShieldIcon className="h-3.5 w-3.5 shrink-0 text-emerald-600 transition-colors duration-300 group-hover:text-ink" />
+                <ShieldIcon className="h-3.5 w-3.5 shrink-0 text-emerald-600 transition-colors duration-200 group-hover:text-ink" />
               }
             >
               {quality.checks.length} checks passed
             </ProofLink>
-          </div>
+          </p>
         </div>
 
         <div className="mt-6 overflow-hidden rounded-(--radius-card) border border-line bg-ivory/60 p-4 shadow-(--shadow-e1) sm:p-5">
