@@ -165,7 +165,7 @@ export default async function ProductPage({
       />
 
       {(isBracelet || pitch) && (
-        <BraceletStory product={liveProduct} story={story} />
+        <BraceletStory story={story} />
       )}
       {(isBracelet || pitch) && <BraceletMoments moments={moments} />}
 

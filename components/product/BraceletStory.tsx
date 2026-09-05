@@ -2,7 +2,6 @@ import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 import { EraExplorer } from "@/components/product/EraExplorer";
 import { bracelet } from "@/content/product-bracelet";
 import { sources, type StoryContent } from "@/content/pitches";
-import type { Product } from "@/lib/product";
 
 /**
  * The emotional engine of the hematite pages: a full-bleed dark band right
@@ -10,34 +9,18 @@ import type { Product } from "@/lib/product";
  *
  * Instead of a static photo, the right column is an interactive "era
  * explorer" (components/product/EraExplorer.tsx): a story the shopper can
- * scrub through, each chapter with its own real product image. Every fact in
- * the copy is a real mineral property or history/tradition framed as such,
- * nothing here claims a physiological outcome.
+ * scrub through, each chapter with its own purpose-made visual (see each
+ * era's `image` in content/pitches.ts / content/product-bracelet.ts). Every
+ * fact in the copy is a real mineral property or history/tradition framed as
+ * such, nothing here claims a physiological outcome.
  */
 export default function BraceletStory({
-  product,
   story,
 }: {
-  product: Product;
   /** Story copy — pass a per-product pitch (content/pitches.ts) or default to the flagship bracelet copy. */
   story?: StoryContent;
 }) {
   const s = story ?? bracelet.story;
-
-  // Spread real product photos across the chapters so each era gets its own
-  // visual (not one repeated still). Safe even if the gallery is short.
-  const pool = product.gallery;
-  const eraImages = s.eras.map((_, idx) => {
-    if (pool.length === 0) return { src: "", alt: "" };
-    const slot =
-      pool.length === 1
-        ? 0
-        : Math.round(
-            (idx / Math.max(s.eras.length - 1, 1)) * (pool.length - 1),
-          );
-    const img = pool[Math.min(slot, pool.length - 1)];
-    return { src: img.src, alt: img.alt };
-  });
 
   return (
     <section
@@ -108,7 +91,7 @@ export default function BraceletStory({
           </div>
 
           <Reveal delay={0.18} className="block">
-            <EraExplorer eras={s.eras} images={eraImages} />
+            <EraExplorer eras={s.eras} />
           </Reveal>
         </div>
 

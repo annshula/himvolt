@@ -51,18 +51,34 @@ export const bracelet = {
       {
         title: "Kings were buried with it",
         body: "Egyptian pharaohs didn’t take hematite to the tomb for decoration. Amulets of this iron went with them to carry their strength into whatever came next. Men have always worn it for what comes next.",
+        image: {
+          src: "/story/era-1-kings.png",
+          alt: "The genuine HimVolt tablet-cut hematite bracelet resting on a carved ancient stone slab, lit by warm torchlight",
+        },
       },
       {
         title: "The Greeks called it blood",
         body: "Haimatites, “blood-like,” because the black stone bleeds red when it breaks. Iron is the blood of the earth, and the man who wore it carried a little of that with him. The name stuck because the feeling did.",
+        image: {
+          src: "/story/era-2-blood.png",
+          alt: "A hand pressing the genuine HimVolt hematite bracelet against a ceramic tile, leaving a red-brown streak mark, the mineralogist's streak test",
+        },
       },
       {
         title: "The iron is in you",
         body: "Nearly 70% of this stone is iron, the very element that powers the blood in your veins. Warriors, athletes and leaders have worn iron at the wrist since before history was written. Put it on and you carry the same thing they did.",
+        image: {
+          src: "/story/era-3-iron.png",
+          alt: "Close-up of a muscular forearm and wrist wearing the genuine HimVolt hematite bracelet in a gym setting",
+        },
       },
       {
         title: "It still hasn’t stopped working",
         body: "Today men still reach for it before the pitch, the interview, the long shift and the hard conversation. Not because anyone told them to. Because it’s what men have done for five thousand years, and it keeps working.",
+        image: {
+          src: "/story/era-4-today.png",
+          alt: "A man adjusting the genuine HimVolt hematite bead bracelet on his wrist at a conference table",
+        },
       },
     ],
     caption: "Natural hematite, worn skin-on-stone. No coating. No pretending.",
