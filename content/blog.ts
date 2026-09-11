@@ -1051,6 +1051,519 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "hematite-necklace",
+    title: "Hematite Necklace: What to Know Before You Buy One",
+    excerpt:
+      '"Hematite necklace" is searched as often as the bracelet version. Here is how the stone wears differently around the neck, and what to check before buying one.',
+    targetKeyword: "hematite necklace",
+    quickAnswer:
+      "A hematite necklace is the same iron oxide mineral as a hematite bracelet, strung on a longer cord or chain. Weight matters more here than on a bracelet — a heavy strand of large beads will sit differently on the neck than a bracelet does on the wrist.",
+    tags: ["Hematite", "Buying guide"],
+    publishedAt: "2026-10-28",
+    updatedAt: "2026-10-28",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/hematite-bracelet-benefits.webp",
+      alt: "Macro photograph of polished hematite beads suited to both bracelet and necklace styles, on a dark surface",
+      width: 2528,
+      height: 1696,
+    },
+    body: `
+<p>"Hematite necklace" gets searched nearly as often as "hematite bracelet," but almost everything written about the stone defaults to the wrist. A necklace is a genuinely different object to wear, not just a longer version of the same bracelet — here is what actually changes.</p>
+
+<h2>Same mineral, different physics</h2>
+<p>A hematite necklace is cut from the same iron(III) oxide — Fe₂O₃ — as a hematite bracelet: dense, 5.5–6.5 on the Mohs scale, metallic black-grey with a red-brown streak underneath. What changes is how that density behaves once it's hanging from the neck instead of wrapped around a wrist. A bracelet's weight is distributed and supported by the wrist itself; a necklace's weight pulls straight down on the back of the neck, which is why bead size and strand length matter more here than they do for a bracelet of the same stone.</p>
+
+<h2>What to check before buying one</h2>
+<ul>
+<li><strong>Bead size.</strong> Large beads (10–12mm) that feel substantial on a wrist can feel genuinely heavy strung as a full necklace. If you haven't worn a heavier necklace before, 4–6mm beads are the safer starting point.</li>
+<li><strong>Strand length.</strong> A shorter, close-fitting strand sits differently against a collar than a longer one worn under a shirt — think about where you'll actually wear it (visible over a t-shirt, hidden under a button-down) before choosing length.</li>
+<li><strong>Clasp vs. knotted cord.</strong> A necklace sees more daily on/off cycles at the neck than a stretch-cord bracelet does at the wrist, so a secure clasp matters more here than it does on a bracelet.</li>
+</ul>
+
+<h2>What we will not claim</h2>
+<p>Hematite has been worn since antiquity — as amulets, in burial contexts, as a grounding stone across multiple traditions — and a necklace, sitting closest to the chest and throat, is often read in those traditions as a more "direct" way to wear the stone. That is tradition, not a documented physical effect, and we will always say so plainly rather than let the framing imply otherwise. See our <a href="/claims-policy">Claims Policy</a> for exactly where we draw that line on every product.</p>
+
+<h2>The honest bottom line</h2>
+<p>A hematite necklace gives you the same real, dense iron ore as a hematite bracelet, just distributed differently — heavier-feeling, more visible, and worth sizing the bead and strand length to how you'll actually wear it. We currently focus on bracelets and rings rather than necklaces, so if you want to start with the stone itself, <a href="${productPath}">the Hematite Men's Bracelet</a> is natural, polished hematite on a stretch elastic core.</p>
+`,
+    faqs: [
+      {
+        question: "Is a hematite necklace heavier than a hematite bracelet?",
+        answer:
+          "It can feel that way even at the same bead size, because a necklace's weight pulls straight down on the neck rather than being distributed and supported by the wrist the way a bracelet's weight is. Larger beads (10–12mm) that feel fine on a wrist can feel noticeably heavier strung as a full necklace.",
+      },
+      {
+        question: "What length should a men's hematite necklace be?",
+        answer:
+          "16–20 inches sits close to the collarbone and works under most shirt collars. Longer strands read as a statement pendant piece rather than an everyday layer — a different look, not a mistake, but worth choosing deliberately.",
+      },
+    ],
+  },
+  {
+    slug: "black-hematite-meaning",
+    title: "Black Hematite: Why the Color Isn't What You Think",
+    excerpt:
+      '"Black hematite" is searched constantly, but the name is slightly misleading — here is what actually gives the stone its color, and how it differs from "red hematite."',
+    targetKeyword: "black hematite",
+    quickAnswer:
+      'Hematite\'s natural color is a metallic silver-black to grey-black, which is why it\'s commonly called "black hematite" — but its diagnostic streak (the mark it leaves when scratched) is always red-brown, the same iron oxide that gives rust its color.',
+    tags: ["Hematite", "Mineral facts"],
+    publishedAt: "2026-11-04",
+    updatedAt: "2026-11-04",
+    readingMinutes: 4,
+    coverImage: {
+      src: "/blog/best-black-bracelets-for-men.webp",
+      alt: "Editorial photograph of a man's wrist wearing a metallic black hematite beaded bracelet with a dark suit cuff",
+      width: 2528,
+      height: 1696,
+    },
+    body: `
+<p>"Black hematite" is one of the most-searched hematite terms, which is a little odd once you know the mineral, because polished hematite jewellery is almost always described as black by default — the name is doing less work than people expect. Here's what's actually going on with the color.</p>
+
+<h2>Why hematite reads as black</h2>
+<p>In its polished, metallic form — the finish used for beads and jewellery — hematite has a silvery-black to iron-grey surface, sometimes described as gunmetal. That's the form most people mean when they say "black hematite," even though it's really just hematite in its common jewellery finish rather than a separate variety. Under direct light, a genuine piece shows a metallic sheen rather than a flat matte black, which is one way to tell it apart from black-dyed glass or resin at a glance.</p>
+
+<h2>The streak is always red-brown, regardless of the surface color</h2>
+<p>This is the fact that actually matters for identification: no matter how black a piece of hematite looks on the surface, scratching it against an unglazed ceramic tile leaves a deep <strong>red-brown</strong> streak — the same iron oxide that gives rust its color. That streak is where the name comes from: Greek <em>haimatites lithos</em>, "blood-like stone," coined by the naturalist Theophrastus around 300 BCE, describing the streak rather than the surface. Mineralogists still use the streak test as the standard way to confirm a piece is genuine hematite.</p>
+
+<h2>"Black hematite" vs. "red hematite"</h2>
+<p>"Red hematite" usually refers to hematite in its earthier, less-processed form — ochre, or specimens with a duller, rustier surface rather than the polished metallic finish used in jewellery. Both are the same mineral, Fe₂O₃; the difference is finish and form, not a different variety of stone. Jewellery-grade beads are almost always cut and polished to the metallic black finish, because it's the more durable, more attractive surface for daily wear.</p>
+
+<h2>How to tell real black hematite from a dyed imitation</h2>
+<ul>
+<li><strong>Metallic sheen, not flat black.</strong> Real hematite catches light with a distinct metallic quality. Dyed glass or black onyx reads as flatter and more uniformly matte.</li>
+<li><strong>Weight.</strong> Iron oxide is dense — a genuine bead feels heavier in hand than its size suggests.</li>
+<li><strong>The streak test.</strong> Red-brown on unglazed ceramic, every time, regardless of how black the surface looks.</li>
+</ul>
+
+<p>If you want the genuine metallic-black stone, <a href="${productPath}">the Hematite Men's Bracelet</a> is natural, polished hematite — real surface color, real streak underneath.</p>
+`,
+    faqs: [
+      {
+        question: "Why is hematite called black if its streak is red?",
+        answer:
+          "The name refers to two different things: the polished surface, which is a metallic silver-black to grey-black, and the streak (the mark left when scratched), which is always red-brown regardless of surface color — the actual origin of the Greek name \"blood-like stone.\"",
+      },
+      {
+        question: "Is black hematite the same as red hematite?",
+        answer:
+          "Yes, chemically — both are iron(III) oxide, Fe₂O₃. The difference is finish and form: black hematite is the polished, metallic jewellery finish; red hematite usually refers to the earthier, less-processed ochre form.",
+      },
+    ],
+  },
+  {
+    slug: "hematite-meaning",
+    title: "Hematite Meaning: The Tradition Behind the Stone, Explained Honestly",
+    excerpt:
+      '"Hematite meaning" is searched constantly and answered inconsistently. Here is the actual tradition behind the stone, separated clearly from the mineral facts.',
+    targetKeyword: "hematite meaning",
+    quickAnswer:
+      "Hematite is traditionally associated with grounding, protection, and mental clarity — a meaning dating to antiquity and consistent across multiple cultures. That is a spiritual and cultural tradition, not a documented physical or medical effect.",
+    tags: ["Hematite", "Guide"],
+    publishedAt: "2026-11-11",
+    updatedAt: "2026-11-11",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/hematite-chakra-healing.webp",
+      alt: "Overhead photograph of the Hematite Men's Bracelet coiled in a loose oval on a dark slate surface under soft single-source light",
+      width: 2528,
+      height: 1696,
+    },
+    body: `
+<p>"Hematite meaning" is one of the highest-volume hematite searches there is, and most pages that rank for it either overstate the claim or skip the actual history. Here is the tradition, told straight, and kept clearly separate from what's actually measurable about the mineral.</p>
+
+<h2>Where the meaning comes from</h2>
+<p>Hematite's association with grounding and protection is old — not a modern crystal-shop invention. Egyptian amulets carved from hematite date back thousands of years, often placed in burial contexts. Mesopotamian cylinder seals were commonly cut from it. Across multiple, unconnected cultures and eras, the same rough association recurs: a heavy, iron-dense, blood-red-streaked stone tied to stability, protection, and a steadying effect on the person carrying it. That consistency across cultures that had no contact with each other is part of why the tradition has lasted as long as it has — it isn't one culture's invention repeated by marketing.</p>
+
+<h2>What the tradition actually claims</h2>
+<p>In most modern crystal and grounding traditions, hematite is described as a "grounding stone" — associated with the root chakra, mental clarity, focus, and a sense of being anchored or steady. Some traditions also describe it as protective, worn to absorb negative energy rather than let it reach the wearer. These are consistent, widely repeated associations, and we're not going to tell you they're wrong to believe in. We are going to tell you clearly that they are belief, not documented science.</p>
+
+<h2>What is actually measurable, separate from the meaning</h2>
+<p>Hematite is iron(III) oxide, Fe₂O₃ — a real, dense, hard mineral sitting at 5.5–6.5 on the Mohs scale, identified by a red-brown streak test. Its weight and cool-to-touch feel are genuine physical sensations, not interpretation. See our full <a href="/blog/what-is-hematite">breakdown of what hematite actually is</a> for the mineral facts on their own, no tradition attached.</p>
+
+<h2>What we will not claim</h2>
+<p>We will not tell you hematite grounds you, protects you, or clears your mind through any documented mechanism — no stone does that, and treating centuries-old belief as clinical fact would be dishonest regardless of how often it gets repeated online. What we will tell you: this is a real, old, cross-cultural tradition attached to a genuinely dense and ancient mineral, and choosing to wear one for that meaning is a legitimate, personal reason that needs no scientific backing to be valid. Full detail on exactly where we draw this line is in our <a href="/claims-policy">Claims Policy</a>.</p>
+
+<h2>The honest bottom line</h2>
+<p>Hematite's meaning is old, consistent across cultures, and genuinely interesting on its own terms — it doesn't need to be dressed up as science to be worth knowing. <a href="${productPath}">The Hematite Men's Bracelet</a> is natural, polished hematite on a stretch elastic core, sold as exactly what it is: a real mineral with a real story attached.</p>
+`,
+    faqs: [
+      {
+        question: "What does hematite mean spiritually?",
+        answer:
+          "In grounding and crystal traditions, hematite is associated with stability, protection, and mental clarity — often linked to the root chakra. This is a cultural and spiritual tradition dating to antiquity, not a documented physical effect.",
+      },
+      {
+        question: "Is the meaning of hematite backed by science?",
+        answer:
+          "No. The grounding and protective meaning attached to hematite is tradition, consistent across multiple ancient cultures, but not clinically or scientifically documented. What is scientifically verifiable is the mineral itself: iron oxide, dense, hard, identified by a red-brown streak.",
+      },
+    ],
+  },
+  {
+    slug: "hematite-crystal-guide",
+    title: "Hematite Crystal: How It Forms, and Why Jewellery Doesn't Look Like a Crystal",
+    excerpt:
+      '"Hematite crystal" searches often expect a translucent gem-like stone. Here is why hematite doesn\'t look that way, how it actually forms, and what to expect in real jewellery.',
+    targetKeyword: "hematite crystal",
+    quickAnswer:
+      "Hematite does form true crystals — often flat, metallic, silver-grey plates or clusters — but jewellery-grade hematite is almost always cut and tumbled from massive (non-crystalline) ore, which is why beads look like polished opaque stone rather than a faceted gem.",
+    tags: ["Hematite", "Mineral facts"],
+    publishedAt: "2026-11-18",
+    updatedAt: "2026-11-18",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/what-is-hematite.webp",
+      alt: "Macro photograph of raw and polished hematite stones side by side on a dark surface",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Hematite crystal" is searched heavily, often by people expecting something closer to quartz or amethyst — a translucent, faceted-looking gem. Hematite jewellery almost never looks like that, and there's a real mineralogical reason why.</p>
+
+<h2>Hematite does form crystals — just not the kind most people picture</h2>
+<p>Under the right geological conditions, hematite does crystallize into a specific form: flat, thin, often metallic silver-grey plates, sometimes called "iron roses" when they cluster into a rosette shape, or tabular crystals with a distinct metallic lustre. These specimens are collected and sold, mostly to mineral collectors rather than jewellers, and they genuinely look like a crystal in the way people expect — angular, lustrous, with visible facets.</p>
+
+<h2>Why jewellery-grade hematite looks different</h2>
+<p>What actually gets cut into beads and cabochons for jewellery is almost always <strong>massive hematite</strong> — a non-crystalline (or microcrystalline) form of the same mineral, found in large, solid ore deposits rather than as individual crystal specimens. It's this massive form that gets tumbled and polished into the smooth, rounded, opaque black-grey beads used in bracelets and rings. It is chemically identical to crystal-form hematite — same Fe₂O₃, same hardness, same red-brown streak — but structurally it's a dense mass rather than a lattice of visible crystal faces, which is exactly why it takes a polish so well and reads as a solid, opaque stone rather than a faceted gem.</p>
+
+<h2>Why this matters when buying</h2>
+<p>If you're specifically hunting for a crystal-form hematite specimen — the flat metallic plates collectors prize — a polished bead bracelet was never going to satisfy that; you want a raw mineral specimen retailer instead. If you want jewellery you can actually wear daily, massive hematite is not a lesser or fake version of the stone — it's the same mineral in the form that happens to be durable and workable enough to wear on a wrist.</p>
+
+<h2>The mineral facts, either form</h2>
+<p>Whether crystal or massive, hematite is iron(III) oxide — Fe₂O₃ — sitting at 5.5–6.5 on the Mohs hardness scale, dense for its size, and identified by a red-brown streak on unglazed ceramic. See our <a href="/blog/what-is-hematite">full breakdown of what hematite is</a> for the complete mineral picture.</p>
+
+<p>If you want the wearable, polished form of the real mineral, <a href="${productPath}">the Hematite Men's Bracelet</a> is cut from genuine massive hematite — the same Fe₂O₃ as any hematite crystal specimen, finished for daily wear rather than a display shelf.</p>
+`,
+    faqs: [
+      {
+        question: "Does hematite jewellery contain real crystals?",
+        answer:
+          "Almost always no, in the strict sense — jewellery-grade hematite is cut from massive (non-crystalline) ore, not individual crystal specimens. It's chemically identical to crystal-form hematite, just structurally a dense mass rather than a lattice of visible crystal faces.",
+      },
+      {
+        question: "What does a natural hematite crystal look like?",
+        answer:
+          "True hematite crystals are flat, metallic silver-grey plates, sometimes clustering into a rosette shape called an \"iron rose.\" This form is collected mainly by mineral specimen collectors, not used for polished jewellery beads.",
+      },
+    ],
+  },
+  {
+    slug: "hematite-quartz-difference",
+    title: "Hematite vs. Quartz: Two Completely Different Minerals Often Sold Together",
+    excerpt:
+      '"Hematite quartz" gets searched as if it\'s one thing. It is not — here is the real difference between iron oxide and silicon dioxide, and what "hematite in quartz" actually means.',
+    targetKeyword: "hematite quartz",
+    quickAnswer:
+      '"Hematite quartz" usually refers to clear quartz with hematite inclusions visible inside it — two distinct minerals in one specimen, not a single stone. Hematite is iron oxide (Fe₂O₃); quartz is silicon dioxide (SiO₂) — different composition, hardness, and formation entirely.',
+    tags: ["Hematite", "Mineral facts"],
+    publishedAt: "2026-11-25",
+    updatedAt: "2026-11-25",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/hematite-vs-black-onyx-bracelet.webp",
+      alt: "Side-by-side comparison of a metallic-black hematite bracelet and a lighter quartz-family bracelet on a dark surface",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Hematite quartz" is searched often enough to look like it names one specific stone. It doesn't — it's two entirely different minerals that happen to show up together in nature, and the phrase means something more specific than most listings explain.</p>
+
+<h2>Two different minerals, not one</h2>
+<p>Hematite is iron(III) oxide — Fe₂O₃ — one of the most abundant iron ores on Earth, metallic black-grey, and identified by a red-brown streak. Quartz is silicon dioxide — SiO₂ — one of the most abundant minerals in the Earth's crust generally, typically clear, white, or lightly tinted, and forms as classic six-sided crystal points. They don't share a composition, a formation process, or a color family. The only thing they reliably share is that both are common enough to turn up in the same geological settings.</p>
+
+<h2>What "hematite quartz" actually refers to</h2>
+<p>When hematite forms as a mineral inclusion inside growing quartz crystals, you get <strong>hematite-included quartz</strong> — clear or smoky quartz with visible red, orange, or metallic flecks and streaks of hematite trapped inside it, sometimes also called "fire quartz" or "harlequin quartz" depending on the pattern. That's almost always what "hematite quartz" jewellery listings are describing: a quartz piece with hematite inclusions, not a hybrid mineral or a single stone that is somehow both.</p>
+
+<h2>Hardness and durability compared</h2>
+<p>Quartz rates 7 on the Mohs hardness scale — harder than hematite's 5.5–6.5 — which is part of why quartz is prized for faceted, transparent gemstone cutting: it takes a sharp, durable edge well. Hematite's lower hardness and opaque, metallic character make it better suited to smooth, tumbled beads than faceted cuts. Neither is "better" — they're suited to different jewellery styles entirely.</p>
+
+<h2>Why the confusion persists</h2>
+<p>Both minerals get marketed heavily in the same "energy stone" category, both have long-standing grounding or clarity associations in crystal tradition, and both are genuinely abundant, affordable minerals — which is likely why search engines and shoppers alike treat "hematite" and "quartz" as adjacent enough to search together. They're not interchangeable, though: buying "hematite quartz" gets you a quartz piece with hematite flecks, not a solid hematite piece.</p>
+
+<h2>What we sell</h2>
+<p>We work exclusively with solid natural hematite — no quartz inclusions, no hybrid pieces. <a href="${productPath}">The Hematite Men's Bracelet</a> is a single strand of polished, natural iron oxide, described as exactly that.</p>
+`,
+    faqs: [
+      {
+        question: "Is hematite quartz one mineral or two?",
+        answer:
+          "Two. \"Hematite quartz\" almost always refers to clear or smoky quartz (SiO₂) with visible hematite (Fe₂O₃) inclusions trapped inside it — two distinct minerals in one specimen, not a single hybrid stone.",
+      },
+      {
+        question: "Is hematite harder than quartz?",
+        answer:
+          "No. Quartz rates 7 on the Mohs hardness scale; hematite rates 5.5–6.5. Quartz is harder, which is part of why it's commonly cut into faceted gemstones while hematite is more often tumbled into smooth beads.",
+      },
+    ],
+  },
+  {
+    slug: "hematite-properties",
+    title: "Hematite Properties: The Full Mineral Data Sheet",
+    excerpt:
+      "Chemical formula, hardness, density, streak, magnetism, formation — the complete, verifiable physical properties of hematite in one place, no tradition mixed in.",
+    targetKeyword: "hematite properties",
+    quickAnswer:
+      "Hematite (Fe₂O₃) is a 5.5–6.5 Mohs-hardness iron oxide with a red-brown streak, a density around 5.3 g/cm³, and only weak natural magnetism — properties that make it identifiable, durable for jewellery, and easy to distinguish from imitations.",
+    tags: ["Hematite", "Mineral facts"],
+    publishedAt: "2026-12-02",
+    updatedAt: "2026-12-02",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/hematite-hardness.webp",
+      alt: "Macro photograph of a polished hematite stone with a small scratch revealing its red-brown iron oxide streak under dramatic side lighting",
+      width: 2528,
+      height: 1696,
+    },
+    body: `
+<p>"Hematite properties" is searched by people who want the actual mineral data sheet, not the folklore. Here it is in one place — every figure verifiable, nothing attributed to tradition mixed in.</p>
+
+<h2>Chemical composition</h2>
+<p>Hematite is <strong>iron(III) oxide</strong>, chemical formula <strong>Fe₂O₃</strong> — one of the most abundant iron ores on Earth, and one of the primary ores that steel is made from. It forms in banded iron formations laid down in ancient oceans, in hydrothermal veins, and as a weathering product of other iron-bearing rock.</p>
+
+<h2>Physical properties</h2>
+<ul>
+<li><strong>Hardness:</strong> 5.5–6.5 on the Mohs scale — level with hardened steel, harder than glass or a knife blade (both ~5.5).</li>
+<li><strong>Density:</strong> approximately 5.26 g/cm³, notably dense for a non-metallic mineral — the physical reason a genuine piece feels heavier in hand than its size suggests.</li>
+<li><strong>Streak:</strong> red-brown, regardless of the surface color — the single most reliable way to identify genuine hematite, and the origin of its name (Greek <em>haimatites lithos</em>, "blood-like stone").</li>
+<li><strong>Lustre:</strong> metallic to sub-metallic in its common polished form; duller and earthier in its ochre form.</li>
+<li><strong>Color:</strong> steel-grey to black in its metallic form; red-brown in its earthier, ochre form. Same mineral, different presentation.</li>
+<li><strong>Crystal system:</strong> trigonal (hexagonal); most jewellery-grade material is massive (non-crystalline) rather than showing visible crystal faces.</li>
+<li><strong>Magnetism:</strong> only weakly magnetic under most conditions — antiferromagnetic, not the strong pull associated with "magnetic hematite" jewellery, which is almost always a man-made composite. See our <a href="/blog/magnetic-hematite-bracelet-guide">full breakdown of magnetic hematite</a> for that distinction.</li>
+</ul>
+
+<h2>Why these properties matter for jewellery specifically</h2>
+<p>The hardness (5.5–6.5) is what makes hematite viable for daily-wear jewellery without excessive scratching. The density is the tactile signature that distinguishes genuine stone from lightweight glass or resin imitations at a glance — literally in hand. The streak test is the single most reliable verification method available to anyone, not just a lab, which is unusually accessible for a mineral identification test. And the weak natural magnetism is the property most often misrepresented by sellers marketing composite "magnetic hematite" as the real mineral.</p>
+
+<h2>What these properties don't tell you</h2>
+<p>None of the above says anything about grounding, focus, protection, or any other meaning attached to the stone in crystal and spiritual tradition. That's a separate, real, and old tradition — see our <a href="/blog/hematite-meaning">guide to hematite's traditional meaning</a> — but it's a cultural claim, not a mineral property, and we keep the two deliberately separate in everything we publish.</p>
+
+<p><a href="${productPath}">The Hematite Men's Bracelet</a> is cut from genuine natural hematite matching every property above — no coating, no composite, nothing to fake.</p>
+`,
+    faqs: [
+      {
+        question: "What is the chemical formula of hematite?",
+        answer:
+          "Fe₂O₃ — iron(III) oxide. It's one of the most abundant iron ores on Earth and one of the primary ores used in steelmaking.",
+      },
+      {
+        question: "Is hematite magnetic?",
+        answer:
+          "Only weakly, under most conditions — natural hematite is antiferromagnetic, not strongly magnetic. Jewellery marketed as strongly \"magnetic hematite\" is almost always a man-made composite, not the natural mineral.",
+      },
+      {
+        question: "How hard is hematite on the Mohs scale?",
+        answer:
+          "5.5 to 6.5, roughly level with hardened steel — hard enough for daily-wear jewellery, though a hard direct impact can still chip a polished piece.",
+      },
+    ],
+  },
+  {
+    slug: "mens-jewelry-set-guide",
+    title: "Men's Jewelry Sets: How to Build One That Doesn't Look Matchy",
+    excerpt:
+      '"Mens jewelry set" is one of the fastest-rising jewelry searches this year. Here is how to actually build a coordinated set — bracelet, ring, and beyond — without it looking like a costume kit.',
+    targetKeyword: "mens jewelry set",
+    quickAnswer:
+      "A men's jewelry set that works is built on one consistent material and tone across two or three pieces — typically a bracelet and a ring — rather than matched pieces that read as a pre-packaged kit.",
+    tags: ["Style", "Buying guide"],
+    publishedAt: "2026-12-09",
+    updatedAt: "2026-12-09",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/mens-jewelry-trends-2026.webp",
+      alt: "Flat-lay of several different styles of men's bracelets and a ring arranged together as a coordinated set",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Mens jewelry set" has been one of the fastest-growing jewelry searches this year — up sharply alongside "custom mens jewelry," which tells you people aren't just buying a single bracelet anymore, they're building a look. Here's how to do that without it reading as a shrink-wrapped kit.</p>
+
+<h2>What makes a "set" look intentional instead of packaged</h2>
+<p>The pieces that get sold together in a pre-boxed "jewelry set" almost always share one obvious trait: matching finish, matching stone, matching everything. Worn together, that reads as exactly what it is — a kit, bought as one SKU rather than assembled. A set that reads as intentional does the opposite: same material family and tone, but different forms — a bracelet and a ring in the same stone, not a bracelet, necklace, and earrings all in identical beads.</p>
+
+<h2>Start with one material, then add a second piece</h2>
+<p>The simplest, most durable version of a men's jewelry set is a bracelet and a ring cut from the same stone. Hematite works particularly well for this because it's consistent piece to piece — the same metallic black-grey, the same weight, the same finish — so a bracelet and a ring bought separately still read as clearly coordinated without needing to be sold as a bundle.</p>
+
+<h2>Building past two pieces</h2>
+<ul>
+<li><strong>Bracelet + ring:</strong> the foundational pairing — low-risk, reads as deliberate, works for daily wear.</li>
+<li><strong>Adding a second bracelet:</strong> stack a second band in the same material at a different bead size rather than a different stone — see our <a href="/blog/mens-beaded-bracelets-guide">stacking guide</a> for the sizing rules that keep this from looking cluttered.</li>
+<li><strong>Adding a watch:</strong> keep it on the opposite wrist from the bracelet stack, or push the bracelet up and away from the watch case so the two don't compete or scratch each other.</li>
+</ul>
+
+<h2>What to avoid</h2>
+<p>The most common mistake is mixing material families in one "set" — a stone bracelet, a gold chain, and a leather cord all worn together reads as three separate decisions rather than one considered look. Pick one material lane (stone, precious metal, or leather) and build the set inside it.</p>
+
+<h2>Where to start</h2>
+<p><a href="${productPath}">The Hematite Men's Bracelet</a> pairs directly with <a href="${pathForHandle("hematite-ring-without-magnetic-surface")}">the Hematite Band Ring</a> — same natural stone, same finish, bought as two pieces rather than one packaged set, which is exactly why they read as coordinated rather than costume.</p>
+`,
+    faqs: [
+      {
+        question: "What pieces make a good men's jewelry set?",
+        answer:
+          "A bracelet and a ring in the same material and tone is the most durable starting pairing — different forms, same stone, so it reads as a deliberate coordinated choice rather than a pre-packaged matching kit.",
+      },
+      {
+        question: "Should a men's jewelry set match exactly?",
+        answer:
+          "No — pieces that match too exactly (same stone, same finish, same shape) tend to read as a boxed kit. Coordinating material and tone while varying the form (bracelet, ring, occasional second bracelet at a different bead size) reads as more intentional.",
+      },
+    ],
+  },
+  {
+    slug: "mens-jewelry-necklace-guide",
+    title: "Men's Jewelry Necklaces: A Straightforward Guide to Wearing One Well",
+    excerpt:
+      '"Mens jewelry necklace" is the single highest-volume men\'s jewelry search. Here is how to actually choose length, material, and layering without it looking like a costume piece.',
+    targetKeyword: "mens jewelry necklace",
+    quickAnswer:
+      "A men's necklace that reads as considered, not costume, sits close to the collar (16–20 inches), matches the metal or material of anything else worn on the body, and is worn alone or layered with no more than one other piece.",
+    tags: ["Style", "Buying guide"],
+    publishedAt: "2026-12-16",
+    updatedAt: "2026-12-16",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/personalized-mens-bracelet-guide.webp",
+      alt: "Close-up of a men's necklace pendant against a collar, styled alongside a matching bracelet",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Mens jewelry necklace" is the single highest-volume search in the men's jewelry category — ahead of bracelets, rings, and everything else. That's a lot of interest for a piece most style guides treat as an afterthought. Here's how to actually wear one well.</p>
+
+<h2>Length is the decision that matters most</h2>
+<p>A men's necklace sitting at 16–20 inches falls close to the collarbone — visible at an open shirt collar, but not swinging loose under a crew neck. Anything longer starts to read as a pendant statement piece rather than an everyday layer, which is a legitimate look but a different one. If this is your first necklace, 18–20 inches is the safest starting length for most builds.</p>
+
+<h2>Material consistency beats variety</h2>
+<p>The fastest way to make a necklace look like an afterthought is mismatching its metal or tone against a watch, ring, or bracelet already in rotation. Silver chain with a gold watch reads as uncoordinated by accident rather than by choice. Matching metal tones — or deliberately choosing one non-metal material, like a natural stone pendant, that doesn't compete with metal at all — solves this without needing to buy an entirely new jewellery wardrobe.</p>
+
+<h2>Layering: one extra piece, maximum</h2>
+<p>A single necklace reads as clean and deliberate. Two, at different lengths and in the same material, can work as a considered layered look. Three or more starts to tip into costume territory for most everyday contexts — reserve it for occasions where that's actually the intended statement.</p>
+
+<h2>Pendant vs. plain chain</h2>
+<ul>
+<li><strong>Plain chain:</strong> the lowest-risk, most versatile option — works under a collar, over a t-shirt, in almost any context.</li>
+<li><strong>Pendant with personal meaning:</strong> reads as more considered, especially as a gift — see our guide to <a href="/blog/personalized-mens-bracelet-guide">what actually makes jewellery feel personalized</a> for the same logic applied to a necklace pendant.</li>
+<li><strong>Natural stone pendant:</strong> a middle ground — more presence than a plain chain, without the cost or upkeep of precious metal.</li>
+</ul>
+
+<h2>Where we fit in</h2>
+<p>We currently focus on bracelets and rings rather than necklaces, built around the same principle a good necklace should follow: one genuine material, worn deliberately. If you're building toward a coordinated look starting with the wrist, <a href="${productPath}">the Hematite Men's Bracelet</a> is natural hematite on a stretch elastic core — the same "one real material, worn plainly" approach a necklace should follow too.</p>
+`,
+    faqs: [
+      {
+        question: "What length should a men's necklace be?",
+        answer:
+          "16–20 inches sits close to the collarbone and works under most shirt collars for daily wear. Longer lengths read as a statement pendant piece rather than an everyday layer.",
+      },
+      {
+        question: "How many necklaces can a man layer at once?",
+        answer:
+          "One reads as clean and deliberate. Two, at different lengths in the same material, can work as a considered layered look. Three or more tips into costume territory for most everyday contexts.",
+      },
+    ],
+  },
+  {
+    slug: "sterling-silver-mens-bracelet",
+    title: "Sterling Silver Men's Bracelets: What to Know Before You Buy",
+    excerpt:
+      "Sterling silver men's bracelets are one of the fastest-rising jewelry searches this year. Here is what sterling silver actually is, its real upkeep, and how it compares to natural stone.",
+    targetKeyword: "sterling silver mens bracelet",
+    quickAnswer:
+      "Sterling silver is 92.5% pure silver alloyed with other metals for durability — it tarnishes over weeks with air exposure and needs periodic polishing, unlike a natural stone bracelet, which needs neither.",
+    tags: ["Buying guide", "Hematite"],
+    publishedAt: "2026-12-23",
+    updatedAt: "2026-12-23",
+    readingMinutes: 5,
+    coverImage: {
+      src: "/blog/hematite-vs-gold-silver-chain-bracelet.webp",
+      alt: "Hematite beaded bracelet laid next to a sterling silver chain bracelet for comparison",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>Sterling silver men's bracelets have shown real, consistent search growth this year — likely picking up demand priced out of gold as precious metal prices climbed. Before buying one, it's worth knowing what "sterling" actually means and what owning one day to day involves.</p>
+
+<h2>What "sterling silver" actually means</h2>
+<p>Sterling silver is <strong>92.5% pure silver</strong>, alloyed with 7.5% other metal — almost always copper — because pure silver on its own is too soft for jewellery that needs to hold its shape under daily wear. The 92.5 figure is a legal standard in most markets, not a marketing number, and a genuine sterling piece should be stamped "925" somewhere on the clasp or a discreet tag.</p>
+
+<h2>Hardness and everyday wear</h2>
+<p>Sterling silver sits around 2.5–3 on the Mohs hardness scale — soft enough to pick up fine surface scratches from keys, desks, and gym equipment within weeks of regular wear. That's not a defect; it's inherent to the metal, and it's part of why sterling jewellery develops a "patina" of fine surface texture over time rather than staying mirror-polished.</p>
+
+<h2>The upkeep that comes with it</h2>
+<p>Sterling silver tarnishes — a chemical reaction between the copper in the alloy and sulfur compounds in air, which darkens the surface over weeks even without contact with skin or water. Left untreated, this progresses from a light yellow tint to visible black-grey areas, especially in the recesses of a chain link. Regular wear actually slows tarnishing somewhat (skin oils provide some protection), but a proper polish every few months with a silver cloth is the realistic maintenance schedule for a piece that's going to stay looking new.</p>
+
+<h2>How it compares to a natural stone bracelet</h2>
+<p>A hematite bead bracelet sits at 5.5–6.5 on the Mohs scale — meaningfully harder than sterling silver's 2.5–3 — and has no tarnishing process at all, because it's not a reactive metal. That's not an argument that stone is "better" than silver; they're solving for different things. Silver gives you a classic, dressed-up metallic look that stone can't replicate. Stone gives you lower upkeep and better scratch resistance than silver can offer. See our full <a href="/blog/hematite-vs-gold-silver-chain-bracelet">hematite vs. gold and silver comparison</a> for the complete breakdown.</p>
+
+<h2>The honest recommendation</h2>
+<p>If the polished, reflective metal look is what you want, sterling silver at 92.5% purity is a legitimate, accessible alternative to gold — just budget for periodic polishing as part of owning it. If low-maintenance daily durability matters more than a metallic finish, <a href="${productPath}">the Hematite Men's Bracelet</a> is natural hematite on a stretch elastic core — nothing to tarnish, nothing to polish.</p>
+`,
+    faqs: [
+      {
+        question: "Does sterling silver tarnish?",
+        answer:
+          "Yes. Sterling silver's copper alloy content reacts with sulfur compounds in air over weeks, darkening the surface. Regular polishing with a silver cloth every few months keeps it looking new.",
+      },
+      {
+        question: "What does 925 mean on a silver bracelet?",
+        answer:
+          "925 is the sterling silver purity stamp, meaning the piece is 92.5% pure silver alloyed with 7.5% other metal (usually copper) for durability. It's a legal standard, not a marketing term.",
+      },
+    ],
+  },
+  {
+    slug: "rainbow-hematite-meaning",
+    title: "Rainbow Hematite: What the Iridescent Finish Actually Is",
+    excerpt:
+      '"Rainbow hematite meaning" is a fast-growing search. Here is what actually causes the iridescent finish, and how it differs from plain natural hematite.',
+    targetKeyword: "rainbow hematite meaning",
+    quickAnswer:
+      "Rainbow hematite is natural hematite that has been titanium-coated (or occasionally naturally oxidized) to produce an iridescent, oil-slick-like surface — a finish, not a different mineral. The grounding meaning attached to it follows the same tradition as plain hematite.",
+    tags: ["Hematite", "Buying guide"],
+    publishedAt: "2026-12-30",
+    updatedAt: "2026-12-30",
+    readingMinutes: 4,
+    coverImage: {
+      src: "/blog/crystal-energy-bracelet-guide.webp",
+      alt: "Assortment of natural stone beaded bracelets including an iridescent rainbow-finished piece, arranged on a dark linen surface",
+      width: 1264,
+      height: 848,
+    },
+    body: `
+<p>"Rainbow hematite meaning" is a genuinely fast-growing search, driven by a finish that looks striking enough to make people want to know what they're actually looking at. Here is the honest explanation, separated from what's just marketing shine.</p>
+
+<h2>What rainbow hematite actually is</h2>
+<p>Rainbow hematite is genuine natural hematite — the same iron(III) oxide, Fe₂O₃, as any other hematite piece — that has undergone a surface treatment to produce an iridescent, oil-slick-like finish across blues, purples, greens, and golds. Most commonly this is achieved through a <strong>titanium coating</strong> process, similar to how titanium-coated quartz ("aura quartz") is produced: a thin layer of vaporized metal bonded to the stone's surface under vacuum, which refracts light into that rainbow sheen. Less commonly, some natural hematite specimens develop a similar iridescent effect from natural surface oxidation, without any added coating — genuinely natural, but rarer and usually found in raw or semi-polished specimens rather than uniform beads.</p>
+
+<h2>Coating vs. the stone underneath</h2>
+<p>The mineral underneath a titanium-coated rainbow finish is still real, hard, dense hematite — the coating is a surface treatment, not a substitute material, and it doesn't change the stone's hardness (5.5–6.5 Mohs) or density. What it does change is durability of the finish specifically: a coated surface can wear thinner over years of skin contact and friction, the same way plated (gold- or silver-plated) hematite eventually shows its base color at contact points, while an uncoated natural finish has nothing to wear through.</p>
+
+<h2>What the "meaning" behind it actually is</h2>
+<p>Rainbow hematite doesn't have a separate, older tradition behind it the way plain hematite does — the coating process is relatively modern, tied to the broader "aura" crystal trend. What gets attached to it in crystal circles is usually the standard hematite meaning (grounding, protection, clarity) plus general associations with the rainbow coloring itself (positivity, variety, emotional range) layered on top. That second layer is newer and less consistent across traditions than hematite's own history — worth knowing if the age of a tradition matters to you.</p>
+
+<h2>What we will not claim</h2>
+<p>As with every hematite product we discuss, we won't tell you a rainbow-coated piece has a stronger or different physical effect than an uncoated one — the coating changes the surface appearance, not the mineral's properties. See our <a href="/claims-policy">Claims Policy</a> for where we draw this line across every product.</p>
+
+<h2>What we sell</h2>
+<p>We work with natural, uncoated hematite exclusively — no titanium or aura treatments. <a href="${productPath}">The Hematite Men's Bracelet</a> is polished natural stone with its own metallic black-grey finish, nothing coated over it to eventually wear through.</p>
+`,
+    faqs: [
+      {
+        question: "Is rainbow hematite a different mineral than regular hematite?",
+        answer:
+          "No. Rainbow hematite is genuine natural hematite (Fe₂O₃) that has undergone a titanium coating (or occasionally natural oxidation) to produce an iridescent surface finish. The mineral underneath, its hardness, and its density are unchanged — only the surface appearance differs.",
+      },
+      {
+        question: "Does the rainbow coating on hematite wear off?",
+        answer:
+          "A titanium-coated finish can wear thinner over years of skin contact and friction, similar to how gold- or silver-plated hematite eventually shows its base color at contact points. An uncoated natural finish has no surface layer to wear through.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
