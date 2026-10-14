@@ -1,6 +1,9 @@
 import "server-only";
 
+import { unstable_cache } from "next/cache";
+
 import { CATALOG_PATH, readJsonFile } from "@/lib/catalog/storage";
+import { CACHE_TAGS } from "@/lib/catalog/tags";
 import { mapSyncedProducts, products, type Product } from "@/lib/product";
 import type { SyncedCatalogRecord } from "@/lib/shopify/sync-product";
 
@@ -31,9 +34,39 @@ import type { SyncedCatalogRecord } from "@/lib/shopify/sync-product";
  * threading freshness through just the display layer here first, without
  * touching checkout-adjacent code, on purpose.
  */
+/**
+ * Source order, same as the reference build's catalog loader: the live synced
+ * document (Vercel Blob in production, data/ on disk in dev — written by the
+ * products/* webhook and `npm run shopify:sync`), then the committed
+ * build-time seed.
+ *
+ * Two things keep a bad Blob read from ever taking a page or a build down:
+ *  - the read is wrapped in try/catch and falls back to the seed — a 403 from
+ *    a mis-scoped Blob token (or a store outage) must not fail
+ *    `next build` while it prerenders /sitemap.xml and the llms.txt routes;
+ *  - it goes through `unstable_cache` tagged `catalog` (refreshed hourly,
+ *    and on demand by revalidateTag), so the pages stay static/ISR and the
+ *    webhook's purge refreshes them without a redeploy.
+ */
+const readLiveProducts = unstable_cache(
+  async (): Promise<Product[]> => {
+    try {
+      const record = await readJsonFile<SyncedCatalogRecord>(CATALOG_PATH);
+      if (record?.products?.length) return mapSyncedProducts(record.products);
+    } catch (error) {
+      console.error(
+        "[catalog] live read failed, serving the build-time seed:",
+        error instanceof Error ? error.message : error,
+      );
+    }
+    return products;
+  },
+  ["himvolt-live-products-v1"],
+  { tags: [CACHE_TAGS.catalog], revalidate: 3600 },
+);
+
 export async function getLiveProducts(): Promise<Product[]> {
-  const record = await readJsonFile<SyncedCatalogRecord>(CATALOG_PATH);
-  return record ? mapSyncedProducts(record.products) : products;
+  return readLiveProducts();
 }
 
 export async function getLiveProductByHandle(
