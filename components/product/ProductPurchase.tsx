@@ -17,6 +17,7 @@ import { ChevronRightIcon } from "@/components/ui/Icons";
 import { RatingStars } from "@/components/ui/Stars";
 import { quality } from "@/content/pitches";
 import type { ProductReview } from "@/data/reviews";
+import { countryNames } from "@/lib/availability";
 import type { Product } from "@/lib/product";
 import type { PaymentMethod } from "@/lib/shopify/payments";
 import { cn } from "@/lib/utils";
@@ -210,8 +211,24 @@ export function ProductPurchase({
       : product.material
         ? [product.material]
         : [];
-  const chips: { icon: IconName; text: string; tone?: "warn" | "bad" }[] = [
+  const chips: {
+    icon: IconName;
+    text: string;
+    tone?: "warn" | "bad" | "badge";
+  }[] = [
     ...(bestSeller ? [{ icon: "star" as const, text: "Best seller" }] : []),
+    // Set per product in Shopify (custom.available_countries); a product
+    // limited to some countries says so up front. Shopify enforces it at
+    // checkout by shipping address.
+    ...(product.availableCountries.length > 0
+      ? [
+          {
+            icon: "truck" as const,
+            text: `${countryNames(product.availableCountries)} only`,
+            tone: "badge" as const,
+          },
+        ]
+      : []),
     ...highlights.map((text) => ({ icon: "check" as const, text })),
     ...(outOfStock
       ? [{ icon: "alert" as const, text: "Out of stock", tone: "bad" as const }]
@@ -252,7 +269,9 @@ export function ProductPurchase({
                     ? "bg-error/10 text-error"
                     : chip.tone === "warn"
                       ? "bg-warning/10 text-warning"
-                      : "bg-sage-100 text-sage-800",
+                      : chip.tone === "badge"
+                        ? "bg-sage-800 font-semibold text-white"
+                        : "bg-sage-100 text-sage-800",
                 )}
               >
                 <Icon
@@ -405,7 +424,7 @@ export function ProductPurchase({
           />
 
           {/* ── Delivery ────────────────────────────────────────────── */}
-          <DeliverySection />
+          <DeliverySection shipsTo={product.availableCountries} />
 
           {/* ── What customers say — the top 5★ reviews ─────────────── */}
           {feedback.length > 0 && (

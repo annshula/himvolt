@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { countryNames, isRestricted } from "@/lib/availability";
-import { allowedCountriesForVariant, getVariantById } from "@/lib/catalog";
-import { detectVisitorCountry } from "@/lib/localization/geo";
+import { getVariantById } from "@/lib/catalog";
 import { resolvePricingCountry } from "@/lib/localization/resolve";
 import { createCheckout, shopifyEnabled } from "@/lib/shopify";
 
@@ -45,14 +43,6 @@ export async function POST(request: Request) {
   if (!variant || !variant.availableForSale) {
     return NextResponse.json(
       { reason: "This item is not available for purchase right now." },
-      { status: 400 },
-    );
-  }
-
-  const allowed = allowedCountriesForVariant(body.variantId);
-  if (allowed && isRestricted(allowed, detectVisitorCountry(request.headers))) {
-    return NextResponse.json(
-      { reason: `This product is available in ${countryNames(allowed)} only.` },
       { status: 400 },
     );
   }

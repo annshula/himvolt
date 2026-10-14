@@ -1,25 +1,9 @@
 /**
- * Country availability for a product, as set in Shopify
- * (custom.available_countries → Product.availableCountries).
- *
- * This is a storefront-level restriction, decided from the visitor's GeoIP
- * country — a shopper using a VPN can look past it. The hard stop is a
- * matching shipping profile in Shopify; this is the part that keeps an
- * unsupported visitor from putting the item in a bag in the first place.
- *
- * An unknown location (no GeoIP header, e.g. localhost) is never treated as
- * restricted: not knowing where someone is isn't a reason to block them.
+ * Region names for the countries a product ships to (custom.available_countries
+ * in Shopify → Product.availableCountries). The site only *labels* a limited
+ * product; Shopify enforces it at checkout through the product's shipping
+ * profile, by shipping address.
  */
-
-/** True when `allowed` lists countries and `country` is known and not one of them. */
-export function isRestricted(
-  allowed: string[] | null | undefined,
-  country: string | null | undefined,
-): boolean {
-  if (!allowed || allowed.length === 0) return false;
-  if (!country) return false;
-  return !allowed.includes(country.toUpperCase());
-}
 
 /** "United States", "Canada and Australia" — region names for a list of ISO codes. */
 export function countryNames(codes: string[]): string {

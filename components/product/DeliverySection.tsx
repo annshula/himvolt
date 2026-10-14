@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { countryNames } from "@/lib/availability";
 import { Icon } from "@/components/ui/Icons";
 import { site } from "@/lib/site";
 
@@ -9,7 +10,7 @@ import { site } from "@/lib/site";
  * its policy link. The day range is `site.delivery`, one value for the whole
  * product page.
  */
-export function DeliverySection() {
+export function DeliverySection({ shipsTo = [] }: { shipsTo?: string[] }) {
   return (
     <ul
       aria-label="Delivery"
@@ -19,7 +20,8 @@ export function DeliverySection() {
         <Icon name="truck" className="size-5 shrink-0" />
         <span>
           Tracked delivery in {site.delivery.minDays}–{site.delivery.maxDays}{" "}
-          days.{" "}
+          days
+          {shipsTo.length > 0 && <> to {countryNames(shipsTo)} addresses</>}.{" "}
           <Link href="/shipping-policy" className="link-underline">
             Shipping details
           </Link>

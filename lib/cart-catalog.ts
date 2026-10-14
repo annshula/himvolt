@@ -34,8 +34,6 @@ export type CartCatalogLine = {
   units: number;
   /** True when the product's variants are pack sizes — buying more means picking a bigger pack on the product page, not a stepper. */
   hasPackOption: boolean;
-  /** Countries this product may be bought from (ISO); empty means everywhere. */
-  availableCountries: string[];
 };
 
 const PACK_COUNT_RE = /\b(bracelets?|rings?|bands?|pieces?)\b/i;
@@ -71,8 +69,6 @@ for (const product of catalog.products) {
       compareAtCents: compareAt,
       units: Math.max(1, match?.variant.quantity ?? 1),
       hasPackOption,
-      availableCountries:
-        (product as { availableCountries?: string[] }).availableCountries ?? [],
     });
   }
 }

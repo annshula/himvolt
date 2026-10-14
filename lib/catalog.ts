@@ -144,12 +144,3 @@ export function belongsToHimVolt(input: {
   return Boolean(input.variantId && himvoltVariantIds.has(input.variantId));
 }
 
-/**
- * The countries a variant's product may be bought from on the site (ISO
- * codes), or null when it is sold everywhere. Set per product in Shopify
- * (custom.available_countries).
- */
-export function allowedCountriesForVariant(variantId: string): string[] | null {
-  const list = getProductForVariant(variantId)?.availableCountries;
-  return list && list.length > 0 ? list : null;
-}

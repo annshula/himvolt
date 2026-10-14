@@ -35,8 +35,6 @@ type LocalizationValue = {
   defaultCountry: LocalizationCountry | null;
   /** The shopper's explicit country pick, or null for "auto". */
   country: string | null;
-  /** The country the host's GeoIP header named for this visitor, or null when unknown. Unlike `defaultCountry` it is never replaced by Shopify's fallback market, so it is what availability rules compare against. */
-  detectedCountry: string | null;
   /** True once a country is known, i.e. a live localized price is on its way. */
   canLocalize: boolean;
   setCountry: (code: string) => void;
@@ -60,7 +58,6 @@ export function LocalizationProvider({ children }: { children: ReactNode }) {
     useState<LocalizationCountry | null>(null);
   const [country, setCountryState] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
-  const [detectedCountry, setDetectedCountry] = useState<string | null>(null);
   const [priceMap, setPriceMap] = useState<Record<string, LocalizedPrice>>({});
   /* Ids whose fetch for the current country has come back, with or without a
      price. Consumers show a placeholder until an id is either priced or
@@ -83,9 +80,6 @@ export function LocalizationProvider({ children }: { children: ReactNode }) {
       .then((data) => {
         setCountries(Array.isArray(data.countries) ? data.countries : []);
         setDefaultCountry(data.defaultCountry ?? null);
-        setDetectedCountry(
-          typeof data.detected === "string" ? data.detected : null,
-        );
         setCountryState(
           typeof data.selected === "string" ? data.selected : null,
         );
@@ -198,7 +192,6 @@ export function LocalizationProvider({ children }: { children: ReactNode }) {
       countries,
       defaultCountry,
       country,
-      detectedCountry,
       canLocalize,
       setCountry,
       requestPrices,
@@ -210,7 +203,6 @@ export function LocalizationProvider({ children }: { children: ReactNode }) {
       countries,
       defaultCountry,
       country,
-      detectedCountry,
       canLocalize,
       setCountry,
       requestPrices,

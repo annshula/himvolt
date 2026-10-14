@@ -8,7 +8,6 @@ import { useCart } from "@/components/providers/CartProvider";
 import { useLocalization } from "@/components/providers/LocalizationProvider";
 import Image from "@/components/ui/Image";
 import { Icon } from "@/components/ui/Icons";
-import { countryNames, isRestricted } from "@/lib/availability";
 import { formatMoney } from "@/lib/money";
 import type { Product } from "@/lib/product";
 import type { PaymentMethod } from "@/lib/shopify/payments";
@@ -120,14 +119,8 @@ export function BuyBox({
   payments: PaymentMethod[];
 }) {
   const { add, open } = useCart();
-  const {
-    ready,
-    canLocalize,
-    requestPrices,
-    localizedPriceFor,
-    isPriceSettled,
-    detectedCountry,
-  } = useLocalization();
+  const { ready, canLocalize, requestPrices, localizedPriceFor, isPriceSettled } =
+    useLocalization();
 
   const [added, setAdded] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -176,10 +169,7 @@ export function BuyBox({
   );
 
   const selected = priced.find((p) => p.v.id === selectedId) ?? priced[0];
-  // Country availability, set per product in Shopify. Decided from the
-  // visitor's GeoIP country; an unknown location is never blocked.
-  const restricted = isRestricted(product.availableCountries, detectedCountry);
-  const canBuy = selected.v.availableForSale && !restricted;
+  const canBuy = selected.v.availableForSale;
   const useCards = shouldUseCards(product);
 
   // The sticky bar appears once the main button has scrolled out above the fold.
@@ -273,29 +263,10 @@ export function BuyBox({
       </div>
 
       <div className="mt-9">
-        {restricted ? (
-          <div
-            role="note"
-            className="flex items-start gap-3 rounded-lg border border-dashed border-clay-300 bg-clay-50 px-3.5 py-3 text-clay-600"
-          >
-            <Icon name="alert" className="mt-0.5 size-5 shrink-0" />
-            <p className="min-w-0 text-[0.82rem] leading-snug">
-              <span className="block font-ui font-semibold">
-                Available in {countryNames(product.availableCountries)} only
-              </span>
-              <span className="mt-0.5 block text-ink-soft">
-                This product isn&apos;t sold to your location yet.
-              </span>
-            </p>
-          </div>
-        ) : (
-          <div className="flex items-stretch gap-2.5">
-            <FreeDeliveryUnlocked />
-            {product.saleEndsAt && (
-              <SaleCountdown endsAt={product.saleEndsAt} />
-            )}
-          </div>
-        )}
+        <div className="flex items-stretch gap-2.5">
+          <FreeDeliveryUnlocked />
+          {product.saleEndsAt && <SaleCountdown endsAt={product.saleEndsAt} />}
+        </div>
 
         <button
           ref={buttonRef}
@@ -304,9 +275,7 @@ export function BuyBox({
           onClick={onAdd}
           disabled={!canBuy}
         >
-          {restricted ? (
-            "Not available in your country"
-          ) : !canBuy ? (
+          {!canBuy ? (
             "Sold out"
           ) : added ? (
             <>
@@ -344,7 +313,7 @@ export function BuyBox({
             onClick={added ? open : onAdd}
             disabled={!canBuy}
           >
-            {restricted ? "Unavailable" : added ? "View bag" : "Add to bag"}
+            {added ? "View bag" : "Add to bag"}
           </button>
         </div>
       </div>
