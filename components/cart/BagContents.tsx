@@ -78,8 +78,9 @@ export function BagContents({
           ...line,
           lineTotal: round(unit * line.qty),
           compareAtTotal: round((hasDiscount ? compareAtUnit : unit) * line.qty),
-          savedPercent: hasDiscount
-            ? Math.round((1 - unit / compareAtUnit) * 100)
+          // The line's saving as an amount: compare-at total less what is paid.
+          savedAmount: hasDiscount
+            ? round((compareAtUnit - unit) * line.qty)
             : null,
         };
       }),
@@ -162,7 +163,7 @@ export function BagContents({
         aria-label="Items in your bag"
       >
         {priced.map((line) => {
-          const hasSaving = line.savedPercent != null;
+          const hasSaving = line.savedAmount != null;
           /* Packs are chosen on the product page, so these lines have no
              quantity stepper. */
           const fixedPack = line.hasPackOption;
@@ -234,7 +235,7 @@ export function BagContents({
                         {line.variantLabel}
                       </span>
                       <span className="shrink-0 rounded-tag bg-clay-100 px-1.5 py-0.5 font-numeral text-[0.7rem] leading-none font-medium text-clay-600 tabular-nums">
-                        Saved {line.savedPercent}%
+                        Saved {money(line.savedAmount ?? 0)}
                       </span>
                     </p>
                     {line.compareAtTotal > line.lineTotal && (

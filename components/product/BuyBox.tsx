@@ -28,8 +28,8 @@ import { cn } from "@/lib/utils";
  *   saving on the card) → "Free delivery unlocked" strip + the offer timer →
  *   Add to bag → accepted payment logos → a sticky Add-to-bag bar on phones.
  *
- * There is deliberately no separate price block (the cards carry the price),
- * no quantity stepper and no "Buy it now": one primary action. Everything
+ * There is deliberately no separate price block (the cards carry the price)
+ * and no "Buy it now": one primary action, with a quantity stepper beside it. Everything
  * that sits around this panel — chips, rating, title, perks, accordion,
  * delivery, reviews — is laid out by ProductPurchase.
  *
@@ -113,6 +113,9 @@ function shouldUseCards(product: Product): boolean {
 
 const numericId = (gid: string) => gid.split("/").pop() ?? gid;
 
+/** Same ceiling as the bag's own stepper. */
+const MAX_QTY = 10;
+
 export function BuyBox({
   product,
   selectedId,
@@ -136,6 +139,7 @@ export function BuyBox({
   } = useLocalization();
 
   const [added, setAdded] = useState(false);
+  const [qty, setQty] = useState(1);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [showSticky, setShowSticky] = useState(false);
@@ -220,7 +224,7 @@ export function BuyBox({
   const addToBag = () => {
     add(
       selected.v.id,
-      1,
+      qty,
       Math.round(selected.amount * 100),
       selected.currency,
     );
@@ -250,6 +254,10 @@ export function BuyBox({
   // amount is a shimmering placeholder of about the same size, not a base-
   // currency figure that would then change; the strike-through and saving
   // badges simply wait (`pending`) rather than showing placeholders too.
+  // Line total for the chosen quantity — what the button and the sticky bar
+  // show, so the price follows the stepper.
+  const total = selected.amount * qty;
+
   const money = (amount: number, currency: string): ReactNode =>
     pending ? (
       <span
@@ -306,6 +314,49 @@ export function BuyBox({
       </div>
 
       <div className="mt-9">
+        {/* Quantity — the bag's own stepper, so the two read as one control. */}
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <span id="pdp-qty-label" className="text-body-sm font-semibold">
+            Quantity
+          </span>
+          <div
+            className="flex items-center rounded-tag bg-cream"
+            role="group"
+            aria-labelledby="pdp-qty-label"
+          >
+            <button
+              type="button"
+              className="grid size-10 place-items-center rounded-tag hover:bg-sand disabled:opacity-40"
+              aria-label="Decrease quantity"
+              disabled={qty <= 1}
+              onClick={() => {
+                setQty((q) => Math.max(1, q - 1));
+                setAdded(false);
+              }}
+            >
+              <Icon name="minus" className="size-4" />
+            </button>
+            <span
+              className="w-8 text-center font-numeral text-[0.9rem] font-semibold tabular-nums"
+              aria-live="polite"
+            >
+              {qty}
+            </span>
+            <button
+              type="button"
+              className="grid size-10 place-items-center rounded-tag hover:bg-sand disabled:opacity-40"
+              aria-label="Increase quantity"
+              disabled={qty >= MAX_QTY}
+              onClick={() => {
+                setQty((q) => Math.min(MAX_QTY, q + 1));
+                setAdded(false);
+              }}
+            >
+              <Icon name="plus" className="size-4" />
+            </button>
+          </div>
+        </div>
+
         <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
           <FreeDeliveryUnlocked />
           {product.saleEndsAt && <SaleCountdown endsAt={product.saleEndsAt} />}
@@ -324,8 +375,10 @@ export function BuyBox({
             <>
               <Icon name="check" className="size-4" /> Added to bag
             </>
-          ) : (
+          ) : pending ? (
             "Add to bag"
+          ) : (
+            <>Add to bag · {formatMoney(total, selected.currency)}</>
           )}
         </button>
 
@@ -358,7 +411,8 @@ export function BuyBox({
               {selected.label}
             </p>
             <p className="font-numeral text-body-sm font-medium text-ink-soft tabular-nums">
-              {money(selected.amount, selected.currency)}
+              {money(total, selected.currency)}
+              {qty > 1 && <span> · {qty} items</span>}
             </p>
           </div>
           <button
