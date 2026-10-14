@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ButtonHTMLAttributes } from "react";
 import { AccountMenu } from "@/components/account/AccountMenu";
-import { CurrencySelector } from "@/components/localization/CurrencySelector";
 import { useCart } from "@/components/providers/CartProvider";
 import Button from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icons";
@@ -17,7 +16,6 @@ import { cn } from "@/lib/utils";
 const links = [
   { label: "Home", href: "/" },
   { label: "Products", href: "/shop" },
-  { label: "Benefits", href: "/benefits" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -172,9 +170,6 @@ export default function Nav() {
           </ul>
 
           <div className="flex items-center justify-end gap-2 sm:gap-2.5">
-            <span className="hidden lg:block">
-              <CurrencySelector variant="bar" overHero={!solid} />
-            </span>
             {/* <TrackOrderLink solid={solid} /> */}
             <span className="hidden sm:block">
               <AccountMenu variant="dropdown" overHero={!solid} />
@@ -300,7 +295,6 @@ export default function Nav() {
                     quiet centred icon buttons so the Shop CTA underneath
                     carries the weight. */}
                 <div className="flex items-center justify-center gap-3">
-                  <CurrencySelector variant="drawer" dark />
                   {/* <a
                     href="/track"
                     aria-label="Track your order"

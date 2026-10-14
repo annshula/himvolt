@@ -1,11 +1,13 @@
 /**
  * Selected-country cookie. Stores only an ISO country code the shopper picked
- * (e.g. "CA") — never a currency amount or rate. The price for that choice
- * comes from the synced catalog (lib/catalog.ts's priceForMarket); this
- * cookie just says which country's price to look up.
+ * (e.g. "CA") — never a currency amount or rate. Every price shown for that
+ * choice is fetched live from Shopify via @inContext; this cookie just says
+ * which country to ask Shopify for.
  */
 
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
+
+import { detectVisitorCountry } from "@/lib/localization/geo";
 
 const COUNTRY_COOKIE = "_hv_country";
 
@@ -31,4 +33,19 @@ export async function writeSelectedCountry(isoCode: string): Promise<void> {
 export async function clearSelectedCountry(): Promise<void> {
   const store = await cookies();
   store.delete(COUNTRY_COOKIE);
+}
+
+/**
+ * The country that should actually drive pricing: the visitor's explicit
+ * choice if they made one, otherwise the edge-geolocated country from request
+ * headers — so an unconfirmed auto-detection still gets real
+ * Shopify-converted prices. Both the live price API and checkout use this
+ * one function, which is what keeps the cart's total equal to the price the
+ * page showed.
+ */
+export async function resolveEffectiveCountry(): Promise<string | null> {
+  const selected = await readSelectedCountry();
+  if (selected) return selected;
+  const headerList = await headers();
+  return detectVisitorCountry(headerList);
 }

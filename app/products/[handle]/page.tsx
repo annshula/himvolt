@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ProductPurchase } from "@/components/product/ProductPurchase";
@@ -12,6 +11,9 @@ import ReviewsComing from "@/components/product/ReviewsComing";
 import QualityTests from "@/components/product/QualityTests";
 import BuildSection from "@/components/product/BuildSection";
 import ProductReviews from "@/components/product/ProductReviews";
+import { ProductVideoShowcase } from "@/components/product/ProductVideoShowcase";
+import { SectionHeading } from "@/components/ui/Section";
+import { videosForHandle } from "@/content/product-videos";
 import ProductSchema from "@/components/ProductSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { bracelet as braceletCopy } from "@/content/product-bracelet";
@@ -26,6 +28,7 @@ import { getProductByHandle, products } from "@/lib/product";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 import { getProduct } from "@/lib/shopify";
+import { getPaymentMethods } from "@/lib/shopify/payments";
 import { pathForHandle } from "@/lib/catalog";
 
 export const revalidate = 3600;
@@ -129,6 +132,25 @@ export default async function ProductPage({
   // other handle — the scope guard in reviewSetForHandle enforces that.
   const reviewSet = reviewSetForHandle(liveProduct.handle);
 
+  // The marketing stack below the buy box (hematite story, build, QC
+  // checks, versus) and the jewelry-only buy-box extras are written for the
+  // hematite pieces. A product with no pitch of its own (the arm trainer,
+  // and anything that follows) gets the generic sections only — specs and
+  // features from Shopify, then reviews — instead of bracelet copy.
+  const isJewelry = isBracelet || Boolean(pitch);
+
+  // "What customers say": the newest 5★ reviews of this product's own
+  // dataset. Empty (strip hidden) for any product without one — never
+  // borrowed from another listing.
+  const feedback = (reviewSet?.reviews ?? [])
+    .filter((r) => r.rating === 5)
+    .slice(0, 5);
+
+  const videos = videosForHandle(liveProduct.handle);
+
+  // The payment logos checkout actually accepts (Shopify's own settings).
+  const payments = await getPaymentMethods();
+
   return (
     <main>
       <ProductSchema product={liveProduct} />
@@ -140,52 +162,62 @@ export default async function ProductPage({
         ]}
       />
 
-      <div className="mx-auto w-full max-w-310 px-5 pt-12 sm:px-8 sm:pt-16">
-        <nav
-          aria-label="Breadcrumb"
-          className="flex items-center gap-1.5 text-[0.68rem] tracking-[0.06em] text-ink-mute"
-        >
-          <Link href="/" className="transition-colors hover:text-ink">
-            Home
-          </Link>
-          <span aria-hidden="true">/</span>
-          <Link href="/shop" className="transition-colors hover:text-ink">
-            Shop
-          </Link>
-          <span aria-hidden="true">/</span>
-          <span className="max-w-[20ch] truncate text-ink-soft">
-            {product.title}
-          </span>
-        </nav>
-      </div>
-
       <ProductPurchase
         product={liveProduct}
         rating={reviewSet?.summary}
         bestSeller={isBracelet}
+        jewelry={isJewelry}
+        feedback={feedback}
+        payments={payments}
       />
 
-      {(isBracelet || pitch) && <BraceletStory story={story} />}
-      {(isBracelet || pitch) && <BraceletMoments moments={moments} />}
+      {/* Section 2 — the video rail. Clips live in public/videos and are
+          listed per product in content/product-videos.ts; no clips, no
+          section. */}
+      {videos.length > 0 && (
+        <section
+          aria-labelledby="product-videos"
+          className="overflow-hidden bg-canvas py-16 lg:py-24"
+        >
+          <div className="mx-auto w-full max-w-310 px-5 sm:px-8">
+            <SectionHeading
+              eyebrow="Real use"
+              title={<span id="product-videos">See it in action.</span>}
+              align="center"
+            />
+          </div>
+          <ProductVideoShowcase
+            videos={videos}
+            className="mt-10 px-2 sm:px-3"
+          />
+        </section>
+      )}
+
+      {isJewelry && <BraceletStory story={story} />}
+      {isJewelry && <BraceletMoments moments={moments} />}
 
       <ProductDetails product={liveProduct} />
 
       {/* The build — how the piece is actually made. Bracelets explain the
           elastic core that connects the stones; rings explain the solid
           band. Header "The build" link scrolls here (#build). */}
-      <BuildSection
-        content={pitch?.kind === "ring" ? buildRing : buildBracelet}
-      />
+      {isJewelry && (
+        <BuildSection
+          content={pitch?.kind === "ring" ? buildRing : buildBracelet}
+        />
+      )}
 
-      {/* Every product carries the QC band — the header & buy-box "Quality"
-          links scroll here (#quality-test). */}
-      <QualityTests product={liveProduct} />
+      {/* Every jewelry piece carries the QC band — the buy-box "checks
+          passed" link scrolls here (#quality-test). */}
+      {isJewelry && <QualityTests product={liveProduct} />}
 
       {isBracelet && <BraceletVersus />}
 
-      {/* Risk-reversal close — flagship keeps its own copy, everything else
-          uses the shared, product-neutral version. */}
-      <BraceletClose content={isBracelet ? undefined : closeGeneric} />
+      {/* Risk-reversal close — flagship keeps its own copy, every other
+          piece uses the shared version. */}
+      {isJewelry && (
+        <BraceletClose content={isBracelet ? undefined : closeGeneric} />
+      )}
 
       {/* Reviews: the bracelet gets the full customer-reviews feed (its own
           dataset); every other product shows the verified-only landing state
@@ -196,7 +228,7 @@ export default async function ProductPage({
           summary={reviewSet.summary}
         />
       ) : (
-        <ReviewsComing />
+        isJewelry && <ReviewsComing />
       )}
     </main>
   );

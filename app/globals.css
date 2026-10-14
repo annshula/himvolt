@@ -481,3 +481,286 @@ p {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ==========================================================================
+   PDP section 1 — design language ported from the reference PDP
+   --------------------------------------------------------------------------
+   The reference build styles its product page from a small token set (sage =
+   primary, clay = offer detail, cream/sand/porcelain = tonal surfaces) and a
+   handful of component classes. They are brought across here under the same
+   names so the buy column can be the reference's markup, class for class.
+   The values are HimVolt's own: "sage" resolves to the brand's copper ramp
+   (CTA + checkmarks), "clay" to its deep copper (offer + timer), and the
+   neutrals to HimVolt's grays — same roles, this brand's colours.
+   ========================================================================== */
+@theme {
+  --color-sage-50: #fbf5ee;
+  --color-sage-100: #f7ecdf;
+  --color-sage-200: #efd8bb;
+  --color-sage-300: #e6bf8c;
+  --color-sage-400: #dc9c55;
+  --color-sage-500: #dc9c55;
+  --color-sage-600: #c6863f;
+  --color-sage-700: #96652c;
+  --color-sage-800: #0a0a0a;
+  --color-sage-900: #050505;
+
+  --color-clay-50: #fbf5ee;
+  --color-clay-100: #f7ecdf;
+  --color-clay-200: #efd8bb;
+  --color-clay-300: #dc9c55;
+  --color-clay-600: #96652c;
+
+  --color-cream: #f2f2f2;
+  --color-sand: #e5e5e5;
+  --color-porcelain: #ffffff;
+  --color-ink-faint: #737373;
+
+  --color-gold-100: #f7e7c2;
+  --color-gold-500: #e2a51f;
+
+  --color-success: #2f6246;
+  --color-warning: #8a5a10;
+  --color-error: #a2382b;
+
+  --font-ui: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+  --font-numeral: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  --font-pdp-heading: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-control: 12px;
+  --radius-tag: 10px;
+  --radius-media: 28px;
+
+  --shadow-soft: 0 1px 2px rgb(10 10 10 / 0.04), 0 12px 32px -12px rgb(10 10 10 / 0.12);
+  --shadow-float: 0 2px 6px rgb(10 10 10 / 0.04), 0 24px 60px -24px rgb(10 10 10 / 0.22);
+  --shadow-drift: 0 30px 80px -30px rgb(10 10 10 / 0.35);
+}
+
+@layer components {
+  /* Primary action: gradient face, with the darker hover shade as a layer
+     that fades in behind the label (a gradient can't transition into a flat
+     colour, so swapping `background` on hover would flash). */
+  .btn-primary {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 52px;
+    padding: 0 1.75rem;
+    font-family: var(--font-ui);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #ffffff;
+    background: linear-gradient(180deg, var(--color-sage-500) -40%, var(--color-sage-600) 60%);
+    border-radius: var(--radius-control);
+    transition:
+      background-color 240ms var(--ease-out-soft),
+      color 240ms var(--ease-out-soft),
+      transform 240ms var(--ease-out-soft);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--color-sage-700);
+    opacity: 0;
+    transition: opacity 240ms var(--ease-out-soft);
+    pointer-events: none;
+  }
+  .btn-primary:hover::before {
+    opacity: 1;
+  }
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+  .btn-primary:disabled,
+  .btn-primary[aria-disabled="true"] {
+    background: var(--color-sand);
+    color: var(--color-ink-soft);
+    transform: none;
+    cursor: not-allowed;
+  }
+  .btn-primary:disabled::before,
+  .btn-primary[aria-disabled="true"]::before {
+    display: none;
+  }
+
+  /* Selectable option card (variant chips) */
+  .option-card {
+    position: relative;
+    border-radius: var(--radius-control);
+    background: var(--color-porcelain);
+    box-shadow: inset 0 0 0 1px rgb(10 10 10 / 0.08);
+    transition:
+      box-shadow 220ms var(--ease-out-soft),
+      background-color 220ms var(--ease-out-soft);
+  }
+  .option-card:hover {
+    box-shadow: inset 0 0 0 1px rgb(10 10 10 / 0.22);
+  }
+  .option-card[data-checked="true"] {
+    background: #ffffff;
+    box-shadow:
+      inset 0 0 0 1.5px var(--color-ink),
+      0 10px 24px -14px rgb(10 10 10 / 0.35);
+  }
+  .option-card[data-disabled="true"] {
+    background: transparent;
+    box-shadow: inset 0 0 0 1px rgb(10 10 10 / 0.06);
+    color: var(--color-ink-faint);
+    cursor: not-allowed;
+  }
+
+  .link-underline {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: var(--color-clay-300);
+    transition: text-decoration-color 200ms;
+  }
+  .link-underline:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .glass {
+    background: rgb(255 255 255 / 0.86);
+    backdrop-filter: saturate(1.4) blur(18px);
+    -webkit-backdrop-filter: saturate(1.4) blur(18px);
+    box-shadow: var(--shadow-soft), inset 0 1px 0 rgb(255 255 255 / 0.55);
+  }
+}
+
+@keyframes free-pop {
+  0%,
+  100% {
+    transform: scale(1) rotate(-6deg);
+  }
+  50% {
+    transform: scale(1.12) rotate(6deg);
+  }
+}
+
+/* "Free delivery unlocked" strip: the truck drives in, confetti bursts once
+   from the badge, and a light sweep passes across now and then. All of it is
+   skipped under prefers-reduced-motion (the strip itself still renders). */
+@keyframes unlock-truck {
+  0% {
+    transform: translateX(-140%) scale(0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(8%) scale(1.04);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes unlock-tick {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes unlock-burst {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(0.4);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--bx), var(--by)) rotate(var(--br)) scale(1);
+    opacity: 0;
+  }
+}
+@keyframes unlock-sweep {
+  0%,
+  55% {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(320%) skewX(-18deg);
+  }
+}
+@keyframes unlock-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .unlock-anim {
+    animation: none !important;
+  }
+}
+
+@layer components {
+  /* Raised panel — porcelain, soft diffused shadow, no edge. */
+  .surface-float {
+    background: var(--color-porcelain);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-float);
+  }
+}
+
+/* Slide-in sheet (the bag) on a native modal <dialog>: focus trap, Esc and an
+   inert page behind come from the platform. */
+dialog.sheet {
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  --sheet-in-from: 32px;
+}
+dialog.sheet::backdrop {
+  background: rgb(10 10 10 / 0.4);
+  backdrop-filter: blur(6px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  dialog.sheet[open] {
+    animation: sheet-in 380ms var(--ease-out-soft);
+  }
+  dialog.sheet[open]::backdrop {
+    animation: fade-in 380ms var(--ease-out-soft);
+  }
+}
+@keyframes sheet-in {
+  from {
+    transform: translateX(var(--sheet-in-from, 32px));
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Image well: a soft "studio light" behind a product thumbnail. */
+@layer components {
+  .well {
+    background:
+      radial-gradient(120% 90% at 50% 35%, #ffffff 0%, rgb(255 255 255 / 0) 60%),
+      var(--color-cream);
+  }
+}

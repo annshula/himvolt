@@ -76,6 +76,10 @@ export type Product = {
   /** From the custom.feature_highlights Shopify metafield — merchant-editable in Shopify Admin, no code change needed. `icon` is validated against the known set where it's rendered (components/product/ProductShowcase.tsx), not here. */
   features: { icon: string; label: string; body: string; image?: CatalogImage | null; video?: CatalogVideo | null }[];
   variants: Variant[];
+  /** From the custom.perks Shopify metafield — short bullet claims shown under the product name, in Shopify's own order. Empty until a merchant adds some. */
+  perks: string[];
+  /** From the custom.sale_ends_at Shopify metafield — an ISO timestamp for the offer countdown, or null when unset/already past at sync time. */
+  saleEndsAt: string | null;
 };
 
 const usd = (amount: number): Money => ({ amount, currencyCode: "USD" });
@@ -108,6 +112,8 @@ export function mapSyncedProducts(
         : p.images.map((img) => ({ kind: "image" as const, ...img })),
     specs: p.specs,
     features: p.features ?? [],
+    perks: p.perks ?? [],
+    saleEndsAt: p.saleEndsAt ?? null,
     variants: p.variants.map((v) => ({
       id: v.id,
       sku: v.sku,
@@ -150,6 +156,23 @@ export const product: Product = products[0];
 
 export function getProductByHandle(handle: string): Product | undefined {
   return products.find((p) => p.handle === handle);
+}
+
+/**
+ * Plain-text blurb for structured data and llms.txt: the product's own
+ * description when it is short prose, otherwise one built from the subtitle
+ * and perks. A supplier's full spec dump (image modules, spec tables, notes)
+ * is not a description and shouldn't be fed to search engines as one.
+ */
+export function plainDescription(p: Product): string {
+  const text = p.descriptionHtml
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const dump =
+    text.length > 900 || /<(img|table|h1)[\s>]/i.test(p.descriptionHtml);
+  if (text && !dump) return text;
+  return [p.subtitle, ...p.perks].filter(Boolean).join(". ");
 }
 
 export const formatMoney = (m: Money) =>

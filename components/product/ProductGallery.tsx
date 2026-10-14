@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "@/components/ui/Image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import Tilt from "@/components/ui/Tilt";
-import { Icon } from "@/components/ui/Icons";
+import { Icon, SpinnerIcon } from "@/components/ui/Icons";
 import { useScrollLock } from "@/lib/scroll-lock";
 import { cn } from "@/lib/utils";
 import type { MediaItem, Product } from "@/lib/product";
@@ -16,6 +16,86 @@ const SWIPE_THRESHOLD = 50;
 /** The thumbnail image for any gallery entry — a video's own poster frame for a video, its photo for an image. */
 function thumbSrc(item: MediaItem): string {
   return item.kind === "video" ? item.poster : item.src;
+}
+
+/**
+ * A gallery photo with a spinner centred over its reserved space until the
+ * image has actually painted. The box keeps the photo's own aspect ratio
+ * (width/height) from the first paint, so the spinner sits where the image
+ * will be and nothing shifts when it lands.
+ *
+ * Callers key it on the image's src, so switching photos starts a fresh
+ * "loading" state instead of inheriting the previous one's.
+ */
+function SpinnerImage({
+  src,
+  alt,
+  width,
+  height,
+  sizes,
+  priority,
+  className,
+  wrapperClassName,
+  spinnerClassName,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  sizes: string;
+  priority?: boolean;
+  className?: string;
+  wrapperClassName?: string;
+  spinnerClassName?: string;
+}) {
+  // "ssr": the server-rendered, not-yet-hydrated state. The photo is shown as
+  // plain HTML so the LCP image never waits on JavaScript. Hydration settles
+  // it before paint: already decoded → "loaded"; still in flight → "loading"
+  // (hidden, spinner centred) until onLoad. Checking `complete` here also
+  // covers a cached photo that finished before React attached onLoad.
+  const [status, setStatus] = useState<"ssr" | "loading" | "loaded">("ssr");
+  const wrapRef = useRef<HTMLSpanElement>(null);
+  const loading = status === "loading";
+
+  useLayoutEffect(() => {
+    const img = wrapRef.current?.querySelector("img");
+    setStatus(img?.complete && img.naturalWidth > 0 ? "loaded" : "loading");
+  }, []);
+
+  return (
+    <span ref={wrapRef} className={cn("relative block", wrapperClassName)}>
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        priority={priority}
+        sizes={sizes}
+        // No shimmer here: the spinner is the loading state.
+        skeleton={false}
+        onLoad={() => setStatus("loaded")}
+        className={cn(
+          "transition-opacity duration-300",
+          loading ? "opacity-0" : "opacity-100",
+          className,
+        )}
+      />
+      {loading && (
+        <span
+          role="status"
+          aria-label="Loading image"
+          className="pointer-events-none absolute inset-0 grid place-items-center"
+        >
+          <SpinnerIcon
+            className={cn(
+              "size-9 animate-spin text-ink-mute motion-reduce:animate-none",
+              spinnerClassName,
+            )}
+          />
+        </span>
+      )}
+    </span>
+  );
 }
 
 /**
@@ -170,7 +250,8 @@ export function ProductGallery({
             className="group relative mx-auto block w-full max-w-115 cursor-zoom-in"
           >
             <Tilt className="relative" max={6}>
-              <Image
+              <SpinnerImage
+                key={active.src}
                 src={active.src}
                 alt={active.alt}
                 width={active.width}
@@ -333,12 +414,15 @@ function Lightbox({
               zoomed ? "cursor-zoom-out" : "cursor-zoom-in",
             )}
           >
-            <Image
+            <SpinnerImage
+              key={active.src}
               src={active.src}
               alt={active.alt}
               width={active.width}
               height={active.height}
               sizes="90vw"
+              wrapperClassName="inline-block"
+              spinnerClassName="text-chalk/70"
               className={cn(
                 "max-h-[78vh] w-auto object-contain transition-transform duration-500 ease-(--ease-out-expo)",
                 zoomed ? "scale-[1.8]" : "scale-100",

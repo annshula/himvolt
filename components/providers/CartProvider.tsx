@@ -11,9 +11,8 @@ import {
   type ReactNode,
 } from "react";
 
-import { resolveCartLine } from "@/lib/cart-catalog";
+import { resolveCartLine, type CartCatalogLine } from "@/lib/cart-catalog";
 import { trackAddToCart } from "@/lib/analytics";
-import { useScrollLock } from "@/lib/scroll-lock";
 
 const STORAGE_KEY = "hv.cart.v1";
 
@@ -64,12 +63,10 @@ function reducer(state: CartLine[], action: Action): CartLine[] {
 }
 
 /** A cart line joined to its catalogue entry, ready to render. */
-export type ResolvedLine = CartLine & {
-  name: string;
-  image: string;
-  unitPriceCents: number;
-  lineTotalCents: number;
-};
+export type ResolvedLine = CartLine &
+  Omit<CartCatalogLine, "variantId"> & {
+    lineTotalCents: number;
+  };
 
 interface CartContextValue {
   lines: ResolvedLine[];
@@ -79,6 +76,10 @@ interface CartContextValue {
   itemCount: number;
   subtotalCents: number;
   isOpen: boolean;
+  /** True once the stored bag has been read — before that the bag is "loading", not "empty". */
+  hydrated: boolean;
+  /** Screen-reader announcement for the last add / remove. */
+  announcement: string;
   open: () => void;
   close: () => void;
   /** `priceCents`/`currency` let a caller pass the shopper's live localized
@@ -102,6 +103,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [raw, dispatch] = useReducer(reducer, [] as CartLine[]);
   const [isOpen, setOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [announcement, setAnnouncement] = useState("");
 
   /* Restore once on mount. Reading in an effect (not during render) keeps the
      server and first client paint identical, so there is no hydration flash. */
@@ -137,29 +139,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   }, [raw, hydrated]);
 
-  /* Lock the page while the drawer is open. */
-  useScrollLock(isOpen);
-
-  useEffect(() => {
-    if (!isOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [isOpen]);
 
   const lines = useMemo<ResolvedLine[]>(
     () =>
       raw.flatMap((line) => {
         const entry = resolveCartLine(line.variantId);
         if (!entry) return [];
+        const { variantId: _id, ...rest } = entry;
+        void _id;
         return [
           {
             ...line,
-            name: entry.name,
-            image: entry.image,
-            unitPriceCents: entry.unitPriceCents,
+            ...rest,
             lineTotalCents: entry.unitPriceCents * line.qty,
           },
         ];
@@ -181,7 +172,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
           },
           currency,
         );
+        setAnnouncement(
+          `Added to bag: ${catalog.productName}, ${catalog.variantLabel}.`,
+        );
       }
+      // Adding opens the bag, so the shopper sees it land (as on the
+      // reference build) instead of a toast they have to chase.
+      setOpen(true);
     },
     [],
   );
@@ -207,14 +204,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
       itemCount: lines.length,
       subtotalCents: lines.reduce((n, l) => n + l.lineTotalCents, 0),
       isOpen,
+      hydrated,
+      announcement,
       open: () => setOpen(true),
       close: () => setOpen(false),
       add,
       setQty: (variantId, qty) => dispatch({ type: "setQty", variantId, qty }),
-      remove: (variantId) => dispatch({ type: "remove", variantId }),
+      remove: (variantId) => {
+        const line = lines.find((l) => l.variantId === variantId);
+        if (line) setAnnouncement(`Removed from bag: ${line.productName}.`);
+        dispatch({ type: "remove", variantId });
+      },
       clear,
     }),
-    [lines, isOpen, add, clear],
+    [lines, isOpen, hydrated, announcement, add, clear],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

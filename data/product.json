@@ -1,18 +1,11 @@
 {
   "version": 8,
-  "syncedAt": "2026-09-05T08:57:43.623Z",
+  "syncedAt": "2026-10-14T13:40:20.875Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
     "currencyCode": "USD"
   },
-  "markets": [
-    "AU",
-    "CA",
-    "GB",
-    "IN",
-    "US"
-  ],
   "products": [
     {
       "id": "gid://shopify/Product/9650571346147",
@@ -31,33 +24,6 @@
           "compareAtPrice": 43.73,
           "availableForSale": true,
           "stockQuantity": 8063,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 61,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 33,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 34.98,
-              "compareAtAmount": 43.73,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 62,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1999.0,
-              "compareAtAmount": 2499.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Sbdae622a7b31498487a52b2a26699e4eC.jpg?v=1788354200",
           "shopifyTitle": "1PC",
           "subtitle": "Tile-Cut / 1PC",
@@ -71,34 +37,7 @@
           "price": 34.98,
           "compareAtPrice": 69.96,
           "availableForSale": true,
-          "stockQuantity": 3999,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 49,
-              "compareAtAmount": 97,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 27,
-              "compareAtAmount": 53,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 34.98,
-              "compareAtAmount": 69.96,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 50,
-              "compareAtAmount": 100,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1999.0,
-              "compareAtAmount": 3999.0,
-              "currencyCode": "INR"
-            }
-          },
+          "stockQuantity": 8063,
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/himvolt_image_2.webp?v=1788346748",
           "shopifyTitle": "2PC",
           "subtitle": "Tile-Cut / 2PC",
@@ -282,6 +221,8 @@
       ],
       "subtitle": "Polished hematite · elastic fit",
       "material": "Natural hematite (iron oxide)",
+      "perks": [],
+      "saleEndsAt": null,
       "descriptionHtml": "<p>Reclaim Your Edge Confidence Natural Hematite Stone Beaded Stretch Healing Bracelets Gift Jewelry</p>\n<p>Polished hematite beads on a stretch elastic core, no clasp, no hardware, nothing to break. Metallic gunmetal-black, dense enough to notice the moment you pick it up.</p>\n<p>Hematite is an iron oxide, one of the most abundant iron ores on Earth, cut and polished here for jewellery rather than industrial use. That iron content is what gives every bead its weight: pick the bracelet up and it sits heavier in the hand than its size suggests, and under the black polish it streaks red-brown when scratched, the same test a mineralogist would use to confirm the real stone rather than dyed glass or resin.</p>\n<p>At 5.5-6.5 on the Mohs scale, it's roughly as hard as hardened steel, hard enough to take daily knocks against a desk, a doorframe or a dumbbell without dulling, and hard enough that the hand-polished gunmetal finish stays a finish, not a coating that wears through. There's no plating to chip and no coating over the stone: what you see the day it arrives is what you'll still see years in.</p>\n<p>The build is as low-maintenance as the material: a single stretch elastic core threaded through the beads, no clasp and no sizing chart. Roll it over your hand and forget it's there, it fits a range of wrist sizes without ever needing adjustment, and there's no clasp mechanism to eventually fail.</p>\n<ul>\n<li>\n<strong>Genuine stone, not imitation:</strong> real hematite (iron oxide), verifiable by its red-brown streak, not resin or dyed glass standing in for it.</li>\n<li>\n<strong>Built to take daily wear:</strong> 5.5-6.5 Mohs hardness holds up to knocks, desks and gym bags without dulling the polish.</li>\n<li>\n<strong>No clasp to break:</strong> one stretch elastic core, on in one motion, nothing to fasten or eventually snap.</li>\n<li>\n<strong>Fits without sizing</strong>: the elastic core stretches across a wide range of wrist sizes, so there's no chart to check before you order.</li>\n<li>\n<strong>Substantial by design:</strong> 70g of dense, iron-rich stone on a single strand, present enough to feel deliberate under a cuff.</li>\n<li>\n<strong>Finish that lasts</strong>: hand-polished directly on the stone, with no plating or coating to wear through over time.</li>\n<li>\n<strong>Pairs with anything black or steel-toned</strong>: the gunmetal shine reads as understated metal, so it layers cleanly with a watch or a second bracelet without competing for attention.</li>\n</ul>\n<p>We describe hematite for what it verifiably is composition, hardness, the streak test, not what it will do for you beyond that. No health claims, just a genuine stone built into a bracelet that's easy to wear every day and hard to wear out.</p>",
       "specs": [
         {
@@ -434,33 +375,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8465,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 22,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 28,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
           "shopifyTitle": "Golden Hematite Bracelet / 10mm",
           "subtitle": "10mm bead",
@@ -475,33 +389,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8100,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 22,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 28.5,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 41,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1699.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
           "shopifyTitle": "Golden Hematite Bracelet / 12mm",
           "subtitle": "12mm bead",
@@ -516,33 +403,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 5296,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.72,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
           "shopifyTitle": "Golden Hematite Bracelet / 2mm",
           "subtitle": "2mm bead",
@@ -557,33 +417,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 9547,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.66,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
           "shopifyTitle": "Golden Hematite Bracelet / 3mm",
           "subtitle": "3mm bead",
@@ -598,33 +431,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8010,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.56,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
           "shopifyTitle": "Golden Hematite Bracelet / 4mm",
           "subtitle": "4mm bead",
@@ -639,33 +445,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 5018,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.58,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
           "shopifyTitle": "Golden Hematite Bracelet / 6mm",
           "subtitle": "6mm bead",
@@ -680,33 +459,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7150,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.78,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/2bf570f8-0f6f-4a99-93a5-44aab08daa26.jpg?v=1787502800",
           "shopifyTitle": "Golden Hematite Bracelet / 8mm",
           "subtitle": "8mm bead",
@@ -721,33 +473,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 6099,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 38,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.3,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
           "shopifyTitle": "Hematite Bracelet / 10mm",
           "subtitle": "10mm bead",
@@ -762,33 +487,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 6433,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.64,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
           "shopifyTitle": "Hematite Bracelet / 12mm",
           "subtitle": "12mm bead",
@@ -803,33 +501,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 9471,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.5,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
           "shopifyTitle": "Hematite Bracelet / 2mm",
           "subtitle": "2mm bead",
@@ -844,33 +515,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8889,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 38,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.3,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
           "shopifyTitle": "Hematite Bracelet / 3mm",
           "subtitle": "3mm bead",
@@ -885,33 +529,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 5949,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.5,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
           "shopifyTitle": "Hematite Bracelet / 4mm",
           "subtitle": "4mm bead",
@@ -926,33 +543,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 9915,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 38,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 26.94,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
           "shopifyTitle": "Hematite Bracelet / 6mm",
           "subtitle": "6mm bead",
@@ -967,33 +557,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7674,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.5,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/c86b79aa-5f40-474a-871d-0d0d3b62027e.jpg?v=1787502800",
           "shopifyTitle": "Hematite Bracelet / 8mm",
           "subtitle": "8mm bead",
@@ -1008,33 +571,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8420,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 22,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 28,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
           "shopifyTitle": "Rose Gold Hematite Bracelet / 10mm",
           "subtitle": "10mm bead",
@@ -1049,33 +585,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 6274,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 22,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 28.5,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 41,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1699.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
           "shopifyTitle": "Rose Gold Hematite Bracelet / 12mm",
           "subtitle": "12mm bead",
@@ -1090,33 +599,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 5038,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.72,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
           "shopifyTitle": "Rose Gold Hematite Bracelet / 2mm",
           "subtitle": "2mm bead",
@@ -1131,33 +613,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7167,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.66,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
           "shopifyTitle": "Rose Gold Hematite Bracelet / 3mm",
           "subtitle": "3mm bead",
@@ -1172,33 +627,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7271,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.56,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
           "shopifyTitle": "Rose Gold Hematite Bracelet / 4mm",
           "subtitle": "4mm bead",
@@ -1213,33 +641,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 6503,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.58,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
           "shopifyTitle": "Rose Gold Hematite Bracelet / 6mm",
           "subtitle": "6mm bead",
@@ -1254,33 +655,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8409,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.78,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/06c3978e-6177-48ed-813b-003b5568fd5d.jpg?v=1787502800",
           "shopifyTitle": "Rose Gold Hematite Bracelet / 8mm",
           "subtitle": "8mm bead",
@@ -1295,33 +669,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8072,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 22,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 28,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
           "shopifyTitle": "Silver Hematite Bracelet / 10mm",
           "subtitle": "10mm bead",
@@ -1336,33 +683,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 8387,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 22,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 28.5,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 41,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1699.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
           "shopifyTitle": "Silver Hematite Bracelet / 12mm",
           "subtitle": "12mm bead",
@@ -1377,33 +697,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7454,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.72,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
           "shopifyTitle": "Silver Hematite Bracelet / 2mm",
           "subtitle": "2mm bead",
@@ -1418,33 +711,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 9944,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.66,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
           "shopifyTitle": "Silver Hematite Bracelet / 3mm",
           "subtitle": "3mm bead",
@@ -1459,33 +725,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 6030,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.56,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
           "shopifyTitle": "Silver Hematite Bracelet / 4mm",
           "subtitle": "4mm bead",
@@ -1500,33 +739,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 9103,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.58,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
           "shopifyTitle": "Silver Hematite Bracelet / 6mm",
           "subtitle": "6mm bead",
@@ -1541,33 +753,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 7788,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 39,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 27.78,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1599.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/f34b22eb-92d9-4f3a-b9eb-dd042c724042.jpg?v=1787502800",
           "shopifyTitle": "Silver Hematite Bracelet / 8mm",
           "subtitle": "8mm bead",
@@ -1698,6 +883,8 @@
       ],
       "subtitle": "Round hematite beads · 4 finishes, 7 sizes",
       "material": "Natural hematite (some finishes plated)",
+      "perks": [],
+      "saleEndsAt": null,
       "descriptionHtml": "<p>Round hematite beads on a stretch cord, in the stone's natural gunmetal finish or gold-, silver- or rose-gold-plated. Seven bead sizes from a subtle 2mm to a substantial 12mm — the most customizable piece in the collection.</p>",
       "specs": [
         {
@@ -1820,33 +1007,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 47229,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 42.93,
-              "compareAtAmount": 51.52,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 22.05,
-              "compareAtAmount": 25.8,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 32.14,
-              "compareAtAmount": 39.85,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 44.66,
-              "compareAtAmount": 58.05,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1899.0,
-              "compareAtAmount": 2299.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/e3368477-3791-431c-99ac-c15d8ad141b3.jpg?v=1787500281",
           "shopifyTitle": "Black",
           "subtitle": "Black",
@@ -1925,6 +1085,8 @@
       ],
       "subtitle": "Hand-strung hematite · geometric beads",
       "material": "Hematite",
+      "perks": [],
+      "saleEndsAt": null,
       "descriptionHtml": "<p>Hand-strung hematite beads in a geometric cut, polished to a dark gunmetal shine. The heaviest piece in the collection at 107g — built to be felt, not just seen.</p>",
       "specs": [
         {
@@ -2059,34 +1221,7 @@
           "price": 33.74,
           "compareAtPrice": null,
           "availableForSale": true,
-          "stockQuantity": 29489,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 26,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 48,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1999.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
+          "stockQuantity": 29491,
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
           "shopifyTitle": "Six black / 10",
           "subtitle": "US ring size",
@@ -2101,33 +1236,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 29491,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 26,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 48,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1999.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
           "shopifyTitle": "Six black / 11",
           "subtitle": "US ring size",
@@ -2142,33 +1250,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 29491,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 26,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 48,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1999.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
           "shopifyTitle": "Six black / 12",
           "subtitle": "US ring size",
@@ -2183,33 +1264,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 29491,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 26,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 48,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1999.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
           "shopifyTitle": "Six black / 6",
           "subtitle": "US ring size",
@@ -2224,33 +1278,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 29491,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 26,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 48,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1999.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
           "shopifyTitle": "Six black / 7",
           "subtitle": "US ring size",
@@ -2265,33 +1292,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 29491,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 22,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 28.67,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 41,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1699.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
           "shopifyTitle": "Six black / 8",
           "subtitle": "US ring size",
@@ -2306,33 +1306,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 29493,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 47,
-              "compareAtAmount": null,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 26,
-              "compareAtAmount": null,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 33.74,
-              "compareAtAmount": null,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 48,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1999.0,
-              "compareAtAmount": null,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1622032996430.jpg?v=1787500449",
           "shopifyTitle": "Six black / 9",
           "subtitle": "US ring size",
@@ -2411,6 +1384,8 @@
       ],
       "subtitle": "Solid hematite · sizes 6–12",
       "material": "Hematite",
+      "perks": [],
+      "saleEndsAt": null,
       "descriptionHtml": "<p>A solid hematite band, polished to a dark metallic shine. No plating, no coating — the colour is the stone. Not magnetic; this is the natural, unmodified mineral.</p>",
       "specs": [
         {
@@ -2535,33 +1510,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 40000,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 42.57,
-              "compareAtAmount": 50.65,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1799.0,
-              "compareAtAmount": 2099.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
           "shopifyTitle": "Magnetic 10",
           "subtitle": "Man-made magnetic hematite",
@@ -2576,33 +1524,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 40000,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 45,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1799.0,
-              "compareAtAmount": 2099.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
           "shopifyTitle": "Magnetic 6",
           "subtitle": "Man-made magnetic hematite",
@@ -2617,33 +1538,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 40000,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 45,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1799.0,
-              "compareAtAmount": 2099.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
           "shopifyTitle": "Magnetic 7",
           "subtitle": "Man-made magnetic hematite",
@@ -2658,33 +1552,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 40004,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 45,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1799.0,
-              "compareAtAmount": 2099.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
           "shopifyTitle": "Magnetic 8",
           "subtitle": "Man-made magnetic hematite",
@@ -2699,33 +1566,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 40000,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 45,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1799.0,
-              "compareAtAmount": 2099.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
           "shopifyTitle": "Magnetic 9",
           "subtitle": "Man-made magnetic hematite",
@@ -2740,33 +1580,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 40000,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1799.0,
-              "compareAtAmount": 2099.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
           "shopifyTitle": "No.10 non magnetic",
           "subtitle": "Natural hematite",
@@ -2781,33 +1594,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 40000,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1799.0,
-              "compareAtAmount": 2099.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
           "shopifyTitle": "No.6 non magnetic",
           "subtitle": "Natural hematite",
@@ -2822,33 +1608,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 40000,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1799.0,
-              "compareAtAmount": 2099.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
           "shopifyTitle": "No.7 non magnetic",
           "subtitle": "Natural hematite",
@@ -2863,33 +1622,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 40000,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1799.0,
-              "compareAtAmount": 2099.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
           "shopifyTitle": "No.8 non magnetic",
           "subtitle": "Natural hematite",
@@ -2904,33 +1636,6 @@
           "compareAtPrice": null,
           "availableForSale": true,
           "stockQuantity": 40000,
-          "pricesByMarket": {
-            "CA": {
-              "amount": 40.86,
-              "compareAtAmount": 53.13,
-              "currencyCode": "CAD"
-            },
-            "GB": {
-              "amount": 21.24,
-              "compareAtAmount": 25.7,
-              "currencyCode": "GBP"
-            },
-            "US": {
-              "amount": 31.23,
-              "compareAtAmount": 36.23,
-              "currencyCode": "USD"
-            },
-            "AU": {
-              "amount": 42,
-              "compareAtAmount": null,
-              "currencyCode": "AUD"
-            },
-            "IN": {
-              "amount": 1799.0,
-              "compareAtAmount": 2099.0,
-              "currencyCode": "INR"
-            }
-          },
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/1619578682377.jpg?v=1787500786",
           "shopifyTitle": "No.9 non magnetic",
           "subtitle": "Natural hematite",
@@ -3009,6 +1714,8 @@
       ],
       "subtitle": "Magnetic or non-magnetic · sizes 6–10",
       "material": "Hematite (magnetic and non-magnetic finishes)",
+      "perks": [],
+      "saleEndsAt": null,
       "descriptionHtml": "<p>A curved hematite band in two finishes: natural non-magnetic hematite, or a man-made magnetic hematite (often called \"hematine\") for the magnetic variants. Natural hematite itself is only weakly magnetic — the strongly magnetic feel in the \"Magnetic\" sizes comes from that man-made version, same as most magnetic hematite jewellery on the market. We would rather tell you that than let you assume otherwise.</p>",
       "specs": [
         {
@@ -3112,6 +1819,392 @@
             "alt": "34f12d04ed36efb78c82126e12c0e54b",
             "width": 800,
             "height": 800
+          }
+        }
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/15421091315939",
+      "handle": "hydraulic-arm-trainer",
+      "title": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+      "price": 79.99,
+      "compareAtPrice": 99.99,
+      "currencyCode": "USD",
+      "availableForSale": true,
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/67685377835235",
+          "title": "Black",
+          "sku": "14:-1;200007763:201336106",
+          "price": 79.99,
+          "compareAtPrice": 99.99,
+          "availableForSale": true,
+          "stockQuantity": 390,
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A7a24459e271944548d31d63ea21a02244.webp?v=1791978239",
+          "shopifyTitle": "Gray / United States",
+          "subtitle": "Black with grey grips",
+          "quantity": 1,
+          "weightGrams": 0
+        },
+        {
+          "id": "gid://shopify/ProductVariant/67685377868003",
+          "title": "Blue",
+          "sku": "14:-3;200007763:201336106",
+          "price": 79.99,
+          "compareAtPrice": 99.99,
+          "availableForSale": true,
+          "stockQuantity": 374,
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A2b024a279529406da5d559912a70e8a21.webp?v=1791978239",
+          "shopifyTitle": "Blue / United States",
+          "subtitle": "Blue grips",
+          "quantity": 1,
+          "weightGrams": 0
+        },
+        {
+          "id": "gid://shopify/ProductVariant/67685377900771",
+          "title": "Red",
+          "sku": "14:-4;200007763:201336106",
+          "price": 79.99,
+          "compareAtPrice": 99.99,
+          "availableForSale": true,
+          "stockQuantity": 22,
+          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A39f6b04236bb473781d5639dfd47b3f4t.webp?v=1791978239",
+          "shopifyTitle": "Red / United States",
+          "subtitle": "Red grips",
+          "quantity": 1,
+          "weightGrams": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A7a24459e271944548d31d63ea21a02244.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ad129dd2543894d7f8cef42083435f975e.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ac4bfc41221ab43ab83a7f20d454bb6ba1.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A297aa81c6c314dd5b21642776434cea5v.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Aab913fcc4cf043c6b455b35f0b19eab5e.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/HimVolt_Four-Panel_Fitness_Equipment_Collage.png?v=1791980101",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A23be0a92864c4c48b7ef7d9c77ffd3c8R.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ad3bead0aee3e4ff8bd3063b796ae7d7dL.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1500,
+          "height": 750
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ab6cf365135be4f26b1c0ed8db30dec73j.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1464,
+          "height": 600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A9a1e12c673d64115978d05157ba1aa7da.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1464,
+          "height": 1200
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A0df4c7c59a164a93afc28f15b83665c5g.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1464,
+          "height": 600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ac458fac026874eb98b878916f953a0efK.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1464,
+          "height": 600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A3c0938e67192405a8b057458da398970V.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1500,
+          "height": 817
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ab70553c145e04155a4a798fc7d26a13b8.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1000,
+          "height": 260
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A2b024a279529406da5d559912a70e8a21.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A39f6b04236bb473781d5639dfd47b3f4t.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        }
+      ],
+      "media": [
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A7a24459e271944548d31d63ea21a02244.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ad129dd2543894d7f8cef42083435f975e.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ac4bfc41221ab43ab83a7f20d454bb6ba1.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "kind": "video",
+          "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/68815e8aa1254287a22f8f20ad30cb87.thumbnail.0000000000.jpg?v=1791979790",
+          "sources": [
+            {
+              "src": "https://cdn.shopify.com/videos/c/vp/68815e8aa1254287a22f8f20ad30cb87/68815e8aa1254287a22f8f20ad30cb87.HD-1080p-3.3Mbps-97531029.mp4",
+              "type": "video/mp4"
+            },
+            {
+              "src": "https://cdn.shopify.com/videos/c/vp/68815e8aa1254287a22f8f20ad30cb87/68815e8aa1254287a22f8f20ad30cb87.HD-720p-2.1Mbps-97531029.mp4",
+              "type": "video/mp4"
+            },
+            {
+              "src": "https://cdn.shopify.com/videos/c/vp/68815e8aa1254287a22f8f20ad30cb87/68815e8aa1254287a22f8f20ad30cb87.SD-480p-1.0Mbps-97531029.mp4",
+              "type": "video/mp4"
+            }
+          ]
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A297aa81c6c314dd5b21642776434cea5v.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Aab913fcc4cf043c6b455b35f0b19eab5e.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/HimVolt_Four-Panel_Fitness_Equipment_Collage.png?v=1791980101",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A23be0a92864c4c48b7ef7d9c77ffd3c8R.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ad3bead0aee3e4ff8bd3063b796ae7d7dL.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1500,
+          "height": 750
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ab6cf365135be4f26b1c0ed8db30dec73j.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1464,
+          "height": 600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A9a1e12c673d64115978d05157ba1aa7da.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1464,
+          "height": 1200
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A0df4c7c59a164a93afc28f15b83665c5g.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1464,
+          "height": 600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ac458fac026874eb98b878916f953a0efK.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1464,
+          "height": 600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A3c0938e67192405a8b057458da398970V.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1500,
+          "height": 817
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ab70553c145e04155a4a798fc7d26a13b8.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1000,
+          "height": 260
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A2b024a279529406da5d559912a70e8a21.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A39f6b04236bb473781d5639dfd47b3f4t.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        }
+      ],
+      "subtitle": "Adjustable hydraulic arm trainer with rep counter",
+      "material": "Carbon steel",
+      "perks": [
+        "22-440LBs Adjustable Hydraulic Power",
+        "Stable Triangular Structure",
+        "Upgraded & Durable Build",
+        "Ergonomic & Portable",
+        "Enhanced Safety Design"
+      ],
+      "saleEndsAt": "2026-10-19T03:00:00.000Z",
+      "descriptionHtml": "<h1>SPECIFICATIONS</h1>\n<p><span>Arm Exerciser Grade</span>: <span style=\"color: #333;\">22-440lb</span></p>\n<p><span>Brand Name</span>: <span style=\"color: #333;\">MERACH</span></p>\n<p><span>Display</span>: <span style=\"color: #333;\">LCD Rep Counter / Digital Counter Display</span></p>\n<p><span>Foldable</span>: <span style=\"color: #333;\">Yes / Snap-Lock Folding Design</span></p>\n<p><span>Function</span>: <span style=\"color: #333;\">ARMS</span></p>\n<p><span>Handle</span>: <span style=\"color: #333;\">Ergonomic PU Handle / Non-Slip Grip</span></p>\n<p><span>High-concerned chemical</span>: <span style=\"color: #333;\">none</span></p>\n<p><span>Material</span>: <span style=\"color: #333;\">High-Density Carbon Steel / Double-Layer Steel</span></p>\n<p><span>Model Number</span>: <span style=\"color: #333;\">2520</span></p>\n<p><span>Origin</span>: <span style=\"color: #333;\">Mainland China</span></p>\n<p><span>Product Type</span>: <span style=\"color: #333;\">Hydraulic Arm Exerciser / Chest Exercise Machine / Arm Strength Trainer</span></p>\n<p><span>Resistance Levels</span>: <span style=\"color: #333;\">20 Adjustable Levels</span></p>\n<p><span>Resistance Range</span>: <span style=\"color: #333;\">max 440 lbs</span></p>\n<p><span>Resistance Type</span>: <span style=\"color: #333;\">Hydraulic Resistance / Adjustable Hydraulic</span></p>\n<p><span>Structure</span>: <span style=\"color: #333;\">Triangular Reinforced Structure</span></p>\n<p><span>Target Area</span>: <span style=\"color: #333;\">Chest / Arms / Shoulders / Forearms / Upper Body</span></p>\n<p><span>Training Site</span>: <span style=\"color: #333;\">Waist,ARMS,Waist &amp; Abdomen Exercise,Hand,Wrist,Hip,Chest,Core</span></p>\n<p><span>Type</span>: <span style=\"color: #333;\">Hydraulic arm</span></p>\n<p><span>Type of sports</span>: <span style=\"color: #333;\">Strength Training</span></p>\n<div class=\"detailmodule_image\"><br></div>\n<div class=\"detailmodule_text\">\n<p style=\"color: rgb(74, 144, 226);\">Adjustable Resistance 22–440 lbs + LCD Rep Counter – One Machine for Every Level</p>\n<p style=\"font-family: OpenSans; font-size: 14px; font-weight: 300; line-height: 20px; white-space: pre-wrap; color: rgb(0, 0, 0); margin-bottom: 12px;\" class=\"detail-desc-decorate-content\">This hydraulic arm exerciser features 20 adjustable resistance levels (22–440 lbs) with a simple twist-knob design—no tools needed. Whether you're a beginner building foundational strength or an advanced athlete pushing limits, dial in the exact resistance you need. The built-in LCD counter tracks every rep in real time, so you can set goals, monitor progress, and stay motivated without guesswork. Perfect replacement for multiple dumbbells or resistance bands.</p>\n</div>\n<div class=\"detailmodule_text\">\n<p style=\"color: rgb(74, 144, 226);\">Upgraded Safety Design – Protect Your Hands &amp; Equipment</p>\n<p style=\"font-family: OpenSans; font-size: 14px; font-weight: 300; line-height: 20px; white-space: pre-wrap; color: rgb(0, 0, 0); margin-bottom: 12px;\" class=\"detail-desc-decorate-content\">Unlike traditional arm trainers, the Merach hydraulic chest exerciser adds a reinforced protective housing around the hydraulic cylinder and strength gauge. This cushions accidental impacts, prevents oil leakage, and significantly reduces the risk of pinch injuries. The safe micro-rebound mechanism ensures smooth, controlled resistance—no sudden snap-back. Train with confidence at home, in the gym, or anywhere.</p>\n</div>\n<div class=\"detailmodule_text\">\n<p style=\"color: rgb(74, 144, 226);\">Industrial-Grade Durability – Built to Last Years of Heavy Use</p>\n<p style=\"font-family: OpenSans; font-size: 14px; font-weight: 300; line-height: 20px; white-space: pre-wrap; color: rgb(0, 0, 0); margin-bottom: 12px;\" class=\"detail-desc-decorate-content\">Constructed with double-layer high-density carbon steel that resists deformation and breakage even under maximum load. The core hydraulic cylinder is fully sealed for consistent, stable resistance throughout every rep—no fading, no jerking. Combined with a reinforced triangular structure and heavy-duty rivets, this chest workout equipment delivers rock-solid stability during intense training sessions.</p>\n</div>\n<div class=\"detailmodule_text\">\n<p style=\"color: rgb(74, 144, 226);\">Ergonomic &amp; Portable – Train Anywhere, Store Anywhere</p>\n<p style=\"font-family: OpenSans; font-size: 14px; font-weight: 300; line-height: 20px; white-space: pre-wrap; color: rgb(0, 0, 0); margin-bottom: 12px;\" class=\"detail-desc-decorate-content\">Designed with wear-resistant, non-slip PU ergonomic handles for a comfortable grip during high-rep sets—no blisters, no slipping. The bottom snap-lock mechanism allows instant folding for compact storage under a bed, in a closet, or in a gym bag. Lightweight enough to carry to the office, park, or while traveling. Your full upper-body workout is always within arm's reach.</p>\n</div>\n<div class=\"detailmodule_text\">\n<p style=\"color: rgb(74, 144, 226);\">Full Upper-Body Training for Men &amp; Women – Home Gym Essential</p>\n<p style=\"font-family: OpenSans; font-size: 14px; font-weight: 300; line-height: 20px; white-space: pre-wrap; color: rgb(0, 0, 0); margin-bottom: 12px;\" class=\"detail-desc-decorate-content\">Targets chest, arms, shoulders, forearms, and back in one compact tool. Ideal for men building muscle mass, women toning arms, seniors maintaining joint mobility, and athletes recovering from injury. Replaces bulky gym machines with a space-saving solution perfect for apartments, dorm rooms, home gyms, or office breaks. Backed by Merach's comprehensive after-sales support—contact us anytime for assistance.</p>\n</div>\n<div class=\"detailmodule_image\">\n<img class=\"detail-desc-decorate-image\" src=\"https://ae-pic-a1.aliexpress-media.com/kf/Ab6cf365135be4f26b1c0ed8db30dec73j.png\"><img class=\"detail-desc-decorate-image\" src=\"https://ae-pic-a1.aliexpress-media.com/kf/A9a1e12c673d64115978d05157ba1aa7da.png\"><img class=\"detail-desc-decorate-image\" src=\"https://ae-pic-a1.aliexpress-media.com/kf/A0df4c7c59a164a93afc28f15b83665c5g.jpg\"><img class=\"detail-desc-decorate-image\" src=\"https://ae-pic-a1.aliexpress-media.com/kf/Ac458fac026874eb98b878916f953a0efK.jpg\">\n</div>\n<div class=\"detailmodule_image\"><br></div>\n<div class=\"detailmodule_text\">\n<p style=\"color: rgb(243, 7, 7);\">Note</p>\n<p style=\"font-family: OpenSans; font-size: 14px; font-weight: 300; line-height: 20px; white-space: pre-wrap; color: rgb(0, 0, 0); margin-bottom: 12px;\" class=\"detail-desc-decorate-content\">1. Ships from Local warehouse. Fast shipping. Free shipping.<br>2. Please allow 1-2 cm error in size due to different manual measurement methods.<br>3. PO box addresses cannot be used for shipping; please do not leave a PO box address.<br>4.Tracking information will usually be updated in 24- 72 hours.</p>\n</div>\n<div class=\"detailmodule_text\">\n<p style=\"color: rgb(243, 7, 7);\">RELIABLE AFTER-SALES SUPPORT</p>\n<p style=\"font-family: OpenSans; font-size: 14px; font-weight: 300; line-height: 20px; white-space: pre-wrap; color: rgb(0, 0, 0); margin-bottom: 12px;\" class=\"detail-desc-decorate-content\">Your purchase comes with a 1-year warranty covering all covered faults. We will provide replacement parts free of charge to ensure long-term use without the hassle of returning bulky equipment. Within one year, for products that are irreparable or completely unusable, we will provide a free replacement. We also offer a standard 30-day return policy.<br><br>Friendly reminder: Due to different global time zones, please allow us a maximum of 24 hours to respond to your messages. If you need assistance, please contact us directly before initiating a dispute—we are always ready to help!</p>\n</div>\n<div class=\"detailmodule_image\"><br></div>\n<p><br></p>",
+      "specs": [
+        {
+          "label": "Resistance range",
+          "value": "22–440 lb, set with one twist",
+          "description": "Twenty resistance levels, dialled in with a simple twist knob and no tools. Start light on day one, then keep turning it up. One compact trainer stands in for a whole rack of bands and dumbbells.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ad129dd2543894d7f8cef42083435f975e.webp?v=1791978239",
+            "alt": "Resistance dial showing 22 to 440 lb levels",
+            "width": 1600,
+            "height": 1600
+          }
+        },
+        {
+          "label": "Rep counter",
+          "value": "Every rep, counted for you",
+          "description": "The built-in LCD counts each rep in real time, so you can chase a number instead of losing track mid-set. Pick a target, beat it, and watch it climb session after session.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A23be0a92864c4c48b7ef7d9c77ffd3c8R.webp?v=1791978239",
+            "alt": "Built-in LCD rep counter",
+            "width": 1600,
+            "height": 1600
+          }
+        },
+        {
+          "label": "Frame",
+          "value": "Double-layer carbon steel",
+          "description": "High-density carbon steel with a reinforced triangular structure and heavy-duty rivets, so it holds its shape at full load, rep after rep. Compact at 16.7 × 6.4 in.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A7a24459e271944548d31d63ea21a02244.webp?v=1791978239",
+            "alt": "HimVolt arm trainer held at the chest",
+            "width": 1600,
+            "height": 1600
+          }
+        },
+        {
+          "label": "Handles",
+          "value": "Non-slip ergonomic grips",
+          "description": "Wear-resistant PU handles shaped for your hand, with a textured grip that stays put through the longest sets. Choose black, blue or red to match your gym.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A2b024a279529406da5d559912a70e8a21.webp?v=1791978239",
+            "alt": "HimVolt arm trainer with blue grips",
+            "width": 1600,
+            "height": 1600
+          }
+        },
+        {
+          "label": "Muscles worked",
+          "value": "Chest, arms, shoulders and forearms",
+          "description": "Press, pull and squeeze from the same frame and train your whole upper body with one tool, in a corner of the room instead of a corner of the gym.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/HimVolt_Four-Panel_Fitness_Equipment_Collage.png?v=1791980101",
+            "alt": "Four ways to train with the HimVolt arm trainer",
+            "width": 1254,
+            "height": 1254
+          }
+        }
+      ],
+      "features": [
+        {
+          "icon": "shield",
+          "label": "Hydraulic power, safely housed",
+          "body": "The cylinder and strength gauge sit inside a reinforced housing, so knocks stay off the working parts and the oil stays sealed in. A smooth micro-rebound brings the arms back under control, never snapping.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ac4bfc41221ab43ab83a7f20d454bb6ba1.webp?v=1791978239",
+            "alt": "Hydraulic trainer compared with a spring power twister bar",
+            "width": 1600,
+            "height": 1600
+          }
+        },
+        {
+          "icon": "gym",
+          "label": "A triangle that keeps every rep honest",
+          "body": "The triangular frame locks each rep onto the same arc. No wobble and no wandering, just a stable, repeatable press from the first rep to the fiftieth.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A297aa81c6c314dd5b21642776434cea5v.webp?v=1791978239",
+            "alt": "Triangle frame fixed motion path",
+            "width": 1600,
+            "height": 1600
+          }
+        },
+        {
+          "icon": "package",
+          "label": "Folds away in seconds",
+          "body": "One snap-lock at the base and it folds flat. Slide it under the bed, into a closet or into a gym bag, so a full upper-body session goes wherever you do.",
+          "image": {
+            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Aab913fcc4cf043c6b455b35f0b19eab5e.webp?v=1791978239",
+            "alt": "Arm trainer construction details and storage fastener",
+            "width": 1600,
+            "height": 1600
           }
         }
       ]

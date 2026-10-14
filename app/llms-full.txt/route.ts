@@ -1,7 +1,7 @@
 import { blogPosts } from "@/content/blog";
 import { faqs } from "@/content/copy";
 import { getLiveProducts } from "@/lib/product-live";
-import type { Product } from "@/lib/product";
+import { plainDescription, type Product } from "@/lib/product";
 import { site } from "@/lib/site";
 
 export const revalidate = 3600;
@@ -33,7 +33,7 @@ function buildLlmsFullTxt(products: Product[]): string {
     const low = Math.min(...prices);
     const high = Math.max(...prices);
     const priceLabel = low === high ? `$${low}` : `$${low}–$${high}`;
-    const plain = p.descriptionHtml.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    const plain = plainDescription(p);
     lines.push(`### ${p.title}`);
     lines.push(`${site.url}/products/${p.handle}`);
     lines.push(`${p.subtitle} — ${p.material}, ${priceLabel}.`);

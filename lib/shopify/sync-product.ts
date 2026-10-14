@@ -8,10 +8,8 @@ import { getAdminToken } from "@/lib/shopify/admin-token";
 import {
   adminEndpoint,
   isAdminConfigured,
-  isStorefrontConfigured,
   shopifyConfig,
 } from "@/lib/shopify/config";
-import { getLocalizedVariantPrices } from "@/lib/shopify/localization-service";
 
 /**
  * Multi-product Shopify sync — refreshes every product already in
@@ -33,7 +31,7 @@ import { getLocalizedVariantPrices } from "@/lib/shopify/localization-service";
  * Product spec metaobjects, label+value each), features (custom.
  * feature_highlights — a list of Feature highlight metaobjects, icon+label+
  * body each), images, variant sku/price/compareAtPrice/availableForSale/
- * image, pricesByMarket. Every one of those is editable from Shopify Admin
+ * image. Every one of those is editable from Shopify Admin
  * without touching this repo — that split used to run through this file as
  * a curated-vs-Shopify-sourced distinction per field; it doesn't need to
  * anymore, now that Shopify's own title/description on this store no longer
@@ -46,17 +44,10 @@ import { getLocalizedVariantPrices } from "@/lib/shopify/localization-service";
  * clearing a field in Admin shouldn't delete the content, just leave it
  * stale until it's replaced).
  *
- * Two Shopify APIs, two jobs:
- *  - Admin API: the products themselves — id, handle, title, description,
- *    metafields, images, variants, base price.
- *  - Storefront API, once per real market: this store has genuinely
- *    distinct price lists for a handful of markets (found via Admin's
- *    `markets` query — a market scoped to exactly one country region is a
- *    real, merchant-configured market; one scoped to many is the
- *    "International" catch-all and is skipped, its price already covered by
- *    the base price). Freezing a snapshot only makes sense for markets with
- *    their own price list — the catch-all's price is live-FX-converted and
- *    would just go stale if snapshotted, so it isn't.
+ * Prices are not frozen per market here: the file holds each variant's base
+ * (shop-currency) price only. Every other currency is fetched live from
+ * Shopify (`@inContext(country:)`, app/api/localization/prices) and checkout
+ * is created for the same country, so the site and checkout cannot disagree.
  */
 
 const OUTPUT_PATH = CATALOG_PATH;
@@ -82,6 +73,12 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
           value
         }
         materialField: metafield(namespace: "custom", key: "material") {
+          value
+        }
+        perksField: metafield(namespace: "custom", key: "perks") {
+          value
+        }
+        saleEndsAtField: metafield(namespace: "custom", key: "sale_ends_at") {
           value
         }
         specsField: metafield(namespace: "custom", key: "specs") {
@@ -227,24 +224,6 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
   }
 `;
 
-const MARKETS_QUERY = /* GraphQL */ `
-  query Markets {
-    markets(first: 20) {
-      nodes {
-        name
-        enabled
-        regions(first: 10) {
-          nodes {
-            ... on MarketRegionCountry {
-              code
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 type ImageNode = {
   url: string;
   altText: string | null;
@@ -319,6 +298,8 @@ type ProductNode = {
   descriptionHtml: string | null;
   subtitleField: { value: string } | null;
   materialField: { value: string } | null;
+  perksField: { value: string } | null;
+  saleEndsAtField: { value: string } | null;
   specsField: { references: { nodes: SpecNode[] } | null } | null;
   featureHighlights: {
     references: { nodes: FeatureHighlightNode[] } | null;
@@ -326,12 +307,6 @@ type ProductNode = {
   images: { nodes: ImageNode[] } | null;
   media: { nodes: MediaNode[] } | null;
   variants: { nodes: VariantNode[] } | null;
-};
-
-type MarketPrice = {
-  amount: number;
-  compareAtAmount: number | null;
-  currencyCode: string;
 };
 
 type SyncedImage = { src: string; alt: string; width: number; height: number };
@@ -367,7 +342,6 @@ type SyncedVariant = {
   compareAtPrice: number | null;
   availableForSale: boolean;
   stockQuantity: number | null;
-  pricesByMarket: Record<string, MarketPrice>;
   image: string | null;
   shopifyTitle: string;
   subtitle: string;
@@ -392,13 +366,16 @@ type SyncedProduct = {
   descriptionHtml: string;
   specs: SyncedSpec[];
   features: SyncedFeature[];
+  /** From the custom.perks metafield (a plain text list), in Shopify's own order. Undefined for a product synced before this field existed. */
+  perks?: string[];
+  /** From the custom.sale_ends_at metafield — an ISO timestamp, or null if unset or already past at sync time. Undefined for a product synced before this field existed. */
+  saleEndsAt?: string | null;
 };
 
 export type SyncedCatalogRecord = {
   version: 8;
   syncedAt: string;
   shop: { domain: string; name: string; currencyCode: string };
-  markets: string[];
   products: SyncedProduct[];
 };
 
@@ -479,32 +456,27 @@ function toMediaItems(
   return items;
 }
 
-/** Single-country markets are real, merchant-priced markets; multi-country ones are the "sell everywhere" catch-all. */
-async function discoverCuratedMarketCountries(
-  adminRequest: <T>(
-    query: string,
-    variables?: Record<string, unknown>,
-  ) => Promise<T>,
-): Promise<string[]> {
-  const data = await adminRequest<{
-    markets: {
-      nodes: {
-        name: string;
-        enabled: boolean;
-        regions: { nodes: { code?: string }[] };
-      }[];
-    };
-  }>(MARKETS_QUERY);
-
-  const codes = new Set<string>();
-  for (const market of data.markets.nodes) {
-    if (!market.enabled) continue;
-    const regionCodes = market.regions.nodes
-      .map((r) => r.code)
-      .filter((c): c is string => Boolean(c));
-    if (regionCodes.length === 1) codes.add(regionCodes[0]);
+/** custom.perks — a list.single_line_text_field metafield, stored by Shopify as a JSON array of strings. */
+function normalizePerks(field: { value: string } | null): string[] {
+  if (!field?.value) return [];
+  try {
+    const list = JSON.parse(field.value) as unknown;
+    if (!Array.isArray(list)) return [];
+    return list
+      .filter((p): p is string => typeof p === "string" && p.trim().length > 0)
+      .map((p) => p.trim());
+  } catch {
+    return [];
   }
-  return [...codes];
+}
+
+/** custom.sale_ends_at — only kept when it's a valid timestamp that hasn't passed yet, so an expired countdown never reaches the page. The page re-checks against the visitor's clock too, since a catalog snapshot can be hours old. */
+function normalizeSaleEndsAt(field: { value: string } | null): string | null {
+  const raw = field?.value?.trim();
+  if (!raw) return null;
+  const time = Date.parse(raw);
+  if (Number.isNaN(time) || time <= Date.now()) return null;
+  return new Date(time).toISOString();
 }
 
 /**
@@ -572,42 +544,6 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
     }
   }
 
-  // A permissions gap (e.g. the Admin app is missing the read_markets scope)
-  // must not take down the base sync — just skip market prices.
-  const markets = await discoverCuratedMarketCountries(adminRequest).catch(
-    () => [],
-  );
-
-  const allVariantIds = [...freshById.values()].flatMap((p) =>
-    (p.variants?.nodes ?? []).map((v) => v.id),
-  );
-  const pricesByVariant = new Map<string, Record<string, MarketPrice>>(
-    allVariantIds.map((id) => [id, {}]),
-  );
-
-  if (markets.length > 0 && isStorefrontConfigured(cfg)) {
-    await Promise.all(
-      markets.map(async (country) => {
-        const priceMap = await getLocalizedVariantPrices(
-          allVariantIds,
-          country,
-        ).catch(() => new Map());
-        for (const [variantId, localized] of priceMap) {
-          const bucket = pricesByVariant.get(variantId);
-          if (!bucket) continue;
-          bucket[country] = {
-            amount: Number(localized.amount),
-            compareAtAmount:
-              localized.compareAtAmount != null
-                ? Number(localized.compareAtAmount)
-                : null,
-            currencyCode: localized.currencyCode,
-          };
-        }
-      }),
-    );
-  }
-
   const products: SyncedProduct[] = [];
 
   for (const id of knownIds) {
@@ -660,7 +596,6 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
           typeof v.inventoryQuantity === "number" && v.inventoryQuantity >= 0
             ? v.inventoryQuantity
             : null,
-        pricesByMarket: pricesByVariant.get(v.id) ?? {},
         image: v.image?.url ?? curated?.image ?? null,
         shopifyTitle: v.title,
         subtitle: curated?.subtitle ?? v.title,
@@ -734,6 +669,8 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
       ),
       specs: specs as SyncedSpec[],
       features: features as SyncedFeature[],
+      perks: normalizePerks(freshProduct.perksField),
+      saleEndsAt: normalizeSaleEndsAt(freshProduct.saleEndsAtField),
     });
   }
 
@@ -745,7 +682,6 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
       name: shopData.shop?.name || existing.shop?.name || "HimVolt",
       currencyCode: currency,
     },
-    markets,
     products,
   };
 
@@ -804,6 +740,8 @@ export async function seedProductIntoCatalog(
       descriptionHtml: "",
       specs: [],
       features: [],
+      perks: [],
+      saleEndsAt: null,
     });
 
     await writeJsonFileAtomic(OUTPUT_PATH, record);

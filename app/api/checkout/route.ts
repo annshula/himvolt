@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 
 import { getVariantById } from "@/lib/catalog";
+import { resolveEffectiveCountry } from "@/lib/localization/country";
 import { createCheckout, shopifyEnabled } from "@/lib/shopify";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 /**
  * Creates a Shopify cart and hands back its hosted checkout URL.
@@ -47,7 +48,11 @@ export async function POST(request: Request) {
   }
 
   const quantity = Math.max(1, Math.min(Number(body.quantity) || 1, 20));
-  const checkoutUrl = await createCheckout(body.variantId, quantity);
+  const checkoutUrl = await createCheckout(
+    body.variantId,
+    quantity,
+    await resolveEffectiveCountry(),
+  );
 
   if (!checkoutUrl) {
     return NextResponse.json(

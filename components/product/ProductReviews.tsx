@@ -550,13 +550,13 @@ function maskWord(word: string): string {
   return `${clean.slice(0, keep)}***${clean.slice(-keep)}`;
 }
 
-function maskName(full: string): string {
+export function maskName(full: string): string {
   const parts = full.split(" ").filter(Boolean);
   if (parts.length === 0) return "***";
   return parts.map(maskWord).join(" ");
 }
 
-function formatDate(ts: number): string {
+export function formatDate(ts: number): string {
   try {
     return new Intl.DateTimeFormat("en-US", {
       month: "short",

@@ -14,12 +14,6 @@
 import catalog from "@/data/product.json";
 import type { Variant } from "@/lib/product";
 
-export type MarketPrice = {
-  amount: number;
-  compareAtAmount: number | null;
-  currencyCode: string;
-};
-
 export type SyncedImage = { src: string; alt: string; width: number; height: number };
 export type SyncedVideo = { poster: string; sources: { src: string; type: string }[] };
 
@@ -31,8 +25,6 @@ export type SyncedVariant = {
   availableForSale: boolean;
   /** Real Shopify inventory count, only when Shopify is tracking it for this variant — null for untracked variants or a product synced before this field existed. Never fabricated. */
   stockQuantity?: number | null;
-  /** Per-country price list, from the store's real (single-country) Shopify Markets only — see lib/shopify/sync-product.ts. Empty until a product has been through that sync. */
-  pricesByMarket?: Record<string, MarketPrice>;
   /** The real Shopify variant image (per finish/colour) — undefined for a product synced before images were added to the schema. */
   image?: string;
 };
@@ -57,8 +49,6 @@ export type SyncedProduct = {
 export const syncedProducts: SyncedProduct[] = catalog.products;
 export const syncedShop = catalog.shop;
 export const syncedAt = catalog.syncedAt;
-/** Curated market country codes this catalog has real per-market prices for (empty until a product has been synced with Storefront access). */
-export const syncedMarkets: string[] = "markets" in catalog ? catalog.markets : [];
 
 /** The main/hero product — its own page is the one every "shop now" CTA elsewhere on the site hands off to. */
 export const mainSyncedProduct = syncedProducts[0];
@@ -105,44 +95,20 @@ export function defaultVariant(product: SyncedProduct = mainSyncedProduct): Sync
 }
 
 /**
- * A variant's price for a given country, straight from the synced catalog —
- * no live Shopify call. Products that haven't been through the per-market
- * sync (lib/shopify/sync-product.ts) simply have no pricesByMarket entries,
- * so every country falls back to the variant's own base price — correct
- * behavior, not a bug: there is nothing else to show yet.
+ * The base (shop-currency) price this file carries for the main product's
+ * default variant, in cents. These are the values every page renders before
+ * Shopify's live, country-specific price lands — nothing here is converted
+ * or frozen per market; other currencies come from Shopify at request time
+ * (app/api/localization/prices).
  */
-export function priceForMarket(
-  variantId: string,
-  countryCode: string | null | undefined,
-): MarketPrice {
-  const variant = getVariantById(variantId);
-  const rawDefault: MarketPrice = {
-    amount: variant?.price ?? mainSyncedProduct.price,
-    compareAtAmount: variant?.compareAtPrice ?? mainSyncedProduct.compareAtPrice,
-    currencyCode: mainSyncedProduct.currencyCode,
-  };
-  if (!variant) return rawDefault;
-
-  const us = variant.pricesByMarket?.US ?? rawDefault;
-  if (!countryCode) return us;
-  return variant.pricesByMarket?.[countryCode.toUpperCase()] ?? us;
-}
-
 const mainSaleVariant = defaultVariant(mainSyncedProduct);
-// Same US-preferred fallback as priceForMarket — the site's one "no country
-// known yet" price should never be the raw Admin default.
-const mainDefaultPrice = mainSaleVariant.pricesByMarket?.US ?? {
-  amount: mainSaleVariant.price,
-  compareAtAmount: mainSaleVariant.compareAtPrice,
-  currencyCode: mainSyncedProduct.currencyCode,
-};
 
-export const productPriceCents = Math.round(mainDefaultPrice.amount * 100);
+export const productPriceCents = Math.round(mainSaleVariant.price * 100);
 export const productCompareAtCents =
-  mainDefaultPrice.compareAtAmount != null
-    ? Math.round(mainDefaultPrice.compareAtAmount * 100)
+  mainSaleVariant.compareAtPrice != null
+    ? Math.round(mainSaleVariant.compareAtPrice * 100)
     : productPriceCents;
-export const productCurrency = mainDefaultPrice.currencyCode ?? "USD";
+export const productCurrency = mainSyncedProduct.currencyCode ?? "USD";
 
 /**
  * Map a local presentation variant (from `lib/product.ts`) to its live

@@ -54,7 +54,13 @@ export async function getCart(cartId: string): Promise<Cart | null> {
 
 /* ── Mutations ─────────────────────────────────────────────────────────── */
 
-export async function createCart(lines: CartLineInput[]): Promise<Cart> {
+export async function createCart(
+  lines: CartLineInput[],
+  options: { countryCode?: string | null } = {},
+): Promise<Cart> {
+  const buyerIdentity = options.countryCode
+    ? { countryCode: options.countryCode }
+    : undefined;
   const data = await graphqlRequest<{
     cartCreate: {
       cart: Cart | null;
@@ -63,7 +69,7 @@ export async function createCart(lines: CartLineInput[]): Promise<Cart> {
   }>({
     endpoint: storefrontEndpoint(),
     query: CART_CREATE_MUTATION,
-    variables: { input: { lines } },
+    variables: { input: { lines, ...(buyerIdentity ? { buyerIdentity } : {}) } },
     storefrontToken: token(),
     retries: 1,
   });

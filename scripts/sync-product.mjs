@@ -1,6 +1,6 @@
 /**
  * `node scripts/sync-product.mjs` — refresh every product in data/product.json
- * from the Shopify Admin + Storefront APIs and overwrite the file.
+ * from the Shopify Admin API and overwrite the file.
  *
  * "Exactly the SKUs, no extra items": the set of products synced is driven
  * by the `id`s already present in data/product.json (a `nodes(ids: [...])`
@@ -17,7 +17,7 @@
  * Product spec metaobjects, label+value each), features (custom.
  * feature_highlights — a list of Feature highlight metaobjects, icon+label+
  * body each), images, variant sku/price/compareAtPrice/availableForSale/
- * image, pricesByMarket. Every one of those is editable from Shopify Admin
+ * image. Every one of those is editable from Shopify Admin
  * without touching this repo — that split (code vs. Shopify Admin) used to
  * run through this file as a curated/Shopify-sourced distinction per field;
  * it doesn't need to anymore, now that Shopify's own title/description on
@@ -30,11 +30,11 @@
  * metafield comes back empty (a merchant clearing a field in Admin shouldn't
  * delete the content, just leave it stale until it's replaced).
  *
- * "Curated market" = a Shopify Market scoped to exactly one country region —
- * that means it has its own price list worth freezing into this file. A
- * market scoped to many countries (the "International" catch-all) is
- * skipped: its price is live-FX-converted and would just go stale if
- * snapshotted, and it's already covered by each product's base price.
+ * Prices are NOT frozen per market here. The file holds each variant's base
+ * (shop-currency) price only; every other currency is fetched live from
+ * Shopify's Storefront API with `@inContext(country:)` at request time
+ * (app/api/localization/prices), and checkout is created for the same
+ * country, so the site and checkout can never disagree.
  *
  * The Admin access token is generated at runtime via the client-credentials
  * grant (Client ID + Secret → 24h token) — never passed in directly.
@@ -89,8 +89,7 @@ const cfg = {
   adminClientId: process.env.SHOPIFY_ADMIN_CLIENT_ID || null,
   adminClientSecret: process.env.SHOPIFY_ADMIN_CLIENT_SECRET || null,
   adminToken: process.env.SHOPIFY_ADMIN_API_TOKEN || null,
-  storefrontToken: process.env.SHOPIFY_STOREFRONT_API_TOKEN || null,
-};
+  };
 
 if (!cfg.storeDomain) {
   console.error(
@@ -134,7 +133,6 @@ async function getAdminToken() {
 }
 
 const adminEndpoint = `https://${cfg.storeDomain}/admin/api/${cfg.apiVersion}/graphql.json`;
-const storefrontEndpoint = `https://${cfg.storeDomain}/api/${cfg.apiVersion}/graphql.json`;
 
 async function adminRequest(query, variables = {}) {
   const token = await getAdminToken();
@@ -143,22 +141,6 @@ async function adminRequest(query, variables = {}) {
     headers: {
       "Content-Type": "application/json",
       "X-Shopify-Access-Token": token,
-    },
-    body: JSON.stringify({ query, variables }),
-  });
-  const body = await res.json().catch(() => ({}));
-  if (!res.ok || body.errors?.length) {
-    throw new Error(body.errors?.[0]?.message || `HTTP ${res.status}`);
-  }
-  return body.data;
-}
-
-async function storefrontRequest(query, variables = {}) {
-  const res = await fetch(storefrontEndpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Shopify-Storefront-Access-Token": cfg.storefrontToken,
     },
     body: JSON.stringify({ query, variables }),
   });
@@ -181,6 +163,8 @@ query ProductsByIds($ids: [ID!]!) {
       descriptionHtml
       subtitleField: metafield(namespace: "custom", key: "subtitle") { value }
       materialField: metafield(namespace: "custom", key: "material") { value }
+      perksField: metafield(namespace: "custom", key: "perks") { value }
+      saleEndsAtField: metafield(namespace: "custom", key: "sale_ends_at") { value }
       specsField: metafield(namespace: "custom", key: "specs") {
         references(first: 20) {
           nodes {
@@ -262,68 +246,6 @@ query ProductsByIds($ids: [ID!]!) {
   }
 }`;
 
-const MARKETS_QUERY = `
-query Markets {
-  markets(first: 20) {
-    nodes {
-      name
-      enabled
-      regions(first: 10) {
-        nodes { ... on MarketRegionCountry { code } }
-      }
-    }
-  }
-}`;
-
-const VARIANT_PRICES_QUERY = `
-query VariantPrices($ids: [ID!]!, $country: CountryCode) @inContext(country: $country) {
-  nodes(ids: $ids) {
-    ... on ProductVariant {
-      id
-      price { amount currencyCode }
-      compareAtPrice { amount currencyCode }
-    }
-  }
-}`;
-
-/** Single-country markets are real, merchant-priced markets; multi-country ones are the "sell everywhere" catch-all. */
-async function discoverCuratedMarketCountries() {
-  const data = await adminRequest(MARKETS_QUERY);
-  const codes = new Set();
-  for (const market of data.markets.nodes) {
-    if (!market.enabled) continue;
-    const regionCodes = market.regions.nodes
-      .map((r) => r.code)
-      .filter(Boolean);
-    if (regionCodes.length === 1) codes.add(regionCodes[0]);
-  }
-  return [...codes];
-}
-
-async function pricesForMarket(variantIds, country) {
-  const prices = {};
-  // Storefront `nodes` caps out well below our whole-catalog variant count on
-  // some plans — chunk defensively instead of assuming one call covers it.
-  const chunkSize = 100;
-  for (let i = 0; i < variantIds.length; i += chunkSize) {
-    const chunk = variantIds.slice(i, i + chunkSize);
-    const data = await storefrontRequest(VARIANT_PRICES_QUERY, {
-      ids: chunk,
-      country,
-    });
-    for (const node of data.nodes) {
-      if (!node?.price) continue;
-      prices[node.id] = {
-        amount: Number(node.price.amount),
-        compareAtAmount:
-          node.compareAtPrice != null ? Number(node.compareAtPrice.amount) : null,
-        currencyCode: node.price.currencyCode,
-      };
-    }
-  }
-  return prices;
-}
-
 /** Reads a metaobject-reference list's nodes into an array shaped by `pick`, dropping any entry missing one of `requiredKeys` (usually label/value or icon/label/body — text fields with no sane default), or null if nothing survives (never crash the sync, or wipe out existing content, over a merchant leaving a field blank). Optional keys like `description`/`image` pass through as whatever `pick` returns for them, string or object or undefined. */
 function parseMetaobjectList(referencesNodes, requiredKeys, pick) {
   if (!referencesNodes || referencesNodes.length === 0) return null;
@@ -398,6 +320,27 @@ function toImage(node, fallbackAlt, existingBySrc) {
   };
 }
 
+/** custom.perks — a list.single_line_text_field metafield, stored by Shopify as a JSON array of strings. */
+function normalizePerks(field) {
+  if (!field?.value) return [];
+  try {
+    const list = JSON.parse(field.value);
+    if (!Array.isArray(list)) return [];
+    return list.filter((p) => typeof p === "string" && p.trim().length > 0).map((p) => p.trim());
+  } catch {
+    return [];
+  }
+}
+
+/** custom.sale_ends_at — only kept when it's a valid timestamp that hasn't passed yet, so an expired countdown never reaches the page. The page re-checks against the visitor's clock too, since a catalog snapshot can be hours old. */
+function normalizeSaleEndsAt(field) {
+  const raw = field?.value?.trim();
+  if (!raw) return null;
+  const time = Date.parse(raw);
+  if (Number.isNaN(time) || time <= Date.now()) return null;
+  return new Date(time).toISOString();
+}
+
 async function main() {
   if (!existsSync(OUTPUT)) {
     console.error(
@@ -427,39 +370,6 @@ async function main() {
       );
     }
   }
-
-  console.log("· discovering curated markets…");
-  let markets = [];
-  if (!cfg.storefrontToken) {
-    console.log("  SHOPIFY_STOREFRONT_API_TOKEN not set — skipping per-market prices");
-  } else {
-    try {
-      markets = await discoverCuratedMarketCountries();
-      console.log(`  ${markets.length} curated market(s): ${markets.join(", ") || "none"}`);
-    } catch (err) {
-      // A permissions gap (e.g. the Admin app is missing the read_markets
-      // scope) must not take down the base sync — just skip market prices.
-      console.log(`  ✖ market discovery failed, skipping per-market prices: ${err.message}`);
-    }
-  }
-
-  const allVariantIds = [...freshById.values()].flatMap((p) =>
-    (p.variants?.nodes ?? []).map((v) => v.id),
-  );
-  const pricesByVariant = new Map(allVariantIds.map((id) => [id, {}]));
-
-  await Promise.all(
-    markets.map(async (country) => {
-      const prices = await pricesForMarket(allVariantIds, country).catch((err) => {
-        console.error(`  ✖ ${country} prices failed: ${err.message}`);
-        return {};
-      });
-      for (const [variantId, localized] of Object.entries(prices)) {
-        const bucket = pricesByVariant.get(variantId);
-        if (bucket) bucket[country] = localized;
-      }
-    }),
-  );
 
   const products = [];
   let newVariants = 0;
@@ -518,7 +428,6 @@ async function main() {
           typeof v.inventoryQuantity === "number" && v.inventoryQuantity >= 0
             ? v.inventoryQuantity
             : null,
-        pricesByMarket: pricesByVariant.get(v.id) ?? {},
         image: v.image?.url ?? curated?.image ?? null,
         shopifyTitle: v.title,
         subtitle: curated?.subtitle ?? v.title,
@@ -560,6 +469,8 @@ async function main() {
       media: toMediaItems(freshProduct.media?.nodes, freshProduct.title, existingImageBySrc),
       subtitle: freshProduct.subtitleField?.value ?? existingProduct.subtitle ?? "",
       material: freshProduct.materialField?.value ?? existingProduct.material ?? "",
+      perks: normalizePerks(freshProduct.perksField),
+      saleEndsAt: normalizeSaleEndsAt(freshProduct.saleEndsAtField),
       descriptionHtml: freshProduct.descriptionHtml ?? existingProduct.descriptionHtml ?? "",
       specs,
       features,
@@ -574,7 +485,6 @@ async function main() {
       name: shopData?.shop?.name || existing.shop?.name || "HimVolt",
       currencyCode: currency,
     },
-    markets,
     products,
   };
 
@@ -585,7 +495,7 @@ async function main() {
 
   console.log(`✔ wrote ${OUTPUT}`);
   console.log(
-    `  ${products.length} product(s), ${products.reduce((n, p) => n + p.variants.length, 0)} variant(s), ${markets.length} market(s)${newVariants ? `, ${newVariants} new variant(s) need curated copy` : ""}`,
+    `  ${products.length} product(s), ${products.reduce((n, p) => n + p.variants.length, 0)} variant(s)${newVariants ? `, ${newVariants} new variant(s) need curated copy` : ""}`,
   );
 }
 

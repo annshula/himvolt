@@ -300,6 +300,21 @@ export function ChevronLeftIcon({ className = base }: IconProps) {
   );
 }
 
+export function ClockIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
+      <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M12 7.5V12l3 2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function RefreshIcon({ className = base }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden>
@@ -595,6 +610,7 @@ export const iconMap = {
   "chevron-left": ChevronLeftIcon,
   "chevron-right": ChevronRightIcon,
   refresh: RefreshIcon,
+  clock: ClockIcon,
   alert: AlertIcon,
   package: PackageIcon,
   truck: TruckIcon,

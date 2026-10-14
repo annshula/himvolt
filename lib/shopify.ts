@@ -7,12 +7,10 @@
  * Shopify responding at request time.
  */
 
-import { priceForMarket } from "./catalog";
 import {
   getProductByHandle,
   product as mainProduct,
   type Product,
-  type Variant,
 } from "./product";
 
 const DOMAIN = process.env.SHOPIFY_STORE_DOMAIN;
@@ -54,45 +52,22 @@ async function storefront<T>(
 }
 
 /**
- * Builds a product model from data/product.json — lib/product.ts already
- * reads the whole catalog from that one file, so the only thing left to
- * resolve here is per-market price, which is legitimately request-time
- * work: no country is known yet at this layer (that's the currency
- * selector's job, applied on top via useLocalizedAmount), so
- * priceForMarket(id, null) resolves to the US market's real price, not the
- * raw Admin default (a different, lower number — see lib/catalog.ts's
- * priceForMarket).
+ * The product model from data/product.json — lib/product.ts already reads
+ * the whole catalog from that one file. Prices on it are the shop's base
+ * currency; the shopper's own currency is Shopify's live answer for their
+ * country, applied on top in the browser (useLocalizedAmount), so no
+ * exchange rate or per-market snapshot lives here.
  *
  * Kept `async` for call-site compatibility even though nothing here awaits —
  * every caller already does `await getProduct()`.
  */
 export async function getProduct(handle?: string): Promise<Product> {
-  const base = (handle && getProductByHandle(handle)) || mainProduct;
-
-  const variants: Variant[] = base.variants.map((v) => {
-    const defaultPrice = priceForMarket(v.id, null);
-    return {
-      ...v,
-      price: {
-        amount: defaultPrice.amount,
-        currencyCode: defaultPrice.currencyCode,
-      },
-      compareAtPrice:
-        defaultPrice.compareAtAmount != null
-          ? {
-              amount: defaultPrice.compareAtAmount,
-              currencyCode: defaultPrice.currencyCode,
-            }
-          : undefined,
-    };
-  });
-
-  return { ...base, variants };
+  return (handle && getProductByHandle(handle)) || mainProduct;
 }
 
 const CART_CREATE = /* GraphQL */ `
-  mutation CartCreate($lines: [CartLineInput!]!) {
-    cartCreate(input: { lines: $lines }) {
+  mutation CartCreate($input: CartInput!) {
+    cartCreate(input: $input) {
       cart {
         id
         checkoutUrl
@@ -104,10 +79,15 @@ const CART_CREATE = /* GraphQL */ `
   }
 `;
 
-/** Creates a Shopify cart and returns the hosted checkout URL. */
+/**
+ * Creates a Shopify cart and returns the hosted checkout URL. `countryCode`
+ * is the same country the page's prices were fetched for, so Shopify prices
+ * the cart in the same market and currency the shopper was shown.
+ */
 export async function createCheckout(
   variantId: string,
   quantity = 1,
+  countryCode: string | null = null,
 ): Promise<string | null> {
   // Defense-in-depth: every caller's quantity is coerced to a finite integer
   // and clamped to the store's 1-20 range before reaching Shopify, so no route
@@ -120,7 +100,14 @@ export async function createCheckout(
     };
   }>(
     CART_CREATE,
-    { lines: [{ merchandiseId: variantId, quantity: safeQuantity }] },
+    {
+      input: {
+        lines: [{ merchandiseId: variantId, quantity: safeQuantity }],
+        ...(countryCode && /^[A-Z]{2}$/.test(countryCode)
+          ? { buyerIdentity: { countryCode } }
+          : {}),
+      },
+    },
     0,
   );
 

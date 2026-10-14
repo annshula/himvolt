@@ -73,8 +73,8 @@ export function ProductDetails({ product }: { product: Product }) {
       <div className="mx-auto w-full max-w-310 px-5 pt-24 sm:px-8 lg:pt-32">
         <SectionHeading
           eyebrow="Specification"
-          title="Every detail, verified."
-          body="What the piece is actually made of, measured and described plainly, not marketing copy standing in for a spec sheet."
+          title="Every detail, spelled out."
+          body="What it is actually made of and how it is built, measured and described plainly, not marketing copy standing in for a spec sheet."
         />
       </div>
 

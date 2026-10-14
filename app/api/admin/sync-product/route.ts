@@ -26,7 +26,6 @@ export async function POST(request: Request): Promise<Response> {
         ok: true,
         syncedAt: record.syncedAt,
         shop: record.shop,
-        markets: record.markets,
         products: record.products.map((p) => ({
           handle: p.handle,
           title: p.title,

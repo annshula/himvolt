@@ -5,6 +5,7 @@ import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { TikTokPixel } from "@/components/analytics/TikTokPixel";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import { getPaymentMethods } from "@/lib/shopify/payments";
 import { CartProvider } from "@/components/providers/CartProvider";
 import { LocalizationProvider } from "@/components/providers/LocalizationProvider";
 import { Toaster } from "sonner";
@@ -135,11 +136,15 @@ export const metadata: Metadata = {
   referrer: "strict-origin-when-cross-origin",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  // The payment logos checkout accepts (Shopify's own settings, cached for a
+  // day) — shown under the bag's checkout button.
+  const payments = await getPaymentMethods();
+
   return (
     <html
       lang="en"
@@ -184,7 +189,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <Nav />
             {children}
             <Footer />
-            <CartDrawer />
+            <CartDrawer payments={payments} />
             <BackToTop />
           </CartProvider>
         </LocalizationProvider>

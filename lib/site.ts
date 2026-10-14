@@ -39,6 +39,9 @@ export const site = {
     countries: 38,
   },
 
+  /** Door-to-door transit shown on the product page, in days. */
+  delivery: { minDays: 3, maxDays: 8 },
+
   promise: {
     shipping: "Free tracked shipping worldwide",
     // Day range only — no country named here. The real, per-country transit

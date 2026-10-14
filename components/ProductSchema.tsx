@@ -1,6 +1,6 @@
 import { site } from "@/lib/site";
 import { defaultRegion } from "@/lib/shipping";
-import type { Product } from "@/lib/product";
+import { plainDescription, type Product } from "@/lib/product";
 
 /**
  * Structured data for the product page. Split out from components/Schema.tsx
@@ -22,7 +22,7 @@ export default function ProductSchema({ product }: { product: Product }) {
     "@type": "Product",
     "@id": `${productUrl}/#product`,
     name: product.title,
-    description: product.descriptionHtml.replace(/<[^>]+>/g, ""),
+    description: plainDescription(product),
     sku: product.variants[0].sku,
     brand: { "@type": "Brand", name: site.name },
     material: product.material,
