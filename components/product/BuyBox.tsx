@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 
 import { PaymentIcons } from "@/components/ui/PaymentIcons";
 import { SaleCountdown } from "@/components/product/SaleCountdown";
@@ -240,8 +246,19 @@ export function BuyBox({
     addToBag();
   };
 
-  const money = (amount: number, currency: string) =>
-    pending ? "…" : formatMoney(amount, currency);
+  // While Shopify's live price for the visitor's country is in flight an
+  // amount is a shimmering placeholder of about the same size, not a base-
+  // currency figure that would then change; the strike-through and saving
+  // badges simply wait (`pending`) rather than showing placeholders too.
+  const money = (amount: number, currency: string): ReactNode =>
+    pending ? (
+      <span
+        aria-hidden="true"
+        className="skeleton inline-block h-[0.95em] w-[4.4em] rounded-md align-[-0.12em]"
+      />
+    ) : (
+      formatMoney(amount, currency)
+    );
 
   return (
     <div>
@@ -253,6 +270,7 @@ export function BuyBox({
               selectedId={selected.v.id}
               onChoose={choose}
               money={money}
+              pending={pending}
             />
           ) : (
             <OptionFieldsets
@@ -266,7 +284,7 @@ export function BuyBox({
             it here, above the button (the reference's price line). */}
         {!useCards && (
           <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 sm:justify-start">
-            {selected.compareAt != null && (
+            {!pending && selected.compareAt != null && (
               <p className="font-numeral text-lg text-ink-soft tabular-nums line-through">
                 {money(selected.compareAt, selected.currency)}
               </p>
@@ -277,7 +295,7 @@ export function BuyBox({
             >
               {money(selected.amount, selected.currency)}
             </p>
-            {selected.compareAt != null && (
+            {!pending && selected.compareAt != null && (
               <p className="inline-flex items-center rounded-tag bg-clay-600 px-2.5 py-1 font-numeral text-[0.8rem] leading-none font-bold tracking-wide text-white tabular-nums">
                 −{Math.round((1 - selected.amount / selected.compareAt) * 100)}
                 % OFF
@@ -429,11 +447,14 @@ function PackCards({
   selectedId,
   onChoose,
   money,
+  pending,
 }: {
   items: Priced[];
   selectedId: string;
   onChoose: (id: string) => void;
-  money: (amount: number, currency: string) => string;
+  money: (amount: number, currency: string) => ReactNode;
+  /** The live price hasn't landed: hold back strike-throughs and savings. */
+  pending: boolean;
 }) {
   const legend = flatLegend(items.map((i) => i.label));
   const rows = [...items].sort((a, b) => a.units - b.units);
@@ -590,7 +611,7 @@ function PackCards({
                     {k.offerLine}
                   </span>
                 )}
-                {k.saved != null && (
+                {!pending && k.saved != null && (
                   <span
                     className={cn(
                       "mt-1 rounded-tag px-1.5 py-0.5 font-numeral text-[0.68rem] leading-none font-medium tabular-nums",
@@ -608,7 +629,7 @@ function PackCards({
               </span>
 
               <span className="flex shrink-0 flex-col items-end">
-                {k.c.compareAt != null && (
+                {!pending && k.c.compareAt != null && (
                   <span className="font-numeral text-[0.7rem] text-ink-faint tabular-nums line-through decoration-1">
                     {money(k.c.compareAt, k.c.currency)}
                   </span>
@@ -694,7 +715,7 @@ function PackCards({
               </span>
             )}
             <span className="mt-1 flex flex-col items-center">
-              {k.c.compareAt != null && (
+              {!pending && k.c.compareAt != null && (
                 <span className="font-numeral text-[0.72rem] text-ink-soft tabular-nums line-through">
                   {money(k.c.compareAt, k.c.currency)}
                 </span>
@@ -703,7 +724,7 @@ function PackCards({
                 {money(k.c.amount, k.c.currency)}
               </span>
             </span>
-            {k.saved != null && (
+            {!pending && k.saved != null && (
               <span
                 className={cn(
                   "mt-1.5 rounded-tag px-2 py-0.5 font-numeral text-[0.7rem] font-medium tabular-nums",
@@ -913,7 +934,7 @@ const CONFETTI = [
  */
 function FreeDeliveryUnlocked() {
   return (
-    <div className="relative min-w-0 flex-1 basis-56 overflow-hidden rounded-lg border border-dashed border-sage-300 bg-sage-50 py-1.5 pr-3 pl-2 text-sage-800">
+    <div className="relative min-w-0 flex-1 basis-48 overflow-hidden rounded-lg border border-dashed border-sage-300 bg-sage-50 py-1.5 pr-3 pl-2 text-sage-800">
       <span
         aria-hidden="true"
         className="unlock-anim pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-transparent via-white/70 to-transparent motion-safe:animate-[unlock-sweep_3.6s_ease-in-out_infinite]"
