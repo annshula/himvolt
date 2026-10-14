@@ -288,7 +288,7 @@ export function ProductPurchase({
           )}
 
           {/* ── Title ───────────────────────────────────────────────── */}
-          <h1 className="mt-3 font-serif text-[length:clamp(1.375rem,1.25rem+0.5vw,1.625rem)] leading-[1.15] font-medium text-wrap">
+          <h1 className="mt-3 font-pdp-title text-[length:clamp(1.375rem,1.25rem+0.5vw,1.625rem)] leading-[1.15] font-medium text-wrap">
             {product.title}
           </h1>
 

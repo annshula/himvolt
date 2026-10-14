@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bebas_Neue, Inter, Jost, Oswald } from "next/font/google";
+import { Bebas_Neue, Fraunces, Inter, Jost, Oswald } from "next/font/google";
 import { ClarityAnalytics } from "@/components/analytics/ClarityAnalytics";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
@@ -54,6 +54,21 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
   preload: true,
+});
+
+/**
+ * The product title's face — Fraunces, the soft serif the reference build
+ * sets its PDP <h1> in (`--ff-serif` there). Used for that one heading only;
+ * the rest of the site keeps the condensed brand faces above.
+ */
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: "variable",
+  axes: ["SOFT", "opsz"],
+  variable: "--font-fraunces",
+  display: "swap",
+  preload: true,
+  fallback: ["Georgia", "serif"],
 });
 
 /** Google Tag Manager container — loaded high in <head>, noscript after <body>. */
@@ -152,7 +167,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bebasNeue.variable} ${oswald.variable} ${jost.variable} ${inter.variable}`}
+      className={`${bebasNeue.variable} ${oswald.variable} ${jost.variable} ${inter.variable} ${fraunces.variable}`}
       suppressHydrationWarning
     >
       <head>

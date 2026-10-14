@@ -548,6 +548,8 @@ p {
   --font-numeral: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
   --font-pdp-heading: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  /* The PDP product title only — the reference's soft serif. */
+  --font-pdp-title: var(--font-fraunces), Georgia, "Iowan Old Style", serif;
 
   --radius-control: 12px;
   --radius-tag: 10px;
@@ -791,4 +793,14 @@ dialog.sheet::backdrop {
     transform: translateY(24px);
     opacity: 0;
   }
+}
+
+/* The PDP product title, set in the reference's soft serif. Unlayered on
+   purpose: the base `h1` rule above is unlayered too, so a layered `font-*`
+   utility can never beat it. SOFT rounds the letterforms slightly, as on the
+   reference. */
+h1.font-pdp-title {
+  font-family: var(--font-pdp-title);
+  font-variation-settings: "SOFT" 40;
+  letter-spacing: 0;
 }
