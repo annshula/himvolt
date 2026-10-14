@@ -67,7 +67,7 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-const title = `${site.name} — Genuine Hematite Bracelets & Rings for Men`;
+const title = `${site.name} — Men's Power Gear for Body & Mind`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -84,6 +84,10 @@ export const metadata: Metadata = {
   // notably excluding "hemios"/"hematix"/"hemys", which are competitor
   // brand names showing up as related queries, not generic search demand.
   keywords: [
+    "men's power gear",
+    "hydraulic arm trainer",
+    "adjustable arm exerciser",
+    "home arm workout equipment",
     "hematite bracelet",
     "hematite stone bracelet",
     "hematite crystal bracelet",

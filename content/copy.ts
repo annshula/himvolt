@@ -13,43 +13,83 @@ import { daysRangeDisplay, defaultRegion } from "@/lib/shipping";
 import { site } from "@/lib/site";
 
 export const hero = {
-  eyebrow: "Hematite collection",
-  headline: ["Genuine hematite bracelets.", "Cut for steady hands."],
-  // Same copy as the meta description (lib/site.ts) rather than its own
-  // independently-worded line — the H1 already carries "genuine hematite
-  // bracelets"; repeating that exact phrase again here just wastes the
-  // subhead's second keyword slot instead of widening it the way the meta
-  // description does. One source of truth also means the two can't quietly
-  // drift apart the way promise.returns and this used to.
+  eyebrow: "Men's power collection",
+  headline: ["Power for men.", "Body and mind."],
+  // Same copy as the meta description (lib/site.ts): one source of truth, so
+  // the two can't quietly drift apart.
   sub: site.description,
   cta: "Shop the collection",
   ctaHref: "/shop",
-  secondary: "See the stone",
-  secondaryHref: "#stone",
+  secondary: "Find your fit",
+  secondaryHref: "#showcase",
 };
 
-export const showcase = {
-  eyebrow: "Hematite jewelry",
-  headline: "Cut from the earth's own iron.",
-  body: "Every piece of hematite jewelry here starts as raw, natural hematite, iron oxide mined and hand-polished until the surface reads as a hard, cool, metallic black. No dye, no coating: what you see under a loupe is what you feel on your wrist.",
-  points: [
+/**
+ * The home page's product section (components/sections/Showcase.tsx): the two
+ * halves of the collection, then a short "which one is for me" picker. Every
+ * product fact here restates what the product pages already say — the arm
+ * trainer's 20 levels / 22–440 lb / LCD counter / snap-lock fold, hematite's
+ * composition — nothing new is asserted.
+ */
+export const power = {
+  eyebrow: "The collection",
+  headline: "Two sides of power.",
+  body: "Strength is not only what you lift. HimVolt is built around both halves of it: the physical work, and the steadiness you bring to it.",
+  sides: [
     {
-      title: "No clasp to fail",
-      body: "A stretch elastic core runs the full circumference. Roll it on, forget it is there.",
+      key: "physical" as const,
+      eyebrow: "Physical",
+      title: "Build it at home.",
+      body: "A hydraulic arm trainer with 20 adjustable resistance levels, from 22 to 440 lb, and a built-in rep counter. It folds flat, so a full upper-body session fits in a corner of the room.",
+      points: [
+        "22–440 lb adjustable resistance",
+        "Built-in LCD rep counter",
+        "Folds flat with a snap-lock",
+      ],
+      cta: "Shop the arm trainer",
     },
     {
-      title: "Level with the steel in your pocket",
-      body: "Hematite sits at 5.5–6.5 on the Mohs scale, on par with hardened steel. It shrugs off the daily knocks that dull resin and dyed glass.",
-    },
-    {
-      title: "Weighted, not bulky",
-      body: "Iron oxide runs dense. 70 grams on a single strand, present enough to feel deliberate, low enough to slide under a cuff.",
+      key: "mental" as const,
+      eyebrow: "Mental",
+      title: "Keep it steady.",
+      body: "Natural hematite: dense, cool and heavy in the hand, and carried for thousands of years as a grounding stone. That is a tradition, and we say so. It will not do the work for you; it is something solid on your wrist to remind you of it.",
+      points: [
+        "Real iron oxide, not coated glass",
+        "Stretch elastic bracelets, no clasp to fail",
+        "Bracelets and rings",
+      ],
+      cta: "Shop hematite",
     },
   ],
+  fit: {
+    eyebrow: "Best fit",
+    headline: "Find your fit.",
+    body: "Not sure where to start? Match what you are after to the piece that suits it.",
+    items: [
+      {
+        need: "You want to train at home",
+        pick: "The hydraulic arm trainer",
+        detail: "Adjustable, countable, and it folds away.",
+        target: "physical" as const,
+      },
+      {
+        need: "You want something steady on your wrist",
+        pick: "A hematite bracelet or ring",
+        detail: "Natural stone, worn every day.",
+        target: "mental" as const,
+      },
+      {
+        need: "You want both",
+        pick: "Start with the trainer, add the stone",
+        detail: "One for the work, one for the focus.",
+        target: "shop" as const,
+      },
+    ],
+  },
 };
 
 export const stone = {
-  eyebrow: "Hematite meaning",
+  eyebrow: "The mental side",
   headline: "The stone the ancient world called blood.",
   lede: "Hematite takes its name from the Greek haimatites lithos, “blood-like stone,” coined by the naturalist Theophrastus around 300 BCE. Scratch its metallic black surface and it leaves a deep red-brown streak: the same iron oxide that gives the stone both its name and its weight.",
   body: "That contradiction, a hard black metallic shell hiding a red heart, is what has kept people picking hematite up for roughly five thousand years, long before anyone called it a grounding stone.",
@@ -78,18 +118,9 @@ export const stone = {
  */
 export const guarantee = {
   eyebrow: "Buy with confidence",
-  // Deliberately not another "genuine hematite bracelets" headline — that
-  // exact phrase is already the H1. Repeating it as this section's H2 too
-  // reads as keyword stuffing to a crawler, not just to a reader. This
-  // section's actual subject is the policies, so it's titled as that.
   headline: "What every order includes.",
-  body: "Free tracked shipping worldwide, a real fix if anything arrives wrong, and natural iron oxide in every piece, not a coated imitation.",
+  body: "Free tracked shipping worldwide, a real fix if anything arrives wrong, and plain descriptions of what each product is and how it is built.",
   items: [
-    {
-      icon: "stone" as const,
-      label: "Genuine natural hematite",
-      body: "Real iron oxide, not resin or dyed glass. Every piece streak-tests red-brown under the polish, the same mineralogy test used to identify hematite for two thousand years.",
-    },
     {
       icon: "ship" as const,
       label: site.promise.shipping,
@@ -104,6 +135,11 @@ export const guarantee = {
       icon: "fit" as const,
       label: "Secure checkout",
       body: "Payment is processed by Shopify, not us, and your card details never touch our servers.",
+    },
+    {
+      icon: "stone" as const,
+      label: "Straight about what it does",
+      body: "We say what a product is made of and how it is built. No miracle promises, and nothing here is a medical claim.",
     },
   ],
 };
@@ -211,6 +247,18 @@ export const reviews = [
 
 export const faqs = [
   {
+    q: "What is HimVolt?",
+    a: "Men's power gear for body and mind. The physical side is an adjustable hydraulic arm trainer; the mental side is natural hematite bracelets and rings, worn as a steady everyday reminder. We describe what each product is and how it is built, and nothing more.",
+  },
+  {
+    q: "How strong is the arm trainer, and can I adjust it?",
+    a: "It has 20 adjustable resistance levels from 22 to 440 lb, set with a twist knob and no tools, so you can start light and turn it up. A built-in LCD display counts your reps.",
+  },
+  {
+    q: "Does the arm trainer fold for storage?",
+    a: "Yes. A snap-lock at the base folds it flat, so it fits under a bed, in a closet or in a gym bag.",
+  },
+  {
     q: "Will it fit my wrist?",
     a: "Every bracelet in the collection uses a stretch elastic core built to move with your wrist rather than a fixed link count, with no sizing chart to get wrong. If you are between sizes or unsure, email us before you buy and we will tell you honestly whether a given piece will work. Rings run true to standard US sizing 6–12; check your ring size before ordering, since a ring is the one piece here that does not stretch.",
   },
@@ -231,7 +279,7 @@ export const faqs = [
     a: "We do not offer change-of-mind returns, so check sizing and details before you order. If your piece arrives damaged, missing, or is not what you ordered, send us a photo within 30 days of delivery and we will ship a free replacement or refund, no need to send anything back.",
   },
   {
-    q: "Can I wear it in the shower or the gym?",
+    q: "Can I wear hematite in the shower or the gym?",
     a: "Yes, day to day. Hematite is non-porous, so a quick rinse and a wipe with a cloth is all it needs. Two things worth knowing: prolonged contact with harsh soaps or chlorine can dull the polish over time, and at 5.5–6.5 on the Mohs scale hematite is hard but not indestructible. A hard drop onto tile or metal can chip a bead the way it would chip most polished stone. Treat it like the stone it is.",
   },
   // {
@@ -242,7 +290,7 @@ export const faqs = [
 
 export const finalCta = {
   eyebrow: "Lite your life",
-  headline: "Put something solid on.",
+  headline: "Train the body. Steady the mind.",
   sub: "Free tracked shipping worldwide. Free fix for damaged, missing, or wrong items. Dispatched within 1–3 business days.",
   cta: "Shop the collection",
 };
@@ -251,7 +299,7 @@ export const footerNav = [
   {
     title: "Shop",
     links: [
-      { label: "Hematite bracelets", href: "/shop" },
+      { label: "Shop all", href: "/shop" },
       { label: "Blog", href: "/blog" },
       { label: "Hematite meaning", href: "/#stone" },
       { label: "Sizing", href: "/faq" },
@@ -291,8 +339,7 @@ export const footerNav = [
 export const marqueeWords = [
   "Free worldwide shipping",
   "Free fix for damaged or wrong items",
+  "22–440 lb adjustable arm trainer",
   "Natural hematite, iron oxide",
   "Dispatched in 1–3 business days",
-  "No clasp to fail, stretch elastic fit",
-  "5.5–6.5 Mohs",
 ];

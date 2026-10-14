@@ -26,7 +26,7 @@ function buildLlmsTxt(products: Product[]): string {
   lines.push(`> ${site.description}`);
   lines.push("");
   lines.push(
-    `${site.name} sells genuine natural hematite — iron(III) oxide, Fe₂O₃ — cut and polished into bracelets and rings for men. Claim policy: mineral properties (composition, hardness, density, the streak test, magnetism) are stated as fact; grounding, focus, and protective meaning are stated as tradition dating to antiquity, never as a medical or clinical outcome. Where a listing is magnetic, that is a man-made magnetic composite (often called hematine), not the natural stone, and the product page says so plainly.`,
+    `${site.name} sells men's power gear for body and mind: an adjustable hydraulic arm trainer, and genuine natural hematite — iron(III) oxide, Fe₂O₃ — cut and polished into bracelets and rings. Claim policy: mineral properties (composition, hardness, density, the streak test, magnetism) are stated as fact; grounding, focus, and protective meaning are stated as tradition dating to antiquity, never as a medical or clinical outcome. Where a listing is magnetic, that is a man-made magnetic composite (often called hematine), not the natural stone, and the product page says so plainly.`,
   );
   lines.push("");
 

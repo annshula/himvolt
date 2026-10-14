@@ -1,165 +1,171 @@
+import Link from "next/link";
+
 import Image from "@/components/ui/Image";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import Tilt from "@/components/ui/Tilt";
-import ImageComparison from "@/components/ui/ImageComparison";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
-import { showcase } from "@/content/copy";
-import { getProduct } from "@/lib/shopify";
+import { ArrowIcon, CheckIcon } from "@/components/ui/Icons";
+import { bracelet } from "@/content/product-bracelet";
+import { pitchFor } from "@/content/pitches";
+import { power } from "@/content/copy";
+import { products, type Product } from "@/lib/product";
+import { pathForHandle } from "@/lib/catalog";
 
 /**
- * The product, shot large — static local photography from public/media
- * (origin.webp + himvolt_worn.webp), never the synced Shopify catalog
- * images: these two curated shots stay stable regardless of what is
- * uploaded in Shopify.
+ * The collection, in two halves — physical (the arm trainer) and mental
+ * (natural hematite) — then a short "best fit" picker. Links come from the
+ * synced catalog, so the section follows whatever is live in Shopify: the arm
+ * trainer is the first product that has no hematite pitch, the hematite side
+ * is the flagship bracelet. The arm trainer's photo is its own first gallery
+ * image; the hematite side uses the curated on-wrist shot from public/media,
+ * because the bracelet's first product image is a promotional graphic.
  */
-export default async function Showcase() {
-  const product = await getProduct();
-  // Static local gallery — "Cut" is the moody on-rock hero shot, "Worn" is
-  // the lifestyle on-body shot. Fixed paths, not product.gallery.
-  const localGallery = {
-    cut: {
-      src: "/media/origin.webp",
-      alt: "Hematite bracelet resting on a piece of dark stone",
-      width: 2000,
-      height: 1333,
-    },
-    worn: {
-      src: "/media/himvolt_worn.webp",
-      alt: "Hematite bracelet worn on a wrist",
-      width: 1679,
-      height: 937,
-    },
-  };
+const MENTAL_COVER = {
+  src: "/media/himvolt_worn.webp",
+  alt: "Hematite bracelet worn on a wrist",
+};
+export default function Showcase() {
+  const physical: Product | undefined = products.find(
+    (p) => p.handle !== bracelet.handle && !pitchFor(p.handle),
+  );
+  const mental: Product | undefined =
+    products.find((p) => p.handle === bracelet.handle) ??
+    products.find((p) => Boolean(pitchFor(p.handle)));
+
+  const productFor = { physical, mental } as const;
+  const hrefFor = (key: "physical" | "mental" | "shop") =>
+    key === "shop"
+      ? "/shop"
+      : productFor[key]
+        ? pathForHandle(productFor[key]!.handle)
+        : "/shop";
 
   return (
     <Section id="showcase" className="grain overflow-hidden">
       <SectionHeading
         align="center"
-        eyebrow={showcase.eyebrow}
-        title={showcase.headline}
-        body={showcase.body}
+        eyebrow={power.eyebrow}
+        title={power.headline}
+        body={power.body}
       />
 
-      {/* ------------------------- the hero object ------------------------- */}
+      {/* ----------------------------- the two sides ---------------------------- */}
 
-      <div className="relative mt-16 lg:mt-24">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute top-1/2 left-1/2 h-[46vmax] w-[46vmax] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-[100px]"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 42%, transparent 68%)",
-          }}
-        />
+      <Stagger className="mt-16 grid gap-6 lg:mt-20 lg:grid-cols-2">
+        {power.sides.map((side) => {
+          const product = productFor[side.key];
+          const cover =
+            side.key === "mental" ? MENTAL_COVER : product?.gallery[0];
+          return (
+            <StaggerItem
+              key={side.key}
+              as="article"
+              className="group flex flex-col overflow-hidden rounded-(--radius-card) border border-line bg-linen"
+            >
+              <Link
+                href={hrefFor(side.key)}
+                aria-label={side.cta}
+                className="relative block aspect-[5/4] overflow-hidden bg-parchment"
+              >
+                {cover && (
+                  <Image
+                    src={cover.src}
+                    alt={cover.alt}
+                    fill
+                    sizes="(max-width: 1023px) 92vw, 600px"
+                    className="object-cover transition-transform duration-700 ease-(--ease-out-expo) group-hover:scale-[1.03]"
+                  />
+                )}
+                <span className="absolute top-4 left-4 rounded-full bg-ink px-3 py-1.5 font-display text-[0.62rem] font-semibold tracking-[0.22em] text-white uppercase">
+                  {side.eyebrow}
+                </span>
+              </Link>
 
-        <Tilt className="scroll-scale relative mx-auto max-w-180" max={7}>
-          <div className="tilt__layer" style={{ ["--z" as string]: "50px" }}>
-            <ImageComparison
-              before={localGallery.cut}
-              after={localGallery.worn}
-            />
-          </div>
-        </Tilt>
-
-        {/* measurement callout drawn over the stone */}
-        <Reveal className="pointer-events-none mx-auto mt-10 hidden max-w-180 items-center gap-4 px-8 sm:flex">
-          <span
-            aria-hidden
-            className="h-px flex-1 bg-linear-to-r from-transparent to-line"
-          />
-          <span className="text-[0.62rem] tracking-[0.28em] text-ink-mute uppercase">
-            One stretch elastic size · fits most wrists
-          </span>
-          <span
-            aria-hidden
-            className="h-px flex-1 bg-linear-to-l from-transparent to-line"
-          />
-        </Reveal>
-      </div>
-
-      {/* ----------------------------- the points ---------------------------- */}
-
-      <Stagger className="mt-20 grid gap-px overflow-hidden rounded-(--radius-card) border border-line bg-line sm:grid-cols-3 lg:mt-28">
-        {showcase.points.map((p, i) => (
-          <StaggerItem
-            key={p.title}
-            as="article"
-            className="group relative bg-linen p-7 transition-colors duration-500 hover:bg-ivory lg:p-9"
-          >
-            <span className="font-display text-[0.68rem] tracking-[0.2em] text-volt/70 tabular-nums">
-              0{i + 1}
-            </span>
-            <h3 className="font-display mt-4 text-[1.12rem] leading-tight font-semibold tracking-[-0.02em] text-ink">
-              {p.title}
-            </h3>
-            <p className="mt-3 text-[0.87rem] leading-[1.65] text-ink-soft">
-              {p.body}
-            </p>
-            <span
-              aria-hidden
-              className="absolute inset-x-0 bottom-0 h-px w-0 bg-linear-to-r from-volt to-transparent transition-all duration-700 ease-(--ease-out-expo) group-hover:w-full"
-            />
-          </StaggerItem>
-        ))}
+              <div className="flex flex-1 flex-col p-7 lg:p-9">
+                <h3 className="font-display text-[1.6rem] leading-[1.05] font-bold tracking-[-0.03em] text-ink">
+                  {side.title}
+                </h3>
+                <p className="mt-4 text-[0.95rem] leading-[1.7] text-ink-soft text-pretty">
+                  {side.body}
+                </p>
+                <ul className="mt-6 space-y-2.5">
+                  {side.points.map((point) => (
+                    <li
+                      key={point}
+                      className="flex items-start gap-2.5 text-[0.88rem] text-ink"
+                    >
+                      <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-volt text-on-accent">
+                        <CheckIcon className="size-3" />
+                      </span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={hrefFor(side.key)}
+                  className="mt-8 inline-flex items-center gap-2 self-start font-display text-[0.8rem] font-semibold tracking-[0.16em] text-ink uppercase underline-offset-[6px] hover:underline"
+                >
+                  {side.cta}
+                  <ArrowIcon className="size-4" />
+                </Link>
+              </div>
+            </StaggerItem>
+          );
+        })}
       </Stagger>
 
-      {/* ---------------------- worn + spec sheet ---------------------- */}
+      {/* ------------------------------- best fit ------------------------------- */}
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-        <Reveal
-          as="figure"
-          className="relative overflow-hidden rounded-(--radius-card) border border-line"
-        >
-          <Image
-            src={localGallery.worn.src}
-            alt={localGallery.worn.alt}
-            width={localGallery.worn.width}
-            height={localGallery.worn.height}
-            quality={82}
-            sizes="(max-width: 1023px) 92vw, 660px"
-            className="parallax h-full min-h-75 w-full scale-105 object-cover object-[center_58%]"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-linear-to-t from-void/85 via-void/10 to-transparent"
-          />
-          <figcaption className="absolute inset-x-0 bottom-0 p-7">
-            <p className="font-display text-[1rem] font-semibold tracking-[-0.02em] text-chalk">
-              Worn, not displayed.
-            </p>
-            <p className="mt-1.5 max-w-[34ch] text-[0.8rem] leading-snug text-steel/70">
-              It sits flat against the wrist bone and slides under a shirt cuff
-              without catching.
-            </p>
-          </figcaption>
-        </Reveal>
+      <div className="mt-20 lg:mt-28">
+        <SectionHeading
+          align="center"
+          eyebrow={power.fit.eyebrow}
+          title={power.fit.headline}
+          body={power.fit.body}
+        />
 
-        <Reveal
-          delay={0.08}
-          className="rounded-(--radius-card) border border-line bg-linen p-7 lg:p-9"
+        <Stagger
+          as="ul"
+          className="mt-12 grid gap-px overflow-hidden rounded-(--radius-card) border border-line bg-line sm:grid-cols-3"
         >
-          <h3 className="text-[0.62rem] tracking-[0.28em] text-ink-mute uppercase">
-            Specification
-          </h3>
-          <dl className="mt-6 divide-y divide-line">
-            {product.specs.map((s) => (
-              <div
-                key={s.label}
-                className="flex items-baseline justify-between gap-6 py-3"
+          {power.fit.items.map((item, i) => (
+            <StaggerItem
+              key={item.need}
+              as="li"
+              className="group relative bg-linen transition-colors duration-500 hover:bg-ivory"
+            >
+              <Link
+                href={hrefFor(item.target)}
+                className="flex h-full flex-col p-7 lg:p-9"
               >
-                <dt className="shrink-0 text-[0.78rem] text-ink-mute">
-                  {s.label}
-                </dt>
-                <dd className="text-right text-[0.82rem] font-medium text-ink-soft">
-                  {s.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-          <p className="mt-6 text-[0.72rem] leading-relaxed text-ink-mute">
-            Every band is measured and weighed before it ships. If yours is out
-            of tolerance, we replace it before you have to ask.
-          </p>
+                <span className="font-display text-[0.68rem] tracking-[0.2em] text-volt/70 tabular-nums">
+                  0{i + 1}
+                </span>
+                <p className="mt-4 text-[0.8rem] tracking-[0.04em] text-ink-mute">
+                  {item.need}
+                </p>
+                <h3 className="font-display mt-2 text-[1.12rem] leading-tight font-semibold tracking-[-0.02em] text-ink">
+                  {item.pick}
+                </h3>
+                <p className="mt-3 text-[0.87rem] leading-[1.65] text-ink-soft">
+                  {item.detail}
+                </p>
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-0 h-px w-0 bg-linear-to-r from-volt to-transparent transition-all duration-700 ease-(--ease-out-expo) group-hover:w-full"
+                />
+              </Link>
+            </StaggerItem>
+          ))}
+        </Stagger>
+
+        <Reveal className="mt-10 text-center">
+          <Link
+            href="/shop"
+            className="inline-flex items-center gap-2 font-display text-[0.8rem] font-semibold tracking-[0.16em] text-ink uppercase underline-offset-[6px] hover:underline"
+          >
+            See the whole collection
+            <ArrowIcon className="size-4" />
+          </Link>
         </Reveal>
       </div>
     </Section>

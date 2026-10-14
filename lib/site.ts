@@ -14,7 +14,7 @@ export const site = {
   email: "support@himvolt.com",
   address: "Toronto, Ontario, Canada",
   description:
-    "Natural hematite stone bracelets and rings for men, real iron oxide, not resin or dye. Free tracked worldwide shipping, free fix for damaged or wrong items.",
+    "Men's power gear for body and mind: an adjustable hydraulic arm trainer and natural hematite bracelets and rings. Free tracked shipping worldwide.",
   locale: "en_US",
   currency: "USD",
 
