@@ -113,6 +113,9 @@
 :root {
   color-scheme: light;
   --nav-h: 68px;
+  /* PDP gallery: the sticky stage column is this tall from lg up, so the
+     thumbnail rail beside it matches it and the column can be centred. */
+  --gallery-h: calc(100svh - var(--nav-h) - var(--marquee-h) - 9rem);
   --marquee-h: 0px; /* announcement marquee is disabled */
 }
 
@@ -444,6 +447,24 @@ p {
   animation: tf-fade-up 0.5s var(--ease-out-soft) both;
   animation-delay: calc(var(--i, 0) * 55ms);
 }
+/* The reference build's page container: 1360px wide, 20 / 32 / 48px gutters. Used by the PDP's first section so its two columns get the same widths. */
+@utility container-page {
+  width: 100%;
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 3rem;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+}
+
 @utility skeleton {
   background-image: linear-gradient(
     90deg,

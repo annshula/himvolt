@@ -16,7 +16,7 @@ export default function ProductLoading() {
         <div className="skeleton h-3.5 w-48 rounded-full" />
       </div>
 
-      <div className="mx-auto grid w-full max-w-310 gap-12 px-5 pt-8 pb-16 sm:px-8 lg:grid-cols-2 lg:gap-16 lg:pt-10 lg:pb-24">
+      <div className="container-page grid gap-8 pt-6 pb-16 md:pt-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16 lg:pb-24">
         {/* gallery: thumbnail rail + main image */}
         <div className="flex flex-col-reverse gap-4 lg:flex-row">
           <div className="flex w-full gap-2.5 p-1 lg:w-19 lg:shrink-0 lg:flex-col">

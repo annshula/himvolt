@@ -1,121 +1,43 @@
 "use client";
 
+import dynamic from "next/dynamic";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import type { Slide } from "yet-another-react-lightbox";
+
+import { VideoTile } from "@/components/product/VideoTile";
 import Image from "@/components/ui/Image";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-
-import Tilt from "@/components/ui/Tilt";
-import { Icon, SpinnerIcon } from "@/components/ui/Icons";
-import { useScrollLock } from "@/lib/scroll-lock";
+import { Icon } from "@/components/ui/Icons";
 import { cn } from "@/lib/utils";
-import type { MediaItem, Product } from "@/lib/product";
+import type { Product } from "@/lib/product";
 
-/** Minimum horizontal drag (px) before a touch gesture counts as a swipe rather than a tap or a vertical scroll — shared by the main-image swipe and the Lightbox. */
-const SWIPE_THRESHOLD = 50;
+const GalleryLightbox = dynamic(
+  () => import("@/components/product/GalleryLightbox"),
+  { ssr: false },
+);
 
-/** The thumbnail image for any gallery entry — a video's own poster frame for a video, its photo for an image. */
-function thumbSrc(item: MediaItem): string {
-  return item.kind === "video" ? item.poster : item.src;
-}
-
-/**
- * A gallery photo with a spinner centred over its reserved space until the
- * image has actually painted. The box keeps the photo's own aspect ratio
- * (width/height) from the first paint, so the spinner sits where the image
- * will be and nothing shifts when it lands.
- *
- * Callers key it on the image's src, so switching photos starts a fresh
- * "loading" state instead of inheriting the previous one's.
- */
-function SpinnerImage({
-  src,
-  alt,
-  width,
-  height,
-  sizes,
-  priority,
-  className,
-  wrapperClassName,
-  spinnerClassName,
-}: {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  sizes: string;
-  priority?: boolean;
-  className?: string;
-  wrapperClassName?: string;
-  spinnerClassName?: string;
-}) {
-  // "ssr": the server-rendered, not-yet-hydrated state. The photo is shown as
-  // plain HTML so the LCP image never waits on JavaScript. Hydration settles
-  // it before paint: already decoded → "loaded"; still in flight → "loading"
-  // (hidden, spinner centred) until onLoad. Checking `complete` here also
-  // covers a cached photo that finished before React attached onLoad.
-  const [status, setStatus] = useState<"ssr" | "loading" | "loaded">("ssr");
-  const wrapRef = useRef<HTMLSpanElement>(null);
-  const loading = status === "loading";
-
-  useLayoutEffect(() => {
-    const img = wrapRef.current?.querySelector("img");
-    setStatus(img?.complete && img.naturalWidth > 0 ? "loaded" : "loading");
-  }, []);
-
-  return (
-    <span ref={wrapRef} className={cn("relative block", wrapperClassName)}>
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        priority={priority}
-        sizes={sizes}
-        // No shimmer here: the spinner is the loading state.
-        skeleton={false}
-        onLoad={() => setStatus("loaded")}
-        className={cn(
-          "transition-opacity duration-300",
-          loading ? "opacity-0" : "opacity-100",
-          className,
-        )}
-      />
-      {loading && (
-        <span
-          role="status"
-          aria-label="Loading image"
-          className="pointer-events-none absolute inset-0 grid place-items-center"
-        >
-          <SpinnerIcon
-            className={cn(
-              "size-9 animate-spin text-ink-mute motion-reduce:animate-none",
-              spinnerClassName,
-            )}
-          />
-        </span>
-      )}
-    </span>
-  );
-}
+/** Horizontal travel before a touch gesture counts as a swipe rather than a tap. */
+const SWIPE_THRESHOLD = 40;
 
 /**
- * Amazon-style product gallery: a compact, independently-scrollable
- * thumbnail rail (left of the main image on desktop, a horizontal strip
- * above it on mobile) switches the main slot on click, and clicking a photo
- * opens a full-screen lightbox with prev/next and click-to-zoom. A video
- * entry (poster + small play badge in the rail) plays inline in the main
- * slot instead — native `controls`, no lightbox, no swipe-to-advance while
- * it's the active slide, same as tapping a video thumbnail on a real
- * Amazon listing. No external lightbox library — same plain-CSS-transition
- * modal pattern as CartDrawer, portaled to document.body so it can never
- * get trapped inside a transformed ancestor's stacking context (the Tilt
- * wrapper below sets a CSS `transform`, which would otherwise scope a
- * `position: fixed` descendant to itself instead of the viewport).
+ * PDP gallery — sticky stage with the thumbnails beside it from lg up (a
+ * vertical rail on the stage's left) and beneath it on phones (a horizontal
+ * rail).
  *
- * `activeSrc` — the currently selected variant's image, from BuyBox — jumps
- * the main preview to match it without taking over manual thumbnail
- * browsing: only re-syncs when `activeSrc` itself changes. Variant images
- * are always photos, so this only ever matches an image entry.
+ *  - The stage is a native horizontally scroll-snapped track (scrollTo +
+ *    snap-x), not a manually computed transform — the browser's own
+ *    scroll/compositing engine drives the transition, so a slide can never
+ *    render blank mid-animation the way a hand-rolled translate3d can.
+ *  - Touch is tracked ourselves only to stop a fast flick from carrying
+ *    momentum through more than one slide (native snap only guarantees
+ *    landing *on* a snap point, not the *next* one); the arrows, ←/→ keys and
+ *    the thumbnail rail scroll straight to a slide.
+ *  - From lg up the column is `--gallery-h` tall and sticks to the middle of
+ *    the viewport, so it stays level with the purchase panel as you scroll.
+ *  - The first slide is server-rendered with `priority`, so the LCP image
+ *    never waits for JS; every other slide shows a spinner over its reserved
+ *    space until it has actually painted a frame.
+ *  - Choosing a variant in the purchase panel (`activeSrc`) brings that
+ *    variant's photo to the stage.
  */
 export function ProductGallery({
   product,
@@ -125,360 +47,324 @@ export function ProductGallery({
   activeSrc?: string;
 }) {
   const media = product.media;
-  const [index, setIndex] = useState(0);
-  const [open, setOpen] = useState(false);
+  const productName = product.title;
+  const trackRef = useRef<HTMLUListElement>(null);
+  const thumbsRef = useRef<HTMLUListElement>(null);
+  const [active, setActive] = useState(0);
+  const [zoomAt, setZoomAt] = useState<number | null>(null);
+  const count = media.length;
 
-  useEffect(() => {
-    if (!activeSrc) return;
-    const i = media.findIndex((m) => m.kind === "image" && m.src === activeSrc);
-    if (i !== -1) setIndex(i);
-  }, [activeSrc, media]);
-
-  const active = media[index] ?? media[0];
-  const isVideo = active?.kind === "video";
-
-  // Swipe left/right on the main slot to move between entries — same plain
-  // touch-delta approach as the Lightbox below, so mobile doesn't need to
-  // open the full-screen viewer just to flip through the gallery. A tap
-  // (movement under the threshold) still opens the lightbox as before:
-  // browsers suppress the synthetic click once touchmove exceeds a few
-  // pixels, which a real swipe always does. Not wired up at all while a
-  // video is active — see the component doc comment.
-  const mainTouchStart = useRef<{ x: number; y: number } | null>(null);
-  const onMainTouchStart = (e: React.TouchEvent) => {
-    const t = e.touches[0];
-    mainTouchStart.current = { x: t.clientX, y: t.clientY };
-  };
-  const onMainTouchEnd = (e: React.TouchEvent) => {
-    const start = mainTouchStart.current;
-    mainTouchStart.current = null;
-    if (!start || media.length <= 1) return;
-    const t = e.changedTouches[0];
-    const dx = t.clientX - start.x;
-    const dy = t.clientY - start.y;
-    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
-    setIndex((i) =>
-      dx < 0 ? (i + 1) % media.length : (i - 1 + media.length) % media.length,
-    );
-  };
-
-  return (
-    // min-w-0: this div is a grid item in ProductPurchase, and grid items
-    // default to min-width:auto — without it the Embla slide row would keep
-    // the grid cell (and page) from shrinking below its full content width.
-    <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
-      <div className="flex flex-col-reverse gap-4 lg:flex-row">
-        {media.length > 1 && (
-          // Plain native scrolling, not Embla — Embla only captures pointer
-          // drags, so a desktop trackpad/wheel scroll gesture over the
-          // vertical rail went nowhere and looked like it "snapped back".
-          // A native overflow container picks up wheel, trackpad and touch
-          // scroll alike with real OS momentum, which is what "flows
-          // freely" actually needs here. overscroll-contain keeps a scroll
-          // that hits the rail's own top/bottom from chaining into the page.
-          //
-          // p-1 keeps the active thumb's ring/offset inside the overflow
-          // viewport instead of clipping it at the strip's edges.
-          <div
-            className={cn(
-              "flex w-full min-w-0 gap-2.5 overflow-x-auto overscroll-contain p-1",
-              "lg:w-19 lg:max-h-115 lg:shrink-0 lg:flex-col lg:overflow-x-visible lg:overflow-y-auto lg:py-1.5",
-              "scrollbar-none",
-            )}
-          >
-            {media.map((item, i) => (
-              <button
-                key={thumbSrc(item)}
-                type="button"
-                aria-label={
-                  item.kind === "video"
-                    ? `Play product video`
-                    : `Show image ${i + 1} of ${media.length}`
-                }
-                aria-pressed={i === index}
-                onClick={() => setIndex(i)}
-                className={cn(
-                  "relative size-14 shrink-0 overflow-hidden rounded-lg border border-line transition-all duration-300 sm:size-16",
-                  i === index
-                    ? "ring-2 ring-ink ring-offset-2"
-                    : "hover:ring-1 hover:ring-ink/40 hover:ring-offset-1",
-                )}
-              >
-                <Image
-                  src={thumbSrc(item)}
-                  alt={item.kind === "video" ? "Product video" : item.alt}
-                  fill
-                  sizes="64px"
-                  className="object-cover"
-                />
-                {item.kind === "video" && (
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 grid place-items-center bg-black/25"
-                  >
-                    <span className="grid size-6 place-items-center rounded-full bg-white/90 text-ink">
-                      <Icon name="play" className="ml-0.5 size-3" />
-                    </span>
-                  </span>
-                )}
-              </button>
-            ))}
-          </div>
-        )}
-
-        {isVideo ? (
-          <div className="relative mx-auto w-full max-w-115 overflow-hidden rounded-(--radius-card) bg-parchment">
-            <video
-              key={active.poster}
-              controls
-              playsInline
-              poster={active.poster}
-              className="w-full"
-            >
-              {active.sources.map((s) => (
-                <source key={s.src} src={s.src} type={s.type} />
-              ))}
-            </video>
-          </div>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            onTouchStart={onMainTouchStart}
-            onTouchEnd={onMainTouchEnd}
-            aria-label="Open full-size image"
-            className="group relative mx-auto block w-full max-w-115 cursor-zoom-in"
-          >
-            <Tilt className="relative" max={6}>
-              <SpinnerImage
-                key={active.src}
-                src={active.src}
-                alt={active.alt}
-                width={active.width}
-                height={active.height}
-                priority={index === 0}
-                sizes="(max-width: 1023px) 92vw, 40vw"
-                className="w-full"
-              />
-            </Tilt>
-            <span className="absolute right-3 bottom-3 grid size-9 place-items-center rounded-full bg-white/90 text-ink opacity-0 shadow-(--shadow-e2) transition-opacity duration-300 group-hover:opacity-100">
-              <Icon name="zoom" className="size-4" />
-            </span>
-          </button>
-        )}
-      </div>
-
-      <Lightbox
-        media={media}
-        index={index}
-        onIndexChange={setIndex}
-        open={open}
-        onClose={() => setOpen(false)}
-      />
-    </div>
+  /** Which slide indices have actually painted a frame — everything else shows a spinner over its reserved space. */
+  const [loaded, setLoaded] = useState<Set<number>>(() => new Set());
+  const markLoaded = useCallback(
+    (i: number) =>
+      setLoaded((prev) => (prev.has(i) ? prev : new Set(prev).add(i))),
+    [],
   );
-}
 
-function Lightbox({
-  media,
-  index,
-  onIndexChange,
-  open,
-  onClose,
-}: {
-  media: Product["media"];
-  index: number;
-  onIndexChange: (i: number) => void;
-  open: boolean;
-  onClose: () => void;
-}) {
-  const [zoomed, setZoomed] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  useScrollLock(open);
+  // Until hydration the server-rendered photos are shown as plain HTML (so the
+  // LCP image never waits on JavaScript). Hydration then settles each slide
+  // before paint: an image that already decoded counts as loaded, one still in
+  // flight gets the spinner until its onLoad.
+  const [hydrated, setHydrated] = useState(false);
+  useLayoutEffect(() => {
+    const done = new Set<number>();
+    trackRef.current?.querySelectorAll("img").forEach((img) => {
+      const slide = Number(img.closest("li")?.dataset.slide);
+      if (img.complete && img.naturalWidth > 0 && Number.isFinite(slide)) {
+        done.add(slide);
+      }
+    });
+    setLoaded(done);
+    setHydrated(true);
+  }, []);
 
-  useEffect(() => setMounted(true), []);
+  const slides: Slide[] = useMemo(
+    () =>
+      media.map((m) =>
+        m.kind === "image"
+          ? { src: m.src, alt: m.alt, width: m.width, height: m.height }
+          : {
+              type: "video" as const,
+              poster: m.poster,
+              sources: m.sources.map((s) => ({ src: s.src, type: s.type })),
+            },
+      ),
+    [media],
+  );
 
-  // Swipe left/right to move between images — a plain touch delta, not a
-  // gesture library: this is the only gesture the viewer needs. Ignored
-  // while zoomed in, where a horizontal drag more likely means "let me pan
-  // this", and ignored when the gesture reads as more vertical than
-  // horizontal (a scroll attempt, not a swipe). The lightbox never actually
-  // opens on a video entry (see ProductGallery — video plays inline in the
-  // main slot instead), but this still guards on `media.length` the same
-  // way the main gallery's swipe does.
-  const touchStart = useRef<{ x: number; y: number } | null>(null);
-  const onTouchStart = (e: React.TouchEvent) => {
-    const t = e.touches[0];
-    touchStart.current = { x: t.clientX, y: t.clientY };
+  const goTo = useCallback(
+    (index: number, smooth = true) => {
+      const track = trackRef.current;
+      if (!track) return;
+      const i = Math.max(0, Math.min(count - 1, index));
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      track.scrollTo({
+        left: i * track.clientWidth,
+        behavior: smooth && !reduce ? "smooth" : "auto",
+      });
+      setActive(i);
+    },
+    [count],
+  );
+
+  // Track the visible slide as the user scrolls/swipes the track directly
+  // (trackpad, mouse wheel, or a swipe that native snap already resolved).
+  const onScroll = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const index = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+    if (index !== active) setActive(index);
   };
+
+  /*
+   * Native scroll-snap only guarantees landing *on* a snap point, not the
+   * *next* one — a fast flick can carry momentum through more than one
+   * slide. Tracking touch ourselves and always stepping by exactly one slide
+   * keeps a swipe to one image per gesture, like a native app carousel.
+   */
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const dragging = useRef(false);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    if (!touch || count < 2) return;
+    touchStart.current = { x: touch.clientX, y: touch.clientY };
+    dragging.current = false;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    const touch = e.touches[0];
+    if (!start || !touch) return;
+    const dx = touch.clientX - start.x;
+    const dy = touch.clientY - start.y;
+    if (!dragging.current && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
+      dragging.current = true;
+    }
+  };
+
   const onTouchEnd = (e: React.TouchEvent) => {
     const start = touchStart.current;
+    const touch = e.changedTouches[0];
     touchStart.current = null;
-    if (!start || zoomed || media.length <= 1) return;
-    const t = e.changedTouches[0];
-    const dx = t.clientX - start.x;
-    const dy = t.clientY - start.y;
-    if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
-    onIndexChange(
-      dx < 0 ? (index + 1) % media.length : (index - 1 + media.length) % media.length,
-    );
+    if (!start || !touch || !dragging.current) return;
+    dragging.current = false;
+    const dx = touch.clientX - start.x;
+    if (dx <= -SWIPE_THRESHOLD) goTo(active + 1);
+    else if (dx >= SWIPE_THRESHOLD) goTo(active - 1);
   };
 
+  // Keep the active thumbnail in view — scroll the rail only, never the page.
+  // The rail is horizontal on phones and vertical from lg up, so the axis is
+  // read from the rail itself instead of assumed.
   useEffect(() => {
-    if (!open) return;
-    setZoomed(false);
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") onIndexChange((index + 1) % media.length);
-      if (e.key === "ArrowLeft")
-        onIndexChange((index - 1 + media.length) % media.length);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open, index, media.length, onClose, onIndexChange]);
+    const rail = thumbsRef.current;
+    const thumb = rail?.children[active] as HTMLElement | undefined;
+    if (!rail || !thumb) return;
+    const railBox = rail.getBoundingClientRect();
+    const box = thumb.getBoundingClientRect();
+    if (rail.scrollHeight > rail.clientHeight + 1) {
+      if (box.top < railBox.top)
+        rail.scrollBy({ top: box.top - railBox.top - 8, behavior: "smooth" });
+      else if (box.bottom > railBox.bottom)
+        rail.scrollBy({
+          top: box.bottom - railBox.bottom + 8,
+          behavior: "smooth",
+        });
+    } else {
+      if (box.left < railBox.left)
+        rail.scrollBy({
+          left: box.left - railBox.left - 8,
+          behavior: "smooth",
+        });
+      else if (box.right > railBox.right)
+        rail.scrollBy({
+          left: box.right - railBox.right + 8,
+          behavior: "smooth",
+        });
+    }
+  }, [active]);
 
-  if (!mounted) return null;
+  // Variant chosen in the purchase panel → show its photo. Only re-syncs when
+  // `activeSrc` itself changes, so manual thumbnail browsing isn't overridden.
+  useEffect(() => {
+    if (!activeSrc) return;
+    const index = media.findIndex(
+      (m) => m.kind === "image" && m.src === activeSrc,
+    );
+    if (index >= 0) goTo(index);
+  }, [activeSrc, media, goTo]);
 
-  const active = media[index] ?? media[0];
-  // The lightbox is a photo viewer (zoom, pinch-style swipe) — a video entry
-  // never opens it in the first place (ProductGallery plays it inline
-  // instead), but guard here too in case `index` ever lands on one via the
-  // thumbnail strip below while already open.
-  if (active?.kind === "video") return null;
-
-  return createPortal(
-    <div
-      className={cn("fixed inset-0 z-100", !open && "pointer-events-none")}
-      inert={!open}
+  return (
+    <section
+      aria-roledescription="carousel"
+      aria-label={`${productName} images and video`}
+      /* Stuck to the middle of the viewport: the stage is `--gallery-h` tall,
+         so half of what is left over sits above it and half below. */
+      className="min-w-0 lg:sticky lg:top-[calc((100svh-var(--gallery-h))/2)] lg:self-start"
+      onKeyDown={(e) => {
+        if (e.key === "ArrowRight") goTo(active + 1);
+        if (e.key === "ArrowLeft") goTo(active - 1);
+      }}
     >
-      <div
-        onClick={onClose}
-        // A literal colour, not a `bg-*/NN` utility — this backdrop must
-        // always be opaque regardless of any Tailwind theme-token or
-        // opacity-modifier quirk; it is the whole reason the lightbox
-        // doesn't show the page through it.
-        style={{ backgroundColor: "rgba(4,4,4,0.95)" }}
-        className={cn(
-          "absolute inset-0 backdrop-blur-sm transition-opacity duration-300",
-          open ? "opacity-100" : "opacity-0",
-        )}
-      />
-
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-label="Image viewer"
-        className={cn(
-          "absolute inset-0 flex flex-col transition-opacity duration-300",
-          open ? "opacity-100" : "opacity-0",
-        )}
-      >
-        <div className="flex items-center justify-between px-5 py-4 sm:px-8">
-          <span className="text-[0.78rem] tracking-widest text-chalk/70 tabular-nums">
-            {index + 1} / {media.length}
-          </span>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close image viewer"
-            className="grid size-10 place-items-center rounded-full border border-white/20 text-chalk transition-colors duration-300 hover:border-white/50"
+      {/* Reversed on lg so the rail — which stays after the stage in the DOM,
+          keeping the stage first for keyboard and screen-reader order — lands
+          to its left. */}
+      <div className="flex flex-col gap-3 lg:flex-row-reverse lg:gap-4">
+        <div className="group/stage relative min-w-0 flex-1">
+          <ul
+            ref={trackRef}
+            onScroll={onScroll}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+            className="scrollbar-none flex snap-x snap-mandatory touch-pan-y overflow-x-auto overscroll-x-contain rounded-media [&::-webkit-scrollbar]:hidden"
+            aria-live="polite"
           >
-            <Icon name="close" className="size-4" />
-          </button>
+            {media.map((item, i) => {
+              const ready = !hydrated || loaded.has(i);
+              return (
+                <li
+                  key={i}
+                  data-slide={i}
+                  aria-roledescription="slide"
+                  aria-label={`${i + 1} of ${count}`}
+                  aria-hidden={i !== active}
+                  className="w-full shrink-0 snap-center"
+                >
+                  {item.kind === "image" ? (
+                    <button
+                      type="button"
+                      onClick={() => setZoomAt(i)}
+                      aria-label={`Zoom image ${i + 1}`}
+                      className="relative block aspect-square w-full cursor-zoom-in overflow-hidden lg:aspect-auto lg:h-(--gallery-h)"
+                    >
+                      <Image
+                        src={item.src}
+                        alt={item.alt}
+                        fill
+                        priority={i === 0}
+                        fetchPriority={i === 0 ? "high" : undefined}
+                        sizes="(min-width: 1024px) 52vw, 100vw"
+                        // The spinner is the loading state — no shimmer behind it.
+                        skeleton={false}
+                        className={cn(
+                          "object-contain transition-opacity duration-300",
+                          !ready && "opacity-0",
+                        )}
+                        onLoad={() => markLoaded(i)}
+                      />
+                      {!ready && (
+                        <div
+                          className="absolute inset-0 grid place-items-center"
+                          aria-hidden="true"
+                        >
+                          <Icon
+                            name="spinner"
+                            className="size-8 animate-spin text-ink-soft"
+                          />
+                        </div>
+                      )}
+                    </button>
+                  ) : (
+                    <VideoTile
+                      video={item}
+                      alt={`${productName} video`}
+                      active={i === active}
+                      className="aspect-square overflow-hidden bg-ink lg:aspect-auto lg:h-(--gallery-h)"
+                    />
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+
+          {count > 1 && (
+            <>
+              <div className="glass pointer-events-none absolute bottom-4 left-4 rounded-tag px-3 py-1.5 text-[0.78rem] tabular-nums">
+                {active + 1} / {count}
+              </div>
+              <div className="absolute right-4 bottom-4 hidden gap-2 md:flex">
+                <button
+                  type="button"
+                  onClick={() => goTo(active - 1)}
+                  disabled={active === 0}
+                  className="glass grid size-11 place-items-center rounded-[12px] transition-opacity disabled:opacity-40"
+                  aria-label="Previous image"
+                >
+                  <Icon name="arrow-right" className="size-4 rotate-180" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goTo(active + 1)}
+                  disabled={active === count - 1}
+                  className="glass grid size-11 place-items-center rounded-[12px] transition-opacity disabled:opacity-40"
+                  aria-label="Next image"
+                >
+                  <Icon name="arrow-right" className="size-4" />
+                </button>
+              </div>
+            </>
+          )}
         </div>
 
-        <div
-          className="relative flex flex-1 items-center justify-center overflow-hidden px-4 pb-4"
-          onTouchStart={onTouchStart}
-          onTouchEnd={onTouchEnd}
-        >
-          {media.length > 1 && (
-            <button
-              type="button"
-              onClick={() =>
-                onIndexChange((index - 1 + media.length) % media.length)
-              }
-              aria-label="Previous image"
-              className="absolute left-2 z-10 grid size-11 shrink-0 place-items-center rounded-full bg-white/10 text-chalk transition-colors duration-300 hover:bg-white/20 sm:left-6"
-            >
-              <Icon name="chevron-right" className="size-5 rotate-180" />
-            </button>
-          )}
-
-          <button
-            type="button"
-            onClick={() => setZoomed((z) => !z)}
-            aria-label={zoomed ? "Zoom out" : "Zoom in"}
-            className={cn(
-              "relative max-h-full max-w-full overflow-hidden",
-              zoomed ? "cursor-zoom-out" : "cursor-zoom-in",
-            )}
+        {count > 1 && (
+          /* Horizontal snap row under the stage on phones; a vertical scroller
+             on its left from lg up, as tall as the stage it sits beside. */
+          <ul
+            ref={thumbsRef}
+            className="scrollbar-none flex w-full snap-x snap-mandatory gap-2.5 overflow-x-auto overscroll-x-contain p-0.5 [&::-webkit-scrollbar]:hidden lg:max-h-(--gallery-h) lg:w-22 lg:shrink-0 lg:flex-col lg:overflow-x-hidden lg:overflow-y-auto lg:p-0"
+            aria-label="Choose image"
           >
-            <SpinnerImage
-              key={active.src}
-              src={active.src}
-              alt={active.alt}
-              width={active.width}
-              height={active.height}
-              sizes="90vw"
-              wrapperClassName="inline-block"
-              spinnerClassName="text-chalk/70"
-              className={cn(
-                "max-h-[78vh] w-auto object-contain transition-transform duration-500 ease-(--ease-out-expo)",
-                zoomed ? "scale-[1.8]" : "scale-100",
-              )}
-            />
-          </button>
-
-          {media.length > 1 && (
-            <button
-              type="button"
-              onClick={() => onIndexChange((index + 1) % media.length)}
-              aria-label="Next image"
-              className="absolute right-2 z-10 grid size-11 shrink-0 place-items-center rounded-full bg-white/10 text-chalk transition-colors duration-300 hover:bg-white/20 sm:right-6"
-            >
-              <Icon name="chevron-right" className="size-5" />
-            </button>
-          )}
-        </div>
-
-        {media.length > 1 && (
-          <div className="flex justify-center gap-2.5 px-5 pb-6">
             {media.map((item, i) => (
-              <button
-                key={thumbSrc(item)}
-                type="button"
-                aria-label={`Show image ${i + 1}`}
-                aria-pressed={i === index}
-                onClick={() => onIndexChange(i)}
-                className={cn(
-                  "relative size-12 shrink-0 overflow-hidden rounded-md border border-white/15 transition-all duration-300",
-                  i === index
-                    ? "ring-2 ring-white ring-offset-2 ring-offset-void"
-                    : "opacity-60 hover:opacity-100",
-                )}
-              >
-                <Image
-                  src={thumbSrc(item)}
-                  alt={item.kind === "video" ? "Product video" : item.alt}
-                  fill
-                  sizes="48px"
-                  className="object-cover"
-                />
-                {item.kind === "video" && (
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 grid place-items-center bg-black/25"
-                  >
-                    <Icon name="play" className="size-3.5 text-white" />
-                  </span>
-                )}
-              </button>
+              <li key={i} className="shrink-0 snap-start">
+                <button
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-label={`Show ${item.kind === "video" ? "video" : "image"} ${i + 1}${item.kind === "image" && item.alt ? `: ${item.alt}` : ""}`}
+                  aria-current={i === active}
+                  className={cn(
+                    "well relative block size-19 overflow-hidden rounded-[14px] transition-[box-shadow,opacity] duration-300 md:size-22",
+                    i === active
+                      ? "shadow-[inset_0_0_0_1.5px_var(--color-ink)]"
+                      : "opacity-70 hover:opacity-100",
+                  )}
+                >
+                  <Image
+                    src={item.kind === "image" ? item.src : item.poster}
+                    alt=""
+                    fill
+                    sizes="88px"
+                    skeleton={false}
+                    className="object-cover mix-blend-multiply"
+                  />
+                  {item.kind === "video" && (
+                    <span className="absolute inset-0 grid place-items-center">
+                      <span className="glass grid size-7 place-items-center rounded-full">
+                        <Icon name="play" className="size-3 translate-x-px" />
+                      </span>
+                    </span>
+                  )}
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </div>
-    </div>,
-    document.body,
+
+      {zoomAt !== null && (
+        <GalleryLightbox
+          slides={slides}
+          index={zoomAt}
+          onClose={(i) => {
+            setZoomAt(null);
+            goTo(i, false);
+          }}
+        />
+      )}
+    </section>
   );
 }

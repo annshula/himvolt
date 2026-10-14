@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { ProductPurchase } from "@/components/product/ProductPurchase";
+import { SaleCountdown } from "@/components/product/SaleCountdown";
 import { ProductDetails } from "@/components/product/ProductDetails";
 import BraceletStory from "@/components/product/BraceletStory";
 import BraceletMoments from "@/components/product/BraceletMoments";
@@ -165,6 +166,11 @@ export default async function ProductPage({
           { name: liveProduct.title, path: `/products/${liveProduct.handle}` },
         ]}
       />
+
+      {/* Offer countdown: a real, merchant-set deadline (custom.sale_ends_at), shown first — as on the reference. */}
+      {liveProduct.saleEndsAt && (
+        <SaleCountdown endsAt={liveProduct.saleEndsAt} variant="bar" />
+      )}
 
       <ProductPurchase
         product={liveProduct}

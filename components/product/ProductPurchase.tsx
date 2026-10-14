@@ -227,7 +227,7 @@ export function ProductPurchase({
   ];
 
   return (
-    <div className="mx-auto w-full max-w-310 px-5 pt-6 pb-10 sm:px-8 md:pt-8 lg:pb-14">
+    <div className="container-page pt-6 pb-10 md:pt-8 lg:pb-14">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
         {/* Fired against the initially-selected variant (bestDeal), not the
             possibly-since-changed `selected` — one ViewContent per page view,

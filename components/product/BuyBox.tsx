@@ -614,7 +614,7 @@ function PackCards({
                 {!pending && k.saved != null && (
                   <span
                     className={cn(
-                      "mt-1 rounded-tag px-1.5 py-0.5 font-numeral text-[0.68rem] leading-none font-medium tabular-nums",
+                      "mt-1 inline-flex h-[18px] items-center justify-center rounded-tag px-1.5 pt-px font-numeral text-[0.68rem] leading-none font-medium tabular-nums",
                       SAVE_BADGE,
                     )}
                   >
@@ -727,7 +727,7 @@ function PackCards({
             {!pending && k.saved != null && (
               <span
                 className={cn(
-                  "mt-1.5 rounded-tag px-2 py-0.5 font-numeral text-[0.7rem] font-medium tabular-nums",
+                  "mt-1.5 inline-flex h-5 items-center justify-center rounded-tag px-2 pt-px font-numeral text-[0.7rem] leading-none font-medium tabular-nums",
                   SAVE_BADGE,
                 )}
               >
@@ -934,7 +934,7 @@ const CONFETTI = [
  */
 function FreeDeliveryUnlocked() {
   return (
-    <div className="relative min-w-0 flex-1 basis-48 overflow-hidden rounded-lg border border-dashed border-sage-300 bg-sage-50 py-1.5 pr-3 pl-2 text-sage-800">
+    <div className="relative min-w-0 flex-1 basis-56 overflow-hidden rounded-lg border border-dashed border-sage-300 bg-sage-50 py-1.5 pr-3 pl-2 text-sage-800">
       <span
         aria-hidden="true"
         className="unlock-anim pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-transparent via-white/70 to-transparent motion-safe:animate-[unlock-sweep_3.6s_ease-in-out_infinite]"

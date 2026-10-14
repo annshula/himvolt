@@ -44,7 +44,14 @@ const pad = (n: number) => n.toString().padStart(2, "0");
  * just a visual flicker. Filling it in from an effect after mount avoids
  * that entirely, at the cost of one tick where nothing renders.
  */
-export function SaleCountdown({ endsAt }: { endsAt: string }) {
+export function SaleCountdown({
+  endsAt,
+  variant = "inline",
+}: {
+  endsAt: string;
+  /** "bar": full-width strip at the top of the page. "inline": the compact line that sits beside the delivery strip. */
+  variant?: "bar" | "inline";
+}) {
   const target = Date.parse(endsAt);
   const [left, setLeft] = useState<ReturnType<typeof remaining>>(null);
 
@@ -57,6 +64,38 @@ export function SaleCountdown({ endsAt }: { endsAt: string }) {
   if (!left) return null;
 
   const clock = [left.hours, left.minutes, left.seconds];
+
+  if (variant === "bar") {
+    /* A full-width strip at the very top of the product page, so the deadline
+       is the first thing seen. Screen readers get one plain sentence instead
+       of the ticking digits. */
+    return (
+      <div className="bg-clay-600 text-ivory" role="timer" aria-live="off">
+        <p className="container-page flex items-center justify-center gap-3 py-2.5 font-ui text-body-sm font-medium">
+          <Icon name="clock" className="size-4 shrink-0" />
+          <span>Offer ends in</span>
+          <span
+            className="flex items-center gap-1 font-numeral font-semibold tabular-nums"
+            aria-hidden="true"
+          >
+            {left.days > 0 && <span>{left.days}d</span>}
+            {clock.map((value, i) => (
+              <span key={i} className="flex items-center gap-1">
+                {i > 0 && <span className="opacity-70">:</span>}
+                <span className="min-w-8 rounded-md bg-ivory/15 px-1.5 py-0.5 text-center">
+                  {pad(value)}
+                </span>
+              </span>
+            ))}
+          </span>
+          <span className="sr-only">
+            {left.days > 0 ? `${left.days} days ` : ""}
+            {left.hours} hours {left.minutes} minutes left
+          </span>
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full sm:w-auto" role="timer" aria-live="off">

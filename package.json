@@ -20,7 +20,8 @@
     "react": "19.1.1",
     "react-dom": "19.1.1",
     "sanitize-html": "^2.17.7",
-    "sonner": "^2.0.8"
+    "sonner": "^2.0.8",
+    "yet-another-react-lightbox": "^3.32.2"
   },
   "overrides": {
     "next": {
