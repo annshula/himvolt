@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { getVariantById } from "@/lib/catalog";
 import { resolvePricingCountry } from "@/lib/localization/resolve";
+import { shipCountryFor } from "@/lib/localization/ship-country";
 import { getLocalizedVariantPrices } from "@/lib/shopify/localization-service";
 
 export const runtime = "nodejs";
@@ -58,9 +59,14 @@ export async function POST(request: Request) {
       : await resolvePricingCountry();
   if (!country) return json({ prices: {} });
 
+  // Prices follow checkout: a product limited to some countries is checked
+  // out for a country it ships to, so it is priced there too (the bag then
+  // never shows one currency and charges another).
+  const priceCountry = shipCountryFor(ids, country) ?? country;
+
   try {
-    const priceMap = await getLocalizedVariantPrices(ids, country);
-    return json({ prices: Object.fromEntries(priceMap), country });
+    const priceMap = await getLocalizedVariantPrices(ids, priceCountry);
+    return json({ prices: Object.fromEntries(priceMap), country: priceCountry });
   } catch {
     // A failed live-price fetch should never break the page — callers fall
     // back to the base price already shown.

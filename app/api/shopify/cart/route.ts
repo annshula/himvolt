@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { getVariantById } from "@/lib/catalog";
 import { resolvePricingCountry } from "@/lib/localization/resolve";
+import { shipCountryFor } from "@/lib/localization/ship-country";
 import { isStorefrontConfigured, shopifyConfig } from "@/lib/shopify/config";
 import { createCart } from "@/lib/shopify/storefront";
 
@@ -60,7 +61,13 @@ export async function POST(request: NextRequest) {
     // The same country the on-page prices were fetched for (the visitor's own
     // choice, else the edge-detected one), so Shopify prices the cart in the
     // same market and currency the bag displayed.
-    const countryCode = await resolvePricingCountry();
+    // A product limited to some countries is unavailable in any other
+    // country's context, so such a bag is checked out for a country it ships
+    // to (see shipCountryFor) rather than opening on "Out of stock".
+    const countryCode = shipCountryFor(
+      cartLines.map((l) => l.merchandiseId),
+      await resolvePricingCountry(),
+    );
     const cart = await createCart(cartLines, { countryCode });
     // After a successful payment Shopify redirects the shopper back here,
     // where the local bag is cleared (see /checkout/confirmation).
