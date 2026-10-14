@@ -85,6 +85,12 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
         chipsField: metafield(namespace: "custom", key: "chips") {
           value
         }
+        availableCountriesField: metafield(
+          namespace: "custom"
+          key: "available_countries"
+        ) {
+          value
+        }
         saleEndsAtField: metafield(namespace: "custom", key: "sale_ends_at") {
           value
         }
@@ -308,6 +314,7 @@ type ProductNode = {
   materialField: { value: string } | null;
   perksField: { value: string } | null;
   chipsField: { value: string } | null;
+  availableCountriesField: { value: string } | null;
   saleEndsAtField: { value: string } | null;
   specsField: { references: { nodes: SpecNode[] } | null } | null;
   featureHighlights: {
@@ -382,6 +389,8 @@ type SyncedProduct = {
   perks?: string[];
   /** From the custom.chips metafield — short product highlights shown as chips above the title. Undefined for a product synced before this field existed. */
   chips?: string[];
+  /** From the custom.available_countries metafield — ISO codes the product may be bought from on the site; empty/undefined means everywhere. */
+  availableCountries?: string[];
   /** From the custom.sale_ends_at metafield — an ISO timestamp, or null if unset or already past at sync time. Undefined for a product synced before this field existed. */
   saleEndsAt?: string | null;
 };
@@ -482,6 +491,13 @@ function normalizePerks(field: { value: string } | null): string[] {
   } catch {
     return [];
   }
+}
+
+/** custom.available_countries — ISO country codes; empty means everywhere. */
+function normalizeCountries(field: { value: string } | null): string[] {
+  return normalizePerks(field)
+    .map((c) => c.toUpperCase())
+    .filter((c) => /^[A-Z]{2}$/.test(c));
 }
 
 /** custom.sale_ends_at — only kept when it's a valid timestamp that hasn't passed yet, so an expired countdown never reaches the page. The page re-checks against the visitor's clock too, since a catalog snapshot can be hours old. */
@@ -695,6 +711,7 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
       seoDescription: freshProduct.seo?.description?.trim() || null,
       perks: normalizePerks(freshProduct.perksField),
       chips: normalizePerks(freshProduct.chipsField),
+      availableCountries: normalizeCountries(freshProduct.availableCountriesField),
       saleEndsAt: normalizeSaleEndsAt(freshProduct.saleEndsAtField),
     });
   }
@@ -769,6 +786,7 @@ export async function seedProductIntoCatalog(
       seoDescription: null,
       perks: [],
       chips: [],
+      availableCountries: [],
       saleEndsAt: null,
     });
 

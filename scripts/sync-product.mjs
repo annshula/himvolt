@@ -166,6 +166,7 @@ query ProductsByIds($ids: [ID!]!) {
       materialField: metafield(namespace: "custom", key: "material") { value }
       perksField: metafield(namespace: "custom", key: "perks") { value }
       chipsField: metafield(namespace: "custom", key: "chips") { value }
+      availableCountriesField: metafield(namespace: "custom", key: "available_countries") { value }
       saleEndsAtField: metafield(namespace: "custom", key: "sale_ends_at") { value }
       specsField: metafield(namespace: "custom", key: "specs") {
         references(first: 20) {
@@ -334,6 +335,13 @@ function normalizePerks(field) {
   }
 }
 
+/** custom.available_countries — ISO country codes the product may be bought from; empty means everywhere. */
+function normalizeCountries(field) {
+  return normalizePerks(field)
+    .map((c) => c.toUpperCase())
+    .filter((c) => /^[A-Z]{2}$/.test(c));
+}
+
 /** custom.sale_ends_at — only kept when it's a valid timestamp that hasn't passed yet, so an expired countdown never reaches the page. The page re-checks against the visitor's clock too, since a catalog snapshot can be hours old. */
 function normalizeSaleEndsAt(field) {
   const raw = field?.value?.trim();
@@ -481,6 +489,7 @@ async function main() {
       seoDescription: freshProduct.seo?.description?.trim() || null,
       perks: normalizePerks(freshProduct.perksField),
       chips: normalizePerks(freshProduct.chipsField),
+      availableCountries: normalizeCountries(freshProduct.availableCountriesField),
       saleEndsAt: normalizeSaleEndsAt(freshProduct.saleEndsAtField),
       descriptionHtml: freshProduct.descriptionHtml ?? existingProduct.descriptionHtml ?? "",
       specs,

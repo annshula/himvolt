@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { getVariantById } from "@/lib/catalog";
+import { countryNames, isRestricted } from "@/lib/availability";
+import { allowedCountriesForVariant, getVariantById } from "@/lib/catalog";
+import { detectVisitorCountry } from "@/lib/localization/geo";
 import { resolvePricingCountry } from "@/lib/localization/resolve";
 import { isStorefrontConfigured, shopifyConfig } from "@/lib/shopify/config";
 import { createCart } from "@/lib/shopify/storefront";
@@ -32,6 +34,25 @@ export async function POST(request: NextRequest) {
       { ok: false, error: "Your bag is empty." },
       { status: 400 },
     );
+  }
+
+  // Per-product country availability (custom.available_countries), checked
+  // against the GeoIP country — the same signal the page used to show the
+  // "available in … only" notice.
+  const visitorCountry = detectVisitorCountry(request.headers);
+  for (const line of lines) {
+    const allowed = line.variantId
+      ? allowedCountriesForVariant(line.variantId)
+      : null;
+    if (allowed && isRestricted(allowed, visitorCountry)) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: `One of the items in your bag is available in ${countryNames(allowed)} only. Remove it to check out.`,
+        },
+        { status: 400 },
+      );
+    }
   }
 
   const cartLines = lines

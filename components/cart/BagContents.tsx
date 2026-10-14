@@ -8,6 +8,7 @@ import { useLocalization } from "@/components/providers/LocalizationProvider";
 import Image from "@/components/ui/Image";
 import { Icon } from "@/components/ui/Icons";
 import { PaymentIcons } from "@/components/ui/PaymentIcons";
+import { countryNames, isRestricted } from "@/lib/availability";
 import { productCurrency } from "@/lib/catalog";
 import { formatMoney } from "@/lib/money";
 import { shopifyCheckout } from "@/lib/shopify-checkout";
@@ -35,8 +36,14 @@ export function BagContents({
   onNavigate?: () => void;
 }) {
   const { lines, hydrated, setQty, remove } = useCart();
-  const { ready, canLocalize, requestPrices, localizedPriceFor, isPriceSettled } =
-    useLocalization();
+  const {
+    ready,
+    canLocalize,
+    requestPrices,
+    localizedPriceFor,
+    isPriceSettled,
+    detectedCountry,
+  } = useLocalization();
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -93,6 +100,12 @@ export function BagContents({
     (allLanded
       ? ids.map((id) => localizedPriceFor(id)?.currencyCode).find(Boolean)
       : undefined) ?? productCurrency;
+
+  // Products Shopify limits to certain countries (custom.available_countries)
+  // can sit in a bag from an earlier visit or another location.
+  const blocked = priced.filter((l) =>
+    isRestricted(l.availableCountries, detectedCountry),
+  );
 
   const subtotal = round(priced.reduce((s, l) => s + l.lineTotal, 0));
   const discount = round(
@@ -226,6 +239,15 @@ export function BagContents({
                     )}
                   </p>
                 </div>
+                {isRestricted(line.availableCountries, detectedCountry) && (
+                  <p
+                    role="note"
+                    className="mt-1 text-[0.72rem] font-medium text-clay-600"
+                  >
+                    Available in {countryNames(line.availableCountries)} only,
+                    remove it to check out.
+                  </p>
+                )}
                 {hasSaving && (
                   /* Line 2: variant + saving badge, with the struck-through price. */
                   <div className="flex items-center justify-between gap-2 text-[0.72rem]">
@@ -353,7 +375,7 @@ export function BagContents({
           type="button"
           className="btn-primary mt-3 w-full"
           onClick={onCheckout}
-          disabled={pending || pricePending}
+          disabled={pending || pricePending || blocked.length > 0}
         >
           {pending ? (
             "Opening secure checkout…"

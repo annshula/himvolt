@@ -83,6 +83,8 @@ export type Product = {
   perks: string[];
   /** From the custom.chips Shopify metafield — short product highlights shown as chips above the title. */
   chips: string[];
+  /** From the custom.available_countries Shopify metafield — ISO codes the product may be bought from on the site. Empty means everywhere. */
+  availableCountries: string[];
   /** From the custom.sale_ends_at Shopify metafield — an ISO timestamp for the offer countdown, or null when unset/already past at sync time. */
   saleEndsAt: string | null;
 };
@@ -121,6 +123,7 @@ export function mapSyncedProducts(
     seoDescription: p.seoDescription ?? null,
     perks: p.perks ?? [],
     chips: p.chips ?? [],
+    availableCountries: p.availableCountries ?? [],
     saleEndsAt: p.saleEndsAt ?? null,
     variants: p.variants.map((v) => ({
       id: v.id,

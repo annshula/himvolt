@@ -40,6 +40,8 @@ export type SyncedProduct = {
   variants: SyncedVariant[];
   /** The real Shopify product gallery — undefined for a product synced before images were added to the schema. */
   images?: SyncedImage[];
+  /** The custom.available_countries Shopify metafield — ISO codes the product may be bought from; empty/undefined means everywhere. */
+  availableCountries?: string[];
   /** The custom.feature_highlights Shopify metafield — merchant-editable in Shopify Admin, undefined for a product synced before this field existed. */
   features?: { icon: string; label: string; body: string; image?: SyncedImage | null; video?: SyncedVideo | null }[];
   /** The custom.specs Shopify metafield — undefined for a product synced before this field existed. */
@@ -140,4 +142,14 @@ export function belongsToHimVolt(input: {
 }): boolean {
   if (input.productId && himvoltProductIds.has(input.productId)) return true;
   return Boolean(input.variantId && himvoltVariantIds.has(input.variantId));
+}
+
+/**
+ * The countries a variant's product may be bought from on the site (ISO
+ * codes), or null when it is sold everywhere. Set per product in Shopify
+ * (custom.available_countries).
+ */
+export function allowedCountriesForVariant(variantId: string): string[] | null {
+  const list = getProductForVariant(variantId)?.availableCountries;
+  return list && list.length > 0 ? list : null;
 }
