@@ -58,8 +58,12 @@ export async function generateMetadata({
     };
   }
   const path = pathForHandle(product.handle);
-  const { title } = product;
-  const description = `${product.subtitle}. ${site.promise.shipping}. ${site.promise.returns}.`;
+  // Shopify's own search-listing title/description win when the merchant has
+  // set them; otherwise the product title and a line built from its subtitle.
+  const title = product.seoTitle ?? product.title;
+  const description =
+    product.seoDescription ??
+    `${product.subtitle}. ${site.promise.shipping}. ${site.promise.returns}.`;
   const cover = product.gallery[0];
   return {
     title,
@@ -183,6 +187,7 @@ export default async function ProductPage({
             <SectionHeading
               eyebrow="Real use"
               title={<span id="product-videos">See it in action.</span>}
+              body="Watch the arm trainer in use."
               align="center"
             />
           </div>

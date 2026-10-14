@@ -69,6 +69,10 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
         handle
         title
         descriptionHtml
+        seo {
+          title
+          description
+        }
         subtitleField: metafield(namespace: "custom", key: "subtitle") {
           value
         }
@@ -296,6 +300,7 @@ type ProductNode = {
   handle: string;
   title: string;
   descriptionHtml: string | null;
+  seo: { title: string | null; description: string | null } | null;
   subtitleField: { value: string } | null;
   materialField: { value: string } | null;
   perksField: { value: string } | null;
@@ -366,6 +371,9 @@ type SyncedProduct = {
   descriptionHtml: string;
   specs: SyncedSpec[];
   features: SyncedFeature[];
+  /** Shopify's own "Search engine listing" title/description for the product — null when the merchant hasn't set one. */
+  seoTitle?: string | null;
+  seoDescription?: string | null;
   /** From the custom.perks metafield (a plain text list), in Shopify's own order. Undefined for a product synced before this field existed. */
   perks?: string[];
   /** From the custom.sale_ends_at metafield — an ISO timestamp, or null if unset or already past at sync time. Undefined for a product synced before this field existed. */
@@ -669,6 +677,8 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
       ),
       specs: specs as SyncedSpec[],
       features: features as SyncedFeature[],
+      seoTitle: freshProduct.seo?.title?.trim() || null,
+      seoDescription: freshProduct.seo?.description?.trim() || null,
       perks: normalizePerks(freshProduct.perksField),
       saleEndsAt: normalizeSaleEndsAt(freshProduct.saleEndsAtField),
     });
@@ -740,6 +750,8 @@ export async function seedProductIntoCatalog(
       descriptionHtml: "",
       specs: [],
       features: [],
+      seoTitle: null,
+      seoDescription: null,
       perks: [],
       saleEndsAt: null,
     });

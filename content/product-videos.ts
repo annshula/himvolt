@@ -26,9 +26,14 @@ const clip = (
 });
 
 export const productVideosByHandle: Record<string, ShowcaseVideo[]> = {
-  // The arm trainer's clips are coming — e.g.
-  //   "<handle>": [1, 2, 3].map((n) =>
-  //     clip(`/videos/arm-trainer/arm-trainer-${n}.mp4`, `HimVolt arm trainer video ${n}`)),
+  // HimVolt arm trainer — public/videos/arm-trainer (540×960, no audio, a
+  // still frame beside each clip).
+  "hydraulic-arm-trainer": [1, 2, 3, 4, 5, 6].map((n) =>
+    clip(
+      `/videos/arm-trainer/arm-trainer-${n}.mp4`,
+      `HimVolt arm trainer video ${n}`,
+    ),
+  ),
 };
 
 /** Kept exported so a new product's entry can be written with the same helper. */

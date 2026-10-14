@@ -76,6 +76,9 @@ export type Product = {
   /** From the custom.feature_highlights Shopify metafield — merchant-editable in Shopify Admin, no code change needed. `icon` is validated against the known set where it's rendered (components/product/ProductShowcase.tsx), not here. */
   features: { icon: string; label: string; body: string; image?: CatalogImage | null; video?: CatalogVideo | null }[];
   variants: Variant[];
+  /** Shopify's "Search engine listing" title/description — the page's <title> and meta description when set. */
+  seoTitle: string | null;
+  seoDescription: string | null;
   /** From the custom.perks Shopify metafield — short bullet claims shown under the product name, in Shopify's own order. Empty until a merchant adds some. */
   perks: string[];
   /** From the custom.sale_ends_at Shopify metafield — an ISO timestamp for the offer countdown, or null when unset/already past at sync time. */
@@ -112,6 +115,8 @@ export function mapSyncedProducts(
         : p.images.map((img) => ({ kind: "image" as const, ...img })),
     specs: p.specs,
     features: p.features ?? [],
+    seoTitle: p.seoTitle ?? null,
+    seoDescription: p.seoDescription ?? null,
     perks: p.perks ?? [],
     saleEndsAt: p.saleEndsAt ?? null,
     variants: p.variants.map((v) => ({

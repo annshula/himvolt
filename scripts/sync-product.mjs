@@ -161,6 +161,7 @@ query ProductsByIds($ids: [ID!]!) {
       handle
       title
       descriptionHtml
+      seo { title description }
       subtitleField: metafield(namespace: "custom", key: "subtitle") { value }
       materialField: metafield(namespace: "custom", key: "material") { value }
       perksField: metafield(namespace: "custom", key: "perks") { value }
@@ -469,6 +470,8 @@ async function main() {
       media: toMediaItems(freshProduct.media?.nodes, freshProduct.title, existingImageBySrc),
       subtitle: freshProduct.subtitleField?.value ?? existingProduct.subtitle ?? "",
       material: freshProduct.materialField?.value ?? existingProduct.material ?? "",
+      seoTitle: freshProduct.seo?.title?.trim() || null,
+      seoDescription: freshProduct.seo?.description?.trim() || null,
       perks: normalizePerks(freshProduct.perksField),
       saleEndsAt: normalizeSaleEndsAt(freshProduct.saleEndsAtField),
       descriptionHtml: freshProduct.descriptionHtml ?? existingProduct.descriptionHtml ?? "",
