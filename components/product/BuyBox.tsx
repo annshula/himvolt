@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import { PaymentIcons } from "@/components/ui/PaymentIcons";
 import { SaleCountdown } from "@/components/product/SaleCountdown";
+import { ShipsToSheet } from "@/components/product/ShipsToSheet";
 import { useCart } from "@/components/providers/CartProvider";
 import { useLocalization } from "@/components/providers/LocalizationProvider";
 import Image from "@/components/ui/Image";
@@ -119,10 +120,17 @@ export function BuyBox({
   payments: PaymentMethod[];
 }) {
   const { add, open } = useCart();
-  const { ready, canLocalize, requestPrices, localizedPriceFor, isPriceSettled } =
-    useLocalization();
+  const {
+    ready,
+    canLocalize,
+    requestPrices,
+    localizedPriceFor,
+    isPriceSettled,
+    detectedCountry,
+  } = useLocalization();
 
   const [added, setAdded] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [showSticky, setShowSticky] = useState(false);
 
@@ -203,8 +211,7 @@ export function BuyBox({
     window.history.replaceState(window.history.state, "", url);
   };
 
-  const onAdd = () => {
-    if (!canBuy) return;
+  const addToBag = () => {
     add(
       selected.v.id,
       1,
@@ -213,6 +220,24 @@ export function BuyBox({
     );
     setAdded(true);
     window.setTimeout(() => setAdded(false), 2000);
+  };
+
+  // A product that ships to some countries only (custom.available_countries
+  // in Shopify): a visitor whose detected country is outside the list is
+  // asked to confirm first. Not blocked — they may have a delivery address
+  // there — and an unknown location is never asked.
+  const outside =
+    product.availableCountries.length > 0 &&
+    detectedCountry !== null &&
+    !product.availableCountries.includes(detectedCountry);
+
+  const onAdd = () => {
+    if (!canBuy) return;
+    if (outside) {
+      setConfirmOpen(true);
+      return;
+    }
+    addToBag();
   };
 
   const money = (amount: number, currency: string) =>
@@ -288,6 +313,17 @@ export function BuyBox({
 
         <PaymentIcons methods={payments} className="mt-3" />
       </div>
+
+      <ShipsToSheet
+        open={confirmOpen}
+        countries={product.availableCountries}
+        visitorCountry={detectedCountry}
+        onConfirm={() => {
+          setConfirmOpen(false);
+          addToBag();
+        }}
+        onCancel={() => setConfirmOpen(false)}
+      />
 
       {/* Sticky mobile bar */}
       <div

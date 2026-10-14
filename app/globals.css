@@ -764,3 +764,10 @@ dialog.sheet::backdrop {
       var(--color-cream);
   }
 }
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
