@@ -165,6 +165,7 @@ query ProductsByIds($ids: [ID!]!) {
       subtitleField: metafield(namespace: "custom", key: "subtitle") { value }
       materialField: metafield(namespace: "custom", key: "material") { value }
       perksField: metafield(namespace: "custom", key: "perks") { value }
+      chipsField: metafield(namespace: "custom", key: "chips") { value }
       saleEndsAtField: metafield(namespace: "custom", key: "sale_ends_at") { value }
       specsField: metafield(namespace: "custom", key: "specs") {
         references(first: 20) {
@@ -479,6 +480,7 @@ async function main() {
       seoTitle: freshProduct.seo?.title?.trim() || null,
       seoDescription: freshProduct.seo?.description?.trim() || null,
       perks: normalizePerks(freshProduct.perksField),
+      chips: normalizePerks(freshProduct.chipsField),
       saleEndsAt: normalizeSaleEndsAt(freshProduct.saleEndsAtField),
       descriptionHtml: freshProduct.descriptionHtml ?? existingProduct.descriptionHtml ?? "",
       specs,

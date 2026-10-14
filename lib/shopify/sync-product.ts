@@ -82,6 +82,9 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
         perksField: metafield(namespace: "custom", key: "perks") {
           value
         }
+        chipsField: metafield(namespace: "custom", key: "chips") {
+          value
+        }
         saleEndsAtField: metafield(namespace: "custom", key: "sale_ends_at") {
           value
         }
@@ -304,6 +307,7 @@ type ProductNode = {
   subtitleField: { value: string } | null;
   materialField: { value: string } | null;
   perksField: { value: string } | null;
+  chipsField: { value: string } | null;
   saleEndsAtField: { value: string } | null;
   specsField: { references: { nodes: SpecNode[] } | null } | null;
   featureHighlights: {
@@ -376,6 +380,8 @@ type SyncedProduct = {
   seoDescription?: string | null;
   /** From the custom.perks metafield (a plain text list), in Shopify's own order. Undefined for a product synced before this field existed. */
   perks?: string[];
+  /** From the custom.chips metafield — short product highlights shown as chips above the title. Undefined for a product synced before this field existed. */
+  chips?: string[];
   /** From the custom.sale_ends_at metafield — an ISO timestamp, or null if unset or already past at sync time. Undefined for a product synced before this field existed. */
   saleEndsAt?: string | null;
 };
@@ -688,6 +694,7 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
       seoTitle: freshProduct.seo?.title?.trim() || null,
       seoDescription: freshProduct.seo?.description?.trim() || null,
       perks: normalizePerks(freshProduct.perksField),
+      chips: normalizePerks(freshProduct.chipsField),
       saleEndsAt: normalizeSaleEndsAt(freshProduct.saleEndsAtField),
     });
   }
@@ -761,6 +768,7 @@ export async function seedProductIntoCatalog(
       seoTitle: null,
       seoDescription: null,
       perks: [],
+      chips: [],
       saleEndsAt: null,
     });
 

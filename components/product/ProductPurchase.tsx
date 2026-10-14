@@ -201,17 +201,29 @@ export function ProductPurchase({
 
   const description = cleanDescription(product.descriptionHtml);
 
+  // Chips say something about the product itself — the highlights set in
+  // Shopify's `custom.chips`, or its material when none are set. Stock is
+  // only mentioned when it is a reason to act (low) or a blocker (out).
+  const highlights =
+    product.chips.length > 0
+      ? product.chips
+      : product.material
+        ? [product.material]
+        : [];
   const chips: { icon: IconName; text: string; tone?: "warn" | "bad" }[] = [
     ...(bestSeller ? [{ icon: "star" as const, text: "Best seller" }] : []),
-    ...(product.material
-      ? [{ icon: "shield" as const, text: product.material }]
-      : []),
-    { icon: "truck", text: "Free tracked shipping" },
-    outOfStock
-      ? { icon: "alert", text: "Out of stock", tone: "bad" }
+    ...highlights.map((text) => ({ icon: "check" as const, text })),
+    ...(outOfStock
+      ? [{ icon: "alert" as const, text: "Out of stock", tone: "bad" as const }]
       : lowStock
-        ? { icon: "alert", text: "Low stock, order soon", tone: "warn" }
-        : { icon: "check", text: "In stock" },
+        ? [
+            {
+              icon: "alert" as const,
+              text: "Low stock, order soon",
+              tone: "warn" as const,
+            },
+          ]
+        : []),
   ];
 
   return (

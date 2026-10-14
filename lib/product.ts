@@ -81,6 +81,8 @@ export type Product = {
   seoDescription: string | null;
   /** From the custom.perks Shopify metafield — short bullet claims shown under the product name, in Shopify's own order. Empty until a merchant adds some. */
   perks: string[];
+  /** From the custom.chips Shopify metafield — short product highlights shown as chips above the title. */
+  chips: string[];
   /** From the custom.sale_ends_at Shopify metafield — an ISO timestamp for the offer countdown, or null when unset/already past at sync time. */
   saleEndsAt: string | null;
 };
@@ -118,6 +120,7 @@ export function mapSyncedProducts(
     seoTitle: p.seoTitle ?? null,
     seoDescription: p.seoDescription ?? null,
     perks: p.perks ?? [],
+    chips: p.chips ?? [],
     saleEndsAt: p.saleEndsAt ?? null,
     variants: p.variants.map((v) => ({
       id: v.id,
