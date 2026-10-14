@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getVariantById } from "@/lib/catalog";
-import { resolveEffectiveCountry } from "@/lib/localization/country";
+import { resolvePricingCountry } from "@/lib/localization/resolve";
 import { createCheckout, shopifyEnabled } from "@/lib/shopify";
 
 export const runtime = "nodejs";
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
   const checkoutUrl = await createCheckout(
     body.variantId,
     quantity,
-    await resolveEffectiveCountry(),
+    await resolvePricingCountry(),
   );
 
   if (!checkoutUrl) {

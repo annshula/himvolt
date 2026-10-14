@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-10-14T13:52:11.309Z",
+  "syncedAt": "2026-10-14T17:13:20.474Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -1992,20 +1992,6 @@
           "height": 1600
         },
         {
-          "kind": "image",
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ad129dd2543894d7f8cef42083435f975e.webp?v=1791978239",
-          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
-          "width": 1600,
-          "height": 1600
-        },
-        {
-          "kind": "image",
-          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ac4bfc41221ab43ab83a7f20d454bb6ba1.webp?v=1791978239",
-          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
-          "width": 1600,
-          "height": 1600
-        },
-        {
           "kind": "video",
           "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/68815e8aa1254287a22f8f20ad30cb87.thumbnail.0000000000.jpg?v=1791979790",
           "sources": [
@@ -2022,6 +2008,20 @@
               "type": "video/mp4"
             }
           ]
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ad129dd2543894d7f8cef42083435f975e.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
+        },
+        {
+          "kind": "image",
+          "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ac4bfc41221ab43ab83a7f20d454bb6ba1.webp?v=1791978239",
+          "alt": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
+          "width": 1600,
+          "height": 1600
         },
         {
           "kind": "image",

@@ -11,6 +11,15 @@ import { detectVisitorCountry } from "@/lib/localization/geo";
 
 const COUNTRY_COOKIE = "_hv_country";
 
+/**
+ * The nav no longer offers a currency switch, so the visitor's GeoIP country
+ * is the only thing that decides their currency. A cookie written back when
+ * the selector existed (it lasts a year) must not keep overriding it — that
+ * pinned returning visitors to whatever they once picked, with no way left to
+ * change it. Flip to true only together with bringing the selector back.
+ */
+export const COUNTRY_SELECTOR_ENABLED = false;
+
 const cookieOptions = {
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
@@ -20,11 +29,13 @@ const cookieOptions = {
 };
 
 export async function readSelectedCountry(): Promise<string | null> {
+  if (!COUNTRY_SELECTOR_ENABLED) return null;
   const store = await cookies();
   return store.get(COUNTRY_COOKIE)?.value ?? null;
 }
 
 export async function writeSelectedCountry(isoCode: string): Promise<void> {
+  if (!COUNTRY_SELECTOR_ENABLED) return;
   const store = await cookies();
   store.set(COUNTRY_COOKIE, isoCode, cookieOptions);
 }

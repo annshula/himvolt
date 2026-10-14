@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getVariantById } from "@/lib/catalog";
-import { resolveEffectiveCountry } from "@/lib/localization/country";
+import { resolvePricingCountry } from "@/lib/localization/resolve";
 import { getLocalizedVariantPrices } from "@/lib/shopify/localization-service";
 
 export const runtime = "nodejs";
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
   const country =
     typeof requested === "string" && COUNTRY_CODE_RE.test(requested)
       ? requested
-      : await resolveEffectiveCountry();
+      : await resolvePricingCountry();
   if (!country) return json({ prices: {} });
 
   try {
