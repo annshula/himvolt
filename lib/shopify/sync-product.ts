@@ -590,7 +590,12 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
         // is still the one field preserved rather than pulled from Shopify —
         // its raw option string ("Golden Hematite Bracelet / 10mm") would
         // break the site's swatch-parsing, which expects "Gold-plated · 10mm".
-        title: curated?.title ?? v.title,
+        // A title only stays curated when it was deliberately different from
+        // Shopify's; one that simply mirrored Shopify keeps following it.
+        title:
+          curated && curated.title !== curated.shopifyTitle
+            ? curated.title
+            : v.title,
         sku: v.sku,
         price: variantPrice,
         compareAtPrice:
@@ -606,7 +611,10 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
             : null,
         image: v.image?.url ?? curated?.image ?? null,
         shopifyTitle: v.title,
-        subtitle: curated?.subtitle ?? v.title,
+        subtitle:
+          curated && curated.subtitle !== curated.shopifyTitle
+            ? curated.subtitle
+            : v.title,
         quantity: curated?.quantity ?? 1,
         weightGrams: curated?.weightGrams ?? 0,
       };

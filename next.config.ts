@@ -59,6 +59,17 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Everything under /api is per-visitor — the localization and price
+        // calls answer for the caller's own GeoIP country — so no CDN layer
+        // may ever store one and replay it to someone in another country.
+        // Same rule the reference build sets in its config.
+        source: "/api/:path*",
+        headers: [
+          { key: "Cache-Control", value: "no-store" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        ],
+      },
+      {
         // Fingerprinted product art never changes.
         source: "/product/:path*",
         headers: [

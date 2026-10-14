@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-10-14T17:13:20.474Z",
+  "syncedAt": "2026-10-14T17:16:18.456Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -1844,15 +1844,15 @@
       "variants": [
         {
           "id": "gid://shopify/ProductVariant/67685377835235",
-          "title": "Black",
+          "title": "Gray",
           "sku": "14:-1;200007763:201336106",
           "price": 79.99,
           "compareAtPrice": 99.99,
           "availableForSale": true,
           "stockQuantity": 390,
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A7a24459e271944548d31d63ea21a02244.webp?v=1791978239",
-          "shopifyTitle": "Gray / United States",
-          "subtitle": "Black with grey grips",
+          "shopifyTitle": "Gray",
+          "subtitle": "Gray",
           "quantity": 1,
           "weightGrams": 0
         },
@@ -1865,8 +1865,8 @@
           "availableForSale": true,
           "stockQuantity": 374,
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A2b024a279529406da5d559912a70e8a21.webp?v=1791978239",
-          "shopifyTitle": "Blue / United States",
-          "subtitle": "Blue grips",
+          "shopifyTitle": "Blue",
+          "subtitle": "Blue",
           "quantity": 1,
           "weightGrams": 0
         },
@@ -1879,8 +1879,8 @@
           "availableForSale": true,
           "stockQuantity": 22,
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A39f6b04236bb473781d5639dfd47b3f4t.webp?v=1791978239",
-          "shopifyTitle": "Red / United States",
-          "subtitle": "Red grips",
+          "shopifyTitle": "Red",
+          "subtitle": "Red",
           "quantity": 1,
           "weightGrams": 0
         }
