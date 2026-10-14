@@ -31,8 +31,9 @@ const pad = (n: number) => n.toString().padStart(2, "0");
  * already drops past dates, and this component hides itself the moment the
  * real deadline passes rather than freezing at 00:00:00 or looping.
  *
- * Sits beside the free-delivery strip at every width, so it is a compact
- * two-line box (label over digits) rather than a single wide line.
+ * Layout matches the reference: stacked under the free-delivery strip on
+ * phones, beside it from `sm` up. Past 99 hours the clock shows days, e.g.
+ * "4d 13:52:51".
  *
  * Starts as `null` on both the server and the client's first paint — the
  * exact countdown depends on the visitor's clock the moment their page
@@ -58,32 +59,32 @@ export function SaleCountdown({ endsAt }: { endsAt: string }) {
   const clock = [left.hours, left.minutes, left.seconds];
 
   return (
-    <div
-      role="timer"
-      aria-live="off"
-      className="flex shrink-0 flex-col items-center justify-center gap-0.5 rounded-lg border border-dashed border-clay-300 bg-clay-50 px-2.5 py-1.5 font-ui text-clay-600"
-    >
-      <span className="flex items-center gap-1 text-[0.7rem] leading-none font-semibold whitespace-nowrap">
+    <div className="w-full sm:w-auto" role="timer" aria-live="off">
+      {/* As on the reference build: on phones a full-width "rush" bar under
+          the delivery strip, so the deadline never sits cramped beside it;
+          from sm up the same line sits beside the strip at its natural
+          width, with no box of its own. */}
+      <p className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-clay-300 bg-clay-50 px-3 py-1.5 font-ui text-[0.78rem] font-semibold text-clay-600 sm:inline-flex sm:w-auto sm:border-0 sm:bg-transparent sm:px-1 sm:py-0">
         <Icon
           name="clock"
-          className="size-3.5 shrink-0 motion-safe:animate-[free-pop_1.2s_ease-in-out_infinite]"
+          className="size-4 shrink-0 motion-safe:animate-[free-pop_1.2s_ease-in-out_infinite]"
         />
-        Hurry! Offer ends in
-      </span>
-      <span
-        className="flex items-center gap-1 font-numeral text-[0.95rem] leading-none font-bold whitespace-nowrap tabular-nums"
-        aria-hidden="true"
-      >
-        {left.days > 0 && <span>{left.days}d</span>}
-        <span className="flex items-center gap-0.5">
-          {clock.map((value, i) => (
-            <span key={i} className="flex items-center gap-0.5">
-              {i > 0 && <span className="opacity-70">:</span>}
-              <span>{pad(value)}</span>
-            </span>
-          ))}
+        <span>Hurry! Offer ends in</span>
+        <span
+          className="flex items-center gap-1 font-numeral text-[0.9rem] font-bold whitespace-nowrap tabular-nums"
+          aria-hidden="true"
+        >
+          {left.days > 0 && <span>{left.days}d</span>}
+          <span className="flex items-center gap-0.5">
+            {clock.map((value, i) => (
+              <span key={i} className="flex items-center gap-0.5">
+                {i > 0 && <span className="opacity-70">:</span>}
+                <span className="min-w-5 text-center">{pad(value)}</span>
+              </span>
+            ))}
+          </span>
         </span>
-      </span>
+      </p>
       <span className="sr-only">
         Offer ends in {left.days > 0 ? `${left.days} days ` : ""}
         {left.hours} hours {left.minutes} minutes

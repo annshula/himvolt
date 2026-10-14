@@ -288,7 +288,7 @@ export function BuyBox({
       </div>
 
       <div className="mt-9">
-        <div className="flex items-stretch gap-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
           <FreeDeliveryUnlocked />
           {product.saleEndsAt && <SaleCountdown endsAt={product.saleEndsAt} />}
         </div>
@@ -913,7 +913,7 @@ const CONFETTI = [
  */
 function FreeDeliveryUnlocked() {
   return (
-    <div className="relative min-w-0 flex-1 overflow-hidden rounded-lg border border-dashed border-sage-300 bg-sage-50 py-1.5 pr-2.5 pl-2 text-sage-800">
+    <div className="relative min-w-0 flex-1 basis-56 overflow-hidden rounded-lg border border-dashed border-sage-300 bg-sage-50 py-1.5 pr-3 pl-2 text-sage-800">
       <span
         aria-hidden="true"
         className="unlock-anim pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-linear-to-r from-transparent via-white/70 to-transparent motion-safe:animate-[unlock-sweep_3.6s_ease-in-out_infinite]"
