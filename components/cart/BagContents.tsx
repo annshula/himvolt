@@ -78,8 +78,10 @@ export function BagContents({
             ? line.compareAtCents / 100
             : null;
         const hasDiscount = compareAtUnit != null && compareAtUnit > unit;
-        // A pack can be cheaper than its units: free units, or a percent off.
-        const lineTotal = round(packTotal(line.tiers, unit, line.qty));
+        // A pack can be cheaper than its units (the pack's saving comes off).
+        const lineTotal = round(
+          packTotal(line.tiers, unit, line.qty, line.unitPriceCents / 100),
+        );
         const compareAtTotal = round(
           (hasDiscount ? compareAtUnit : unit) * line.qty,
         );

@@ -201,20 +201,27 @@ export function BuyBox({
   );
 
   // Pack ladder: one card per tier, each priced as its pack total (the unit
-  // price after the pack's free units or percent off) against the same units at the unit's
+  // price less the pack's saving) against the same units at the unit's
   // compare-at price, so the saving on a card always matches the bag.
   const priced = useMemo<Priced[]>(() => {
     if (!tiers) return variantPriced;
     const base = variantPriced[0];
     return tiers.map((t) => {
-      const amount = Math.round(packTotal(tiers, base.amount, t.size) * 100) / 100;
+      const amount =
+        Math.round(
+          packTotal(tiers, base.amount, t.size, base.v.price.amount) * 100,
+        ) / 100;
       const compareRaw = Math.round((base.compareAt ?? base.amount) * t.size * 100) / 100;
       return {
         ...base,
         key: `pack-${t.size}`,
-        label: `${t.size} Pack`,
+        // A free-unit pack is named for its deal ("Buy 2 Get 1"), like the reference.
+        label: t.freeUnits
+          ? `Buy ${t.size - t.freeUnits} Get ${t.freeUnits}`
+          : `${t.size} Pack`,
         units: t.size,
-        freeUnits: t.freeUnits,
+        // Savings, not free units: stop PackCards deriving a "get N free" deal.
+        freeUnits: 0,
         tag: t.tag ?? null,
         amount,
         compareAt: compareRaw > amount ? compareRaw : null,
@@ -593,7 +600,14 @@ function PackCards({
       checked: c.key === selectedKey,
       available: c.v.availableForSale,
       tag: c.tag !== undefined ? c.tag : c.units === 2 ? "Most popular" : null,
-      offerLine: deal ? `Buy ${deal.of}, get ${deal.free} free` : null,
+      // A pack ladder names the deal in the card title, so the line would repeat it.
+      offerLine:
+        deal && c.freeUnits === undefined
+          ? `Buy ${deal.of}, get ${deal.free} free`
+          : null,
+      /* Pack price ÷ units, to the cent. */
+      unitPrice:
+        c.units > 1 ? Math.round((c.amount / c.units) * 100 + 1e-6) / 100 : null,
     };
   });
 
@@ -749,6 +763,11 @@ function PackCards({
                 <span className="font-numeral text-[1.15rem] leading-none font-semibold tracking-tight text-ink tabular-nums">
                   {money(k.c.amount, k.c.currency)}
                 </span>
+                {!pending && k.unitPrice != null && (
+                  <span className="mt-1 font-numeral text-[0.66rem] leading-none text-ink-soft tabular-nums">
+                    {money(k.unitPrice, k.c.currency)} each
+                  </span>
+                )}
               </span>
             </span>
           </label>
@@ -835,6 +854,11 @@ function PackCards({
               <span className="font-numeral text-lg font-semibold tabular-nums">
                 {money(k.c.amount, k.c.currency)}
               </span>
+              {!pending && k.unitPrice != null && (
+                <span className="mt-0.5 font-numeral text-[0.68rem] text-ink-soft tabular-nums">
+                  {money(k.unitPrice, k.c.currency)} each
+                </span>
+              )}
             </span>
             {!pending && k.saved != null && (
               <span
