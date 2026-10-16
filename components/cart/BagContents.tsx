@@ -256,12 +256,9 @@ export function BagContents({
                     )}
                   </div>
                 )}
-                <div
-                  className={cn(
-                    "mt-auto flex items-center justify-between pt-1.5",
-                    fixedPack && hasSaving && "hidden",
-                  )}
-                >
+                {/* Always rendered: a fixed pack has no stepper, but its remove
+                    button still sits bottom-right. */}
+                <div className="mt-auto flex items-center justify-between pt-1.5">
                   {fixedPack ? null : (
                     <div
                       className="flex items-center rounded-tag bg-cream"
