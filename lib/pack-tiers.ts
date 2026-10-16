@@ -28,7 +28,7 @@ const tiersByHandle: Record<string, PackTier[]> = {
   // 1 → $79.99, 2 → $139.99, 3 → $159.98 at a $79.99 unit price.
   "hydraulic-arm-trainer": [
     { size: 1 },
-    { size: 2, saving: 19.99, image: "/images/arm-trainer/pack-2.webp" },
+    { size: 2, saving: 19.99, image: "/images/arm-trainer/pack-2-two-trainers.webp" },
     {
       size: 3,
       freeUnits: 1,
