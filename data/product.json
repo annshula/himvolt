@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-10-16T08:02:21.839Z",
+  "syncedAt": "2026-10-16T08:32:21.025Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -235,10 +235,11 @@
           "description": "Iron oxide - one of the most abundant iron ores on Earth, cut and polished for jewellery rather than industrial use.",
           "image": {
             "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/hero.jpg?v=1787507734",
-            "alt": "Hematite Men's Bracelet",
+            "alt": "",
             "width": 2025,
             "height": 1359
-          }
+          },
+          "video": null
         },
         {
           "label": "Hardness",
@@ -249,7 +250,8 @@
             "alt": "Hand-polished hematite rings showing hardness and shine",
             "width": 2528,
             "height": 1696
-          }
+          },
+          "video": null
         },
         {
           "label": "Density",
@@ -260,7 +262,8 @@
             "alt": "Loose hematite beads showing natural density and weight",
             "width": 1264,
             "height": 848
-          }
+          },
+          "video": null
         },
         {
           "label": "Streak test",
@@ -299,7 +302,8 @@
             "alt": "Polished hematite band on dark background",
             "width": 2528,
             "height": 1696
-          }
+          },
+          "video": null
         },
         {
           "label": "Core",
@@ -307,21 +311,17 @@
           "description": "A stretch elastic core, not a clasp - nothing to fasten, nothing to break.",
           "image": {
             "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/topdown.jpg?v=1787507733",
-            "alt": "Hematite Men's Bracelet",
+            "alt": "",
             "width": 1200,
             "height": 1200
-          }
+          },
+          "video": null
         },
         {
           "label": "Finish",
           "value": "Hand-polished",
           "description": "Hand-polished to a metallic gunmetal shine, no coating over the stone.",
-          "image": {
-            "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S2c7c52ec76ce4dab8217561b85bf7f989.jpg?v=1788344834",
-            "alt": "Hematite Men's Bracelet",
-            "width": 800,
-            "height": 800
-          },
+          "image": null,
           "video": {
             "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/5e35b05f52d84e4db3df7c57c0319de5.thumbnail.0000000000.jpg?v=1787552415",
             "sources": [
@@ -347,7 +347,8 @@
             "alt": "Raw and polished hematite - the mineral stripped of its jewelry finish",
             "width": 1264,
             "height": 848
-          }
+          },
+          "video": null
         },
         {
           "icon": "fit",
@@ -355,10 +356,11 @@
           "body": "One elastic core, no clasp, no sizing chart. Roll it on and forget it's there.",
           "image": {
             "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S5b308fe34f1b41b8a3900a9c91c7abc4O.jpg?v=1788344174",
-            "alt": "Hand stretching the hematite bead bracelet open on its elastic cord",
+            "alt": "A close-up of a bracelet worn on a wrist, with fingers holding the lower end of the bracelet to show its flexibility. The bracelet features glossy, dark metallic square beads on a thin silver-toned band.",
             "width": 1440,
             "height": 1440
-          }
+          },
+          "video": null
         }
       ]
     },
@@ -904,7 +906,8 @@
             "alt": "d93b41bd9c378a5d187d5c49583976fa",
             "width": 1000,
             "height": 1000
-          }
+          },
+          "video": null
         },
         {
           "label": "Cut",
@@ -915,7 +918,8 @@
             "alt": "8f3065e04902a81cfac73b1dbf89797c",
             "width": 800,
             "height": 800
-          }
+          },
+          "video": null
         },
         {
           "label": "Finishes",
@@ -926,7 +930,8 @@
             "alt": "bd3c4cc2ef44477f9eeec5dfe7cfc2fd",
             "width": 800,
             "height": 800
-          }
+          },
+          "video": null
         },
         {
           "label": "Hardness",
@@ -937,7 +942,8 @@
             "alt": "17bd5eb1b26db334bafd5998aa0ed632",
             "width": 695,
             "height": 695
-          }
+          },
+          "video": null
         },
         {
           "label": "Streak test",
@@ -948,7 +954,8 @@
             "alt": "7ad3df0f5d7e83d1ca053273a1164d2",
             "width": 695,
             "height": 695
-          }
+          },
+          "video": null
         },
         {
           "label": "Core",
@@ -959,7 +966,8 @@
             "alt": "fc90845d3ef8adf86e3ea534aecc6a15",
             "width": 500,
             "height": 500
-          }
+          },
+          "video": null
         }
       ],
       "features": [
@@ -972,7 +980,8 @@
             "alt": "d93b41bd9c378a5d187d5c49583976fa",
             "width": 1000,
             "height": 1000
-          }
+          },
+          "video": null
         },
         {
           "icon": "fit",
@@ -983,7 +992,8 @@
             "alt": "fb1b0ad29e11048e90192ba47e60c7e0",
             "width": 1600,
             "height": 1600
-          }
+          },
+          "video": null
         },
         {
           "icon": "ship",
@@ -994,7 +1004,8 @@
             "alt": "1efdbe40e6dd1f86adcf83c524463931",
             "width": 500,
             "height": 500
-          }
+          },
+          "video": null
         }
       ]
     },
@@ -1110,6 +1121,23 @@
             "alt": "1680fb7322775765a8387a07353e0ef1",
             "width": 1000,
             "height": 1000
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/c5273e32d238461d9a160391122d4b61.thumbnail.0000000000.jpg?v=1787554441",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-1080p-2.5Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-720p-1.6Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.SD-480p-0.9Mbps-92431002.mp4",
+                "type": "video/mp4"
+              }
+            ]
           }
         },
         {
@@ -1121,7 +1149,8 @@
             "alt": "8db361fd4080efb0f68d95dfa2f04d42",
             "width": 1000,
             "height": 1000
-          }
+          },
+          "video": null
         },
         {
           "label": "Hardness",
@@ -1132,7 +1161,8 @@
             "alt": "8c82154c3c58158fdbaa8696ffd74e06",
             "width": 1000,
             "height": 1000
-          }
+          },
+          "video": null
         },
         {
           "label": "Density",
@@ -1143,7 +1173,8 @@
             "alt": "b633eeb25e2283dc780872f97823b3e8",
             "width": 1000,
             "height": 1000
-          }
+          },
+          "video": null
         },
         {
           "label": "Weight",
@@ -1154,7 +1185,8 @@
             "alt": "214b44d0942e967dfac2decfd9667ef",
             "width": 1000,
             "height": 1000
-          }
+          },
+          "video": null
         },
         {
           "label": "Finish",
@@ -1165,7 +1197,8 @@
             "alt": "1680fb7322775765a8387a07353e0ef1",
             "width": 1000,
             "height": 1000
-          }
+          },
+          "video": null
         }
       ],
       "features": [
@@ -1178,7 +1211,8 @@
             "alt": "1680fb7322775765a8387a07353e0ef1",
             "width": 1000,
             "height": 1000
-          }
+          },
+          "video": null
         },
         {
           "icon": "fit",
@@ -1213,7 +1247,8 @@
             "alt": "8c82154c3c58158fdbaa8696ffd74e06",
             "width": 1000,
             "height": 1000
-          }
+          },
+          "video": null
         }
       ]
     },
@@ -1413,6 +1448,23 @@
             "alt": "8f1882e99cbe7faf765afbe9102c4a5",
             "width": 534,
             "height": 521
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/c5273e32d238461d9a160391122d4b61.thumbnail.0000000000.jpg?v=1787554441",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-1080p-2.5Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-720p-1.6Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.SD-480p-0.9Mbps-92431002.mp4",
+                "type": "video/mp4"
+              }
+            ]
           }
         },
         {
@@ -1424,7 +1476,8 @@
             "alt": "46bc5713e167d413b871b34dd1eeb437",
             "width": 535,
             "height": 521
-          }
+          },
+          "video": null
         },
         {
           "label": "Density",
@@ -1435,7 +1488,8 @@
             "alt": "f8b904a91dbf85b4c539f98f5ce4e6e1",
             "width": 800,
             "height": 800
-          }
+          },
+          "video": null
         },
         {
           "label": "Sizes",
@@ -1446,7 +1500,8 @@
             "alt": "b546bcf730cb11763756ed4260d982d2",
             "width": 800,
             "height": 800
-          }
+          },
+          "video": null
         },
         {
           "label": "Finish",
@@ -1457,7 +1512,8 @@
             "alt": "ebdca5c1beb4e94dd08d079038d5b7f1",
             "width": 527,
             "height": 530
-          }
+          },
+          "video": null
         }
       ],
       "features": [
@@ -1470,7 +1526,8 @@
             "alt": "8f1882e99cbe7faf765afbe9102c4a5",
             "width": 534,
             "height": 521
-          }
+          },
+          "video": null
         },
         {
           "icon": "fit",
@@ -1505,7 +1562,8 @@
             "alt": "f8b904a91dbf85b4c539f98f5ce4e6e1",
             "width": 800,
             "height": 800
-          }
+          },
+          "video": null
         }
       ]
     },
@@ -1747,6 +1805,23 @@
             "alt": "48aa5300c06a2bb9add520d89ef7358d",
             "width": 750,
             "height": 750
+          },
+          "video": {
+            "poster": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/preview_images/c5273e32d238461d9a160391122d4b61.thumbnail.0000000000.jpg?v=1787554441",
+            "sources": [
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-1080p-2.5Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.HD-720p-1.6Mbps-92431002.mp4",
+                "type": "video/mp4"
+              },
+              {
+                "src": "https://cdn.shopify.com/videos/c/vp/c5273e32d238461d9a160391122d4b61/c5273e32d238461d9a160391122d4b61.SD-480p-0.9Mbps-92431002.mp4",
+                "type": "video/mp4"
+              }
+            ]
           }
         },
         {
@@ -1758,7 +1833,8 @@
             "alt": "16fcbe9fb898dba6e73e2df93b0fe6b0",
             "width": 800,
             "height": 800
-          }
+          },
+          "video": null
         },
         {
           "label": "Non-magnetic variants",
@@ -1769,7 +1845,8 @@
             "alt": "34f12d04ed36efb78c82126e12c0e54b",
             "width": 800,
             "height": 800
-          }
+          },
+          "video": null
         },
         {
           "label": "Sizes",
@@ -1780,7 +1857,8 @@
             "alt": "5a712713e8368f68d8ab033d0d98ac7b",
             "width": 800,
             "height": 800
-          }
+          },
+          "video": null
         },
         {
           "label": "Finish",
@@ -1791,7 +1869,8 @@
             "alt": "3e87a39dbbf4514bfc6f6dbf90816844",
             "width": 1600,
             "height": 1600
-          }
+          },
+          "video": null
         }
       ],
       "features": [
@@ -1804,7 +1883,8 @@
             "alt": "48aa5300c06a2bb9add520d89ef7358d",
             "width": 750,
             "height": 750
-          }
+          },
+          "video": null
         },
         {
           "icon": "fit",
@@ -1839,7 +1919,8 @@
             "alt": "34f12d04ed36efb78c82126e12c0e54b",
             "width": 800,
             "height": 800
-          }
+          },
+          "video": null
         }
       ]
     },
@@ -2099,10 +2180,11 @@
           "description": "Twenty resistance levels, dialled in with a simple twist knob and no tools. Start light on day one, then keep turning it up. One compact trainer stands in for a whole rack of bands and dumbbells.",
           "image": {
             "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Ad129dd2543894d7f8cef42083435f975e.webp?v=1791978239",
-            "alt": "Resistance dial showing 22 to 440 lb levels",
+            "alt": "",
             "width": 1600,
             "height": 1600
-          }
+          },
+          "video": null
         },
         {
           "label": "Rep counter",
@@ -2110,10 +2192,11 @@
           "description": "The built-in LCD counts each rep in real time, so you can chase a number instead of losing track mid-set. Pick a target, beat it, and watch it climb session after session.",
           "image": {
             "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A23be0a92864c4c48b7ef7d9c77ffd3c8R.webp?v=1791978239",
-            "alt": "Built-in LCD rep counter",
+            "alt": "",
             "width": 1600,
             "height": 1600
-          }
+          },
+          "video": null
         },
         {
           "label": "Frame",
@@ -2121,10 +2204,11 @@
           "description": "High-density carbon steel with a reinforced triangular structure and heavy-duty rivets, so it holds its shape at full load, rep after rep. Compact at 16.7 × 6.4 in.",
           "image": {
             "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A7a24459e271944548d31d63ea21a02244.webp?v=1791978239",
-            "alt": "HimVolt arm trainer held at the chest",
+            "alt": "",
             "width": 1600,
             "height": 1600
-          }
+          },
+          "video": null
         },
         {
           "label": "Handles",
@@ -2132,10 +2216,11 @@
           "description": "Wear-resistant PU handles shaped for your hand, with a textured grip that stays put through the longest sets. Choose black, blue or red to match your gym.",
           "image": {
             "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A2b024a279529406da5d559912a70e8a21.webp?v=1791978239",
-            "alt": "HimVolt arm trainer with blue grips",
+            "alt": "",
             "width": 1600,
             "height": 1600
-          }
+          },
+          "video": null
         },
         {
           "label": "Muscles worked",
@@ -2143,10 +2228,11 @@
           "description": "Press, pull and squeeze from the same frame and train your whole upper body with one tool, in a corner of the room instead of a corner of the gym.",
           "image": {
             "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/HimVolt_Four-Panel_Fitness_Equipment_Collage.png?v=1791980101",
-            "alt": "Four ways to train with the HimVolt arm trainer",
+            "alt": "",
             "width": 1254,
             "height": 1254
-          }
+          },
+          "video": null
         }
       ],
       "features": [

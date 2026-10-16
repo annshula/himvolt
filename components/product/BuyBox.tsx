@@ -214,6 +214,8 @@ export function BuyBox({
       const compareRaw = Math.round((base.compareAt ?? base.amount) * t.size * 100) / 100;
       return {
         ...base,
+        // The pack's own photo when it has one (the 3 Pack shows the set).
+        v: t.image ? { ...base.v, image: t.image } : base.v,
         key: `pack-${t.size}`,
         // A free-unit pack is named for its deal ("Buy 2 Get 1"), like the reference.
         label: t.freeUnits
@@ -518,7 +520,13 @@ function PackPhoto({
         alt=""
         fill
         sizes={sizes}
-        className={cn("object-contain mix-blend-multiply", padded && "p-1")}
+        // A local cut-out has transparent pixels the loading shimmer would show through.
+        skeleton={!src.startsWith("/")}
+        className={cn(
+          "object-contain",
+          !src.startsWith("/") && "mix-blend-multiply",
+          padded && "p-1",
+        )}
       />
     );
   }
@@ -540,7 +548,11 @@ function PackPhoto({
             alt=""
             fill
             sizes={sizes}
-            className="object-contain mix-blend-multiply"
+            skeleton={!src.startsWith("/")}
+            className={cn(
+              "object-contain",
+              !src.startsWith("/") && "mix-blend-multiply",
+            )}
           />
         </span>
       ))}
@@ -570,7 +582,6 @@ function PackCards({
 }) {
   const legend = flatLegend(items.map((i) => i.label));
   const rows = [...items].sort((a, b) => a.units - b.units);
-  const sharedPhoto = rows.every((r) => r.v.image === rows[0]?.v.image);
 
   const freeFor = (c: Priced) => {
     // A pack ladder states its free units outright; otherwise a bigger
@@ -696,7 +707,7 @@ function PackCards({
                   <PackPhoto
                     src={k.c.v.image}
                     units={k.c.units}
-                    fan={sharedPhoto}
+                    fan={k.c.v.image === rows[0]?.v.image}
                     reserve={Boolean(k.deal)}
                     sizes="48px"
                     padded
@@ -825,7 +836,7 @@ function PackCards({
                 <PackPhoto
                   src={k.c.v.image}
                   units={k.c.units}
-                  fan={sharedPhoto}
+                  fan={k.c.v.image === rows[0]?.v.image}
                   reserve={Boolean(k.deal)}
                   sizes="96px"
                 />
