@@ -16,6 +16,7 @@ import { useLocalization } from "@/components/providers/LocalizationProvider";
 import Image from "@/components/ui/Image";
 import { Icon } from "@/components/ui/Icons";
 import { formatMoney } from "@/lib/money";
+import { defaultPackSize, packTiersFor, packTotal } from "@/lib/pack-tiers";
 import type { Product } from "@/lib/product";
 import type { PaymentMethod } from "@/lib/shopify/payments";
 import { cn } from "@/lib/utils";
@@ -41,6 +42,12 @@ type Variant = Product["variants"][number];
 
 type Priced = {
   v: Variant;
+  /** Radio identity: the variant id, or "pack-N" when packs are quantities of one variant. */
+  key: string;
+  /** Free units the pack contains ("buy 2, get 1 free" → 1); undefined means derive it from the prices. */
+  freeUnits?: number;
+  /** Card badge for a pack; undefined keeps the default ("Most popular" on the 2-count). */
+  tag?: string | null;
   /** The variant's display title, e.g. "2 bracelets", "Blue", "Gold-plated · 10mm". */
   label: string;
   axis1: string;
@@ -70,7 +77,7 @@ function splitVariantTitle(title: string): {
 }
 
 /** A pack-count axis ("1 bracelet" / "2 bracelets") reads oddly under a "Size" legend — every value naming the product itself (not a measurement) means this is a quantity choice, not a fit choice. */
-const PACK_COUNT_RE = /\b(bracelets?|rings?|bands?|pieces?)\b/i;
+const PACK_COUNT_RE = /\b(bracelets?|rings?|bands?|pieces?|packs?)\b/i;
 
 /** Colour words a flat option axis can be made of: "Black", "Blue grips", "Red". */
 const COLOUR_RE =
@@ -104,6 +111,8 @@ function flatLegend(values: string[]): string {
  * shows one.
  */
 function shouldUseCards(product: Product): boolean {
+  // One variant sold as a 1 / 2 / 3 Pack ladder always gets the pack cards.
+  if (packTiersFor(product.handle) && product.variants.length === 1) return true;
   const n = product.variants.length;
   if (n < 2 || n > 4) return false;
   return product.variants.every(
@@ -138,8 +147,12 @@ export function BuyBox({
     detectedCountry,
   } = useLocalization();
 
+  // A product sold as one variant at 1 / 2 / 3 Pack (quantities of the same
+  // SKU, priced by a Shopify automatic discount) opens on its tagged pack.
+  const tiers = product.variants.length === 1 ? packTiersFor(product.handle) : null;
+
   const [added, setAdded] = useState(false);
-  const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState(() => (tiers ? defaultPackSize(tiers) : 1));
   const [confirmOpen, setConfirmOpen] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [showSticky, setShowSticky] = useState(false);
@@ -159,7 +172,7 @@ export function BuyBox({
     (canLocalize &&
       variantIds.some((id) => !localizedPriceFor(id) && !isPriceSettled(id)));
 
-  const priced = useMemo<Priced[]>(
+  const variantPriced = useMemo<Priced[]>(
     () =>
       product.variants.map((v) => {
         const live = localizedPriceFor(v.id);
@@ -172,6 +185,7 @@ export function BuyBox({
         const { axis1, axis2 } = splitVariantTitle(v.title);
         return {
           v,
+          key: v.id,
           label: v.title,
           axis1,
           axis2,
@@ -186,7 +200,31 @@ export function BuyBox({
     [product.variants, localizedPriceFor],
   );
 
-  const selected = priced.find((p) => p.v.id === selectedId) ?? priced[0];
+  // Pack ladder: one card per tier, each priced as its pack total (the unit
+  // price after the pack's free units or percent off) against the same units at the unit's
+  // compare-at price, so the saving on a card always matches the bag.
+  const priced = useMemo<Priced[]>(() => {
+    if (!tiers) return variantPriced;
+    const base = variantPriced[0];
+    return tiers.map((t) => {
+      const amount = Math.round(packTotal(tiers, base.amount, t.size) * 100) / 100;
+      const compareRaw = Math.round((base.compareAt ?? base.amount) * t.size * 100) / 100;
+      return {
+        ...base,
+        key: `pack-${t.size}`,
+        label: `${t.size} Pack`,
+        units: t.size,
+        freeUnits: t.freeUnits,
+        tag: t.tag ?? null,
+        amount,
+        compareAt: compareRaw > amount ? compareRaw : null,
+      };
+    });
+  }, [tiers, variantPriced]);
+
+  const selected = tiers
+    ? (priced.find((p) => p.units === qty) ?? priced[0])
+    : (priced.find((p) => p.v.id === selectedId) ?? priced[0]);
   const canBuy = selected.v.availableForSale;
   const useCards = shouldUseCards(product);
 
@@ -213,9 +251,16 @@ export function BuyBox({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const choose = (id: string) => {
-    onSelectId(id);
+  const choose = (key: string) => {
     setAdded(false);
+    if (tiers) {
+      // A pack is a quantity of the one variant — no variant to select or
+      // put in the URL.
+      setQty(Number(key.replace("pack-", "")) || 1);
+      return;
+    }
+    const id = key;
+    onSelectId(id);
     const url = new URL(window.location.href);
     url.searchParams.set("variant", numericId(id));
     window.history.replaceState(window.history.state, "", url);
@@ -225,7 +270,9 @@ export function BuyBox({
     add(
       selected.v.id,
       qty,
-      Math.round(selected.amount * 100),
+      // Per unit: a pack's amount is its whole price, so the AddToCart value
+      // (unit price × qty) comes out as what the shopper is actually charged.
+      Math.round((tiers ? selected.amount / qty : selected.amount) * 100),
       selected.currency,
     );
     setAdded(true);
@@ -256,7 +303,8 @@ export function BuyBox({
   // badges simply wait (`pending`) rather than showing placeholders too.
   // Line total for the chosen quantity — what the button and the sticky bar
   // show, so the price follows the stepper.
-  const total = selected.amount * qty;
+  // (A pack's amount already is the whole pack, so it isn't multiplied again.)
+  const total = tiers ? selected.amount : selected.amount * qty;
 
   const money = (amount: number, currency: string): ReactNode =>
     pending ? (
@@ -271,11 +319,11 @@ export function BuyBox({
   return (
     <div>
       <div className="space-y-7">
-        {product.variants.length > 1 &&
+        {priced.length > 1 &&
           (useCards ? (
             <PackCards
               items={priced}
-              selectedId={selected.v.id}
+              selectedKey={selected.key}
               onChoose={choose}
               money={money}
               pending={pending}
@@ -314,7 +362,9 @@ export function BuyBox({
       </div>
 
       <div className="mt-9">
-        {/* Quantity — the bag's own stepper, so the two read as one control. */}
+        {/* Quantity — the bag's own stepper, so the two read as one control.
+            Packs set the quantity themselves, so a pack ladder has no stepper. */}
+        {!tiers && (
         <div className="mb-4 flex items-center justify-between gap-3">
           <span id="pdp-qty-label" className="text-body-sm font-semibold">
             Quantity
@@ -356,6 +406,7 @@ export function BuyBox({
             </button>
           </div>
         </div>
+        )}
 
         <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
           <FreeDeliveryUnlocked />
@@ -412,7 +463,7 @@ export function BuyBox({
             </p>
             <p className="font-numeral text-body-sm font-medium text-ink-soft tabular-nums">
               {money(total, selected.currency)}
-              {qty > 1 && <span> · {qty} items</span>}
+              {!tiers && qty > 1 && <span> · {qty} items</span>}
             </p>
           </div>
           <button
@@ -498,14 +549,14 @@ function PackPhoto({
  */
 function PackCards({
   items,
-  selectedId,
+  selectedKey,
   onChoose,
   money,
   pending,
 }: {
   items: Priced[];
-  selectedId: string;
-  onChoose: (id: string) => void;
+  selectedKey: string;
+  onChoose: (key: string) => void;
   money: (amount: number, currency: string) => ReactNode;
   /** The live price hasn't landed: hold back strike-throughs and savings. */
   pending: boolean;
@@ -515,6 +566,13 @@ function PackCards({
   const sharedPhoto = rows.every((r) => r.v.image === rows[0]?.v.image);
 
   const freeFor = (c: Priced) => {
+    // A pack ladder states its free units outright; otherwise a bigger
+    // variant priced like a smaller one is the free-units deal.
+    if (c.freeUnits !== undefined) {
+      return c.freeUnits > 0
+        ? { free: c.freeUnits, of: c.units - c.freeUnits }
+        : null;
+    }
     const same = rows.find(
       (r) => r.units < c.units && Math.abs(r.amount - c.amount) < 0.005,
     );
@@ -532,9 +590,9 @@ function PackCards({
       deal,
       offer: deal !== null,
       saved,
-      checked: c.v.id === selectedId,
+      checked: c.key === selectedKey,
       available: c.v.availableForSale,
-      tag: c.units === 2 ? "Most popular" : null,
+      tag: c.tag !== undefined ? c.tag : c.units === 2 ? "Most popular" : null,
       offerLine: deal ? `Buy ${deal.of}, get ${deal.free} free` : null,
     };
   });
@@ -579,7 +637,7 @@ function PackCards({
       <div className="grid grid-cols-1 gap-4 pt-3 sm:hidden">
         {cards.map((k) => (
           <label
-            key={k.c.v.id}
+            key={k.c.key}
             data-checked={k.checked}
             className={cn(
               "group relative flex cursor-pointer flex-col rounded-2xl border-2 transition-[border-color,transform] duration-200 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-sage-800 motion-safe:active:scale-[0.985]",
@@ -590,9 +648,9 @@ function PackCards({
             <input
               type="radio"
               name="option-m"
-              value={k.c.v.id}
+              value={k.c.key}
               checked={k.checked}
-              onChange={() => onChoose(k.c.v.id)}
+              onChange={() => onChoose(k.c.key)}
               disabled={!k.available}
               className="sr-only"
             />
@@ -701,7 +759,7 @@ function PackCards({
       <div className={cn("hidden gap-3 sm:grid", cols)}>
         {cards.map((k) => (
           <label
-            key={k.c.v.id}
+            key={k.c.key}
             data-checked={k.checked}
             className={cn(
               "relative flex cursor-pointer flex-col items-center rounded-2xl border-2 px-3 pb-3 text-center transition-colors duration-200 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-sage-800",
@@ -713,9 +771,9 @@ function PackCards({
             <input
               type="radio"
               name="option-d"
-              value={k.c.v.id}
+              value={k.c.key}
               checked={k.checked}
-              onChange={() => onChoose(k.c.v.id)}
+              onChange={() => onChoose(k.c.key)}
               disabled={!k.available}
               className="sr-only"
             />

@@ -14,6 +14,7 @@
  */
 
 import catalog from "@/data/product.json";
+import { packTiersFor, type PackTier } from "@/lib/pack-tiers";
 import { products as localProducts } from "@/lib/product";
 
 export type CartCatalogLine = {
@@ -34,6 +35,8 @@ export type CartCatalogLine = {
   units: number;
   /** True when the product's variants are pack sizes — buying more means picking a bigger pack on the product page, not a stepper. */
   hasPackOption: boolean;
+  /** Quantity-break packs on this one variant (1 / 2 / 3 Pack), or null for an ordinary product. */
+  tiers: PackTier[] | null;
 };
 
 const PACK_COUNT_RE = /\b(bracelets?|rings?|bands?|pieces?)\b/i;
@@ -46,11 +49,14 @@ const lineMap = new Map<string, CartCatalogLine>();
 
 for (const product of catalog.products) {
   const local = localProducts.find((p) => p.id === product.id);
-  // "1 bracelet / 2 bracelets": every variant is a count of the product.
+  const tiers = packTiersFor(product.handle);
+  // "1 bracelet / 2 bracelets": every variant is a count of the product. A
+  // quantity-break product is the same thing on one variant.
   const hasPackOption =
-    product.variants.length > 1 &&
-    (local?.variants ?? []).length > 1 &&
-    (local?.variants ?? []).every((v) => PACK_COUNT_RE.test(v.title));
+    tiers !== null ||
+    (product.variants.length > 1 &&
+      (local?.variants ?? []).length > 1 &&
+      (local?.variants ?? []).every((v) => PACK_COUNT_RE.test(v.title)));
 
   for (const synced of product.variants) {
     const match = localVariantById.get(synced.id);
@@ -69,6 +75,7 @@ for (const product of catalog.products) {
       compareAtCents: compareAt,
       units: Math.max(1, match?.variant.quantity ?? 1),
       hasPackOption,
+      tiers,
     });
   }
 }

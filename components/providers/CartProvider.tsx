@@ -13,6 +13,7 @@ import {
 
 import { resolveCartLine, type CartCatalogLine } from "@/lib/cart-catalog";
 import { trackAddToCart } from "@/lib/analytics";
+import { packTotal } from "@/lib/pack-tiers";
 
 const STORAGE_KEY = "hv.cart.v1";
 
@@ -151,7 +152,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
           {
             ...line,
             ...rest,
-            lineTotalCents: entry.unitPriceCents * line.qty,
+            lineTotalCents: Math.round(
+              packTotal(entry.tiers, entry.unitPriceCents, line.qty),
+            ),
           },
         ];
       }),

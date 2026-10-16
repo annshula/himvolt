@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-10-14T17:26:52.044Z",
+  "syncedAt": "2026-10-16T07:57:50.600Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -1848,7 +1848,7 @@
       "handle": "hydraulic-arm-trainer",
       "title": "HimVolt Hydraulic Arm Trainer With Counting 22-440lb Adjustable Hydraulic Cylinder Power Forearm Strengthener Arm Twister Workout Equipment Home Chest Expander Shoulder Muscle Training Fitness Equipment",
       "price": 79.99,
-      "compareAtPrice": 99.99,
+      "compareAtPrice": null,
       "currencyCode": "USD",
       "availableForSale": true,
       "variants": [
@@ -1857,40 +1857,12 @@
           "title": "Gray",
           "sku": "14:-1;200007763:201336106",
           "price": 79.99,
-          "compareAtPrice": 99.99,
+          "compareAtPrice": null,
           "availableForSale": true,
-          "stockQuantity": 390,
+          "stockQuantity": 388,
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A7a24459e271944548d31d63ea21a02244.webp?v=1791978239",
           "shopifyTitle": "Gray",
           "subtitle": "Gray",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/67685377868003",
-          "title": "Blue",
-          "sku": "14:-3;200007763:201336106",
-          "price": 79.99,
-          "compareAtPrice": 99.99,
-          "availableForSale": true,
-          "stockQuantity": 374,
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A2b024a279529406da5d559912a70e8a21.webp?v=1791978239",
-          "shopifyTitle": "Blue",
-          "subtitle": "Blue",
-          "quantity": 1,
-          "weightGrams": 0
-        },
-        {
-          "id": "gid://shopify/ProductVariant/67685377900771",
-          "title": "Red",
-          "sku": "14:-4;200007763:201336106",
-          "price": 79.99,
-          "compareAtPrice": 99.99,
-          "availableForSale": true,
-          "stockQuantity": 22,
-          "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A39f6b04236bb473781d5639dfd47b3f4t.webp?v=1791978239",
-          "shopifyTitle": "Red",
-          "subtitle": "Red",
           "quantity": 1,
           "weightGrams": 0
         }

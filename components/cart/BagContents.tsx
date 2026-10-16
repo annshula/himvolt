@@ -9,6 +9,7 @@ import Image from "@/components/ui/Image";
 import { Icon } from "@/components/ui/Icons";
 import { PaymentIcons } from "@/components/ui/PaymentIcons";
 import { productCurrency } from "@/lib/catalog";
+import { packTotal } from "@/lib/pack-tiers";
 import { formatMoney } from "@/lib/money";
 import { shopifyCheckout } from "@/lib/shopify-checkout";
 import type { PaymentMethod } from "@/lib/shopify/payments";
@@ -77,14 +78,22 @@ export function BagContents({
             ? line.compareAtCents / 100
             : null;
         const hasDiscount = compareAtUnit != null && compareAtUnit > unit;
+        // A pack can be cheaper than its units: free units, or a percent off.
+        const lineTotal = round(packTotal(line.tiers, unit, line.qty));
+        const compareAtTotal = round(
+          (hasDiscount ? compareAtUnit : unit) * line.qty,
+        );
         return {
           ...line,
-          lineTotal: round(unit * line.qty),
-          compareAtTotal: round((hasDiscount ? compareAtUnit : unit) * line.qty),
+          // Quantity-break lines read "3 Pack", like the product page cards.
+          variantLabel: line.tiers ? `${line.qty} Pack` : line.variantLabel,
+          lineTotal,
+          compareAtTotal,
           // The line's saving as an amount: compare-at total less what is paid.
-          savedAmount: hasDiscount
-            ? round((compareAtUnit - unit) * line.qty)
-            : null,
+          savedAmount:
+            compareAtTotal > lineTotal + 0.004
+              ? round(compareAtTotal - lineTotal)
+              : null,
         };
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -147,8 +156,7 @@ export function BagContents({
       priced.map((l) => ({
         variantId: l.variantId,
         qty: l.qty,
-        priceCents: Math.round((l.lineTotal / l.qty) * 100),
-      })),
+        priceCents: Math.round((l.lineTotal / l.qty) * 100),      })),
       currency,
     );
     if (result.ok) {
