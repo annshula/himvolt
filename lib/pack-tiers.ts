@@ -41,7 +41,7 @@ export function defaultPackSize(tiers: readonly PackTier[]): number {
 }
 
 /**
- * What `quantity` units cost at `unitPrice`, unrounded. Two discounts can
+ * What `quantity` units cost at `unitPrice` (in major units, e.g. dollars). Two discounts can
  * apply and Shopify gives the shopper the better one, so this does too: the
  * free-unit deal (which repeats for every complete set, like Shopify's "buy X
  * get Y", so 4 pays for 3 and 6 pays for 4) against the highest reached
@@ -63,5 +63,10 @@ export function packTotal(
       percent = t.discountPercent ?? 0;
     }
   }
-  return Math.min(unitPrice * paid, unitPrice * quantity * (1 - percent / 100));
+  // Shopify takes the percentage off each unit and drops the fraction of a
+  // cent (5% of 79.99 is 3.9995, taken as 3.99), so do the same per unit:
+  // otherwise the page and the checkout differ by a cent or two.
+  const cents = Math.round(unitPrice * 100);
+  const percentUnit = (cents - Math.floor((cents * percent) / 100 + 1e-9)) / 100;
+  return Math.min(unitPrice * paid, percentUnit * quantity);
 }
