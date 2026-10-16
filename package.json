@@ -9,7 +9,8 @@
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build",
     "shopify:webhooks": "node scripts/register-webhooks.mjs",
-    "shopify:sync": "node scripts/sync-product.mjs"
+    "shopify:sync": "node scripts/sync-product.mjs",
+    "shopify:sync-bump": "node scripts/sync-bump.mjs"
   },
   "dependencies": {
     "@microsoft/clarity": "^1.0.2",

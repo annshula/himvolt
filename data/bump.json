@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "syncedAt": "2026-10-16T09:18:46.026Z",
+  "product": {
+    "id": "gid://shopify/Product/15427015311587",
+    "handle": "resistance-bands-4-tube-yoga-pedal-puller-resistance-band-elastic-pull-rope-fitness-equipment-for-abdomen-waist-arm-training",
+    "title": "Resistance Bands 4-Tube Yoga Pedal Puller Resistance Band Elastic Pull Rope Fitness Equipment for Abdomen Waist Arm Training",
+    "price": 19.99,
+    "compareAtPrice": 29.99,
+    "currencyCode": "USD",
+    "availableForSale": true,
+    "variants": [
+      {
+        "id": "gid://shopify/ProductVariant/67707691925731",
+        "title": "Pink and Grey",
+        "sku": "14:193#Pink and Grey",
+        "price": 19.99,
+        "compareAtPrice": 29.99,
+        "availableForSale": true,
+        "stockQuantity": 961,
+        "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S4f2926583aaf43d2b785718d6c001527b.webp?v=1792140157",
+        "shopifyTitle": "Pink and Grey",
+        "subtitle": "Pink and Grey",
+        "quantity": 1,
+        "weightGrams": 0
+      }
+    ],
+    "images": [
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Male_Fitness_Device_Demonstration.png?v=1792142213",
+        "alt": "Resistance Bands 4-Tube Yoga Pedal Puller Resistance Band Elastic Pull Rope Fitness Equipment for Abdomen Waist Arm Training",
+        "width": 1254,
+        "height": 1254
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Scf0850164521469fb1956e93451da42ak.webp?v=1792140157",
+        "alt": "Resistance Bands 4-Tube Yoga Pedal Puller Resistance Band Elastic Pull Rope Fitness Equipment for Abdomen Waist Arm Training",
+        "width": 800,
+        "height": 800
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/Se40949999064449fb2f79675774612ce8.webp?v=1792140157",
+        "alt": "Resistance Bands 4-Tube Yoga Pedal Puller Resistance Band Elastic Pull Rope Fitness Equipment for Abdomen Waist Arm Training",
+        "width": 800,
+        "height": 800
+      },
+      {
+        "src": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/S4f2926583aaf43d2b785718d6c001527b.webp?v=1792140157",
+        "alt": "Resistance Bands 4-Tube Yoga Pedal Puller Resistance Band Elastic Pull Rope Fitness Equipment for Abdomen Waist Arm Training",
+        "width": 800,
+        "height": 800
+      }
+    ]
+  }
+}

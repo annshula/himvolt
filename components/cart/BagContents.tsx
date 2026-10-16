@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
+import { BagBump } from "@/components/cart/BagBump";
 import { useCart } from "@/components/providers/CartProvider";
 import { useLocalization } from "@/components/providers/LocalizationProvider";
 import Image from "@/components/ui/Image";
@@ -195,9 +196,13 @@ export function BagContents({
               key={line.variantId}
               className="flex gap-3 rounded-card bg-porcelain p-2.5 shadow-soft"
             >
+              {/* A line with no href (the bag's add-on) has no page to open. */}
               <Link
-                href={line.href}
-                onClick={onNavigate}
+                href={line.href || "#"}
+                onClick={(e) => {
+                  if (!line.href) e.preventDefault();
+                  else onNavigate?.();
+                }}
                 className="well relative size-16 shrink-0 overflow-hidden rounded-xl"
                 tabIndex={-1}
                 aria-hidden="true"
@@ -215,14 +220,23 @@ export function BagContents({
               <div className="flex min-w-0 flex-1 flex-col">
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0 flex-1">
-                    <Link
-                      href={line.href}
-                      onClick={onNavigate}
-                      title={line.productName}
-                      className="block truncate text-[0.8125rem] leading-snug font-medium hover:underline"
-                    >
-                      {line.productName}
-                    </Link>
+                    {line.href ? (
+                      <Link
+                        href={line.href}
+                        onClick={onNavigate}
+                        title={line.productName}
+                        className="block truncate text-[0.8125rem] leading-snug font-medium hover:underline"
+                      >
+                        {line.productName}
+                      </Link>
+                    ) : (
+                      <span
+                        title={line.productName}
+                        className="block truncate text-[0.8125rem] leading-snug font-medium"
+                      >
+                        {line.productName}
+                      </span>
+                    )}
                     {!hasSaving && (
                       <p className="truncate text-[0.72rem] text-ink-soft">
                         {line.variantLabel}
@@ -299,6 +313,8 @@ export function BagContents({
           );
         })}
       </ul>
+
+      <BagBump />
 
       <div className="m-3 mt-3 rounded-[20px] bg-porcelain px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-float">
         {detailsOpen ? (

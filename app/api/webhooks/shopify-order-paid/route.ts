@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 
-import { syncedProducts } from "@/lib/catalog";
+import { bumpProduct, syncedProducts } from "@/lib/catalog";
 import {
   isDuplicateWebhook,
   verifyWebhookSignature,
@@ -91,11 +91,10 @@ function customerMatchData(order: ShopifyOrder) {
 /* Numeric tails of our catalogue ids — Shopify webhooks send plain numbers,
    while the Storefront/Admin APIs return `gid://shopify/…/123` strings.
    Across every product this storefront sells, not just one. */
-const productIdNums = new Set(
-  syncedProducts.map((p) => p.id.split("/").pop()),
-);
+const ourProducts = [...syncedProducts, bumpProduct];
+const productIdNums = new Set(ourProducts.map((p) => p.id.split("/").pop()));
 const variantIdNums = new Set(
-  syncedProducts.flatMap((p) => p.variants.map((v: { id: string }) => v.id.split("/").pop())),
+  ourProducts.flatMap((p) => p.variants.map((v: { id: string }) => v.id.split("/").pop())),
 );
 
 /** True when a webhook line item belongs to HimVolt (shared store). */

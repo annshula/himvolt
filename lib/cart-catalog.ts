@@ -14,6 +14,7 @@
  */
 
 import catalog from "@/data/product.json";
+import { bumpProduct } from "@/lib/catalog";
 import { packTiersFor, type PackTier } from "@/lib/pack-tiers";
 import { products as localProducts } from "@/lib/product";
 
@@ -78,6 +79,28 @@ for (const product of catalog.products) {
       tiers,
     });
   }
+}
+
+// The bag's add-on product is not a page on this site, so it has no local
+// presentation entry and no product link: its line is built straight from the
+// synced record, and an empty href tells the bag to render it as plain text.
+for (const synced of bumpProduct.variants) {
+  lineMap.set(synced.id, {
+    variantId: synced.id,
+    name: bumpProduct.title,
+    productName: bumpProduct.title,
+    variantLabel: synced.title,
+    image: synced.image ?? bumpProduct.images?.[0]?.src ?? "",
+    href: "",
+    unitPriceCents: Math.round(synced.price * 100),
+    compareAtCents:
+      synced.compareAtPrice != null && synced.compareAtPrice > synced.price
+        ? Math.round(synced.compareAtPrice * 100)
+        : null,
+    units: 1,
+    hasPackOption: false,
+    tiers: null,
+  });
 }
 
 /** Resolve a Shopify variant id to its presentable cart line, or null. */

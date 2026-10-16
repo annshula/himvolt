@@ -11,6 +11,7 @@
  * telling our line items apart from other brands sharing the Shopify store.
  */
 
+import bump from "@/data/bump.json";
 import catalog from "@/data/product.json";
 import type { Variant } from "@/lib/product";
 
@@ -49,6 +50,17 @@ export type SyncedProduct = {
 };
 
 export const syncedProducts: SyncedProduct[] = catalog.products;
+
+/**
+ * The one add-on offered inside the bag (data/bump.json, refreshed by
+ * `node scripts/sync-bump.mjs`). Kept out of `syncedProducts` so it never
+ * appears in the shop grid, sitemap or llms.txt, but indexed below like any
+ * other product so cart validation, live prices and the orders/paid webhook
+ * all recognise it.
+ */
+export const bumpProduct: SyncedProduct = bump.product;
+export const bumpVariant: SyncedVariant | null =
+  bumpProduct.variants.find((v) => v.availableForSale) ?? null;
 export const syncedShop = catalog.shop;
 export const syncedAt = catalog.syncedAt;
 
@@ -65,7 +77,7 @@ export function getSyncedProductByHandle(handle: string): SyncedProduct | null {
 }
 
 const variantIndex = new Map<string, { product: SyncedProduct; variant: SyncedVariant }>();
-for (const product of syncedProducts) {
+for (const product of [...syncedProducts, bumpProduct]) {
   for (const variant of product.variants) {
     variantIndex.set(variant.id, { product, variant });
   }
@@ -124,11 +136,13 @@ export function liveVariantFor(local: Variant): SyncedVariant {
 /* ── Brand identity on a shared store ──────────────────────────────────── */
 
 /** Every product this storefront sells — how we tell our line items apart from other brands sharing the Shopify store. */
-export const himvoltProductIds = new Set(syncedProducts.map((p) => p.id));
+export const himvoltProductIds = new Set(
+  [...syncedProducts, bumpProduct].map((p) => p.id),
+);
 
 /** Every variant of every one of our products; anything else on the shared store belongs to another brand. */
 const himvoltVariantIds = new Set(
-  syncedProducts.flatMap((p) => p.variants.map((v) => v.id)),
+  [...syncedProducts, bumpProduct].flatMap((p) => p.variants.map((v) => v.id)),
 );
 
 /**
