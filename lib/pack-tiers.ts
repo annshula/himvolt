@@ -33,7 +33,7 @@ const tiersByHandle: Record<string, PackTier[]> = {
       size: 3,
       freeUnits: 1,
       tag: "Most popular",
-      image: "/images/arm-trainer/pack-3.webp",
+      image: "/images/arm-trainer/pack-3-three-trainers.webp",
     },
   ],
 };
