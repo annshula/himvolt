@@ -11,6 +11,7 @@ import { LocalizationProvider } from "@/components/providers/LocalizationProvide
 import { Toaster } from "sonner";
 import Footer from "@/components/sections/Footer";
 import Nav from "@/components/sections/Nav";
+import { ScrollJumpLogger } from "@/components/dev/ScrollJumpLogger";
 import BackToTop from "@/components/ui/BackToTop";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -210,6 +211,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <Footer />
             <CartDrawer payments={payments} />
             <BackToTop />
+            <ScrollJumpLogger />
           </CartProvider>
         </LocalizationProvider>
         <Toaster
