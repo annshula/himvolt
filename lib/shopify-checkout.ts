@@ -11,6 +11,7 @@
 
 import { resolveCartLine } from "@/lib/cart-catalog";
 import { trackInitiateCheckout } from "@/lib/analytics";
+import { getAttribution } from "@/lib/attribution";
 
 export type ShopifyCheckoutResult =
   | { ok: true; checkoutUrl: string }
@@ -26,6 +27,7 @@ export async function shopifyCheckout(
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         lines: lines.map(({ variantId, qty }) => ({ variantId, qty })),
+        attribution: getAttribution(),
       }),
     });
     const data = (await res.json()) as {

@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-10-16T08:32:21.025Z",
+  "syncedAt": "2026-10-17T15:28:46.393Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -1940,7 +1940,7 @@
           "price": 79.99,
           "compareAtPrice": null,
           "availableForSale": true,
-          "stockQuantity": 388,
+          "stockQuantity": 384,
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A7a24459e271944548d31d63ea21a02244.webp?v=1791978239",
           "shopifyTitle": "Gray",
           "subtitle": "Gray",

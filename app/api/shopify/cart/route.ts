@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import {
+  MAX_ENTRIES,
+  MAX_KEY_LENGTH,
+  MAX_VALUE_LENGTH,
+} from "@/lib/attribution";
 import { getVariantById } from "@/lib/catalog";
 import { resolvePricingCountry } from "@/lib/localization/resolve";
 import { shipCountryFor } from "@/lib/localization/ship-country";
@@ -10,6 +15,22 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 type CartLine = { variantId?: string; qty?: number };
+
+/**
+ * Ad-click params from the browser, reduced to bounded plain-string pairs
+ * before they become Shopify cart attributes (client input is untrusted).
+ */
+function cartAttributes(raw: unknown): Array<{ key: string; value: string }> {
+  if (!raw || typeof raw !== "object" || Array.isArray(raw)) return [];
+  const attributes: Array<{ key: string; value: string }> = [];
+  for (const [key, value] of Object.entries(raw)) {
+    if (attributes.length >= MAX_ENTRIES) break;
+    if (!key || key.length > MAX_KEY_LENGTH) continue;
+    if (typeof value !== "string" || !value.trim()) continue;
+    attributes.push({ key, value: value.trim().slice(0, MAX_VALUE_LENGTH) });
+  }
+  return attributes;
+}
 
 /**
  * Builds a Shopify Storefront cart from the current bag lines and returns the
@@ -26,6 +47,7 @@ export async function POST(request: NextRequest) {
 
   const body = (await request.json().catch(() => null)) as {
     lines?: CartLine[];
+    attribution?: unknown;
   } | null;
   const lines = Array.isArray(body?.lines) ? body.lines : [];
   if (lines.length === 0) {
@@ -68,7 +90,10 @@ export async function POST(request: NextRequest) {
       cartLines.map((l) => l.merchandiseId),
       await resolvePricingCountry(),
     );
-    const cart = await createCart(cartLines, { countryCode });
+    const cart = await createCart(cartLines, {
+      countryCode,
+      attributes: cartAttributes(body?.attribution),
+    });
     // After a successful payment Shopify redirects the shopper back here,
     // where the local bag is cleared (see /checkout/confirmation).
     const returnTo = `${shopifyConfig().siteUrl}/checkout/confirmation`;

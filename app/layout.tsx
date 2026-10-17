@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Fraunces, Inter, Jost, Oswald } from "next/font/google";
 import { ClarityAnalytics } from "@/components/analytics/ClarityAnalytics";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { AttributionCapture } from "@/components/analytics/AttributionCapture";
 import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { TikTokPixel } from "@/components/analytics/TikTokPixel";
 import { CartDrawer } from "@/components/cart/CartDrawer";
@@ -240,6 +241,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
         <ClarityAnalytics />
         <GoogleAnalytics />
+        <AttributionCapture />
         <MetaPixel />
         <TikTokPixel />
       </body>

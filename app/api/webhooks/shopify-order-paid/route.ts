@@ -55,7 +55,18 @@ type ShopifyOrder = {
   phone?: string | null;
   customer?: { email?: string | null; phone?: string | null } | null;
   billing_address?: ShopifyAddress | null;
+  /** Cart attributes (utm_*, fbc, fbp…) written at checkout — see lib/attribution.ts. */
+  note_attributes?: Array<{ name?: string; value?: string | null }> | null;
 };
+
+/** The order's checkout-time attribution params, keyed by name. */
+function orderAttribution(order: ShopifyOrder): Record<string, string> {
+  const result: Record<string, string> = {};
+  for (const { name, value } of order.note_attributes ?? []) {
+    if (name && value) result[name] = value;
+  }
+  return result;
+}
 
 /** Meta/TikTok require PII lowercased + trimmed, then SHA-256 hex — never send it raw. */
 function sha256(value: string): string {
@@ -143,9 +154,14 @@ async function sendMetaPurchase(
   // strongest signals in Event Match Quality — stronger than IP/UA/fbp/fbc
   // combined — and each takes an array of hashed values per Meta's spec.
   const match = customerMatchData(order);
+  const attribution = orderAttribution(order);
   const userData = {
     client_ip_address: ip ?? undefined,
     client_user_agent: userAgent ?? undefined,
+    // Ties the Purchase back to the ad click (fbc) and browser (fbp); both
+    // are sent unhashed per Meta's spec.
+    fbc: attribution.fbc,
+    fbp: attribution.fbp,
     em: match.em ? [match.em] : undefined,
     ph: match.ph ? [match.ph] : undefined,
     fn: match.fn ? [match.fn] : undefined,
@@ -173,6 +189,9 @@ async function sendMetaPurchase(
               action_source: "website",
               user_data: userData,
               custom_data: {
+                // First, so a landing param named "value"/"currency" can
+                // never override the real order fields below.
+                ...attribution,
                 currency: order.currency ?? "USD",
                 value,
                 content_ids: items.map((i) => String(i.variant_id ?? i.id)),
