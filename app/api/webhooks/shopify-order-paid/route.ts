@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 
 import { bumpProduct, syncedProducts } from "@/lib/catalog";
+import { site } from "@/lib/site";
 import {
   isDuplicateWebhook,
   verifyWebhookSignature,
@@ -55,6 +56,7 @@ type ShopifyOrder = {
   phone?: string | null;
   customer?: { email?: string | null; phone?: string | null } | null;
   billing_address?: ShopifyAddress | null;
+  order_status_url?: string | null;
   /** Cart attributes (utm_*, fbc, fbp…) written at checkout — see lib/attribution.ts. */
   note_attributes?: Array<{ name?: string; value?: string | null }> | null;
 };
@@ -162,6 +164,7 @@ async function sendMetaPurchase(
     // are sent unhashed per Meta's spec.
     fbc: attribution.fbc,
     fbp: attribution.fbp,
+    external_id: attribution.external_id ? [attribution.external_id] : undefined,
     em: match.em ? [match.em] : undefined,
     ph: match.ph ? [match.ph] : undefined,
     fn: match.fn ? [match.fn] : undefined,
@@ -187,15 +190,20 @@ async function sendMetaPurchase(
               event_time: Math.floor(Date.now() / 1000),
               event_id: `purchase-${order.id}`,
               action_source: "website",
+              // Required by Meta for web events. Shopify's order-status page is
+              // the one real, order-specific URL; falls back to this storefront.
+              event_source_url: order.order_status_url || site.url,
               user_data: userData,
               custom_data: {
-                // First, so a landing param named "value"/"currency" can
-                // never override the real order fields below.
-                ...attribution,
                 currency: order.currency ?? "USD",
                 value,
                 content_ids: items.map((i) => String(i.variant_id ?? i.id)),
                 content_type: "product",
+                contents: items.map((i) => ({
+                  id: String(i.variant_id ?? i.id),
+                  quantity: i.quantity ?? 1,
+                  item_price: Number(i.price ?? 0),
+                })),
                 num_items: items.reduce((n, i) => n + (i.quantity ?? 1), 0),
                 order_id: String(order.id),
               },

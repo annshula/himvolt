@@ -53,6 +53,25 @@ export function captureAttribution(): void {
   }
 }
 
+const EXTERNAL_ID_KEY = "himvolt.external_id.v1";
+
+/**
+ * Random per-browser id, persisted once. Sent to Meta as `external_id` on the
+ * server-side Purchase so the same browser's ViewContent → AddToCart → Purchase
+ * link into one match. A random UUID carries no PII, so it needs no hashing.
+ */
+function getExternalId(): string | undefined {
+  try {
+    const existing = window.localStorage.getItem(EXTERNAL_ID_KEY);
+    if (existing) return existing;
+    const fresh = crypto.randomUUID();
+    window.localStorage.setItem(EXTERNAL_ID_KEY, fresh);
+    return fresh;
+  } catch {
+    return undefined;
+  }
+}
+
 /** The captured params plus the live Meta cookies, ready to send with checkout. */
 export function getAttribution(): Attribution {
   if (typeof window === "undefined") return {};
@@ -68,6 +87,9 @@ export function getAttribution(): Attribution {
     cookie("_fbc") ??
     (stored.fbclid ? `fb.1.${Date.now()}.${stored.fbclid}` : undefined);
   if (fbc) result.fbc = fbc.slice(0, MAX_VALUE_LENGTH);
+
+  const externalId = getExternalId();
+  if (externalId) result.external_id = externalId;
 
   return result;
 }
