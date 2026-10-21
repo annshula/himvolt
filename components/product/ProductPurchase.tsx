@@ -13,6 +13,7 @@ import { ProductAccordion } from "@/components/product/ProductAccordion";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { PurchaseFeedback } from "@/components/product/PurchaseFeedback";
 import { Icon, type IconName } from "@/components/ui/Icons";
+import Image from "@/components/ui/Image";
 import { ChevronRightIcon } from "@/components/ui/Icons";
 import { RatingStars } from "@/components/ui/Stars";
 import { quality } from "@/content/pitches";
@@ -100,6 +101,17 @@ function cleanDescription(html: string): string | null {
   return html.replace(/\s*—\s*/g, ", ").trim();
 }
 
+/**
+ * Faces beside the "N+ sold" figure — male profile photos, so the social proof
+ * suits a men's line. Decorative only; the text next to them carries the label.
+ */
+const BUYER_AVATARS = [
+  "/avatars/jay.webp",
+  "/avatars/matt.webp",
+  "/avatars/tt-9d5f7c03.jpg",
+  "/avatars/tt-bcd70b75.jpg",
+] as const;
+
 const SPEC_GROUP_TITLES = ["Performance", "Build & materials", "Use & fit"];
 
 /**
@@ -156,6 +168,7 @@ function perkIcon(perk: string): IconName {
 export function ProductPurchase({
   product,
   rating,
+  ratingLinksToReviews = true,
   bestSeller = false,
   jewelry = false,
   feedback = [],
@@ -164,6 +177,8 @@ export function ProductPurchase({
   product: Product;
   /** Aggregate rating shown as a scroll-to-reviews link — only present when this product has a real review dataset (gated on verified data). */
   rating?: { average: number; count: number };
+  /** Whether the rating line jumps to the reviews section — false when this product has no reviews section to land on (a rating from the custom.rating_* metafields alone). */
+  ratingLinksToReviews?: boolean;
   /** Optional "Best seller" chip — set only for the flagship bracelet. */
   bestSeller?: boolean;
   /** Jewelry-only extras (the "Hand-built" / "checks passed" links). Off for any other kind of product. */
@@ -264,15 +279,34 @@ export function ProductPurchase({
             ))}
           </ul>
 
-          {/* ── Rating — plain text; the rating jumps to the reviews ── */}
-          {rating && rating.count > 0 && (
-            <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-ui text-body-sm">
-              <a
-                href="#reviews"
-                onClick={scrollToReviewsSection}
-                className="group inline-flex items-center gap-1.5"
-                aria-label={`Rated ${rating.average.toFixed(1)} out of 5 from ${rating.count.toLocaleString("en-US")} reviews — jump to the reviews`}
-              >
+          {/* ── Rating + sold — custom.rating_* / custom.customers_* ── */}
+          {(() => {
+            const hasRating = rating != null && rating.count > 0;
+            const sold = product.customersCount;
+            const hasSold = sold != null && sold > 0;
+            if (!hasRating && !hasSold) return null;
+
+            const faces = (
+              <span aria-hidden="true" className="flex shrink-0 -space-x-2">
+                {BUYER_AVATARS.map((src, i) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className={cn(
+                      "size-6 rounded-full object-cover ring-2 ring-canvas",
+                      // Three faces is all a 320px line can hold.
+                      i === BUYER_AVATARS.length - 1 && "hidden sm:block",
+                    )}
+                  />
+                ))}
+              </span>
+            );
+
+            const stars = hasRating && (
+              <>
                 <RatingStars
                   value={rating.average}
                   starClassName="h-3.5 w-3.5"
@@ -280,12 +314,74 @@ export function ProductPurchase({
                 <span className="font-numeral font-semibold tabular-nums">
                   {rating.average.toFixed(1)}
                 </span>
-                <span className="text-ink-soft group-hover:underline">
-                  {rating.count.toLocaleString("en-US")} reviews
+                <span
+                  className={cn(
+                    "text-ink-soft underline-offset-4",
+                    ratingLinksToReviews &&
+                      "underline decoration-ink-soft/40 group-hover:text-ink group-hover:decoration-current",
+                  )}
+                >
+                  ({rating.count.toLocaleString("en-US")})
                 </span>
-              </a>
-            </p>
-          )}
+              </>
+            );
+            const label = hasRating
+              ? `Rated ${rating.average.toFixed(1)} out of 5 from ${rating.count.toLocaleString("en-US")} reviews`
+              : "";
+
+            return (
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-ui text-body-sm">
+                {!hasSold && faces}
+                {hasRating &&
+                  (ratingLinksToReviews ? (
+                    <a
+                      href="#reviews"
+                      onClick={scrollToReviewsSection}
+                      className="group inline-flex items-center gap-1.5"
+                      aria-label={`${label} — jump to the reviews`}
+                    >
+                      {stars}
+                    </a>
+                  ) : (
+                    <span
+                      className="group inline-flex items-center gap-1.5"
+                      aria-label={label}
+                    >
+                      {stars}
+                    </span>
+                  ))}
+                {hasSold && (
+                  <>
+                    {hasRating && (
+                      <span
+                        aria-hidden="true"
+                        className="hidden text-ink-mute sm:inline"
+                      >
+                        |
+                      </span>
+                    )}
+                    <span className="inline-flex items-center gap-2 whitespace-nowrap text-ink-soft">
+                      {faces}
+                      <span>
+                        <span className="font-numeral font-bold text-ink tabular-nums">
+                          {sold.toLocaleString("en-US")}+
+                        </span>{" "}
+                        sold
+                        {product.customersMonths ? (
+                          /* Hidden on phones, and in the narrow lg buy-box
+                             column where it would force a second line. */
+                          <span className="hidden sm:inline lg:hidden xl:inline">
+                            {" "}
+                            in last {product.customersMonths} months
+                          </span>
+                        ) : null}
+                      </span>
+                    </span>
+                  </>
+                )}
+              </div>
+            );
+          })()}
 
           {/* ── Title ───────────────────────────────────────────────── */}
           <h1 className="mt-3 font-pdp-title text-[length:clamp(1.375rem,1.25rem+0.5vw,1.625rem)] leading-[1.15] font-medium text-wrap">

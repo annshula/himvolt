@@ -94,6 +94,18 @@ const PRODUCTS_BY_ID_QUERY = /* GraphQL */ `
         saleEndsAtField: metafield(namespace: "custom", key: "sale_ends_at") {
           value
         }
+        ratingCountField: metafield(namespace: "custom", key: "rating_count") {
+          value
+        }
+        ratingAverageField: metafield(namespace: "custom", key: "rating_average") {
+          value
+        }
+        customersCountField: metafield(namespace: "custom", key: "customers_count") {
+          value
+        }
+        customersMonthsField: metafield(namespace: "custom", key: "customers_months") {
+          value
+        }
         specsField: metafield(namespace: "custom", key: "specs") {
           references(first: 20) {
             nodes {
@@ -316,6 +328,10 @@ type ProductNode = {
   chipsField: { value: string } | null;
   availableCountriesField: { value: string } | null;
   saleEndsAtField: { value: string } | null;
+  ratingCountField: { value: string } | null;
+  ratingAverageField: { value: string } | null;
+  customersCountField: { value: string } | null;
+  customersMonthsField: { value: string } | null;
   specsField: { references: { nodes: SpecNode[] } | null } | null;
   featureHighlights: {
     references: { nodes: FeatureHighlightNode[] } | null;
@@ -393,6 +409,14 @@ type SyncedProduct = {
   availableCountries?: string[];
   /** From the custom.sale_ends_at metafield — an ISO timestamp, or null if unset or already past at sync time. Undefined for a product synced before this field existed. */
   saleEndsAt?: string | null;
+  /** From the custom.rating_count metafield — the review total shown above the title. Null when unset; undefined for a product synced before this field existed. */
+  ratingCount?: number | null;
+  /** From the custom.rating_average metafield — the matching 0–5 star average. Null when unset or out of range. */
+  ratingAverage?: number | null;
+  /** From the custom.customers_count metafield — orders shipped, shown as "N+ sold". Null when unset. */
+  customersCount?: number | null;
+  /** From the custom.customers_months metafield — the window, in months, that count covers. Null when unset. */
+  customersMonths?: number | null;
 };
 
 export type SyncedCatalogRecord = {
@@ -507,6 +531,20 @@ function normalizeSaleEndsAt(field: { value: string } | null): string | null {
   const time = Date.parse(raw);
   if (Number.isNaN(time) || time <= Date.now()) return null;
   return new Date(time).toISOString();
+}
+
+/** A non-negative number metafield (rating_count, customers_count, …), or null when unset or unparseable. */
+function normalizeCount(field: { value: string } | null): number | null {
+  const raw = field?.value?.trim();
+  if (!raw) return null;
+  const value = Number(raw);
+  return Number.isFinite(value) && value >= 0 ? value : null;
+}
+
+/** custom.rating_average — a 0–5 star average, or null when unset or out of range. */
+function normalizeAverage(field: { value: string } | null): number | null {
+  const value = normalizeCount(field);
+  return value != null && value <= 5 ? value : null;
 }
 
 /**
@@ -713,6 +751,10 @@ export async function syncAllProducts(): Promise<SyncedCatalogRecord> {
       chips: normalizePerks(freshProduct.chipsField),
       availableCountries: normalizeCountries(freshProduct.availableCountriesField),
       saleEndsAt: normalizeSaleEndsAt(freshProduct.saleEndsAtField),
+      ratingCount: normalizeCount(freshProduct.ratingCountField),
+      ratingAverage: normalizeAverage(freshProduct.ratingAverageField),
+      customersCount: normalizeCount(freshProduct.customersCountField),
+      customersMonths: normalizeCount(freshProduct.customersMonthsField),
     });
   }
 
@@ -788,6 +830,10 @@ export async function seedProductIntoCatalog(
       chips: [],
       availableCountries: [],
       saleEndsAt: null,
+      ratingCount: null,
+      ratingAverage: null,
+      customersCount: null,
+      customersMonths: null,
     });
 
     await writeJsonFileAtomic(OUTPUT_PATH, record);

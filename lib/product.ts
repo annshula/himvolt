@@ -87,6 +87,14 @@ export type Product = {
   availableCountries: string[];
   /** From the custom.sale_ends_at Shopify metafield — an ISO timestamp for the offer countdown, or null when unset/already past at sync time. */
   saleEndsAt: string | null;
+  /** From the custom.rating_count Shopify metafield — the review total shown above the title. Null when unset. */
+  ratingCount: number | null;
+  /** From the custom.rating_average Shopify metafield — the matching 0–5 star average. Null when unset. */
+  ratingAverage: number | null;
+  /** From the custom.customers_count Shopify metafield — orders shipped, shown as "N+ sold". Null when unset. */
+  customersCount: number | null;
+  /** From the custom.customers_months Shopify metafield — the window, in months, that count covers. Null when unset. */
+  customersMonths: number | null;
 };
 
 const usd = (amount: number): Money => ({ amount, currencyCode: "USD" });
@@ -125,6 +133,10 @@ export function mapSyncedProducts(
     chips: p.chips ?? [],
     availableCountries: p.availableCountries ?? [],
     saleEndsAt: p.saleEndsAt ?? null,
+    ratingCount: p.ratingCount ?? null,
+    ratingAverage: p.ratingAverage ?? null,
+    customersCount: p.customersCount ?? null,
+    customersMonths: p.customersMonths ?? null,
     variants: p.variants.map((v) => ({
       id: v.id,
       sku: v.sku,

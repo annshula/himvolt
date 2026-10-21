@@ -168,6 +168,10 @@ query ProductsByIds($ids: [ID!]!) {
       chipsField: metafield(namespace: "custom", key: "chips") { value }
       availableCountriesField: metafield(namespace: "custom", key: "available_countries") { value }
       saleEndsAtField: metafield(namespace: "custom", key: "sale_ends_at") { value }
+      ratingCountField: metafield(namespace: "custom", key: "rating_count") { value }
+      ratingAverageField: metafield(namespace: "custom", key: "rating_average") { value }
+      customersCountField: metafield(namespace: "custom", key: "customers_count") { value }
+      customersMonthsField: metafield(namespace: "custom", key: "customers_months") { value }
       specsField: metafield(namespace: "custom", key: "specs") {
         references(first: 20) {
           nodes {
@@ -351,6 +355,20 @@ function normalizeSaleEndsAt(field) {
   return new Date(time).toISOString();
 }
 
+/** A non-negative number metafield (rating_count, customers_count, …), or null when unset or unparseable. */
+function normalizeCount(field) {
+  const raw = field?.value?.trim();
+  if (!raw) return null;
+  const value = Number(raw);
+  return Number.isFinite(value) && value >= 0 ? value : null;
+}
+
+/** custom.rating_average — a 0–5 star average, or null when unset or out of range. */
+function normalizeAverage(field) {
+  const value = normalizeCount(field);
+  return value != null && value <= 5 ? value : null;
+}
+
 async function main() {
   if (!existsSync(OUTPUT)) {
     console.error(
@@ -491,6 +509,10 @@ async function main() {
       chips: normalizePerks(freshProduct.chipsField),
       availableCountries: normalizeCountries(freshProduct.availableCountriesField),
       saleEndsAt: normalizeSaleEndsAt(freshProduct.saleEndsAtField),
+      ratingCount: normalizeCount(freshProduct.ratingCountField),
+      ratingAverage: normalizeAverage(freshProduct.ratingAverageField),
+      customersCount: normalizeCount(freshProduct.customersCountField),
+      customersMonths: normalizeCount(freshProduct.customersMonthsField),
       descriptionHtml: freshProduct.descriptionHtml ?? existingProduct.descriptionHtml ?? "",
       specs,
       features,

@@ -153,6 +153,20 @@ export default async function ProductPage({
 
   const videos = videosForHandle(liveProduct.handle);
 
+  // What the rating line above the title prints. The merchant's
+  // custom.rating_count metafield wins over the review dataset's own total
+  // (e.g. reviews gathered across channels); the average comes from
+  // custom.rating_average when set, otherwise from the dataset. A rating from
+  // the metafields alone has no reviews section to link to.
+  const rating =
+    liveProduct.ratingCount != null
+      ? {
+          count: liveProduct.ratingCount,
+          average:
+            liveProduct.ratingAverage ?? reviewSet?.summary.average ?? 0,
+        }
+      : reviewSet?.summary;
+
   // The payment logos checkout actually accepts (Shopify's own settings).
   const payments = await getPaymentMethods();
 
@@ -174,7 +188,8 @@ export default async function ProductPage({
 
       <ProductPurchase
         product={liveProduct}
-        rating={reviewSet?.summary}
+        rating={rating}
+        ratingLinksToReviews={Boolean(reviewSet) || isJewelry}
         bestSeller={isBracelet}
         jewelry={isJewelry}
         feedback={feedback}
