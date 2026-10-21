@@ -28,6 +28,10 @@ const json = (body: unknown, status = 200) =>
  * would race it), falling back to the visitor's effective country (their
  * saved choice, else the edge-detected one).
  *
+ * `bagVariantIds` is optional context: the other variants in the shopper's bag.
+ * They are not priced, but they decide the country (see shipCountryFor), so an
+ * add-on priced on its own lands in the same currency as the bag it joins.
+ *
  * Only variants that belong to HimVolt's own synced catalog are accepted —
  * the store is shared with other brands.
  */
@@ -52,6 +56,14 @@ export async function POST(request: Request) {
   const ids = (input as string[]).filter((id) => getVariantById(id) !== null);
   if (ids.length === 0) return json({ prices: {} });
 
+  const bagInput = (body as { bagVariantIds?: unknown })?.bagVariantIds;
+  const bagIds =
+    Array.isArray(bagInput) &&
+    bagInput.length <= 60 &&
+    bagInput.every((id) => typeof id === "string" && VARIANT_ID_RE.test(id))
+      ? (bagInput as string[]).filter((id) => getVariantById(id) !== null)
+      : [];
+
   const requested = (body as { country?: unknown })?.country;
   const country =
     typeof requested === "string" && COUNTRY_CODE_RE.test(requested)
@@ -62,7 +74,7 @@ export async function POST(request: Request) {
   // Prices follow checkout: a product limited to some countries is checked
   // out for a country it ships to, so it is priced there too (the bag then
   // never shows one currency and charges another).
-  const priceCountry = shipCountryFor(ids, country) ?? country;
+  const priceCountry = shipCountryFor([...ids, ...bagIds], country) ?? country;
 
   try {
     const priceMap = await getLocalizedVariantPrices(ids, priceCountry);

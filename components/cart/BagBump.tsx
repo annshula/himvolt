@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { useCart } from "@/components/providers/CartProvider";
-import { useLocalization } from "@/components/providers/LocalizationProvider";
+import {
+  useLocalization,
+  type LocalizedPrice,
+} from "@/components/providers/LocalizationProvider";
 import Image from "@/components/ui/Image";
 import { Icon } from "@/components/ui/Icons";
 import { RatingStars } from "@/components/ui/Stars";
@@ -19,22 +22,65 @@ const BUMP_RATING = { average: 5, count: 472 };
  * photo and price are Shopify's own; the price is the live one for the
  * shopper's country (the same overlay the bag lines use), held behind a
  * placeholder until it lands so a base-currency figure never flashes.
+ *
+ * Priced on its own request that names the bag's other lines: a product limited
+ * to some countries pins the whole bag to a country it ships to (and so to that
+ * country's currency), and the add-on has to follow or the bag would mix two
+ * currencies.
  */
 export function BagBump() {
   const { lines, add } = useCart();
-  const { ready, canLocalize, requestPrices, localizedPriceFor, isPriceSettled } =
-    useLocalization();
+  const { ready, country, defaultCountry } = useLocalization();
+  const effectiveCountry = country ?? defaultCountry?.isoCode ?? null;
+  const canLocalize = effectiveCountry !== null;
 
   const variantId = bumpVariant?.id;
+  const bagKey = lines
+    .map((l) => l.variantId)
+    .filter((id) => id !== variantId)
+    .join(",");
+  const hasLines = lines.length > 0;
+
+  const [fetched, setFetched] = useState<{
+    key: string;
+    price: LocalizedPrice | null;
+  } | null>(null);
+  const fetchKey = `${effectiveCountry}|${bagKey}`;
+
   useEffect(() => {
-    if (variantId) requestPrices([variantId]);
-  }, [variantId, requestPrices]);
+    if (!variantId || !hasLines || !effectiveCountry) return;
+    let cancelled = false;
+    fetch("/api/localization/prices", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        variantIds: [variantId],
+        bagVariantIds: bagKey ? bagKey.split(",") : [],
+        country: effectiveCountry,
+      }),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        if (!cancelled) {
+          setFetched({ key: fetchKey, price: data.prices?.[variantId] ?? null });
+        }
+      })
+      // Settle either way: a failed fetch falls back to the base price.
+      .catch(() => {
+        if (!cancelled) setFetched({ key: fetchKey, price: null });
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [variantId, hasLines, effectiveCountry, bagKey, fetchKey]);
+
+  const settled = fetched?.key === fetchKey;
+  const live = settled ? fetched.price : null;
 
   if (!bumpVariant || variantId === undefined) return null;
   if (lines.length === 0) return null;
   if (lines.some((l) => l.variantId === variantId)) return null;
 
-  const live = localizedPriceFor(variantId);
   const liveAmount = live ? Number.parseFloat(live.amount) : NaN;
   const amount = Number.isFinite(liveAmount) ? liveAmount : bumpVariant.price;
   const currency = live?.currencyCode ?? bumpProduct.currencyCode ?? "USD";
@@ -49,8 +95,7 @@ export function BagBump() {
       ? compareRaw
       : null;
   const saved = compareAt != null ? Math.round((compareAt - amount) * 100) / 100 : null;
-  const pending =
-    !ready || (canLocalize && !live && !isPriceSettled(variantId));
+  const pending = !ready || (canLocalize && !settled);
   const image = bumpVariant.image ?? bumpProduct.images?.[0]?.src ?? "";
 
   return (
