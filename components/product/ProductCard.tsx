@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "@/components/ui/Image";
 import Link from "next/link";
+import { useLocalizedAmount } from "@/components/providers/LocalizationProvider";
 import { ArrowIcon } from "@/components/ui/Icons";
 import { formatMoney } from "@/lib/money";
 import type { Product } from "@/lib/product";
@@ -16,10 +19,20 @@ import type { Product } from "@/lib/product";
  * Deliberately NOT wrapped in a scroll reveal: the whole grid renders fully
  * visible so nobody scrolling the listing lands on a half-empty page and
  * assumes the shop ends at the first visible row.
+ *
+ * The "From" price is Shopify's live price for the visitor's country, in their
+ * currency (held behind a placeholder until it lands, so a base-currency figure
+ * never flashes), like every other price on the site.
  */
 export function ProductCard({ product }: { product: Product }) {
   const cheapest = product.variants.reduce((min, v) =>
     v.price.amount < min.price.amount ? v : min,
+  );
+  const price = useLocalizedAmount(
+    cheapest.id,
+    cheapest.price.amount,
+    cheapest.price.currencyCode,
+    null,
   );
   const cover = product.gallery[0];
   const isBestSeller = product.handle === "hematite-mens-bracelet";
@@ -56,7 +69,14 @@ export function ProductCard({ product }: { product: Product }) {
           <div className="mt-3 flex items-center justify-between">
             <span className="font-display text-[0.92rem] font-semibold tracking-[-0.02em] text-ink">
               From{" "}
-              {formatMoney(cheapest.price.amount, cheapest.price.currencyCode)}
+              {price.pending ? (
+                <span
+                  aria-hidden="true"
+                  className="skeleton inline-block h-[0.95em] w-[3.4em] rounded-md align-[-0.12em]"
+                />
+              ) : (
+                formatMoney(price.amount, price.currencyCode)
+              )}
             </span>
             <span className="inline-flex items-center gap-1 text-[0.66rem] font-semibold tracking-[0.08em] text-volt uppercase">
               View

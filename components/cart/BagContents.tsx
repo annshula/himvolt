@@ -24,8 +24,11 @@ const MAX_QTY = 10;
  * checkout. `onNavigate` closes the drawer when a link is followed.
  *
  * Prices are Shopify's own answer for the shopper's country (the same live
- * overlay the product page uses), and checkout is created for that same
- * country, so the total here is the total Shopify charges. Until every line's
+ * overlay the product page uses), shown in their currency. Checkout is created
+ * for that country too, except when the bag holds a product limited to some
+ * countries (the arm trainer): that bag is checked out for a country the
+ * product ships to (shipCountryFor), so Shopify may charge it in that
+ * country's currency. Until every line's
  * live price has landed the amounts are held behind a placeholder — adding a
  * base-currency line to a localized one would put two currencies in one total.
  */
