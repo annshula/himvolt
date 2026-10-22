@@ -42,7 +42,7 @@ export const site = {
   /** Door-to-door transit shown on the product page, in days. */
   delivery: { minDays: 3, maxDays: 8 },
   /** Same, for a visitor whose country is anywhere but the US. */
-  deliveryIntl: { minDays: 5, maxDays: 11 },
+  deliveryIntl: { minDays: 7, maxDays: 14 },
 
   promise: {
     shipping: "Free tracked shipping worldwide",
