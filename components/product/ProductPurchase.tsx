@@ -501,7 +501,7 @@ export function ProductPurchase({
           />
 
           {/* ── Delivery ────────────────────────────────────────────── */}
-          <DeliverySection shipsTo={product.availableCountries} />
+          <DeliverySection />
 
           {/* ── What customers say — the top 5★ reviews ─────────────── */}
           {feedback.length > 0 && (

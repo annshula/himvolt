@@ -1,7 +1,7 @@
-import Link from "next/link";
+"use client";
 
-import { countryNames } from "@/lib/availability";
 import { Icon } from "@/components/ui/Icons";
+import { useLocalization } from "@/components/providers/LocalizationProvider";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
@@ -13,14 +13,16 @@ const STOPS = [
 ] as const;
 
 /**
- * The delivery block under the accordion: the day range as the headline, a
- * three-stop route (order placed → tracked shipping → at your door), then the
- * reference's two reassurance lines (secure checkout, put-it-right policy),
- * each with its policy link. The day range is `site.delivery` — one value for
- * the whole product page, never a per-visitor estimate or a made-up date.
+ * The delivery block under the accordion: the day range as the headline and a
+ * three-stop route (order placed → tracked shipping → at your door). The day
+ * range is `site.delivery` for a US visitor (or an unknown location) and
+ * `site.deliveryIntl` for any other country — never a made-up date.
  */
-export function DeliverySection({ shipsTo = [] }: { shipsTo?: string[] }) {
-  const { minDays, maxDays } = site.delivery;
+export function DeliverySection() {
+  const { country, detectedCountry, defaultCountry } = useLocalization();
+  const where = country ?? detectedCountry ?? defaultCountry?.isoCode ?? null;
+  const { minDays, maxDays } =
+    where && where !== "US" ? site.deliveryIntl : site.delivery;
 
   return (
     <section
@@ -68,33 +70,6 @@ export function DeliverySection({ shipsTo = [] }: { shipsTo?: string[] }) {
           </li>
         ))}
       </ol>
-
-      <ul className="mt-5 space-y-3.5 border-t border-line pt-5">
-        <li className="flex gap-3">
-          <Icon name="truck" className="size-5 shrink-0" />
-          <span>
-            {shipsTo.length > 0
-              ? `Ships to ${countryNames(shipsTo)} addresses only, tracked from dispatch.`
-              : "Tracked from dispatch to your door."}{" "}
-            <Link href="/shipping-policy" className="link-underline">
-              Shipping details
-            </Link>
-          </span>
-        </li>
-        <li className="flex gap-3">
-          <Icon name="shield" className="size-5 shrink-0" />
-          <span>Secure checkout</span>
-        </li>
-        <li className="flex gap-3">
-          <Icon name="refresh" className="size-5 shrink-0" />
-          <span>
-            Damaged, missing or wrong item? We&apos;ll put it right.{" "}
-            <Link href="/refund-policy" className="link-underline">
-              Refund policy
-            </Link>
-          </span>
-        </li>
-      </ul>
     </section>
   );
 }
