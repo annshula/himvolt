@@ -22,13 +22,26 @@ const BUMP_RATING = { average: 5, count: 472 };
  */
 export function BagBump() {
   const { lines, add } = useCart();
-  const { ready, canLocalize, requestPrices, localizedPriceFor, isPriceSettled } =
-    useLocalization();
+  const {
+    ready,
+    canLocalize,
+    country,
+    detectedCountry,
+    defaultCountry,
+    requestPrices,
+    localizedPriceFor,
+    isPriceSettled,
+  } = useLocalization();
 
   const variantId = bumpVariant?.id;
   useEffect(() => {
     if (variantId) requestPrices([variantId]);
   }, [variantId, requestPrices]);
+
+  // US-only offer: hidden once the shopper's country is known and isn't the
+  // US (same resolution order as the delivery block); an unknown one still sees it.
+  const where = country ?? detectedCountry ?? defaultCountry?.isoCode ?? null;
+  if (where && where !== "US") return null;
 
   if (!bumpVariant || variantId === undefined) return null;
   if (lines.length === 0) return null;
