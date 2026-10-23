@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import {
-  MAX_ENTRIES,
-  MAX_KEY_LENGTH,
-  MAX_VALUE_LENGTH,
-} from "@/lib/attribution";
+import { sanitizeAttribution } from "@/lib/attribution";
 import { getVariantById } from "@/lib/catalog";
 import { resolvePricingCountry } from "@/lib/localization/resolve";
 import { shipCountryFor } from "@/lib/localization/ship-country";
@@ -21,15 +17,10 @@ type CartLine = { variantId?: string; qty?: number };
  * before they become Shopify cart attributes (client input is untrusted).
  */
 function cartAttributes(raw: unknown): Array<{ key: string; value: string }> {
-  if (!raw || typeof raw !== "object" || Array.isArray(raw)) return [];
-  const attributes: Array<{ key: string; value: string }> = [];
-  for (const [key, value] of Object.entries(raw)) {
-    if (attributes.length >= MAX_ENTRIES) break;
-    if (!key || key.length > MAX_KEY_LENGTH) continue;
-    if (typeof value !== "string" || !value.trim()) continue;
-    attributes.push({ key, value: value.trim().slice(0, MAX_VALUE_LENGTH) });
-  }
-  return attributes;
+  return Object.entries(sanitizeAttribution(raw)).map(([key, value]) => ({
+    key,
+    value,
+  }));
 }
 
 /**

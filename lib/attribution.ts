@@ -12,14 +12,54 @@
 
 export type Attribution = Record<string, string>;
 
+/**
+ * A landing counts as an ad landing only when it carries one of these. Plain
+ * internal URLs (`?variant=…`, `?q=…`) never overwrite the stored campaign.
+ * Last-touch: a new ad landing replaces the stored set.
+ */
+const TRIGGER_KEYS = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+  "placement",
+  "fbclid",
+  "gclid",
+  "ttclid",
+];
+
 const STORAGE_KEY = "hv_attribution";
 export const MAX_ENTRIES = 40;
 export const MAX_KEY_LENGTH = 64;
 export const MAX_VALUE_LENGTH = 255;
+const KEY_PATTERN = /^[A-Za-z0-9][A-Za-z0-9_.\-]*$/;
+
+/**
+ * Shared by browser and server (the cart route imports this file, so it must
+ * NOT become a "use client" module): keeps only safe, bounded string pairs.
+ */
+export function sanitizeAttribution(input: unknown): Attribution {
+  const out: Attribution = {};
+  if (!input || typeof input !== "object" || Array.isArray(input)) return out;
+  for (const [key, value] of Object.entries(input as Record<string, unknown>)) {
+    if (Object.keys(out).length >= MAX_ENTRIES) break;
+    if (key.length > MAX_KEY_LENGTH || !KEY_PATTERN.test(key)) continue;
+    if (typeof value !== "string") continue;
+    const v = value.trim();
+    // An unsubstituted Meta macro (`{{ad.id}}`) means the ad's URL tags were
+    // misconfigured — not worth storing as if it were data.
+    if (!v || v.length > MAX_VALUE_LENGTH || v.includes("{{")) continue;
+    out[key] = v;
+  }
+  return out;
+}
 
 function read(): Attribution {
   try {
-    return JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? "{}") as Attribution;
+    return sanitizeAttribution(
+      JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? "{}"),
+    );
   } catch {
     return {};
   }
@@ -37,13 +77,15 @@ function cookie(name: string): string | undefined {
  */
 export function captureAttribution(): void {
   try {
-    const fresh: Attribution = {};
-    for (const [key, raw] of new URLSearchParams(window.location.search)) {
-      const value = raw.trim();
-      if (!key || !value || key.length > MAX_KEY_LENGTH) continue;
-      if (Object.keys(fresh).length >= MAX_ENTRIES - 3) break;
-      fresh[key] = value.slice(0, MAX_VALUE_LENGTH);
-    }
+    const params = new URLSearchParams(window.location.search);
+    if (!TRIGGER_KEYS.some((k) => params.has(k))) return;
+    // Leave room for landing_page + fbp/fbc/external_id added at checkout.
+    const fresh = Object.fromEntries(
+      Object.entries(sanitizeAttribution(Object.fromEntries(params))).slice(
+        0,
+        MAX_ENTRIES - 5,
+      ),
+    );
     if (Object.keys(fresh).length === 0) return;
 
     fresh.landing_page = window.location.pathname.slice(0, MAX_VALUE_LENGTH);
