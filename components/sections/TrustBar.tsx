@@ -7,8 +7,7 @@ import {
   StoneIcon,
 } from "@/components/ui/Icons";
 import { Stagger, StaggerItem } from "@/components/ui/Motion";
-import { useLocalization } from "@/components/providers/LocalizationProvider";
-import { daysRange, regionForCountry } from "@/lib/shipping";
+import { OVERALL_TRANSIT, transitRange } from "@/lib/shipping";
 
 /**
  * The credibility strip. Deliberately typographic — no imagery, no cards, no
@@ -18,9 +17,7 @@ import { daysRange, regionForCountry } from "@/lib/shipping";
  * the product pages — no review score, no units-sold count.
  */
 export default function TrustBar() {
-  const { country, defaultCountry } = useLocalization();
-  const shippingRegion = regionForCountry(country ?? defaultCountry?.isoCode);
-  const shippingLabel = `Tracked shipping · dispatched in 1–3 business days · ${daysRange(shippingRegion)} days to arrive`;
+  const shippingLabel = `Tracked shipping · dispatched in 1–3 business days · ${transitRange(OVERALL_TRANSIT)} days to arrive`;
 
   return (
     <section

@@ -1,5 +1,5 @@
 import { site } from "@/lib/site";
-import { defaultRegion } from "@/lib/shipping";
+import { ALL_COUNTRY_CODES, transitForHandle } from "@/lib/shipping";
 import { plainDescription, type Product } from "@/lib/product";
 
 /**
@@ -16,6 +16,14 @@ export default function ProductSchema({ product }: { product: Product }) {
   const url = site.url;
   const productUrl = `${url}/products/${product.handle}`;
   const prices = product.variants.map((v) => v.price.amount);
+
+  // Shipping is worldwide, so every country is listed — nothing to update when
+  // a new country is enabled, and no dependence on Shopify Markets. One entry
+  // per distinct window: the US and the rest of the world differ for the arm trainer.
+  const shippingGroups = [
+    { countries: ["US"], transit: transitForHandle(product.handle, "US") },
+    { countries: ALL_COUNTRY_CODES.filter((c) => c !== "US"), transit: transitForHandle(product.handle, null) },
+  ];
 
   const data = {
     "@context": "https://schema.org",
@@ -61,21 +69,21 @@ export default function ProductSchema({ product }: { product: Product }) {
         availability: v.availableForSale
           ? "https://schema.org/InStock"
           : "https://schema.org/OutOfStock",
-        shippingDetails: {
+        shippingDetails: shippingGroups.map(({ countries, transit }) => ({
           "@type": "OfferShippingDetails",
           shippingRate: { "@type": "MonetaryAmount", value: 0, currency: site.currency },
-          shippingDestination: { "@type": "DefinedRegion", addressCountry: ["US", "GB", "CA", "AU", "DE", "FR"] },
+          shippingDestination: { "@type": "DefinedRegion", addressCountry: countries },
           deliveryTime: {
             "@type": "ShippingDeliveryTime",
             handlingTime: { "@type": "QuantitativeValue", minValue: 0, maxValue: 1, unitCode: "DAY" },
             transitTime: {
               "@type": "QuantitativeValue",
-              minValue: defaultRegion.minDays,
-              maxValue: defaultRegion.maxDays,
+              minValue: transit.minDays,
+              maxValue: transit.maxDays,
               unitCode: "DAY",
             },
           },
-        },
+        })),
         hasMerchantReturnPolicy: {
           "@type": "MerchantReturnPolicy",
           applicableCountry: ["US", "GB", "CA", "AU", "DE", "FR"],

@@ -5,16 +5,18 @@ import { Reveal, Stagger, StaggerItem } from "@/components/ui/Motion";
 import { stone } from "@/content/copy";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
-import { shipping, daysRange, type ShippingRegion } from "@/lib/shipping";
+import {
+  ARM_TRAINER_TRANSIT,
+  STANDARD_TRANSIT,
+  transitRange,
+} from "@/lib/shipping";
 
 const title = "About";
 
-const shippingGroups: [string, ShippingRegion[]][] = Object.entries(
-  shipping.regions.reduce<Record<string, ShippingRegion[]>>((acc, region) => {
-    (acc[region.group] ??= []).push(region);
-    return acc;
-  }, {}),
-);
+const shippingWindows = [
+  { label: "Hydraulic arm trainer, to the US", transit: ARM_TRAINER_TRANSIT },
+  { label: "Everything else, worldwide", transit: STANDARD_TRANSIT },
+];
 const description = `${site.description} One product, made properly — no catalog to pad, nothing to upsell.`;
 
 export const metadata: Metadata = {
@@ -160,42 +162,31 @@ export default function AboutPage() {
         <SectionHeading
           align="center"
           eyebrow="Shipping, honestly"
-          title="Shipping timelines by region."
-          body="Every order ships tracked and free, on the fastest reliable route for where you are. Figures below reflect live carrier data."
+          title="Shipping timelines."
+          body="Every order ships tracked and free. Transit time depends on the product, and your exact estimate is shown at checkout."
         />
 
-        <Stagger className="mt-14 space-y-10">
-          {shippingGroups.map(([group, regions]) => (
-            <StaggerItem key={group} as="div">
-              <h3 className="font-display text-[0.72rem] font-semibold tracking-[0.16em] text-ink-mute uppercase">
-                {group}
-              </h3>
-              <div className="mt-4 grid gap-5 sm:grid-cols-3">
-                {regions.map((region) => (
-                  <article
-                    key={region.code}
-                    className="rounded-(--radius-card) border border-line bg-linen p-7 text-center"
-                  >
-                    <h4 className="font-display text-[0.95rem] font-semibold tracking-[-0.01em] text-ink">
-                      {region.label}
-                    </h4>
-                    <p className="mt-4 font-display text-[1.8rem] font-bold tracking-[-0.03em] text-ink tabular-nums">
-                      {daysRange(region)}
-                    </p>
-                    <p className="mt-1 text-[0.78rem] text-ink-mute">
-                      business days
-                    </p>
-                  </article>
-                ))}
-              </div>
+        <Stagger className="mx-auto mt-14 grid max-w-2xl gap-5 sm:grid-cols-2">
+          {shippingWindows.map(({ label, transit }) => (
+            <StaggerItem
+              key={label}
+              as="article"
+              className="rounded-(--radius-card) border border-line bg-linen p-7 text-center"
+            >
+              <h4 className="font-display text-[0.95rem] font-semibold tracking-[-0.01em] text-ink">
+                {label}
+              </h4>
+              <p className="mt-4 font-display text-[1.8rem] font-bold tracking-[-0.03em] text-ink tabular-nums">
+                {transitRange(transit)}
+              </p>
+              <p className="mt-1 text-[0.78rem] text-ink-mute">business days</p>
             </StaggerItem>
           ))}
         </Stagger>
 
         <p className="mx-auto mt-8 max-w-160 text-center text-[0.76rem] leading-relaxed text-ink-mute">
           Tracked delivery, free on every order — no minimum, no upsell for
-          speed. Shipping to a country not listed here typically falls within
-          these same ranges; estimates update as carrier performance changes.
+          speed. Orders are dispatched within 1–3 business days.
         </p>
       </Section>
     </main>

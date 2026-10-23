@@ -3,7 +3,7 @@
  * touching a component. Swap the numbers here, not in the JSX.
  */
 
-import { daysRange, defaultRegion } from "@/lib/shipping";
+import { OVERALL_TRANSIT, transitRange } from "@/lib/shipping";
 
 export const site = {
   name: "HimVolt",
@@ -39,19 +39,14 @@ export const site = {
     countries: 38,
   },
 
-  /** Door-to-door transit shown on the product page, in days. */
-  delivery: { minDays: 3, maxDays: 8 },
-  /** Same, for a visitor whose country is anywhere but the US. */
-  deliveryIntl: { minDays: 7, maxDays: 14 },
-
   promise: {
     shipping: "Free tracked shipping worldwide",
     // Day range only — no country named here. The real, per-country transit
     // times (live CJDropshipping data, lib/shipping.ts) live on the About
     // page; product/cart surfaces resolve the shopper's own region silently
     // via useLocalization() instead of repeating a single figure for everyone.
-    shippingDetail: `Dispatched in 1–3 business days · ${daysRange(defaultRegion)} days to arrive`,
-    shippingFull: `Orders are processed within 1–3 business days, then tracked delivery typically takes ${daysRange(defaultRegion)} business days depending on where you are. Full country-by-country transit times are on our About page.`,
+    shippingDetail: `Dispatched in 1–3 business days · ${transitRange(OVERALL_TRANSIT)} days to arrive`,
+    shippingFull: `Orders are processed within 1–3 business days, then tracked delivery takes 3–8 business days for the arm trainer in the US and 5–11 business days for everything else. The exact estimate is shown at checkout.`,
     // Accurate scope: our supplier's dispute process only backs damaged,
     // missing, and wrong-item claims — there is no general change-of-mind
     // return, so the copy must never imply one. See

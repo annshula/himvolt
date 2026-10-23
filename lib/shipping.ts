@@ -43,6 +43,46 @@ export function regionForCountry(isoCode?: string | null): ShippingRegion {
   return regionByCode.get(isoCode.toUpperCase()) ?? defaultRegion;
 }
 
+/** Every ISO 3166-1 alpha-2 country code — for structured data that must name destinations while shipping stays worldwide. */
+export const ALL_COUNTRY_CODES =
+  "AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW".split(
+    " ",
+  );
+
+export type TransitWindow = { minDays: number; maxDays: number };
+
+/**
+ * Delivery windows promised to customers. These must match the delivery
+ * descriptions on the Shopify shipping profiles ("US only: arm trainer" and
+ * "General profile"), because that is what checkout displays — change both
+ * together. They deliberately override the per-country CJ figures above.
+ * Arm trainer: 3–8 to the US, 5–11 to the rest of the world. All other
+ * products: 5–11 worldwide.
+ */
+export const ARM_TRAINER_HANDLE = "hydraulic-arm-trainer";
+export const ARM_TRAINER_TRANSIT: TransitWindow = { minDays: 3, maxDays: 8 };
+export const STANDARD_TRANSIT: TransitWindow = { minDays: 5, maxDays: 11 };
+/** For copy that isn't about one product: spans both windows. */
+export const OVERALL_TRANSIT: TransitWindow = {
+  minDays: ARM_TRAINER_TRANSIT.minDays,
+  maxDays: STANDARD_TRANSIT.maxDays,
+};
+
+/** The arm trainer is faster only to a confirmed US shopper; every other product and country — and an unknown country — is 5–11, the window checkout shows for "rest of world". */
+export const transitForHandle = (
+  handle?: string | null,
+  country?: string | null,
+): TransitWindow =>
+  handle === ARM_TRAINER_HANDLE && country?.toUpperCase() === "US"
+    ? ARM_TRAINER_TRANSIT
+    : STANDARD_TRANSIT;
+
+/** "3–8" */
+export const transitRange = (t: TransitWindow) => `${t.minDays}–${t.maxDays}`;
+
+/** "3–8 business days" */
+export const transitRangeDisplay = (t: TransitWindow) => `${transitRange(t)} business days`;
+
 /** "4–6" */
 export const daysRange = (region: ShippingRegion) => `${region.minDays}–${region.maxDays}`;
 

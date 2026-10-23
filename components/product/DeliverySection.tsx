@@ -3,7 +3,7 @@
 import { Icon } from "@/components/ui/Icons";
 import { useLocalization } from "@/components/providers/LocalizationProvider";
 import { cn } from "@/lib/utils";
-import { site } from "@/lib/site";
+import { transitForHandle } from "@/lib/shipping";
 
 /** The route a parcel takes, left to right. The truck leg is the one that carries the day range. */
 const STOPS = [
@@ -15,14 +15,14 @@ const STOPS = [
 /**
  * The delivery block under the accordion: the day range as the headline and a
  * three-stop route (order placed → tracked shipping → at your door). The day
- * range is `site.delivery` for a US visitor (or an unknown location) and
- * `site.deliveryIntl` for any other country — never a made-up date.
+ * range comes from `transitForHandle` (lib/shipping.ts) for this product and
+ * the shopper's country, so it matches the delivery description checkout
+ * shows — never a made-up date.
  */
-export function DeliverySection() {
+export function DeliverySection({ handle }: { handle: string }) {
   const { country, detectedCountry, defaultCountry } = useLocalization();
   const where = country ?? detectedCountry ?? defaultCountry?.isoCode ?? null;
-  const { minDays, maxDays } =
-    where && where !== "US" ? site.deliveryIntl : site.delivery;
+  const { minDays, maxDays } = transitForHandle(handle, where);
 
   return (
     <section

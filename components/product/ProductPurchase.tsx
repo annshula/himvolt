@@ -501,7 +501,7 @@ export function ProductPurchase({
           />
 
           {/* ── Delivery ────────────────────────────────────────────── */}
-          <DeliverySection />
+          <DeliverySection handle={product.handle} />
 
           {/* ── What customers say — the top 5★ reviews ─────────────── */}
           {feedback.length > 0 && (
