@@ -105,6 +105,14 @@ function cleanDescription(html: string): string | null {
  * Faces beside the "N+ sold" figure — male profile photos, so the social proof
  * suits a men's line. Decorative only; the text next to them carries the label.
  */
+/** 943 → "943", 1100 → "1.1K", 2000 → "2K", 1_250_000 → "1.2M". Rounds down, so "N+" never overstates. */
+function compactCount(n: number): string {
+  const trim = (x: number) => String(Math.floor(x * 10) / 10);
+  if (n >= 1_000_000) return `${trim(n / 1_000_000)}M`;
+  if (n >= 1_000) return `${trim(n / 1_000)}K`;
+  return n.toLocaleString("en-US");
+}
+
 const BUYER_AVATARS = [
   "/avatars/jay.webp",
   "/avatars/matt.webp",
@@ -370,7 +378,7 @@ export function ProductPurchase({
                       {faces}
                       <span>
                         <span className="font-numeral font-bold text-ink tabular-nums">
-                          {sold.toLocaleString("en-US")}+
+                          {compactCount(sold)}+
                         </span>{" "}
                         sold
                         {product.customersMonths ? (
