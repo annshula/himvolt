@@ -46,6 +46,8 @@ type Priced = {
   key: string;
   /** Free units the pack contains ("buy 2, get 1 free" → 1); undefined means derive it from the prices. */
   freeUnits?: number;
+  /** Deal line under a pack's name, e.g. "Buy 2 Get 1" (a pack ladder's free-unit tier). */
+  offerLine?: string;
   /** Card badge for a pack; undefined keeps the default ("Most popular" on the 2-count). */
   tag?: string | null;
   /** The variant's display title, e.g. "2 bracelets", "Blue", "Gold-plated · 10mm". */
@@ -227,6 +229,9 @@ export function BuyBox({
         units: t.size,
         // Savings, not free units: stop PackCards deriving a "get N free" deal.
         freeUnits: 0,
+        offerLine: t.freeUnits
+          ? `Buy ${t.size - t.freeUnits} Get ${t.freeUnits}`
+          : undefined,
         tag: t.tag ?? null,
         amount,
         compareAt: compareRaw > amount ? compareRaw : null,
@@ -614,11 +619,12 @@ function PackCards({
       checked: c.key === selectedKey,
       available: c.v.availableForSale,
       tag: c.tag !== undefined ? c.tag : c.units === 2 ? "Most popular" : null,
-      // A pack ladder names the deal in the card title, so the line would repeat it.
+      // A pack ladder's free-unit tier states its own line ("Buy 2 Get 1").
       offerLine:
-        deal && c.freeUnits === undefined
+        c.offerLine ??
+        (deal && c.freeUnits === undefined
           ? `Buy ${deal.of}, get ${deal.free} free`
-          : null,
+          : null),
       /* Pack price ÷ units, to the cent. */
       unitPrice:
         c.units > 1 ? Math.round((c.amount / c.units) * 100 + 1e-6) / 100 : null,
