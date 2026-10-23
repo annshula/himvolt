@@ -287,7 +287,7 @@ export function ProductPurchase({
             if (!hasRating && !hasSold) return null;
 
             const faces = (
-              <span aria-hidden="true" className="flex shrink-0 -space-x-2">
+              <span aria-hidden="true" className="flex shrink-0 items-center">
                 {BUYER_AVATARS.map((src, i) => (
                   <Image
                     key={src}
@@ -296,7 +296,13 @@ export function ProductPurchase({
                     width={32}
                     height={32}
                     className={cn(
-                      "size-6 rounded-full object-cover ring-2 ring-canvas",
+                      "size-6 shrink-0 rounded-full object-cover ring-2 ring-canvas",
+                      // Overlap with a left margin, not `space-x-*`: that puts
+                      // a negative margin on every child but the last element
+                      // in the DOM, and the last face is `display:none` on
+                      // phones, so the third visible face would pull the sold
+                      // count underneath it.
+                      i > 0 && "-ml-2",
                       // Three faces is all a 320px line can hold.
                       i === BUYER_AVATARS.length - 1 && "hidden sm:block",
                     )}
@@ -368,9 +374,10 @@ export function ProductPurchase({
                         </span>{" "}
                         sold
                         {product.customersMonths ? (
-                          /* Hidden on phones, and in the narrow lg buy-box
-                             column where it would force a second line. */
-                          <span className="hidden sm:inline lg:hidden xl:inline">
+                          /* Shown on phones too: the sold group wraps onto its
+                             own line under the rating when it doesn't fit.
+                             Hidden only in the narrow lg buy-box column. */
+                          <span className="lg:hidden xl:inline">
                             {" "}
                             in last {product.customersMonths} months
                           </span>
