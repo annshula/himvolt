@@ -227,8 +227,9 @@ export function BuyBox({
             ? `Buy ${t.size - t.freeUnits} Get ${t.freeUnits}`
             : `${t.size} Pack`),
         units: t.size,
-        // Savings, not free units: stop PackCards deriving a "get N free" deal.
-        freeUnits: 0,
+        // Stated outright so PackCards shows the "+N FREE" badge on a
+        // free-unit tier and none on the rest (it never derives one from prices).
+        freeUnits: t.freeUnits ?? 0,
         offerLine: t.freeUnits
           ? `Buy ${t.size - t.freeUnits} Get ${t.freeUnits}`
           : undefined,
@@ -699,7 +700,7 @@ function PackCards({
                     : "bg-sage-800",
                 )}
               >
-                <Icon name={k.offer ? "gift" : "star"} className="size-3" />
+                <Icon name="star" className="size-3" />
                 {k.tag}
               </span>
             )}
