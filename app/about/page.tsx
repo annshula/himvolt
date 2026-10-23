@@ -6,6 +6,7 @@ import { stone } from "@/content/copy";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/seo";
 import {
+  ARM_TRAINER_INTL_TRANSIT,
   ARM_TRAINER_TRANSIT,
   STANDARD_TRANSIT,
   transitRange,
@@ -14,8 +15,9 @@ import {
 const title = "About";
 
 const shippingWindows = [
-  { label: "Hydraulic arm trainer, to the US", transit: ARM_TRAINER_TRANSIT },
-  { label: "Everything else, worldwide", transit: STANDARD_TRANSIT },
+  { label: "Arm trainer, to the US", transit: ARM_TRAINER_TRANSIT },
+  { label: "Arm trainer, everywhere else", transit: ARM_TRAINER_INTL_TRANSIT },
+  { label: "All other products, worldwide", transit: STANDARD_TRANSIT },
 ];
 const description = `${site.description} One product, made properly — no catalog to pad, nothing to upsell.`;
 
@@ -166,7 +168,7 @@ export default function AboutPage() {
           body="Every order ships tracked and free. Transit time depends on the product, and your exact estimate is shown at checkout."
         />
 
-        <Stagger className="mx-auto mt-14 grid max-w-2xl gap-5 sm:grid-cols-2">
+        <Stagger className="mx-auto mt-14 grid max-w-4xl gap-5 sm:grid-cols-3">
           {shippingWindows.map(({ label, transit }) => (
             <StaggerItem
               key={label}

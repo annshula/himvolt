@@ -272,7 +272,7 @@ export const faqs = [
   },
   {
     q: "How long does delivery take, and what does it cost?",
-    a: `Shipping is free to every country we serve, with no minimum order. Orders are processed within 1–3 business days, then tracked delivery takes 3–8 business days for the arm trainer in the US and 5–11 business days for everything else (${transitRangeDisplay(OVERALL_TRANSIT)} overall). Your exact estimate is shown at checkout. Your tracking number arrives by email the moment the label is scanned.`,
+    a: `Shipping is free to every country we serve, with no minimum order. Orders are processed within 1–3 business days, then tracked delivery takes 3–8 business days for the arm trainer in the US, 7–14 business days for the arm trainer elsewhere, and 5–11 business days for everything else (${transitRangeDisplay(OVERALL_TRANSIT)} overall). Your exact estimate is shown at checkout. Your tracking number arrives by email the moment the label is scanned.`,
   },
   {
     q: "What if I don't like it, or it arrives damaged?",

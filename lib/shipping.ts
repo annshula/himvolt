@@ -56,26 +56,27 @@ export type TransitWindow = { minDays: number; maxDays: number };
  * descriptions on the Shopify shipping profiles ("US only: arm trainer" and
  * "General profile"), because that is what checkout displays — change both
  * together. They deliberately override the per-country CJ figures above.
- * Arm trainer: 3–8 to the US, 5–11 to the rest of the world. All other
+ * Arm trainer: 3–8 to the US, 7–14 to the rest of the world. All other
  * products: 5–11 worldwide.
  */
 export const ARM_TRAINER_HANDLE = "hydraulic-arm-trainer";
 export const ARM_TRAINER_TRANSIT: TransitWindow = { minDays: 3, maxDays: 8 };
+export const ARM_TRAINER_INTL_TRANSIT: TransitWindow = { minDays: 7, maxDays: 14 };
 export const STANDARD_TRANSIT: TransitWindow = { minDays: 5, maxDays: 11 };
-/** For copy that isn't about one product: spans both windows. */
+/** For copy that isn't about one product: spans every window. */
 export const OVERALL_TRANSIT: TransitWindow = {
   minDays: ARM_TRAINER_TRANSIT.minDays,
-  maxDays: STANDARD_TRANSIT.maxDays,
+  maxDays: ARM_TRAINER_INTL_TRANSIT.maxDays,
 };
 
-/** The arm trainer is faster only to a confirmed US shopper; every other product and country — and an unknown country — is 5–11, the window checkout shows for "rest of world". */
+/** The arm trainer is 3–8 only to a confirmed US shopper and 7–14 to everywhere else (an unknown country counts as "elsewhere", the safe promise); every other product is 5–11 worldwide. */
 export const transitForHandle = (
   handle?: string | null,
   country?: string | null,
-): TransitWindow =>
-  handle === ARM_TRAINER_HANDLE && country?.toUpperCase() === "US"
-    ? ARM_TRAINER_TRANSIT
-    : STANDARD_TRANSIT;
+): TransitWindow => {
+  if (handle !== ARM_TRAINER_HANDLE) return STANDARD_TRANSIT;
+  return country?.toUpperCase() === "US" ? ARM_TRAINER_TRANSIT : ARM_TRAINER_INTL_TRANSIT;
+};
 
 /** "3–8" */
 export const transitRange = (t: TransitWindow) => `${t.minDays}–${t.maxDays}`;
