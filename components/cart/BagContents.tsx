@@ -91,8 +91,11 @@ export function BagContents({
         );
         return {
           ...line,
-          // Quantity-break lines read "3 Pack", like the product page cards.
-          variantLabel: line.tiers ? `${line.qty} Pack` : line.variantLabel,
+          // Quantity-break lines read like the product page cards ("3 Trainers").
+          variantLabel: line.tiers
+            ? (line.tiers.find((t) => t.size === line.qty)?.label ??
+              `${line.qty} Pack`)
+            : line.variantLabel,
           lineTotal,
           compareAtTotal,
           // The line's saving as an amount: compare-at total less what is paid.

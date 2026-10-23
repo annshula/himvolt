@@ -18,6 +18,8 @@ export type PackTier = {
   freeUnits?: number;
   /** Amount off the whole pack, in the shop currency (what the Shopify discount takes off). */
   saving?: number;
+  /** Name on the pack's card and bag line; without one it reads "N Pack". */
+  label?: string;
   /** Photo for this pack's card; without one it shows the variant's own image. */
   image?: string;
   /** Merchandising badge on the pack's card, e.g. "Most popular". */
@@ -27,10 +29,16 @@ export type PackTier = {
 const tiersByHandle: Record<string, PackTier[]> = {
   // 1 → $79.99, 2 → $139.99, 3 → $159.98 at a $79.99 unit price.
   "hydraulic-arm-trainer": [
-    { size: 1 },
-    { size: 2, saving: 19.99, image: "/images/arm-trainer/pack-2-two-trainers.webp" },
+    { size: 1, label: "1 Trainer" },
+    {
+      size: 2,
+      label: "2 Trainers",
+      saving: 19.99,
+      image: "/images/arm-trainer/pack-2-two-trainers.webp",
+    },
     {
       size: 3,
+      label: "3 Trainers",
       freeUnits: 1,
       tag: "Most popular",
       image: "/images/arm-trainer/pack-3-three-trainers.webp",

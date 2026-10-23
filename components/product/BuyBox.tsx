@@ -77,7 +77,7 @@ function splitVariantTitle(title: string): {
 }
 
 /** A pack-count axis ("1 bracelet" / "2 bracelets") reads oddly under a "Size" legend — every value naming the product itself (not a measurement) means this is a quantity choice, not a fit choice. */
-const PACK_COUNT_RE = /\b(bracelets?|rings?|bands?|pieces?|packs?)\b/i;
+const PACK_COUNT_RE = /\b(bracelets?|rings?|bands?|pieces?|packs?|trainers?)\b/i;
 
 /** Colour words a flat option axis can be made of: "Black", "Blue grips", "Red". */
 const COLOUR_RE =
@@ -217,10 +217,13 @@ export function BuyBox({
         // The pack's own photo when it has one (the 3 Pack shows the set).
         v: t.image ? { ...base.v, image: t.image } : base.v,
         key: `pack-${t.size}`,
-        // A free-unit pack is named for its deal ("Buy 2 Get 1"), like the reference.
-        label: t.freeUnits
-          ? `Buy ${t.size - t.freeUnits} Get ${t.freeUnits}`
-          : `${t.size} Pack`,
+        // A tier's own name ("3 Trainers"); else a free-unit pack is named for
+        // its deal ("Buy 2 Get 1"), like the reference.
+        label:
+          t.label ??
+          (t.freeUnits
+            ? `Buy ${t.size - t.freeUnits} Get ${t.freeUnits}`
+            : `${t.size} Pack`),
         units: t.size,
         // Savings, not free units: stop PackCards deriving a "get N free" deal.
         freeUnits: 0,
