@@ -387,7 +387,9 @@ export function ProductPurchase({
                              Hidden only in the narrow lg buy-box column. */
                           <span className="lg:hidden xl:inline">
                             {" "}
-                            in last {product.customersMonths} months
+                            {product.customersMonths === 1
+                              ? "in last month"
+                              : `in last ${product.customersMonths} months`}
                           </span>
                         ) : null}
                       </span>
