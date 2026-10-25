@@ -289,7 +289,8 @@ export function ProductPurchase({
 
           {/* ── Rating + sold — custom.rating_* / custom.customers_* ── */}
           {(() => {
-            const hasRating = rating != null && rating.count > 0;
+            const hasRating =
+              rating != null && rating.count > 0 && rating.average > 0;
             const sold = product.customersCount;
             const hasSold = sold != null && sold > 0;
             if (!hasRating && !hasSold) return null;
