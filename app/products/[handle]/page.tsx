@@ -1,3 +1,4 @@
+import { StartAtTop } from "@/components/product/StartAtTop";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -172,6 +173,7 @@ export default async function ProductPage({
 
   return (
     <main>
+      <StartAtTop />
       <ProductSchema product={liveProduct} />
       <BreadcrumbSchema
         items={[
