@@ -245,7 +245,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       {
         heading: "Processing and delivery time",
         body: [
-          "Orders are processed and dispatched within 1–3 business days. Tracked delivery after that takes 3–8 business days for the arm trainer in the US, 7–14 business days for the arm trainer elsewhere, and 5–11 business days for everything else — your exact estimate is shown at checkout.",
+          "Orders are processed and dispatched within 1–3 business days. Tracked delivery after that takes 3–8 business days for the arm trainer in the US and 5–11 business days for everything else — your exact estimate is shown at checkout.",
         ],
       },
       {

@@ -8,7 +8,7 @@ import {
 
 import { ProductViewTracker } from "@/components/analytics/ProductViewTracker";
 import { BuyBox } from "@/components/product/BuyBox";
-import { DeliverySection } from "@/components/product/DeliverySection";
+// import { DeliverySection } from "@/components/product/DeliverySection";
 import { ProductAccordion } from "@/components/product/ProductAccordion";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { PurchaseFeedback } from "@/components/product/PurchaseFeedback";
@@ -517,8 +517,8 @@ export function ProductPurchase({
             ]}
           />
 
-          {/* ── Delivery ────────────────────────────────────────────── */}
-          <DeliverySection handle={product.handle} />
+          {/* ── Delivery (hidden for now) ───────────────────────────── */}
+          {/* <DeliverySection handle={product.handle} /> */}
 
           {/* ── What customers say — the top 5★ reviews ─────────────── */}
           {feedback.length > 0 && (

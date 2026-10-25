@@ -56,12 +56,12 @@ export type TransitWindow = { minDays: number; maxDays: number };
  * descriptions on the Shopify shipping profiles ("US only: arm trainer" and
  * "General profile"), because that is what checkout displays — change both
  * together. They deliberately override the per-country CJ figures above.
- * Arm trainer: 3–8 to the US, 7–14 to the rest of the world. All other
+ * Arm trainer: 3–8 to the US, 5–11 to the rest of the world. All other
  * products: 5–11 worldwide.
  */
 export const ARM_TRAINER_HANDLE = "hydraulic-arm-trainer";
 export const ARM_TRAINER_TRANSIT: TransitWindow = { minDays: 3, maxDays: 8 };
-export const ARM_TRAINER_INTL_TRANSIT: TransitWindow = { minDays: 7, maxDays: 14 };
+export const ARM_TRAINER_INTL_TRANSIT: TransitWindow = { minDays: 5, maxDays: 11 };
 export const STANDARD_TRANSIT: TransitWindow = { minDays: 5, maxDays: 11 };
 /** For copy that isn't about one product: spans every window. */
 export const OVERALL_TRANSIT: TransitWindow = {
@@ -69,7 +69,7 @@ export const OVERALL_TRANSIT: TransitWindow = {
   maxDays: ARM_TRAINER_INTL_TRANSIT.maxDays,
 };
 
-/** The arm trainer is 3–8 only to a confirmed US shopper and 7–14 to everywhere else (an unknown country counts as "elsewhere", the safe promise); every other product is 5–11 worldwide. */
+/** The arm trainer is 3–8 only to a confirmed US shopper and 5–11 to everywhere else (an unknown country counts as "elsewhere", the safe promise); every other product is 5–11 worldwide. */
 export const transitForHandle = (
   handle?: string | null,
   country?: string | null,

@@ -9,6 +9,7 @@ import {
 } from "react";
 
 import { PaymentIcons } from "@/components/ui/PaymentIcons";
+import { TrustPromises } from "@/components/ui/TrustPromises";
 import { SaleCountdown } from "@/components/product/SaleCountdown";
 import { ShipsToSheet } from "@/components/product/ShipsToSheet";
 import { useCart } from "@/components/providers/CartProvider";
@@ -18,6 +19,7 @@ import { Icon } from "@/components/ui/Icons";
 import { formatMoney } from "@/lib/money";
 import { defaultPackSize, packTiersFor, packTotal } from "@/lib/pack-tiers";
 import type { Product } from "@/lib/product";
+import { transitForHandle } from "@/lib/shipping";
 import type { PaymentMethod } from "@/lib/shopify/payments";
 import { cn } from "@/lib/utils";
 
@@ -452,6 +454,10 @@ export function BuyBox({
         </button>
 
         <PaymentIcons methods={payments} className="mt-3" />
+        <TrustPromises
+          transit={transitForHandle(product.handle, detectedCountry)}
+          className="mt-4"
+        />
       </div>
 
       <ShipsToSheet

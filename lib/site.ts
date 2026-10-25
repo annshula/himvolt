@@ -46,7 +46,7 @@ export const site = {
     // page; product/cart surfaces resolve the shopper's own region silently
     // via useLocalization() instead of repeating a single figure for everyone.
     shippingDetail: `Dispatched in 1–3 business days · ${transitRange(OVERALL_TRANSIT)} days to arrive`,
-    shippingFull: `Orders are processed within 1–3 business days, then tracked delivery takes 3–8 business days for the arm trainer in the US, 7–14 business days for the arm trainer elsewhere, and 5–11 business days for everything else. The exact estimate is shown at checkout.`,
+    shippingFull: `Orders are processed within 1–3 business days, then tracked delivery takes 3–8 business days for the arm trainer in the US and 5–11 business days for everything else. The exact estimate is shown at checkout.`,
     // Accurate scope: our supplier's dispute process only backs damaged,
     // missing, and wrong-item claims — there is no general change-of-mind
     // return, so the copy must never imply one. See
