@@ -27,7 +27,7 @@ export type PackTier = {
 };
 
 const tiersByHandle: Record<string, PackTier[]> = {
-  // 1 → $59.99, 2 → $99.99, 3 → $119.98 at a $59.99 unit price.
+  // 1 → $69.99, 2 → $119.99, 3 → $139.98 at a $69.99 unit price.
   "hydraulic-arm-trainer": [
     { size: 1, label: "1 Trainer" },
     {
