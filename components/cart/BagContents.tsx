@@ -12,7 +12,8 @@ import { PaymentIcons } from "@/components/ui/PaymentIcons";
 import { productCurrency } from "@/lib/catalog";
 import { packTotal } from "@/lib/pack-tiers";
 import { formatMoney } from "@/lib/money";
-import { shopifyCheckout } from "@/lib/shopify-checkout";
+import { usePreparedCheckout } from "@/components/cart/usePreparedCheckout";
+import { trackCheckout } from "@/lib/shopify-checkout";
 import type { PaymentMethod } from "@/lib/shopify/payments";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -47,6 +48,13 @@ export function BagContents({
   // The summary starts as a compact total + checkout; the arrow opens the
   // shipping and discount breakdown.
   const [detailsOpen, setDetailsOpen] = useState(false);
+
+  // The checkout is created as soon as the bag is on screen, so the Checkout
+  // click only has to redirect.
+  const openCheckout = usePreparedCheckout(
+    lines.map((l) => ({ variantId: l.variantId, qty: l.qty })),
+    hydrated && lines.length > 0,
+  );
 
   const idKey = lines.map((l) => l.variantId).join(",");
   const ids = useMemo(() => (idKey ? idKey.split(",") : []), [idKey]);
@@ -161,14 +169,16 @@ export function BagContents({
   const onCheckout = async () => {
     setPending(true);
     setError(null);
-    const result = await shopifyCheckout(
-      priced.map((l) => ({
-        variantId: l.variantId,
-        qty: l.qty,
-        priceCents: Math.round((l.lineTotal / l.qty) * 100),      })),
-      currency,
-    );
+    const result = await openCheckout();
     if (result.ok) {
+      trackCheckout(
+        priced.map((l) => ({
+          variantId: l.variantId,
+          qty: l.qty,
+          priceCents: Math.round((l.lineTotal / l.qty) * 100),
+        })),
+        currency,
+      );
       window.location.assign(result.checkoutUrl);
       return;
     }

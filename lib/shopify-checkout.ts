@@ -3,10 +3,11 @@
  * bag. The actual Storefront cart is created server-side (no tokens in the
  * browser); this only calls the API route and navigates to the checkout URL.
  *
- * Fires `InitiateCheckout`/`begin_checkout` itself, once, right here — every
- * caller (BuyBox's "Buy it now", the cart drawer, /checkout's "Pay now") goes
- * through this one function, so the event can never be missed at a call site
- * or double-fired by two of them tracking the same checkout separately.
+ * Creating the checkout and tracking it are separate steps: the bag creates
+ * one ahead of time (see usePreparedCheckout) so the click only redirects,
+ * and a checkout made ahead must not count as `InitiateCheckout` until the
+ * shopper actually clicks. `shopifyCheckout` does both, for a caller that
+ * has nothing prepared.
  */
 
 import { resolveCartLine } from "@/lib/cart-catalog";
@@ -17,9 +18,15 @@ export type ShopifyCheckoutResult =
   | { ok: true; checkoutUrl: string }
   | { ok: false; error: string };
 
-export async function shopifyCheckout(
-  lines: Array<{ variantId: string; qty: number; priceCents?: number }>,
-  currency = "USD",
+export type CheckoutLine = {
+  variantId: string;
+  qty: number;
+  priceCents?: number;
+};
+
+/** Creates the Shopify cart and returns its checkout URL. Fires no analytics. */
+export async function createCheckout(
+  lines: CheckoutLine[],
 ): Promise<ShopifyCheckoutResult> {
   try {
     const res = await fetch("/api/shopify/cart", {
@@ -36,25 +43,38 @@ export async function shopifyCheckout(
       error?: string;
     };
     if (data.ok && data.checkoutUrl) {
-      const items = lines
-        .map((line) => {
-          const catalog = resolveCartLine(line.variantId);
-          if (!catalog) return null;
-          return {
-            slug: line.variantId,
-            name: catalog.name,
-            priceCents: line.priceCents ?? catalog.unitPriceCents,
-            quantity: line.qty,
-          };
-        })
-        .filter((item): item is NonNullable<typeof item> => item !== null);
-      if (items.length > 0) {
-        trackInitiateCheckout(items, currency);
-      }
       return { ok: true, checkoutUrl: data.checkoutUrl };
     }
     return { ok: false, error: data.error ?? "We could not start checkout." };
   } catch {
     return { ok: false, error: "We could not reach checkout right now." };
   }
+}
+
+/** `InitiateCheckout`/`begin_checkout`, once per click that reaches checkout. */
+export function trackCheckout(lines: CheckoutLine[], currency = "USD") {
+  const items = lines
+    .map((line) => {
+      const catalog = resolveCartLine(line.variantId);
+      if (!catalog) return null;
+      return {
+        slug: line.variantId,
+        name: catalog.name,
+        priceCents: line.priceCents ?? catalog.unitPriceCents,
+        quantity: line.qty,
+      };
+    })
+    .filter((item): item is NonNullable<typeof item> => item !== null);
+  if (items.length > 0) {
+    trackInitiateCheckout(items, currency);
+  }
+}
+
+export async function shopifyCheckout(
+  lines: CheckoutLine[],
+  currency = "USD",
+): Promise<ShopifyCheckoutResult> {
+  const result = await createCheckout(lines);
+  if (result.ok) trackCheckout(lines, currency);
+  return result;
 }
