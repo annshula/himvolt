@@ -12,6 +12,7 @@ import { LocalizationProvider } from "@/components/providers/LocalizationProvide
 import { Toaster } from "sonner";
 import Footer from "@/components/sections/Footer";
 import Nav from "@/components/sections/Nav";
+import { ContentProtection } from "@/components/layout/ContentProtection";
 import { ScrollJumpLogger } from "@/components/dev/ScrollJumpLogger";
 import BackToTop from "@/components/ui/BackToTop";
 import { site } from "@/lib/site";
@@ -165,10 +166,14 @@ export default async function RootLayout({
   // The payment logos checkout accepts (Shopify's own settings, cached for a
   // day) — shown under the bag's checkout button.
   const payments = await getPaymentMethods();
+  // Copy/inspect protection is on unless NEXT_PUBLIC_ALLOW_INSPECT=1 (set it in
+  // .env.local for development). It is a plain on/off switch, not a secret.
+  const protect = process.env.NEXT_PUBLIC_ALLOW_INSPECT !== "1";
 
   return (
     <html
       lang="en"
+      data-protect={protect ? "" : undefined}
       className={`${bebasNeue.variable} ${oswald.variable} ${jost.variable} ${inter.variable} ${fraunces.variable}`}
       suppressHydrationWarning
     >
@@ -244,6 +249,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <AttributionCapture />
         <MetaPixel />
         <TikTokPixel />
+        {protect && <ContentProtection />}
       </body>
     </html>
   );
