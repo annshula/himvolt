@@ -377,21 +377,11 @@ export function ProductPurchase({
                     <span className="inline-flex items-center gap-2 whitespace-nowrap text-ink-soft">
                       {faces}
                       <span>
+                        Trusted by{" "}
                         <span className="font-numeral font-bold text-ink tabular-nums">
                           {compactCount(sold)}+
                         </span>{" "}
-                        sold
-                        {product.customersMonths ? (
-                          /* Shown on phones too: the sold group wraps onto its
-                             own line under the rating when it doesn't fit.
-                             Hidden only in the narrow lg buy-box column. */
-                          <span className="lg:hidden xl:inline">
-                            {" "}
-                            {product.customersMonths === 1
-                              ? "in last month"
-                              : `in last ${product.customersMonths} months`}
-                          </span>
-                        ) : null}
+                        customers worldwide
                       </span>
                     </span>
                   </>
