@@ -98,7 +98,7 @@ function bySizeAscending(a: string, b: string) {
 /** What a flat (single-axis) option list is called: a pack count, a colour, or, failing both, a size. */
 function flatLegend(values: string[]): string {
   if (values.length > 0 && values.every((v) => PACK_COUNT_RE.test(v)))
-    return "Choose your pack";
+    return "Bundle up & save more";
   if (values.length > 0 && values.every((v) => COLOUR_RE.test(v)))
     return "Colour";
   return "Size";
