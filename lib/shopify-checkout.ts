@@ -59,6 +59,7 @@ export function trackCheckout(lines: CheckoutLine[], currency = "USD") {
       if (!catalog) return null;
       return {
         slug: line.variantId,
+        metaId: catalog.metaId,
         name: catalog.name,
         priceCents: line.priceCents ?? catalog.unitPriceCents,
         quantity: line.qty,

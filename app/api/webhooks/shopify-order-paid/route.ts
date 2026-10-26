@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 
 import { bumpProduct, syncedProducts } from "@/lib/catalog";
+import { metaContentId } from "@/lib/meta-ids";
 import { site } from "@/lib/site";
 import {
   isDuplicateWebhook,
@@ -110,6 +111,44 @@ const variantIdNums = new Set(
   ourProducts.flatMap((p) => p.variants.map((v: { id: string }) => v.id.split("/").pop())),
 );
 
+/* Webhook ids → the product's Meta catalog id, so the Purchase carries the same
+   content_ids the browser pixel's ViewContent/AddToCart/InitiateCheckout do. */
+const metaIdByProduct = new Map(
+  ourProducts.map((p) => [p.id.split("/").pop()!, metaContentId(p.handle)]),
+);
+const metaIdByVariant = new Map(
+  ourProducts.flatMap((p) =>
+    p.variants.map((v: { id: string }) => [v.id.split("/").pop()!, metaContentId(p.handle)] as const),
+  ),
+);
+
+function metaIdFor(line: ShopifyLineItem): string {
+  return (
+    (line.product_id != null && metaIdByProduct.get(String(line.product_id))) ||
+    (line.variant_id != null && metaIdByVariant.get(String(line.variant_id))) ||
+    String(line.variant_id ?? line.id)
+  );
+}
+
+/** One `contents` entry per catalog product (variants of it merged), per Meta's spec. */
+function metaContents(items: ShopifyLineItem[]) {
+  const byId = new Map<string, { id: string; quantity: number; item_price: number }>();
+  for (const line of items) {
+    const id = metaIdFor(line);
+    const quantity = line.quantity ?? 1;
+    const price = Number(line.price ?? 0);
+    const existing = byId.get(id);
+    if (existing) {
+      const total = existing.item_price * existing.quantity + price * quantity;
+      existing.quantity += quantity;
+      existing.item_price = Math.round((total / existing.quantity) * 100) / 100;
+    } else {
+      byId.set(id, { id, quantity, item_price: price });
+    }
+  }
+  return [...byId.values()];
+}
+
 /** True when a webhook line item belongs to HimVolt (shared store). */
 function isOurLineItem(line: ShopifyLineItem): boolean {
   if (line.product_id != null && productIdNums.has(String(line.product_id))) {
@@ -151,6 +190,7 @@ async function sendMetaPurchase(
   }
 
   const value = Number(order.current_total_price ?? order.total_price ?? 0);
+  const contents = metaContents(items);
 
   // Meta's advanced-matching fields (em/ph/fn/ln/ct/st/zp/country) are the
   // strongest signals in Event Match Quality — stronger than IP/UA/fbp/fbc
@@ -197,13 +237,9 @@ async function sendMetaPurchase(
               custom_data: {
                 currency: order.currency ?? "USD",
                 value,
-                content_ids: items.map((i) => String(i.variant_id ?? i.id)),
+                content_ids: contents.map((c) => c.id),
                 content_type: "product",
-                contents: items.map((i) => ({
-                  id: String(i.variant_id ?? i.id),
-                  quantity: i.quantity ?? 1,
-                  item_price: Number(i.price ?? 0),
-                })),
+                contents,
                 num_items: items.reduce((n, i) => n + (i.quantity ?? 1), 0),
                 order_id: String(order.id),
               },

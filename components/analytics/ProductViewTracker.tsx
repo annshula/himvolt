@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 
 import { useLocalizedAmount } from "@/components/providers/LocalizationProvider";
 import { trackViewContent } from "@/lib/analytics";
+import { resolveCartLine } from "@/lib/cart-catalog";
 
 /**
  * Fires Meta `ViewContent` / GA4 `view_item` once per product page view, using
@@ -36,7 +37,12 @@ export function ProductViewTracker({
     if (pending || fired.current) return;
     fired.current = true;
     trackViewContent(
-      { slug: variantId, name, priceCents: Math.round(amount * 100) },
+      {
+        slug: variantId,
+        metaId: resolveCartLine(variantId)?.metaId,
+        name,
+        priceCents: Math.round(amount * 100),
+      },
       currencyCode,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -15,11 +15,14 @@
 
 import catalog from "@/data/product.json";
 import { bumpProduct } from "@/lib/catalog";
+import { metaContentId } from "@/lib/meta-ids";
 import { packTiersFor, type PackTier } from "@/lib/pack-tiers";
 import { products as localProducts } from "@/lib/product";
 
 export type CartCatalogLine = {
   variantId: string;
+  /** The product's id in Meta's catalog, for pixel `content_ids`. */
+  metaId: string;
   /** "Product title — Variant", for analytics. */
   name: string;
   /** The product's own title, for the bag line. */
@@ -67,6 +70,7 @@ for (const product of catalog.products) {
         : null;
     lineMap.set(synced.id, {
       variantId: synced.id,
+      metaId: metaContentId(product.handle),
       name: match ? `${match.product.title} — ${match.variant.title}` : product.title,
       productName: match?.product.title ?? product.title,
       variantLabel: match?.variant.title ?? synced.title,
@@ -87,6 +91,7 @@ for (const product of catalog.products) {
 for (const synced of bumpProduct.variants) {
   lineMap.set(synced.id, {
     variantId: synced.id,
+    metaId: metaContentId(bumpProduct.handle),
     name: bumpProduct.title,
     productName: bumpProduct.title,
     variantLabel: synced.title,

@@ -16,6 +16,10 @@ declare global {
  * browser, only when NEXT_PUBLIC_META_PIXEL_ID is set, so local runs and
  * previews without the id stay out of the production pixel's data.
  *
+ * Loaded `afterInteractive` (not `lazyOnload`) so `window.fbq` exists soon after
+ * hydration: lib/analytics.ts waits for it, but a pixel that only appears
+ * after the whole page has idled would delay every early ViewContent/AddToCart.
+ *
  * The loader snippet fires the first PageView itself. App Router navigations
  * are client-side, so no further page loads happen and the effect below sends
  * PageView for each subsequent route change.
@@ -39,7 +43,7 @@ export function MetaPixel() {
 
   return (
     <>
-      <Script id="meta-pixel" strategy="lazyOnload">
+      <Script id="meta-pixel" strategy="afterInteractive">
         {`!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};

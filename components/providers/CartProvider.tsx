@@ -169,6 +169,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         trackAddToCart(
           {
             slug: variantId,
+            metaId: catalog.metaId,
             name: catalog.name,
             priceCents: priceCents ?? catalog.unitPriceCents,
             quantity: qty,

@@ -32,15 +32,57 @@ declare global {
  *  multi-item cart with different-priced lines totals correctly. */
 export type AnalyticsItem = {
   slug: string;
+  /** The product's id in Meta's catalog (lib/meta-ids.ts). Falls back to `slug`. */
+  metaId?: string;
   name: string;
   /** Price for one unit, in integer cents (e.g. 2999 for $29.99). */
   priceCents: number;
   quantity?: number;
 };
 
+const META_PIXEL_ENABLED = Boolean(process.env.NEXT_PUBLIC_META_PIXEL_ID);
+
+/** A fresh id per event. Tags the pixel call so a server-side relay of the same event can be de-duplicated against it. */
+function eventId(event: string) {
+  return `${event}-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
 function fbq(event: string, data?: Record<string, unknown>) {
-  if (typeof window === "undefined") return;
-  window.fbq?.("track", event, data);
+  if (typeof window === "undefined" || !META_PIXEL_ENABLED) return;
+  const eventID = eventId(event);
+  const send = () => window.fbq?.("track", event, data, { eventID });
+  if (window.fbq) return send();
+  // The pixel snippet installs `window.fbq` shortly after hydration; an event
+  // fired before then (an instant add-to-cart) would otherwise vanish.
+  let tries = 0;
+  const timer = window.setInterval(() => {
+    if (window.fbq) {
+      window.clearInterval(timer);
+      send();
+    } else if (++tries >= 40) {
+      window.clearInterval(timer);
+    }
+  }, 250);
+}
+
+/** Meta `content_ids` + `contents`: one entry per catalog product, quantities summed across variants of it. */
+function metaContents(items: AnalyticsItem[]) {
+  const byId = new Map<string, { id: string; quantity: number; item_price: number }>();
+  for (const item of items) {
+    const id = item.metaId ?? item.slug;
+    const quantity = item.quantity ?? 1;
+    const existing = byId.get(id);
+    if (existing) {
+      // Keep item_price a per-unit average so price × quantity stays the line total.
+      const total = existing.item_price * existing.quantity + (item.priceCents / 100) * quantity;
+      existing.quantity += quantity;
+      existing.item_price = Math.round((total / existing.quantity) * 100) / 100;
+    } else {
+      byId.set(id, { id, quantity, item_price: item.priceCents / 100 });
+    }
+  }
+  const contents = [...byId.values()];
+  return { content_ids: contents.map((c) => c.id), contents };
 }
 
 function gtag(event: string, params?: Record<string, unknown>) {
@@ -73,7 +115,7 @@ export function trackViewContent(item: AnalyticsItem, currency: string) {
   const value = lineValue(item);
   fbq("ViewContent", {
     content_type: "product",
-    content_ids: [item.slug],
+    ...metaContents([item]),
     content_name: item.name,
     currency,
     value,
@@ -102,7 +144,7 @@ export function trackAddToCart(item: AnalyticsItem, currency: string) {
   const value = lineValue(item);
   fbq("AddToCart", {
     content_type: "product",
-    content_ids: [item.slug],
+    ...metaContents([item]),
     content_name: item.name,
     currency,
     value,
@@ -133,7 +175,7 @@ export function trackInitiateCheckout(
   const value = items.reduce((sum, item) => sum + lineValue(item), 0);
   fbq("InitiateCheckout", {
     content_type: "product",
-    content_ids: items.map((item) => item.slug),
+    ...metaContents(items),
     num_items: items.reduce((sum, item) => sum + (item.quantity ?? 1), 0),
     currency,
     value,
