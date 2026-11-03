@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-10-25T14:41:12.128Z",
+  "syncedAt": "2026-11-03T15:21:45.202Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -1948,7 +1948,7 @@
       "id": "gid://shopify/Product/15421091315939",
       "handle": "hydraulic-arm-trainer",
       "title": "HimVolt Adjustable Hydraulic Upper Body Trainer with Rep Counter",
-      "price": 69.99,
+      "price": 79.99,
       "compareAtPrice": null,
       "currencyCode": "USD",
       "availableForSale": true,
@@ -1957,10 +1957,10 @@
           "id": "gid://shopify/ProductVariant/67685377835235",
           "title": "Gray",
           "sku": "14:-1;200007763:201336106",
-          "price": 69.99,
+          "price": 79.99,
           "compareAtPrice": null,
           "availableForSale": true,
-          "stockQuantity": 10363,
+          "stockQuantity": 16890,
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A7a24459e271944548d31d63ea21a02244.webp?v=1791978239",
           "shopifyTitle": "Gray",
           "subtitle": "Gray",
@@ -2191,7 +2191,7 @@
         "20 resistance levels"
       ],
       "availableCountries": [],
-      "saleEndsAt": "2026-10-27T04:00:00.000Z",
+      "saleEndsAt": "2026-11-06T05:00:00.000Z",
       "ratingCount": null,
       "ratingAverage": null,
       "customersCount": 219227,
