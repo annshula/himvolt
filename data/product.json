@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "syncedAt": "2026-11-03T15:25:27.293Z",
+  "syncedAt": "2026-11-04T16:49:05.797Z",
   "shop": {
     "domain": "trackify-com.myshopify.com",
     "name": "Trackify",
@@ -1960,7 +1960,7 @@
           "price": 79.99,
           "compareAtPrice": null,
           "availableForSale": true,
-          "stockQuantity": 16890,
+          "stockQuantity": 16878,
           "image": "https://cdn.shopify.com/s/files/1/0721/8869/0659/files/A7a24459e271944548d31d63ea21a02244.webp?v=1791978239",
           "shopifyTitle": "Gray",
           "subtitle": "Gray",
@@ -2191,7 +2191,7 @@
         "20 resistance levels"
       ],
       "availableCountries": [],
-      "saleEndsAt": "2026-11-05T05:00:00.000Z",
+      "saleEndsAt": "2026-11-06T05:00:00.000Z",
       "ratingCount": null,
       "ratingAverage": null,
       "customersCount": 219227,
